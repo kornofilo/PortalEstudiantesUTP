@@ -18,4 +18,4 @@ Proyecto colaborativo de ingeneria de software 6 creditos.
 ### Team Members
 * DB managers:
 * Developers : 
-* Diseñadores: Keren, Iliana, Evelyn, 
+* Diseñadores: Keren, Iliana, Evelyn, Eliecer
