@@ -10,12 +10,12 @@ Proyecto colaborativo de ingeneria de software 6 creditos.
 
 ## Roles del equipo
 ### Product owners:
-* Ricardo
+* Keren, Iliana, Evelyn, Eliecer
 
 ### Scrum Master:
 * Ricardo
 
 ### Team Members
-* DB managers:
-* Developers : 
+* DB managers: Isaac Jiménez, Marcelo Yangúez
+* Developers : Kevin Aparicio, Javier Gutierrez, Victor , Jorge Sasso,so on,. 
 * Diseñadores: Keren, Iliana, Evelyn, Eliecer
