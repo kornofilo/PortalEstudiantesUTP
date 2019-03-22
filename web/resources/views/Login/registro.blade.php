@@ -3,11 +3,13 @@
 
 <h1 class="text-center">Registro</h1>
 
-<div class="  align-items-center  container">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
   <form >
 
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label for="inputState">Sede</label>
       <select class="custom-select" required>
         <option value="">Open this select menu</option>
@@ -22,7 +24,7 @@
 
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label for="inputState">Facultad</label>
       <select class="custom-select" required>
         <option value="">Open this select menu</option>
@@ -36,7 +38,7 @@
 
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-9">
       <label for="inputState">Carrera</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
@@ -145,13 +147,17 @@
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
 
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Seleccionar una imagen</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <div class="form-group row mb-0">
+                          <div class="col-md-6 offset-md-4">
+                              <button type="submit" class="btn btn-primary">
+                                  Registrar
+                              </button>
+                          </div>
+                      </div>
   </form>
-
+</div>
+</div>
+</div>
 </div>
 
 @endsection
