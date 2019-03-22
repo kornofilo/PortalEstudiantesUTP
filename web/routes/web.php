@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Login.login');
+});
+
+Route::get('/password_reset', function () {
+    return view('Login.passwordReset');
 });
 
 Route::resource('/registro','RegistroController');
