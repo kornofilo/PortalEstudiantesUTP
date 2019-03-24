@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Login.login');
-});
 
-Route::get('/password_reset', function () {
-    return view('Login.passwordReset');
-});
+Auth::routes();
 
-Route::resource('/registro','RegistroController');
+Route::get('/', 'HomeController@index')->name('home');
