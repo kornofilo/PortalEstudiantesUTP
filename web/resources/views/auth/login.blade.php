@@ -9,7 +9,12 @@
              <h3 class="text-center">Portal Estudiantil</h3> 
             <!-- Input de Correo Universitario -->
             <div class="form-group">
-                <input class="form-control" id="email" name="email" aria-describedby="Correo Universitario" placeholder="{{ __('Correo Universitario') }}" required autofocus>                    
+                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" aria-describedby="Correo Universitario" placeholder="{{ __('Correo Universitario') }}" required autofocus>                    
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
             </div>    
 
             <!-- Input de Contraseña -->

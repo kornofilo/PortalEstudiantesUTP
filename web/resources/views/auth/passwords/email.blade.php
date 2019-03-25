@@ -4,9 +4,17 @@
 <div class="container-fluid h-100 bg-light">
     <div class="row h-100 justify-content-center align-items-center">    
     <form method="POST" action="{{ route('password.email') }}">
+                        <form method="POST" action="{{ route('password.email') }}">
+
             @csrf
              <!-- Título del Form -->        
              <h3 class="text-center">Recuperación de Contraseña</h3> 
+
+             @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
              
              <!-- Input de Contraseña -->
              <div class="form-group ">
