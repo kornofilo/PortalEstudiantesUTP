@@ -2,16 +2,21 @@
 
 @section('content')
 <div class="container-fluid h-100 bg-light">
-    <div class="row h-100 justify-content-center align-items-center">    
+    <div class="row h-100 justify-content-center align-items-center">
     <form method="POST" action="{{ route('password.email') }}">
             @csrf
-             <!-- Título del Form -->        
-             <h3 class="text-center">Recuperación de Contraseña</h3> 
-             
+             <!-- Título del Form -->
+             <h3 class="text-center">Recuperación de Contraseña</h3>
+             <div class="card-body">
+                 @if (session('status'))
+                     <div class="alert alert-success">
+                         {{ session('status') }}
+                     </div>
+                 @endif
              <!-- Input de Contraseña -->
              <div class="form-group ">
-                <label for="inputRepPassword">{{ __('Ingrese su correo electrónico para empezar la  recuperación de contraseña.') }}</label> <br><br>    
-                <input type="email" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="email" name="email" required autofocus>                               
+                <label for="inputRepPassword">{{ __('Ingrese su correo electrónico para empezar la  recuperación de contraseña.') }}</label> <br><br>
+                <input type="email" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="email" name="email" required autofocus>
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -24,7 +29,7 @@
                 <button type="submit" class="btn btn-primary">
                     {{ __('Enviar Correo') }}
                 </button>
-            </div>                                                                                                    
+            </div>
         </form>
     </div>
 </div>
