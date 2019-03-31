@@ -15,3 +15,11 @@
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/eventos', function () {
+    return view('eventos');
+});
+
+Route::get('/bolsadetrabajo', function () {
+    return view('bolsadetrabajo');
+});
