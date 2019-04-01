@@ -11,12 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Login.login');
+
+Auth::routes(['verify' => true]);
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/eventos', function () {
+    return view('eventos');
 });
 
-Route::get('/password_reset', function () {
-    return view('Login.passwordReset');
+Route::get('/bolsadetrabajo', function () {
+    return view('bolsadetrabajo');
 });
 
-Route::resource('/registro','RegistroController');
+Route::get('/miPerfil', function () {
+    return view('miPerfil');
+});
