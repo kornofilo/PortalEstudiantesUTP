@@ -3,7 +3,7 @@
 @section('content')
 
 
+Mi Perfil
 
-Bolsa de trabajo 
 
 @endsection
