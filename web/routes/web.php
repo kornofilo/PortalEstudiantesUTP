@@ -24,6 +24,4 @@ Route::get('/bolsadetrabajo', function () {
     return view('bolsadetrabajo');
 });
 
-Route::get('/miPerfil', function () {
-    return view('miPerfil');
-});
+Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
