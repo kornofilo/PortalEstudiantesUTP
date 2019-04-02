@@ -27,7 +27,9 @@ Proyecto colaborativo de ingeneria de software 6 creditos.
 * descomprimir los contenidos del repositorio o clonarlos en la carpeta de instalacion de xampp (por default, c:\Xampp\htdocs)
 * Cuando clonar el repositorio, abrir la terminal en la carpeta “web” del repositorio y escriben los siguientes comandos:
   _composer install_
+  
   _cp .env.example .env_
+  
   _php artisan key:generate_
 
 * abrir phpmy admin desde xampp y crear una base de datos con el nombre "giisa"
