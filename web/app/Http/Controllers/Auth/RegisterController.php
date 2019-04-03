@@ -40,6 +40,8 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -48,8 +50,8 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [   
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],       
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'nombre' => ['required', 'string', 'max:30'],
             'apellido' => ['required', 'string', 'max:30'],
             'sede' => ['required', 'string'],
