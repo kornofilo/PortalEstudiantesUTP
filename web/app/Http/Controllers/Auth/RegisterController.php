@@ -48,15 +48,24 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //Validación de los campos del formulario de registro de usuarios
         return Validator::make($data, [   
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],       
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],      
             'nombre' => ['required', 'string', 'max:30'],
             'apellido' => ['required', 'string', 'max:30'],
             'sede' => ['required', 'string'],
             'facultad' => ['required', 'string'],
             'carrera' => ['required', 'string'],
-            'sexo' => ['required', 'string', 'max:30'],
-            'password' => ['required', 'string', 'min:5', 'confirmed'],
+            'sexo' => ['required', 'string'],
+            'password' => [
+                'required', 
+                'string', 
+                'min:8', //Longitud mínima de 8
+                'regex:/[a-z]/', //Debe contar con al menos 1 letra minúscula
+                'regex:/[A-Z]/', // Debe contar con al menos 1 letra mayúscula
+                'regex:/[0-9]/', // Debe contener con al menos 1 número
+                'regex:/[@$!%*#?&]/', //Debe contener al menos 1 carácter especial
+                'confirmed'],
         ]);
     }
 

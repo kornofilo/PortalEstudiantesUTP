@@ -16,10 +16,11 @@
                 </div>
             @endif
              
-             <!-- Input de Contraseña -->
+             <!-- Input de Email -->
              <div class="form-group ">
                 <label for="inputRepPassword">{{ __('Ingrese su correo electrónico para empezar la  recuperación de contraseña.') }}</label> <br><br>
                 <input type="email" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="email" name="email" required autofocus>
+                <!-- Validación de email -->
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
