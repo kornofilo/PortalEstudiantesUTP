@@ -29,3 +29,4 @@ Route::get('/bolsadetrabajo', function () {
 
 //Ruta de perfil de usuario
 Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
+Route::get('/register', 'RegistroController@index')->name('register');
