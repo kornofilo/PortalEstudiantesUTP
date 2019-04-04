@@ -134,8 +134,8 @@
 
             <!-- Input de Correo Universitario -->
             <div class="form-group">
-                <label for="email">{{ __('Correo Universitario') }}</label>
-                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" aria-describedby="Correo Universitario" required autofocus>   
+                <label for="email">{{ __('Correo Universitario')}}</label>
+                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" aria-describedby="Correo Universitario" placeholder="nombre.apellido@utp.ac.pa" required autofocus>   
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>

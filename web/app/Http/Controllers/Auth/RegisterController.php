@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -62,7 +63,7 @@ class RegisterController extends Controller
             'password' => [
                 'required', 
                 'string', 
-                'min:8', //Longitud mínima de 8
+                'min:8', //Longitud mínima de 8 caracteres
                 'regex:/[a-z]/', //Debe contar con al menos 1 letra minúscula
                 'regex:/[A-Z]/', // Debe contar con al menos 1 letra mayúscula
                 'regex:/[0-9]/', // Debe contener con al menos 1 número
@@ -79,7 +80,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        //Obtenemos el rol de estudiante de la BD
+        $estudianteRole = Role::where('name','estudiante')->first();
+        
+        //Creamos una variable que contiene el modelo del nuevo usuario
+        $newUser = User::create([
             'email' => $data['email'],
             'nombre' => $data['nombre'],
             'apellido' => $data['apellido'],
@@ -89,5 +94,10 @@ class RegisterController extends Controller
             'sexo' => $data['sexo'],
             'password' => Hash::make($data['password']),
         ]);
+        
+        //Asignamos el rol de estudiante al nuevo usuario
+        $newUser->roles()->attach($estudianteRole);
+        
+        return $newUser;
     }
 }

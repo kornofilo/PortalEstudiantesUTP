@@ -48,4 +48,13 @@ class User extends Authenticatable implements MustVerifyEmail
     $this->notify(new UserResetPassword($token));
   }
 
+  //Función que devuelve el rol del usuario
+  public function roles(){
+    return $this->belongsToMany('App\Role');
+  }
+
+  public function hasAnyRole($role){
+    return null !== $this->roles()->where('name', $role)->first();
+  }
+
 }

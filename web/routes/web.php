@@ -27,6 +27,11 @@ Route::get('/bolsadetrabajo', function () {
     return view('bolsadetrabajo');
 });
 
+//Ruta del panel de administración
+Route::get('/adminPanel', function () {
+    return view('adminPanel');
+})->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
+
 //Ruta de perfil de usuario
 Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
 Route::get('/register', 'RegistroController@index')->name('register');

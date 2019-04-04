@@ -27,10 +27,21 @@
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="far fa-user"></i>
+                  <!-- Email del usuario  -->            
                   {{ Auth::user()->email }}
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">  
+                    <!-- Opción para acceder al perfil del usuario -->            
                     <a class="dropdown-item" href="{{ url('miPerfil') }}">Mi Perfil</a>
+                    
+
+                    <!-- Opción para acceder al panel de administrador -->    
+                    <!-- Consultamos con la directuva role si el usuario cuenta con el rol de administrador -->                                                    
+                    @role('administrador')
+                      <!-- Si el usuario cuenta con el rol de administrador, le mostramos la opción de acceder al panel de administración -->                                                    
+                      <a class="dropdown-item" href="{{ url('adminPanel') }}">Panel de Administración</a>
+                    @endrole
+                    <!-- Opción para cerrar la sesión -->            
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
