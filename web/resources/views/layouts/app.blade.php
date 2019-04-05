@@ -17,13 +17,73 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar sticky-top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
             <!-- Nombre de la web -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name') }}
             </a>
 
-            <!-- Dropdown de Opciones de Usuario -->
+            <!-- Toggler para la navegación en dispositivos móviles -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav mr-auto">
+                <!-- Link a la sección de eventos -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('eventos') }}">
+                        <!-- Icono de Eventos -->
+                        <i class="fas fa-calendar-alt"></i>
+                        <!-- Texto del Link de Eventos -->
+                        {{ __('Eventos') }}
+                    </a>
+                </li>
+
+                 <!-- Link a la sección de Bolsa de trabajo -->
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url('bolsadetrabajo') }}">
+                        <!-- Icono de Bolsa de Trabajo-->
+                        <i class="fas fa-briefcase"></i>
+                        <!-- Texto del Link de Bolsa de Trabajo-->
+                        {{ __('Bolsa de Trabajo') }}
+                    </a>
+                </li>
+
+                <!-- Dropdown de la sección de clasificados -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- Icono de Clasificados -->
+                        <i class="far fa-newspaper"></i>
+                        <!-- Texto del Link de Clasificados-->
+                        {{ __('Clasificados') }}
+                    </a>
+                    
+                    <!-- Opciones del Dropdown de Clasificados -->
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">
+                            <!-- Icono de Compra/Venta -->
+                            <i class="fas fa-money-bill-wave"></i>
+                            <!-- Texto del Link de Compra/Venta -->
+                            {{ __('Compra/Venta') }}
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <!-- Icono de Tutorías -->
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <!-- Texto del Link de Tutorías -->
+                            {{ __('Tutorías') }}
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <!-- Icono de Alquiler/Hospedaje -->
+                            <i class="fas fa-home"></i>
+                            <!-- Texto del Link de Alquiler/Hospedaje -->
+                            {{ __('Alquiler/Hospedaje') }}
+                        </a>
+                    </div>
+                </li>
+             </ul>
+
+              <!-- Dropdown de Opciones de Usuario -->
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="far fa-user"></i>
@@ -51,13 +111,10 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-            </div>
-        </div>
-</div>
-
-
-
-
+                 </div>
+             </div>
+            </div>           
+    </div>
         </nav>
 
         <main class="py-4">
@@ -69,5 +126,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <footer>
+        <div class="fixed-bottom">
+            <hr>
+            <h6>&copy Portal Estudiantil - 2019</h6>
+        </div>
+    </footer>
 </body>
 </html>
