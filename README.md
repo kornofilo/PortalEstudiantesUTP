@@ -1,5 +1,5 @@
 # PortalEstudiantesGIISA
-Proyecto colaborativo de ingeneria de software 6 creditos.
+Proyecto colaborativo de ingenería de software 6 creditos.
 
 ## Documentos importantes y Notas
 * Requerimientos https://docs.google.com/document/d/1T1UPW0F9RuZAqdPiDxv6mafi3EcUbuY6QPke8ZQKAWw/edit
@@ -22,10 +22,10 @@ Proyecto colaborativo de ingeneria de software 6 creditos.
 * Diseñadores: Keren, Iliana, Evelyn, Eliecer
 
 ## Para descargar y configurar localmente
-* descargar e instalar XAMPP https://www.apachefriends.org/download.html
-* descargar e instalar Composer https://getcomposer.org/download/
-* descargar el repositorio como Zip o clonarlo desde esta pagina.
-* descomprimir los contenidos del repositorio o clonarlos en la carpeta de instalacion de xampp (por default, c:\Xampp\htdocs)
+* Descargar e instalar XAMPP https://www.apachefriends.org/download.html
+* Descargar e instalar Composer https://getcomposer.org/download/
+* Descargar el repositorio como Zip o clonarlo desde esta pagina.
+* Descomprimir los contenidos del repositorio o clonarlos en la carpeta de instalacion de xampp (por default, c:\Xampp\htdocs)
 * Cuando clonar el repositorio, abrir la terminal en la carpeta “web” del repositorio y escriben los siguientes comandos:
   _composer install_
   
@@ -33,11 +33,15 @@ Proyecto colaborativo de ingeneria de software 6 creditos.
   
   _php artisan key:generate_
 
-* abrir phpmy admin desde xampp y crear una base de datos con el nombre "giisa"
-* abrir la carpeta "web" y navegar al archivo ".ENV" y navegar hasta DB_CONNECTION=mysql y modificar los siguientes campo:
+* Abrir phpmyadmin desde xampp y crear una base de datos con el nombre "giisa"
+* Abrir la carpeta "web" y navegar al archivo ".ENV" y navegar hasta DB_CONNECTION=mysql y modificar los siguientes campo:
   -DB_DATABASE=giisa
   -DB_USERNAME=root
   -DB_PASSWORD='' (O insertar los valores de la base de datos)   
-* para migrar las tablas, moverse a la carpeta ¨proyecto¨ , abrir la terminal y escribir el comando _php artisan migrate:fresh_ esto va a agregar las tablas ya creadas en el proyecto
+* Para migrar las tablas, moverse a la carpeta ¨proyecto¨ , abrir la terminal y escribir el comando _php artisan migrate:fresh_ esto va a agregar las tablas ya creadas en el proyecto.
+
 * Para DB y DEV: para crear una nueva migracion de tabla, entrar a la carpeta del proyecto, abrir terminal y usar el comando: phpartisan  make:migration _crear_tabla_nombreTabla --create=nombreTabla_ . luego de eso modificar los campos del ¨schema¨. luego de hacer las modificaciones de los campos ejecutar el comando _php artisan migrate:fresh_ para actualizar la base de datos.
+
+* Ejecutar _php artisan db:seed_ para realizar las inserciones a la base de datos que son necesarias para que el sitio funcione de manera correcta
+
 * Para levantar el proyecto, abrir xampp, iniciar apache y mysql, ir a la carpeta ¨web¨ del proyecto y ejecutar los comandos en terminal: _php artisan serve_ y abrir la pagina usando la direccion que aparece en la linea de comandos. 
