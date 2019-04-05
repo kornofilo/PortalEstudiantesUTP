@@ -34,4 +34,6 @@ Route::get('/adminPanel', function () {
 
 //Ruta de perfil de usuario
 Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
-Route::get('/register', 'RegistroController@index')->name('register');
+//Ruta de registro
+Route::get('/register','RegistroController@getFacultades')->name('register');
+Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
