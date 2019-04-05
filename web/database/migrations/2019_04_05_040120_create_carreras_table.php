@@ -14,10 +14,10 @@ class CreateCarrerasTable extends Migration
     public function up()
     {
         Schema::create('carreras', function (Blueprint $table) {
-          $table->increments('id');
-        $table->integer('facultades_id');
-        $table->string('nombre');
-        $table->timestamps();
+            $table->increments('id');
+            $table->integer('facultad_id');
+            $table->string('nombre')->unique();
+            $table->timestamps();
         });
     }
 

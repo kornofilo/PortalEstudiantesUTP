@@ -30,7 +30,7 @@
             <div class="form-group">
                 <label for="facultad" class="col-form-label text-md-right">{{ __('Facultad') }}</label>
                 <select id="facultad" class="form-control" name="facultad" style="width:500px">
-                  <option value="">--- Select facultad ---</option>
+                  <option disabled selected>--- Facultad ---</option>
                   @foreach ($facultades as $key => $value)
                   <option value="{{ $key }}">{{ $value }}</option>
                   @endforeach
@@ -45,7 +45,7 @@
             <div class="form-group">
                 <label for="carrera" class="col-form-label text-md-right">{{ __('Carrera') }}</label>
                 <select id="carrera" class="form-control" name="carrera" >
-                    <option>--Carreras--</option>
+                    <option disabled selected>--Carrera--</option>
                 </select>
             </div>
 

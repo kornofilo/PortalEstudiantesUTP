@@ -15,7 +15,7 @@ class RegistroController extends Controller
 
    public function getCarreras($id)
    {
-       $carreras = DB::table("carreras")->where("facultades_id",$id)->pluck("nombre","id");
+       $carreras = DB::table("carreras")->where("facultad_id",$id)->pluck("nombre","id");
        return json_encode($carreras);
    }
 
