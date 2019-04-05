@@ -11,19 +11,29 @@
 |
 */
 
-
+//Activación del controlador de verificación de correo
 Auth::routes(['verify' => true]);
 
+//Ruta de Página principal
 Route::get('/', 'HomeController@index')->name('home');
 
+//Ruta de Eventos
 Route::get('/eventos', function () {
     return view('eventos');
 });
 
+//Ruta de Bolsa de Trabajos
 Route::get('/bolsadetrabajo', function () {
     return view('bolsadetrabajo');
 });
 
-Route::get('/miPerfil', function () {
-    return view('miPerfil');
-});
+//Ruta del panel de administración
+Route::get('/adminPanel', function () {
+    return view('adminPanel');
+})->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
+
+//Ruta de perfil de usuario
+Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
+//Ruta de registro
+Route::get('/register','RegistroController@getFacultades')->name('register');
+Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
