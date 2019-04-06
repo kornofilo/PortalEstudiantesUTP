@@ -42,6 +42,6 @@ Proyecto colaborativo de ingenería de software 6 creditos.
 
 * Para DB y DEV: para crear una nueva migracion de tabla, entrar a la carpeta del proyecto, abrir terminal y usar el comando: phpartisan  make:migration _crear_tabla_nombreTabla --create=nombreTabla_ . luego de eso modificar los campos del ¨schema¨. luego de hacer las modificaciones de los campos ejecutar el comando _php artisan migrate:fresh_ para actualizar la base de datos.
 
-* Ejecutar _php artisan db:seed_ para realizar las inserciones a la base de datos que son necesarias para que el sitio funcione de manera correcta
+* Ejecutar _php artisan db:seed_ para realizar las inserciones a la base de datos que son necesarias para que el sitio funcione de manera correcta (si no les funciona el comando anterior utilizar _composer dump-autoload_ primero y luego ejecutar el comando _php artisan db:seed_)
 
 * Para levantar el proyecto, abrir xampp, iniciar apache y mysql, ir a la carpeta ¨web¨ del proyecto y ejecutar los comandos en terminal: _php artisan serve_ y abrir la pagina usando la direccion que aparece en la linea de comandos. 
