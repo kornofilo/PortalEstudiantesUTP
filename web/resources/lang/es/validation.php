@@ -92,7 +92,7 @@ return [
     'not_regex'            => 'El formato del campo :attribute no es válido.',
     'numeric'              => ':attribute debe ser numérico.',
     'present'              => 'El campo :attribute debe estar presente.',
-    'regex'                => 'El formato de :attribute es inválido. La contraseña debe contar con al menos un número, una letra minúscula, una letra mayúscula y un carácter especial.',
+    'regex'                => 'El formato de :attribute es inválido.',
     'required'             => 'El campo :attribute es obligatorio.',
     'required_if'          => 'El campo :attribute es obligatorio cuando :other es :value.',
     'required_unless'      => 'El campo :attribute es obligatorio a menos que :other esté en :values.',
@@ -129,9 +129,11 @@ return [
     'custom' => [
         'password' => [
             'min' => 'La :attribute debe contener más de :min caracteres',
+            'regex' => 'La contraseña debe contar con al menos un número, una letra minúscula, una letra mayúscula y un carácter especial.',
         ],
         'email'    => [
             'unique' => 'El :attribute ya ha sido registrado.',
+            'regex' => 'La dirección de correo ingresada no es una dirección de correo institucional de la UTP.'
         ],
     ],
 

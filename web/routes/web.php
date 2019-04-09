@@ -40,3 +40,7 @@ Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
 
 //Ruta de tutorias
 Route::get('/tutorias', 'TutoriasController@index')->name('tutorias');
+
+//Ruta de alquilerhospedaje
+Route::get('/alquilerhospedaje', 'AlHosController@index')->name('alquilerhospedaje');
+
