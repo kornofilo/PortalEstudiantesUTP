@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         //Validación de los campos del formulario de registro de usuarios
         return Validator::make($data, [   
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],      
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users', 'regex: /([a-z]*)\.([a-z 1-9]*)\@utp\.ac\.pa$/'],      
             'nombre' => ['required', 'string', 'max:30'],
             'apellido' => ['required', 'string', 'max:30'],
             'sede' => ['required', 'string'],
