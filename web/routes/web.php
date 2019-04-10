@@ -37,3 +37,8 @@ Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
 //Ruta de registro
 Route::get('/register','RegistroController@getFacultades')->name('register');
 Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
+
+
+//Ruta de Clasificados
+//1.1 Ruta de Compras/Ventas
+Route::resource('/anuncios','AnunciosController');
