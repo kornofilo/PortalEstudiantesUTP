@@ -58,7 +58,7 @@
                         <!-- Texto del Link de Clasificados-->
                         {{ __('Clasificados') }}
                     </a>
-                    
+
                     <!-- Opciones del Dropdown de Clasificados -->
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="anuncios">
@@ -67,13 +67,13 @@
                             <!-- Texto del Link de Compra/Venta -->
                             {{ __('Compra/Venta') }}
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ url('tutorias') }}">
                             <!-- Icono de Tutorías -->
                             <i class="fas fa-chalkboard-teacher"></i>
                             <!-- Texto del Link de Tutorías -->
                             {{ __('Tutorías') }}
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ url('alquilerhospedaje') }}">
                             <!-- Icono de Alquiler/Hospedaje -->
                             <i class="fas fa-home"></i>
                             <!-- Texto del Link de Alquiler/Hospedaje -->
@@ -113,7 +113,7 @@
                     </form>
                  </div>
              </div>
-            </div>           
+            </div>
     </div>
         </nav>
 
