@@ -61,7 +61,7 @@
 
                     <!-- Opciones del Dropdown de Clasificados -->
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="anuncios">
                             <!-- Icono de Compra/Venta -->
                             <i class="fas fa-money-bill-wave"></i>
                             <!-- Texto del Link de Compra/Venta -->
