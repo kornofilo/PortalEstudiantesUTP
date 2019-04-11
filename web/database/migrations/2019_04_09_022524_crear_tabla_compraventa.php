@@ -13,19 +13,22 @@ class CrearTablaCompraventa extends Migration
   */
   public function up()
   {
-    Schema::create('anuncios', function (Blueprint $table) {
+    Schema::create('compraventa', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->string('categoria');
-      $table->string('nombart');
-      $table->decimal('precio', 3, 2);
-      $table->string('estado');
-      $table->string('descripcion');
+      $table->string('categoria',);
+      $table->string('nombreArt');
+      $table->decimal('precio', 3, 2)->unsigned();
+      $table->string('estado',5);
+      $table->text('descripcion');
       $table->string('imagen');
-      $table->string('celular');
-      $table->string('nombconta');
-      $table->string('email')->unique();
+      $table->string('celular',9);
+      $table->string('nombre',30);
+      $table->string('email',100);
       $table->timestamps();
+
+      //Foreing Keys
       $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
+
     });
   }
 
@@ -36,6 +39,6 @@ class CrearTablaCompraventa extends Migration
   */
   public function down()
   {
-    Schema::dropIfExists('anuncios');
+    Schema::dropIfExists('compraventa');
   }
 }

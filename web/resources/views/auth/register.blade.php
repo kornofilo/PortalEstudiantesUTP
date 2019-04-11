@@ -133,6 +133,7 @@
                         console.log(data);
                       $('select[name="carrera"]').empty();
                         $.each(data, function(key,value){
+
                            $('select[name="carrera"]').append('<option value="'+ key +'">'+ value +'</option>');
                         });
                      }
