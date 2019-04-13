@@ -61,19 +61,19 @@
 
                     <!-- Opciones del Dropdown de Clasificados -->
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="anuncios">
+                        <a class="dropdown-item" href="{{ url('clasificado/anuncios') }}">
                             <!-- Icono de Compra/Venta -->
                             <i class="fas fa-money-bill-wave"></i>
                             <!-- Texto del Link de Compra/Venta -->
                             {{ __('Compra/Venta') }}
                         </a>
-                        <a class="dropdown-item" href="{{ url('tutorias') }}">
+                        <a class="dropdown-item" href="{{ route('tutorias.create') }}">
                             <!-- Icono de Tutorías -->
                             <i class="fas fa-chalkboard-teacher"></i>
                             <!-- Texto del Link de Tutorías -->
                             {{ __('Tutorías') }}
                         </a>
-                        <a class="dropdown-item" href="{{ url('alquilerhospedaje') }}">
+                        <a class="dropdown-item" href="{{ url('clasificado/alquilerhospedaje') }}">
                             <!-- Icono de Alquiler/Hospedaje -->
                             <i class="fas fa-home"></i>
                             <!-- Texto del Link de Alquiler/Hospedaje -->

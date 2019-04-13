@@ -40,11 +40,13 @@ Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
 
 
 //Ruta de Clasificados
-//1.1 Ruta de Compras/Ventas
-Route::resource('/anuncios','AnunciosController');
+
+
+Route::group(['prefix' => 'clasificado'], function () {
+  //1.1 Ruta de Compras/Ventas
+  Route::resource('anuncios','AnunciosController');
 //Ruta de tutorias
-Route::get('/tutorias', 'TutoriasController@index')->name('tutorias');
-
+Route::resource('tutorias', 'TutoriasController');
 //Ruta de alquilerhospedaje
-Route::get('/alquilerhospedaje', 'AlHosController@index')->name('alquilerhospedaje');
-
+Route::get('alquilerhospedaje', 'AlHosController@index')->name('alquilerhospedaje');
+});

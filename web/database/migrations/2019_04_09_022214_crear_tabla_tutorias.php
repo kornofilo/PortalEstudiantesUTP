@@ -18,7 +18,7 @@ class CrearTablaTutorias extends Migration
             $table->string('titulo');
             $table->string('nomtutor',50);
             $table->string('materia',50);
-            $table->decimal('costo', 2, 2)->unsigned();
+            $table->decimal('costo', 4, 2)->unsigned();
             $table->string('ubicacion');
             $table->text('descripcion');
             $table->string('imagen');

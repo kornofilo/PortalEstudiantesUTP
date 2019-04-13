@@ -18,7 +18,7 @@ class CrearTablaEventos extends Migration
             $table->string('titulo');
             $table->date('fecha');
             $table->string('lugar');
-            $table->decimal('costo',3,2)->unsigned();
+            $table->decimal('costo',6,2)->unsigned();
             $table->string('facultad_nomb');
             $table->text('descripcion');
             $table->string('imagen');

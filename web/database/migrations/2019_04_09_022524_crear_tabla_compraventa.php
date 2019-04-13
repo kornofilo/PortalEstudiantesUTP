@@ -17,7 +17,7 @@ class CrearTablaCompraventa extends Migration
       $table->bigIncrements('id');
       $table->string('categoria',);
       $table->string('nombreArt');
-      $table->decimal('precio', 3, 2)->unsigned();
+      $table->decimal('precio', 6, 2)->unsigned();
       $table->string('estado',5);
       $table->text('descripcion');
       $table->string('imagen');
