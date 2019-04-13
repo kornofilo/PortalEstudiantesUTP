@@ -38,7 +38,9 @@
           <p class="card-text"><small class="text-muted">Celular: {{$tutoria->celular}}  </small></p>
           </div>
           </div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descripcion"  data-titulo="{{$tutoria->titulo}}"  >
+          <!-- Disparador del modal de destalles de Tutoría -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tutoriaDetalle"  data-titulo="{{$tutoria->titulo}}"  >
+            Más Información
           </button>
       </div>
 
@@ -52,8 +54,9 @@
 
 </div>
 @endif
-<!-- Modal descripcon -->
-<div class="modal fade" id="descripcion" name="descripcion" tabindex="-1" role="dialog" aria-labelledby="descripconLabel" aria-hidden="true" >
+
+<!-- Modal de detalles de la tutoría -->
+<div class="modal fade" id="tutoriaDetalle" name="tutoriaDetalle" tabindex="-1" role="dialog" aria-labelledby="descripconLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,9 +78,6 @@
                   <input type="text" name="titulo" id="titulo" class="form-control" >
                 </div>
               </div>
-
-
-
 
           </div>
         </div>
@@ -193,16 +193,5 @@
     </div>
   </div>
 </div>
-
-<script >
-$('#descripcion').on('show.bs.modal', function (event) {
- console.log('abrir modal');
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var titulo =  button.data('titulo');
-
-  var modal = $(this)
-  modal.find('.modal-body #titulo').val(titulo);
-})
-</script>
 
 @endsection

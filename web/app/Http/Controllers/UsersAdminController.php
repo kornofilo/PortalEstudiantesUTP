@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\storage;
-use App\Tutorias;
 
-class TutoriasController extends Controller
+class UsersAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class TutoriasController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -24,12 +22,10 @@ class TutoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function create()
-     {
-       $tutorias = Tutorias::all();
-       return view('clasificado.tutorias.tutorias',compact('tutorias'));
-     }
-
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,25 +35,16 @@ class TutoriasController extends Controller
      */
     public function store(Request $request)
     {
-      if ($request->file('imagen')) {
-        $path = $request->file('image')->store('avatar','public');
-
-          }
-
-      $tutorias = new Tutorias($request->all());
-      $tutorias->nombre =\Auth::user()->nombre;
-      $tutorias->email =\Auth::user()->email;
-      $tutorias->save();
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
     }
@@ -65,10 +52,10 @@ class TutoriasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
     }
@@ -77,10 +64,10 @@ class TutoriasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -88,11 +75,15 @@ class TutoriasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         //
+    }
+
+    public function getUser($email){
+        $articles = DB::table('users')->where('title', $email);
     }
 }
