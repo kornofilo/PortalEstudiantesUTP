@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- vista de index-->
 <div class="container">
 
@@ -11,6 +11,7 @@
   Crear Tutorias
 </button>
 </div>
+
 @if ($tutorias->isEmpty())
 <div class="page-header">
   <h1>No se Encontraron Datos</h1>
@@ -25,7 +26,7 @@
     <div class="col-md-4 ">
       <img src=".." alt=".."class="card-img">
     </div>
-  <a class="card-block stretched-link text-decoration-none" data-toggle="modal" data-target="#descripcion" role="button">
+
     <div class="col-md-8 ">
 
       <div class=" card-body" >
@@ -37,9 +38,10 @@
           <p class="card-text"><small class="text-muted">Celular: {{$tutoria->celular}}  </small></p>
           </div>
           </div>
-
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descripcion"  data-titulo="{{$tutoria->titulo}}"  >
+          </button>
       </div>
-      </a>
+
     </div>
 
   </div>
@@ -47,14 +49,15 @@
 
 @endforeach
 
+
 </div>
 @endif
 <!-- Modal descripcon -->
-<div class="modal fade" id="descripcion" tabindex="-1" role="dialog" aria-labelledby="descripconLabel" aria-hidden="true" >
+<div class="modal fade" id="descripcion" name="descripcion" tabindex="-1" role="dialog" aria-labelledby="descripconLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="descripcionLLabel">DESCRIPCIÓN DE TUTORIA</h5>
+        <h5 class="modal-title" id="descripcionLabel">DESCRIPCIÓN DE TUTORIA</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -69,7 +72,7 @@
               <div class="form-group row">
                 <label for="titulo" class="col-form-label col-sm-3">Titulo:</label>
                 <div class="col-sm-8">
-                  <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo">
+                  <input type="text" name="titulo" id="titulo" class="form-control" >
                 </div>
               </div>
 
@@ -190,5 +193,16 @@
     </div>
   </div>
 </div>
+
+<script >
+$('#descripcion').on('show.bs.modal', function (event) {
+ console.log('abrir modal');
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var titulo =  button.data('titulo');
+
+  var modal = $(this)
+  modal.find('.modal-body #titulo').val(titulo);
+})
+</script>
 
 @endsection
