@@ -1,9 +1,12 @@
-<div class="col-md-10 blogShort">
-        <h1>{{isset($title)?$title:null}}</h1>
+<div class="col-md-10 blogShort">               
+        <h4>{{isset($nombreArt)?$nombreArt:null}}</h4>
         <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
         
         <article><p>
-                {{isset($descrip)?$descrip:null}}    
+          <label>Precio: {{isset($precio)?$precio:null}}</label>
+          <br> 
+          <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label>  
             </p></article>
-        <a class="btn btn-blog pull-right marginBottom10" href="http://bootsnipp.com/user/snippets/2RoQ">LEER MÁS</a> 
+  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
+  
 </div>

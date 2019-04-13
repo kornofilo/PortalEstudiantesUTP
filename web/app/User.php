@@ -62,4 +62,8 @@ class User extends Authenticatable implements MustVerifyEmail
     return $user;
   }
 
+  public function compraventa(){
+    return $this->belongsToMany('App\Compraventa','email','email');
+  }
+
 }
