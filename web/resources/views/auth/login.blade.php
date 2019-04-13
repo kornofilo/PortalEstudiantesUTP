@@ -1,4 +1,7 @@
 @extends('layouts.auth')
+
+@section('title','Inicio de Sesión')
+
 @section('content')
 
 <div class="container-fluid h-100 bg-light">

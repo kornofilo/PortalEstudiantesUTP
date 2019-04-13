@@ -1,5 +1,8 @@
 @extends('layouts.auth')
 
+@section('title','Recuperación de Contraseña')
+
+
 @section('content')
 <div class="container-fluid h-100 bg-light">
     <div class="row h-100 justify-content-center align-items-center">

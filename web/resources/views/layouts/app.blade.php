@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -55,7 +55,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- Icono de Clasificados -->
                         <i class="far fa-newspaper"></i>
-                        <!-- Texto del Link de Clasificados-->
+                        <!-- Texto del Dropdown de Clasificados-->
                         {{ __('Clasificados') }}
                     </a>
 
@@ -81,6 +81,41 @@
                         </a>
                     </div>
                 </li>
+
+                 <!-- Dropdown del Panel de Administración -->
+                 <!-- Consultamos con la directuva role si el usuario cuenta con el rol de administrador -->
+                 @role('administrador')                     
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- Icono del Panel de Administración  -->
+                        <i class="fas fa-cog"></i>
+                        <!-- Texto del Dropdown del Panel de Admnistración-->
+                        {{ __('Panel de Administración') }}
+                    </a>
+
+                    <!-- Opciones del Dropdown de Panel de Administración -->
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('usersAdmin') }}">
+                            <!-- Icono de Gestión de Usuarios -->
+                            <i class="fas fa-user-cog"></i>
+                            <!-- Texto de Gestión de Usuarios -->
+                            {{ __('Gestión de Usuarios') }}
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <!-- Icono de Gestión de Facultades y Carreras -->
+                            <i class="fas fa-user-graduate"></i>
+                            <!-- Texto del Link de Gestión de Facultades y Carreras -->
+                            {{ __('Gestión de Facultades y Carreras') }}
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <!-- Icono de Gestión de Publicaciones -->
+                            <i class="fas fa-check-double"></i>
+                            <!-- Texto del Link de Gestión de Publicaciones -->
+                            {{ __('Gestión de Publicaciones') }}
+                        </a>
+                    </div>
+                </li>
+                @endrole
              </ul>
 
               <!-- Dropdown de Opciones de Usuario -->
@@ -93,14 +128,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <!-- Opción para acceder al perfil del usuario -->
                     <a class="dropdown-item" href="{{ url('miPerfil') }}">Mi Perfil</a>
-
-
-                    <!-- Opción para acceder al panel de administrador -->
-                    <!-- Consultamos con la directuva role si el usuario cuenta con el rol de administrador -->
-                    @role('administrador')
-                      <!-- Si el usuario cuenta con el rol de administrador, le mostramos la opción de acceder al panel de administración -->
-                      <a class="dropdown-item" href="{{ url('adminPanel') }}">Panel de Administración</a>
-                    @endrole
+                  
                     <!-- Opción para cerrar la sesión -->
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();

@@ -27,11 +27,6 @@ Route::get('/bolsadetrabajo', function () {
     return view('bolsadetrabajo');
 });
 
-//Ruta del panel de administración
-Route::get('/adminPanel', function () {
-    return view('adminPanel');
-})->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
-
 //Ruta de perfil de usuario
 Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
 //Ruta de registro
@@ -50,3 +45,9 @@ Route::resource('tutorias', 'TutoriasController');
 //Ruta de alquilerhospedaje
 Route::get('alquilerhospedaje', 'AlHosController@index')->name('alquilerhospedaje');
 });
+
+## Rutas del panel de administración ##
+    //Ruta de Gestión de Usuarios
+    Route::get('/usersAdmin', function () {
+        return view('adminPanel.usersAdmin');
+    })->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
