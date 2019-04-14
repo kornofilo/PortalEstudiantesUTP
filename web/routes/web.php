@@ -43,7 +43,7 @@ Route::group(['prefix' => 'clasificado'], function () {
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
 //Ruta de alquilerhospedaje
-Route::resource('alquilerhospedajes', 'AlHosController');
+Route::resource('alquilerhospedajes', 'HospedajeController');
 });
 
 ## Rutas del panel de administración ##

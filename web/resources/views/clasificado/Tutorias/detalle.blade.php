@@ -1,6 +1,7 @@
 <div class="form-group row">
 <div class="col-sm-8">
 
+#Detalles de Tutorias
     <h4>{{isset($titulo)?$titulo:null}}</h4>
     <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
     <br>

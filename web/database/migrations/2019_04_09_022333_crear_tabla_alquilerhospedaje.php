@@ -13,7 +13,7 @@ class CrearTablaAlquilerhospedaje extends Migration
      */
     public function up()
     {
-        Schema::create('hospedaje', function (Blueprint $table) {
+        Schema::create('hospedajes', function (Blueprint $table) {
           $table->bigIncrements('id');
           $table->string('categoria',25);
           $table->string('titulo');

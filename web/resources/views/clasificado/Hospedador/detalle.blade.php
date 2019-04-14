@@ -1,6 +1,6 @@
 <div class="form-group row">
 <div class="col-sm-8">
-  
+  #Detalles de Alquiler/Hospedaje
     <h4>{{isset($titulo)?$titulo:null}}</h4>
     <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
     <br>
@@ -10,7 +10,7 @@
     <br>
     <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>
     <hr>
-    
+
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
@@ -21,7 +21,7 @@
       <label>Email: {{isset($email)?$email:null}}</label>
 
     </div>
-    
+
 </div>
 </div>
 
