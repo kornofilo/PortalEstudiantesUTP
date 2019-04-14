@@ -53,11 +53,12 @@ class HospedajeController extends Controller
 
           ]);
 
-          $hospedador = new Alhos();
+          $hospedador = new Hospedaje();
 
           $hospedador->categoria = $request->input('categoria');
           $hospedador->titulo = $request->input('titulo');
           $hospedador->ubicacion = $request->input('ubicacion');
+          $hospedador->descripcion = $request->input('descripcion');
           $hospedador->precio = $request->input('precio');
           $hospedador->estacionamiento = $request->input('estacionamiento');
           $hospedador->habitaciones = $request->input('habitaciones');
@@ -65,12 +66,14 @@ class HospedajeController extends Controller
           $hospedador->amueblado = $request->input('amueblado');
           $hospedador->celular = $request->input('celular');
           $hospedador->nombre = \Auth::user()->nombre;
-          $hospedador->apellido = \Auth::user()->apellido;
+          $hospedador->email = \Auth::user()->email;
+          
+          
 
 
 
           $hospedador->save();
-          return redirect('/alquilerhospedajes')->with('success',' Data Saved');
+          return back()->with('success',' Data Saved');
     }
 
     /**

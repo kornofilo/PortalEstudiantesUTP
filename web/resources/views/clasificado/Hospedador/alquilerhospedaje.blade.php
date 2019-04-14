@@ -7,6 +7,6 @@
           <br> 
           <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>  
             </p></article>
-  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Alquileres y Hospedajes','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Hospedador.detalle'])
+  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Alquileres y Hospedajes','id_modal'=>'anun'.$id,'title'=>'ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle'])
   
 </div>

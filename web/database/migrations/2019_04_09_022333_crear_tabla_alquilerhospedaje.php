@@ -20,7 +20,7 @@ class CrearTablaAlquilerhospedaje extends Migration
           $table->string('ubicacion');
           $table->text('descripcion');
           $table->decimal('precio', 6, 2)->unsigned();
-          $table->unsignedTinyInteger('estacionamiento');
+          $table->string('estacionamiento',2);
           $table->unsignedTinyInteger('habitaciones');
           $table->unsignedTinyInteger('baños');
           $table->string('amueblado',2);

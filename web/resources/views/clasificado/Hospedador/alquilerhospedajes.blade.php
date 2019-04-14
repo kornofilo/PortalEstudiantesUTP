@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO AQUI','vista'=>'clasificado.Hospedador.formulario'])
+  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO','vista'=>'clasificado.Hospedador.formulario'])
  <br><br>
   <form class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
         <div id="hospedores" class="row justify-content-center">
             <div class="col-md-8"> 
                 <div class="card">
-                    <div class="card-header"><h4> Ofertas de Alquiler/Hospedajes</h4></div>         
+                    <div class="card-header"><h4>Alquileres y Hospedajes</h4></div>         
                  @isset($datos)
                      @foreach ($datos as $data)
                      
