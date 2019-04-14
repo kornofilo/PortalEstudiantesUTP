@@ -67,7 +67,7 @@
                             <!-- Texto del Link de Compra/Venta -->
                             {{ __('Compra/Venta') }}
                         </a>
-                        <a class="dropdown-item" href="{{ route('tutorias.create') }}">
+                        <a class="dropdown-item" href="{{ url('clasificado/tutorias') }}">
                             <!-- Icono de Tutorías -->
                             <i class="fas fa-chalkboard-teacher"></i>
                             <!-- Texto del Link de Tutorías -->
@@ -155,9 +155,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- Incluímos los scripts para el manejo de modals dinámicos -->
-        <!-- Script de modals dinámicos de Tutorías -->
-        @include('clasificado.tutorias.tutorias-detalle');
+
 
     <!-- Footer del Portal Estudiantil -->
     <footer>
