@@ -44,7 +44,7 @@ class AnunciosController extends Controller
     public function store(Request $request)
     {
 
-    
+
             $this->validate($request,[
             'categoria' => 'required',
             'nombreArt' => 'required',
@@ -56,7 +56,7 @@ class AnunciosController extends Controller
             //  'email' => 'required',
 
         ]);
-        
+
         $anuncio = new Compraventa();
 
         $anuncio->categoria = $request->input('categoria');
@@ -68,10 +68,10 @@ class AnunciosController extends Controller
         $anuncio->email = \Auth::user()->email;
         $anuncio->imagen = "/def.png";
         $anuncio->nombre = \Auth::user()->nombre;
-        $anuncio->apellido = \Auth::user()->apellido;
-        
+      //  $anuncio->apellido = \Auth::user()->apellido;
 
-        
+
+
         $anuncio->save();
         return redirect('/anuncios')->with('success',' Data Saved');
 

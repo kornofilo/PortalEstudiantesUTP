@@ -121,7 +121,8 @@
               <!-- Dropdown de Opciones de Usuario -->
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="far fa-user"></i>
+
+                  <img src="{{auth()->user()->imagen}}" class="rounded" width="30">
                   <!-- Email del usuario  -->
                   {{ Auth::user()->email }}
                 </button>

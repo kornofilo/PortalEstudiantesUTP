@@ -23,10 +23,11 @@ class UsersTableSeeder extends Seeder
             'nombre' => 'admin',
             'apellido' => 'admin',
             'sede' => 'Chiriquí',
-            'facultad' => 'Sistemas Computaciones',
-            'carrera' => 'Licenciatura en Desarrollo de Software',
+            'facultad' => '6',
+            'carrera' => '52',
             'sexo' => 'Femenino',
-            'password' => bcrypt('admin')            
+            'password' => bcrypt('admin'),
+            'imagen' => 'default_avatar.png'
         ]);
         //Asignamos el rol de administradol al nuevo usuario
         $admin->roles()->attach($adminRole);
