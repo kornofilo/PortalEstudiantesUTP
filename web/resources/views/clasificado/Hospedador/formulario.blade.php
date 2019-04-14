@@ -1,4 +1,4 @@
-<form action="{{ route('alquilerhospedajes.store')}}" method="POST" enctype="multipart/form-data"> 
+<form action="{{ route('alquilerhospedajes.store')}}" method="POST" enctype="multipart/form-data">
        @csrf
        <div class="form-group row">
             <label for="categoria" class="col-form-label col-sm-3">Categorías:</label>
@@ -18,12 +18,14 @@
             </div>
         </div>
 
+
         <div class="form-group row">
             <label for="ubicacion" class="col-form-label col-sm-3">Ubicación:</label>
             <div class="col-sm-8">
             <input type="text" name="ubicacion" id="ubicacion" class="form-control" placeholder="Ubicación" tabindex="1">
             </div>
         </div>
+
 
         <!-- Input de descripcion -->
         <div class="form-group row">
@@ -40,6 +42,8 @@
             <input id="precio" type="number" name="precio"  min="1" max="9999" step="0.01"  placeholder="B/" oninput="validity.valid||(value='');" required>
             </div>
         </div>
+
+
         <hr>
         <p class="h5">Detalles:</p>
 
@@ -96,11 +100,24 @@
             <div class="col-sm-8">
             <input type="file" name="addfoto" id="imagen" class="form-control" placeholder="Add Foto" tabindex="1">
             </div>
-        </div> 
+        </div>
+
+
+        <!-- Informacion de Contacto -->
+        <hr>
+        <p class="h5">Información de Contacto:</p>
+        
         
 
-        
-        
+        <!-- Input de Celular -->
+        <div class="form-group row">
+          <label for="Celular" class="col-form-label col-sm-3">Celular:</label>
+          <div class="col-sm-8">
+            <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular" tabindex="1">
+          </div>
+        </div>
+
+
 
       
   
@@ -109,5 +126,5 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-success">Publicar</button>
         </div>
-      
+
       </form>

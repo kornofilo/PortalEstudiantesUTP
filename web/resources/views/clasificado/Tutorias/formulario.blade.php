@@ -1,56 +1,68 @@
 <form action="{{ route('tutorias.store')}}" method="POST" enctype="multipart/form-data">
  @csrf
- <div class="form-group row">
-      <label for="categoria" class="col-form-label col-sm-3">Categoría:</label>
+ <!-- Input de Titulo -->
+        <div class="form-group row">
+          <label for="titulo" class="col-form-label col-sm-3">Titulo:</label>
           <div class="col-sm-8">
-           <select id="categoria" class="form-control" name="categoria" required>
-              <option value="Apartamento">Compra/venta</option>
-              <option value="Compra" >Compra</option>
-              <option value="Venta">Venta</option>
-          </select>
+            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo">
           </div>
-  </div>
+        </div>
 
-  <div class="form-group row">
-      <label for="nombreArticulo" class="col-form-label col-sm-3">Nombre del Articulo:</label>
-      <div class="col-sm-8">
-      <input type="text" name="nombreArt" id="nombreArt" class="form-control" placeholder="Nombre del Articulo" tabindex="1">
-      </div>
-  </div>
+        <!-- Input de Nombre del tutor -->
+            <div class="form-group row">
+              <label for="nomtutor" class="col-form-label col-sm-3">Nombre del Tutor:</label>
+              <div class="col-sm-8">
+                <input type="text" name="nomtutor" id="nomtutor" class="form-control" placeholder="Nombre del Tutor">
+              </div>
+            </div>
 
+            <!-- Input de Materia -->
+                 <div class="form-group row">
+                   <label for="materia" class="col-form-label  col-sm-3 ">Materia:</label>
+                   <div class="col-sm-8">
+                   <select id="materia" class="form-control" name="materia" required>
+                       <option>Programación</option>
+                       <option>Calculo</option>
+                       <option>Otros</option>
+                   </select>
+                   </div>
+                   @if ($errors->has('sede'))
+                       <span class="invalid-feedback" role="alert">
+                           <strong>{{ $errors->first('sede') }}</strong>
+                       </span>
+                   @endif
+               </div>
 
-  <div class="form-group row">
-      <label for="precio" class="col-form-label col-sm-3">Precio:</label>
-      <div class="col-sm-8">
-      <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" tabindex="1">
-      </div>
-  </div>
+               <!-- Input de costo por hora -->
+                   <div class="form-group row">
+                     <label for="costo" class="col-form-label col-sm-3">Costo:</label>
+                     <div class="col-sm-8">
+                       <input type="number" name="costo" id="costo" class="form-control" placeholder="Costo">
+                     </div>
+                   </div>
 
-  <div class="form-group row">
-      <label for="estado" class="col-form-label col-sm-3">Estado:</label>
-          <div class="col-sm-8">
-           <select id="estado" class="form-control" name="estado" required>
-              <option value="estadoo">Nuevo/Usado</option>
-              <option value="Nuevo">Nuevo</option>
-              <option value="Usado">Usado</option>
-          </select>
-          </div>
-  </div>
+                   <!-- Input de Ubicacion -->
+                         <div class="form-group row">
+                           <label for="ubicacion" class="col-form-label col-sm-3">Ubicación:</label>
+                           <div class="col-sm-8">
+                             <input type="text" name="ubicacion" id="ubicación" class="form-control" placeholder="Ubicación" >
+                           </div>
+                         </div>
 
-  <div class="form-group row">
-      <label for="descripcion" class="col-form-label col-sm-3">Descripción:</label>
-      <div class="col-sm-8">
-      <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
-      </div>
-  </div>
-
-
-   <div class="form-group row">
-      <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
-      <div class="col-sm-8">
-      <input type="file" name="addfoto" id="imagen" class="form-control" placeholder="Add Foto" tabindex="1">
-      </div>
-  </div>
+                         <!-- Input de Descripción -->
+                            <div class="form-group row">
+                              <label for="descripcion" class="col-form-label col-sm-3">Descripción:</label>
+                              <div class="col-sm-8">
+                                <textarea class="form-control" id="message-text" name="descripcion" placeholder="Descripción"></textarea>
+                              </div>
+                            </div>
+                            <!-- Input de Imagen -->
+                            <div class="form-group row">
+                               <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
+                               <div class="col-sm-8">
+                               <input type="file" name="addfoto" id="imagen" class="form-control" placeholder="Add Foto" tabindex="1">
+                               </div>
+                           </div>
 
 
   <!-- Informacion de Contacto -->
