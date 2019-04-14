@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminPanel;
 
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UsersAdminController extends Controller
 {
@@ -14,7 +16,8 @@ class UsersAdminController extends Controller
      */
     public function index()
     {
-        //
+        $userData = new User();                
+        return view('adminPanel.usersAdmin',compact('userData'));
     }
 
     /**
@@ -44,9 +47,9 @@ class UsersAdminController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, Request $request)
     {
-        //
+        
     }
 
     /**
@@ -83,7 +86,11 @@ class UsersAdminController extends Controller
         //
     }
 
-    public function getUser($email){
-        $articles = DB::table('users')->where('title', $email);
+    public function getUser(Request $request){
+        $userEmail = $request->get('userEmail');  
+        $userData = User::where('email', $userEmail)->first();     
+        $roles = Role::all();
+        return view('adminPanel.usersAdmin',compact('userData','roles'));
     }
 }
+

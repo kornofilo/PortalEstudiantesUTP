@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','rol'
+        'password', 'remember_token','estado'
     ];
 
     /**
@@ -56,10 +56,4 @@ class User extends Authenticatable implements MustVerifyEmail
   public function hasAnyRole($role){
     return null !== $this->roles()->where('name', $role)->first();
   }
-
-  public function getUserInfo($email){
-    $user = App\User::where('email', $email)->first();
-    return $user;
-  }
-
 }

@@ -157,7 +157,7 @@
 
     <!-- Incluímos los scripts para el manejo de modals dinámicos -->
         <!-- Script de modals dinámicos de Tutorías -->
-        @include('clasificado.tutorias.tutorias-detalle');
+        @include('clasificado.tutorias.tutorias-detalle')
 
     <!-- Footer del Portal Estudiantil -->
     <footer>
