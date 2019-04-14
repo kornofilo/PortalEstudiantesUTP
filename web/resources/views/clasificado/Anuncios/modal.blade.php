@@ -28,20 +28,7 @@
            
         </div>
         
-        <!-- Modal footer -->
-        <div class="modal-footer">
-        <div class="form-group">
-            Informacion de Contacto:
-            <br><br>
-            <label>Nombre de Contacto</label>
-            <input type="text" id="nombreContacto" class="form-control validate" >
-        </div>
-        </div>
-  
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal">Publicar</button>
-        </div>
+        
         
       </div>
     </div>

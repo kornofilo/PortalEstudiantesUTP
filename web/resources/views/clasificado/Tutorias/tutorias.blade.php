@@ -78,7 +78,7 @@
                   <input type="text" name="titulo" id="titulo" class="form-control" >
                 </div>
               </div>
-
+              
           </div>
         </div>
       </div>

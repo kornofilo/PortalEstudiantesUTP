@@ -56,4 +56,14 @@ class User extends Authenticatable implements MustVerifyEmail
   public function hasAnyRole($role){
     return null !== $this->roles()->where('name', $role)->first();
   }
+
+  public function getUserInfo($email){
+    $user = App\User::where('email', $email)->first();
+    return $user;
+  }
+
+  public function compraventa(){
+    return $this->belongsToMany('App\Compraventa','email','email');
+  }
+
 }
