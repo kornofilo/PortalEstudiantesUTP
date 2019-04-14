@@ -69,7 +69,7 @@ class TutoriasController extends Controller
 
      #salvar en la base de datos
       $tutorias->save();
-        return redirect('/tutorias')->with('success',' Data Saved');
+        return back()->with('success',' Data Saved');
     }
 
     /**

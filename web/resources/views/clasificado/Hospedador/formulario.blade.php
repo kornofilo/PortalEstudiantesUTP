@@ -1,4 +1,4 @@
-<form action="{{ route('alquilerhospedajes.store')}}" method="POST" enctype="multipart/form-data"> 
+<form action="{{ route('alquilerhospedajes.store')}}" method="POST" enctype="multipart/form-data">
        @csrf
        <div class="form-group row">
             <label for="categoria" class="col-form-label col-sm-3">Categoría:</label>
@@ -17,7 +17,7 @@
             <input type="text" name="nombreArt" id="nombreArt" class="form-control" placeholder="Nombre del Articulo" tabindex="1">
             </div>
         </div>
-  
+
 
         <div class="form-group row">
             <label for="precio" class="col-form-label col-sm-3">Precio:</label>
@@ -25,7 +25,7 @@
             <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" tabindex="1">
             </div>
         </div>
-  
+
         <div class="form-group row">
             <label for="estado" class="col-form-label col-sm-3">Estado:</label>
                 <div class="col-sm-8">
@@ -43,15 +43,15 @@
             <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
             </div>
         </div>
-  
-        
+
+
          <div class="form-group row">
             <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
             <div class="col-sm-8">
             <input type="file" name="addfoto" id="imagen" class="form-control" placeholder="Add Foto" tabindex="1">
             </div>
-        </div> 
-        
+        </div>
+
 
         <!-- Informacion de Contacto -->
         <hr>
@@ -65,12 +65,12 @@
           </div>
         </div>
 
-      
-  
+
+
         <!-- Modal Footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-success">Publicar</button>
         </div>
-      
+
       </form>
