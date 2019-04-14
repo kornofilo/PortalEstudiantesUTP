@@ -22,10 +22,6 @@ Route::get('/eventos', function () {
     return view('eventos');
 });
 
-//Ruta de Bolsa de Trabajos
-Route::get('/bolsadetrabajo', function () {
-    return view('bolsadetrabajo');
-});
 
 //Ruta de perfil de usuario
 Route::get('/miPerfil', 'PerfilController@show')->name('miPerfil');
@@ -35,8 +31,6 @@ Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
 
 
 //Ruta de Clasificados
-
-
 Route::group(['prefix' => 'clasificado'], function () {
   //1.1 Ruta de Compras/Ventas
   Route::resource('anuncios','AnunciosController');
@@ -45,6 +39,8 @@ Route::resource('tutorias', 'TutoriasController');
 //Ruta de alquilerhospedaje
 Route::resource('alquilerhospedajes', 'HospedajeController');
 });
+//Ruta de bolsatrabajo
+Route::resource('bolsatrabajos', 'BolsatrabajoController');
 
 ## Rutas del panel de administración ##
     //Ruta de Gestión de Usuarios

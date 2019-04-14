@@ -1,11 +1,11 @@
+  <!-- datalle d bolsa de trabajo -->
 <div class="form-group row">
 <div class="col-sm-8">
 
-  <!-- Detalles de tutorias -->
     <h4>{{isset($titulo)?$titulo:null}}</h4>
     <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
     <br>
-    <label>Costo: {{isset($costo)?$costo:null}}</label>
+    <label>Tipo de Puesto: {{isset($tipopuesto)?$tipopuesto:null}}</label>
     <br>
     <label>Ubicacion: {{isset($ubicacion)?$ubicacion:null}}</label>
     <br>
@@ -15,11 +15,11 @@
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
-      <label>Nombre del Contacto: {{isset($nombre)?$nombre:null}}</label>
+      <label>Nombre del Contacto: {{isset($nombcont)?$nombcont:null}}</label>
       <br>
       <label>Celular: {{isset($celular)?$celular:null}}</label>
       <br>
-      <label>Email: {{isset($email)?$email:null}}</label>
+      <label>Email: {{isset($emailcont)?$emailcont:null}}</label>
 
     </div>
 

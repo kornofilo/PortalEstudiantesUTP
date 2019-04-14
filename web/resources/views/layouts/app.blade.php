@@ -42,7 +42,7 @@
 
                  <!-- Link a la sección de Bolsa de trabajo -->
                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('bolsadetrabajo') }}">
+                    <a class="nav-link" href="{{ url('bolsatrabajos') }}">
                         <!-- Icono de Bolsa de Trabajo-->
                         <i class="fas fa-briefcase"></i>
                         <!-- Texto del Link de Bolsa de Trabajo-->
