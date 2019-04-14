@@ -60,7 +60,7 @@
                    <div class="form-group row">
                      <label for="salario" class="col-form-label col-sm-3">Salario Estimado:</label>
                      <div class="col-sm-8">
-                       <input type="number" name="salario" id="salario" class="form-control" placeholder="Salario" required>
+                       <input type="number" name="salario" id="salario" class="form-control"  min="1" max="99" step="0.01" oninput="validity.valid||(value=)" placeholder="Salario" required>
                      </div>
                    </div>
 
