@@ -13,7 +13,7 @@ class CrearTablaAlquilerhospedaje extends Migration
      */
     public function up()
     {
-        Schema::create('alqhos', function (Blueprint $table) {
+        Schema::create('hospedaje', function (Blueprint $table) {
           $table->bigIncrements('id');
           $table->string('categoria',25);
           $table->string('titulo');
@@ -42,6 +42,6 @@ class CrearTablaAlquilerhospedaje extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alqhos');
+        Schema::dropIfExists('hospedaje');
     }
 }

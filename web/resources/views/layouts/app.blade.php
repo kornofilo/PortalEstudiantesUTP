@@ -73,7 +73,7 @@
                             <!-- Texto del Link de Tutorías -->
                             {{ __('Tutorías') }}
                         </a>
-                        <a class="dropdown-item" href="{{ url('clasificado/alquilerhospedaje') }}">
+                        <a class="dropdown-item" href="{{ url('clasificado/alquilerhospedajes') }}">
                             <!-- Icono de Alquiler/Hospedaje -->
                             <i class="fas fa-home"></i>
                             <!-- Texto del Link de Alquiler/Hospedaje -->
