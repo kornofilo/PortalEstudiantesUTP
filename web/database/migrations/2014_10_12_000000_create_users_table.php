@@ -24,9 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('carrera',100);
             $table->string('sexo',9);            
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password');        
             $table->rememberToken();
             $table->timestamps();
+            $table->string('estado')->default('activo');
         });
     }
 

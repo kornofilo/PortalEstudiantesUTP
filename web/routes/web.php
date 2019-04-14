@@ -48,6 +48,5 @@ Route::get('alquilerhospedaje', 'AlHosController@index')->name('alquilerhospedaj
 
 ## Rutas del panel de administración ##
     //Ruta de Gestión de Usuarios
-    Route::get('/usersAdmin', function () {
-        return view('adminPanel.usersAdmin');
-    })->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
+    Route::resource('usersAdmin', 'AdminPanel\UsersAdminController')->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
+    Route::get('getUser', 'AdminPanel\UsersAdminController@getUser')->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
