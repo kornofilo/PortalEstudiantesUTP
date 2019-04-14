@@ -76,7 +76,7 @@
 
               <!-- Input de Amueblada -->
               <div class="form-group row">
-                <label for="amueblada" class="col-form-label col-sm-3">Estacionamiento:</label>
+                <label for="amueblada" class="col-form-label col-sm-3">Amueblada:</label>
                 <div class="col-sm-8">
                 <select id="amueblado" class="form-control" name="amueblado" required>
                     <option value="No">No</option>
@@ -86,13 +86,6 @@
               </div>
               <hr>
                
-          <!-- Input de Celular -->
-        <div class="form-group row">
-          <label for="Celular" class="col-form-label col-sm-3">Celular:</label>
-          <div class="col-sm-8">
-            <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular" tabindex="1">
-          </div>
-        </div>
               
         
          <div class="form-group row">
