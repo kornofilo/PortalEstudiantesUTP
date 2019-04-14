@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\storage;
+
+#llamar al modal
 use App\Tutorias;
 
 class TutoriasController extends Controller
@@ -16,7 +17,9 @@ class TutoriasController extends Controller
      */
     public function index()
     {
-
+      # llama la vista y trae todos datos de la tabla
+      $datos = Tutorias::orderBy('id','desc')->get();
+      return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 
     /**
@@ -26,8 +29,7 @@ class TutoriasController extends Controller
      */
      public function create()
      {
-       $tutorias = Tutorias::all();
-       return view('clasificado.tutorias.tutorias',compact('tutorias'));
+
      }
 
 
@@ -39,16 +41,35 @@ class TutoriasController extends Controller
      */
     public function store(Request $request)
     {
-      if ($request->file('imagen')) {
-        $path = $request->file('image')->store('avatar','public');
+      #datos que van a la base de datos
 
-          }
+      $this->validate($request,[
+      'titulo' => 'required',
+      'nomtutor' => 'required',
+      'materia' => 'required',
+      'costo' => 'required',
+      'ubicacion' => 'required',
+      'descripcion' => 'required',
+      'celular' => 'required',
+      // 'imagen' => 'required',
 
-      $tutorias = new Tutorias($request->all());
+
+  ]);
+
+      $tutorias = new Tutorias();
+      $tutorias->titulo= $request->input('titulo');
+      $tutorias->nomtutor= $request->input('nomtutor');
+      $tutorias->materia= $request->input('materia');
+      $tutorias->costo= $request->input('costo');
+      $tutorias->ubicacion= $request->input('ubicacion');
+      $tutorias->descripcion= $request->input('descripcion');
+      $tutorias->celular= $request->input('celular');
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
+
+     #salvar en la base de datos
       $tutorias->save();
-        return back();
+        return redirect('/tutorias')->with('success',' Data Saved');
     }
 
     /**

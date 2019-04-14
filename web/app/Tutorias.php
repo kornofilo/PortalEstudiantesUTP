@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tutorias extends Model
 {
-  protected $fillable = ['titulo', 'nomtutor', 'materia','costo','ubicacion','descripcion','imagen',
-'celular','nombre','email'];
+  #referncia a la tabla que se va a utilizar
+  protected $table = "tutorias";
 }
