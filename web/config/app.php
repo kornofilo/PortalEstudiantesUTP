@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /* Provider personals*/
-        Laracasts\Flash\FlashServiceProvider::class,
+        //Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
