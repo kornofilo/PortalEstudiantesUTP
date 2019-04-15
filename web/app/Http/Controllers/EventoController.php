@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Evento;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
+use DB;
 
 class EventoController extends Controller
 {
@@ -14,7 +16,9 @@ class EventoController extends Controller
      */
     public function index()
     {
-        //
+      $datos = Evento::orderBy('id','desc')->get();
+
+      return view('Eventos.eventos')->with(compact('datos'));
     }
 
     /**
@@ -35,7 +39,31 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[
+      'titulo' => 'required',
+      'fecha' => 'required',
+      'lugar' => 'required',
+      'costo' => 'required',
+      'facultad_nomb' => 'required',
+      'descripcion' => 'required',
+      // 'imagen' => 'required',
+      ]);
+
+      $eventos = new Evento();
+      $eventos->titulo= $request->input('titulo');
+      $eventos->fecha= $request->input('fecha');
+      $eventos->lugar= $request->input('lugar');
+      $eventos->costo= $request->input('costo');
+      $eventos->facultad_nomb= $request->input('facultad_nomb');
+      $eventos->descripcion= $request->input('descripcion');
+      $eventos->imagen = "/test.jpg";
+
+
+     #salvar en la base de datos
+      $eventos->save();
+      Flash::success("se ha registrado de forma exitosa");
+        return back()->with('success',' Data Saved');
+
     }
 
     /**

@@ -6,7 +6,7 @@
 <script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 <div class="container-fluid h-100 bg-light">
     <div class="row h-100 justify-content-center align-items-center">
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }} " enctype="multipart/form-data">
             @csrf
              <!-- Título del Form -->
              <h3 class="text-center">Registro</h3>
@@ -71,7 +71,7 @@
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sexo" id="FemeninoRadio" value="Femenino">
                 <label class="form-check-label" for="FemeninoRadio">Femenino</label>
-            </div> <br> <br>
+            </div> <br><br>
 
             <!-- Input de Correo Universitario -->
             <div class="form-group">
@@ -100,12 +100,18 @@
                 <label for="password-confirm">{{ __('Repetir Contraseña') }}</label>
                 <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password-confirm" name="password_confirmation" required autofocus>
             </div>
+            <!-- Carga de la Imagen
+            <div class="form-group ">
+               <label for="imagen">{{ __('Imagen') }}</label>
+               <input type="file" name="imagen" class="form-control {{ $errors->has('imagen') ? ' is-invalid' : '' }}" id="imagen">
+           </div><br>-->
 
             <!-- Botón de Registrarse -->
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary">
                     {{ __('Registrarse') }}
                 </button>
+
             </div>
 
             <!-- Link de Formulario de Inicio de Sesión -->
