@@ -84,7 +84,7 @@
 
                  <!-- Dropdown del Panel de Administración -->
                  <!-- Consultamos con la directuva role si el usuario cuenta con el rol de administrador -->
-                 @role('administrador')
+                 @role('Administrador')
                  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- Icono del Panel de Administración  -->
@@ -116,6 +116,19 @@
                     </div>
                 </li>
                 @endrole
+
+                <!-- Opción de Gestión de Publicacione (Exclusiva de usuarios con el rol de moderador) -->
+                 <!-- Consultamos con la directuva role si el usuario cuenta con el rol de moderador -->
+                 @role('Moderador')
+                 <li class="nav-item">
+                    <a class="nav-link" href="#">
+                            <!-- Icono de Gestión de Publicaciones -->
+                            <i class="fas fa-check-double"></i>
+                            <!-- Texto del Link de Gestión de Publicaciones -->
+                            {{ __('Gestión de Publicaciones') }}
+                    </a>
+                </li>                
+                @endrole
              </ul>
 
               <!-- Dropdown de Opciones de Usuario -->
@@ -146,6 +159,7 @@
         </nav>
 
         <main class="py-4">
+            @include('includes.alerts')
             @yield('content')
         </main>
     </div>

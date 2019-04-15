@@ -20,77 +20,45 @@ class UsersAdminController extends Controller
         return view('adminPanel.usersAdmin',compact('userData'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user, Request $request)
-    {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
-
+    //Función para obtener el usuario buscado mediante la dirección de correo.
     public function getUser(Request $request){
+        //Obtenemos el la dirección de correo
         $userEmail = $request->get('userEmail');  
-        $userData = User::where('email', $userEmail)->first();     
-        $roles = Role::all();
-        return view('adminPanel.usersAdmin',compact('userData','roles'));
+        //Verificamos que el email se encuentra registrado. Si no está registrado, enviamos una alerta.
+        if(!$userData = User::where('email', $userEmail)->first()){
+            return redirect('usersAdmin')->with('warning','Usuario no Encontrado');
+        }else{
+            //Si está registrado, retornamos el modelo del usuario consultado y los roles de la aplicación.
+            $roles = Role::all();
+            return view('adminPanel.usersAdmin',compact('userData','roles'));
+        }   
+    }
+
+    //Función para cambiar el rol de un usuario.
+    public function changeRole(Request $request, $email){
+        //Obtenemos el nuevo rol que tendrá el usuario.
+        $selectedRole = $request->get('role');  
+        $newRole = Role::where('name',$selectedRole)->first();
+        $user = User::where('email', $email)->first(); 
+        //Actualizamos el rol del usuario.        
+        $user->roles()->sync($newRole);
+        return back()->with('success','Rol actualizado exitosamente.');
+    }
+
+    //Función para banear un usuario.
+    public function banUser($email){
+        $user = User::where('email', $email)->first(); 
+        $user->estado = "Baneado";
+        $user->save();
+        return back()->with('success','Usuario baneado exitosamente.');
+    }
+
+    //Función para reactivar un usuario baneado.
+    public function reactivateUser($email){
+        $user = User::where('email', $email)->first(); 
+        $user->estado = "Activo";
+        $user->save();
+        return back()->with('success','Usuario reactivado exitosamente.');
     }
 }
 

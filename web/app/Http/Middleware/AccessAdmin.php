@@ -17,7 +17,7 @@ class AccessAdmin
     public function handle($request, Closure $next)
     {
         //Verificamos si el usuario cuenta con el rol de administrador.
-        if(Auth::user()->hasAnyRole('administrador')){
+        if(Auth::user()->hasAnyRole('Administrador')){
             //Si el usuario cuenta con el rol de administrador, aceptamos el request
             return $next($request);
         }

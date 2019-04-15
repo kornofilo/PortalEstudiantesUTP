@@ -15,7 +15,7 @@
 Auth::routes(['verify' => true]);
 
 //Ruta de Página principal
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home')->middleware(['checkUserStatus']);
 
 //Ruta de Eventos
 Route::get('/eventos', function () {
@@ -44,5 +44,12 @@ Route::resource('bolsatrabajos', 'BolsatrabajoController');
 
 ## Rutas del panel de administración ##
     //Ruta de Gestión de Usuarios
-    Route::resource('usersAdmin', 'AdminPanel\UsersAdminController')->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
-    Route::get('getUser', 'AdminPanel\UsersAdminController@getUser')->middleware(['auth','auth.admin']); //Validamos el acceso con el middleware de autenticación y validación del rol de administrador.
+    Route::get('usersAdmin/getUser/', 'AdminPanel\UsersAdminController@getUser')->name('usersAdmin.getUser')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('usersAdmin/changeRole/{email}', 'AdminPanel\UsersAdminController@changeRole')->name('usersAdmin.changeRole')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('usersAdmin/banUser/{email}', 'AdminPanel\UsersAdminController@banUser')->name('usersAdmin.banUser')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('usersAdmin/reactivateUser/{email}', 'AdminPanel\UsersAdminController@reactivateUser')->name('usersAdmin.reactivateUser')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::resource('usersAdmin', 'AdminPanel\UsersAdminController')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::get('/banned', function () {
+      return view('auth.banned');
+    });
+  
