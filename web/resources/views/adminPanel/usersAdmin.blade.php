@@ -4,13 +4,14 @@
 
 
 @section('content')
-
+<!-- Información -->
 <div class="alert alert-info" role="alert">
     <h6 class="text-center"><span class="font-weight-bold">Gestión de Usuarios</span> - Ingrese la dirección de correo institucional del usuario que desea consultar y de click en el botón de buscar. </h6>
 </div>
 
 <div class="container-fluid">
-        <form action="/getUser" method="get">
+        <!-- Formulario de Búsqueda de usuarios por dirección de correo electrónico -->
+        <form action="{{route('usersAdmin.getUser') }}" method="get">
             @csrf
             <div class="form-group row justify-content-center">            
                 <div class="col-auto">
@@ -25,17 +26,15 @@
     </div>
 
 
-    <table class="table text-center">
+    <table class="table text-center border">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">Email</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Facultad</th>
                 <th scope="col">Carrera</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Estatus</th>
-                <th scope="col">Acciones</th>
-
+                <th scope="col" colspan="2">Rol</th>
+                <th scope="col" colspan="2">Estatus</th>
                 </tr>                
             </thead>
     @if($userData !== null)    
@@ -45,31 +44,42 @@
                 <td>{{$userData->facultad}}</td>   
                 <td>{{$userData->carrera}}</td>       
                 <td>
-                    @isset($roles)    
-                        <select class="form-control" id="exampleFormControlSelect1">                
-                            @foreach($roles as $role)                                
-                                <option>{{$role->name}}</option> 
-                            @endforeach                          
-                        </select>
-                </td>       
-                <td>{{$userData->estado}}</td>  
+                    @isset($roles)
+                        <form action="{{route('usersAdmin.changeRole', $userData->email ) }}" method="post">
+                        @csrf
+                            <select name="role" id="role" class="form-control" id="exampleFormControlSelect1">
+                                @foreach($roles as $role) 
+                                    <!-- Si el rol del usuario coincide con el nombre del rol, se específica como opción seleccionada -->    
+                                    @if($userData->roles()->value('name') == $role->name)
+                                        <option selected>{{$role->name}}</option> 
+                                    @else
+                                        <option>{{$role->name}}</option> 
+                                    @endif                                                        
+                                @endforeach                          
+                            </select>
+                </td>
                 <td>
-                    <button type="button" class="btn btn-warning">Actualizar Rol</button>
-                    <button type="button" class="btn btn-danger">Banear</button>
-                </td>    
+                            <button type="submit" class="btn btn-warning font-weight-bold">Actualizar Rol</button>
+                        </form>
+                </td>     
+                <td>{{$userData->estado}}</td>                   
+                <td>
+                    <!-- Si el usario se encuentra activo, se muestra la opción de "banear"-->    
+                    @if($userData->estado === "Activo")
+                        <form action="{{route('usersAdmin.banUser', $userData->email ) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger font-weight-bold">Banear</button>
+                        </form>
+                    @else
+                        <form action="{{route('usersAdmin.reactivateUser', $userData->email ) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger font-weight-bold">Reactivar</button>
+                        </form>
+                    @endif
+                </td>
                     @endisset        
             </tbody>
-    </table>
-    @else
-    <div class="alert alert-warning font-weight-bold" role="alert">
-        Usuario no Encontrado.
-    </div>
+    </table>    
     @endif
-    
-     
-
-
 </div>
-
-    
 @endsection

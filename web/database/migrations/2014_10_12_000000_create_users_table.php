@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('imagen')->default('default_avatar.png');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('estado')->default('activo');
+            $table->string('estado')->default('Activo');
         });
     }
 
