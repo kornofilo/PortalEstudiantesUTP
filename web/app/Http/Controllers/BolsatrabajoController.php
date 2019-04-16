@@ -50,7 +50,7 @@ class BolsatrabajoController extends Controller
         'direccion' => 'required',
         'descripcion' => 'required',
         'habilidades' => 'required',
-            //'fecha' => 'required',
+        'fecha' => 'required',
         'beneficio' => 'required',
         'nombcont' => 'required',
         'celular' => 'required',
@@ -72,7 +72,7 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->direccion= $request->input('direccion');
         $bolsatrabajo->descripcion= $request->input('descripcion');
         $bolsatrabajo->habilidades= $request->input('habilidades');
-            //$bolsatrabajo->fecha= $request->input('fecha');
+        $bolsatrabajo->fecha= $request->input('fecha');
         $bolsatrabajo->beneficio= $request->input('beneficio');
         $bolsatrabajo->nombcont= $request->input('nombcont');
         $bolsatrabajo->celular= $request->input('celular');

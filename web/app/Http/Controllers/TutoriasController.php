@@ -51,12 +51,19 @@ class TutoriasController extends Controller
       'ubicacion' => 'required',
       'descripcion' => 'required',
       'celular' => 'required',
-      // 'imagen' => 'required',
+      'imagen' => 'required',
 
 
   ]);
+      
 
-      $tutorias = new Tutorias();
+      if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = time().$file->getClientOriginalName();
+          $file->move(public_path().'/imagenes/',$name_image);
+      }
+      
+      $tutorias = new Tutorias () ;
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->count() + 1);
       $tutorias->titulo= $request->input('titulo');
@@ -66,6 +73,8 @@ class TutoriasController extends Controller
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
+      $tutorias->imagen =$name_image;
+
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
 

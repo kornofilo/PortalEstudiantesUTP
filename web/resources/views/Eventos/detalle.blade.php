@@ -5,22 +5,17 @@
   <h4>{{isset($titulo)?$titulo:null}}</h4>
   <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
   <br>
-  <label>Título del Evento: {{isset($tipopuesto)?$tipopuesto:null}}</label>
+  <label>Título del Evento: {{isset($titulo)?$titulo:null}}</label>
   <br>
-  <label>Fecha y hora: {{isset($ubicacion)?$ubicacion:null}}</label>
+  <label>Lugar: {{isset($lugar)?$lugar:null}}</label>
   <br>
-  <label>Lugar: {{isset($descripcion)?$descripcion:null}}</label>
-  <hr>
-  
-
-  <div class="col-sm-8">
-  <p class="h5">Información de Contacto</p>
+  <label>Fecha: {{  date("d M Y", strtotime($fecha)) }}</label>
   <br>
-    <label>Nombre del Contacto: {{isset($nombcont)?$nombcont:null}}</label>
-    <br>
-    <label>Celular: {{isset($celular)?$celular:null}}</label>
-    <br>
-    <label>Email: {{isset($emailcont)?$emailcont:null}}</label>
+  <label>Costo: {{isset($costo)?$costo:null}}</label>
+  <br>
+  <label>Facultad: {{isset($facultad_nomb)?$facultad_nomb:null}}</label>
+  <br>
+  <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>
 
   </div>
 
@@ -33,5 +28,5 @@
 </div>
 
 <div class="modal-footer">
-  <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+  <button type="submit" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 </div>
