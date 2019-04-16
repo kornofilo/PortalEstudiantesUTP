@@ -51,12 +51,20 @@ class TutoriasController extends Controller
       'ubicacion' => 'required',
       'descripcion' => 'required',
       'celular' => 'required',
-      // 'imagen' => 'required',
+      'imagen' => 'required',
 
 
   ]);
+ 
 
-      $tutorias = new Tutorias();
+     
+
+      if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = time().$file->getClientOriginalName();
+          $file->move(public_path().'/imagenes/',$name_image);
+      }
+      $tutorias = new Tutorias () ;
       $tutorias->titulo= $request->input('titulo');
       $tutorias->nomtutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
@@ -64,6 +72,8 @@ class TutoriasController extends Controller
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
+      $tutorias->imagen =$name_image;
+
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
 

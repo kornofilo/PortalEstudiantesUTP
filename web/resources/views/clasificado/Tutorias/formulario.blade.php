@@ -63,7 +63,7 @@
                             <div class="form-group row">
                                <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
                                <div class="col-sm-8">
-                               <input type="file" name="addfoto" id="imagen" class="form-control" placeholder="Add Foto" tabindex="1">
+                               <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Add Foto" >
                                </div>
                            </div>
 

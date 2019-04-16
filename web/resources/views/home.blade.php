@@ -3,7 +3,5 @@
 @section('title','Portal Estudiantil - UTP')
 
 @section('content')
-
-Feed
-
+feed
 @endsection

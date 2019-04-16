@@ -3,7 +3,7 @@
 <div class="container">
   @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Evento','id_modal'=>'mod1','title'=>'AGREGA EVENTOS AQUÍ','vista'=>'Eventos.formulario'])
  <br><br>
- @include('flash::message')
+
   <form class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar" aria-label="Search">

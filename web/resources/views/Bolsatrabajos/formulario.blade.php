@@ -85,6 +85,13 @@
                           <textarea class="form-control" id="message-text" name="habilidades" placeholder="Habilidades"></textarea>
                             </div>
                       </div>
+                      <!-- Input de Fecha y Hora -->
+                            <div class="form-group row">
+                              <label for="fecha" class="col-form-label col-sm-3">Fecha</label>
+                              <div class="col-sm-8">
+                                <input type="date" name="fecha" id="fecha" class="form-control" placeholder="00/00/0000" required >
+                              </div>
+                            </div>
                       <!-- Input de Beneficios-->
                        <div class="form-group row">
                            <label for="beneficio" class="col-form-label col-sm-3">Beneficios:</label>
@@ -98,7 +105,7 @@
   <p class="h5">Información de Contacto:</p>
   <!-- Input de Nombre del Contacto -->
          <div class="form-group row">
-           <label for="nombcont" class="col-form-label col-sm-3">Titulo:</label>
+           <label for="nombcont" class="col-form-label col-sm-3">Nombre Contacto:</label>
            <div class="col-sm-8">
              <input type="text" name="nombcont" id="nombcont" class="form-control" placeholder="Nombre del Contacto">
            </div>
@@ -112,7 +119,7 @@
   </div>
   <!-- Input de email -->
   <div class="form-group row">
-    <label for="Email" class="col-form-label col-sm-3">Celular:</label>
+    <label for="Email" class="col-form-label col-sm-3">Email:</label>
     <div class="col-sm-8">
       <input type="text" name="emailcont" id="emailcont" class="form-control" placeholder="Email">
     </div>
