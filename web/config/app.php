@@ -232,7 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*aliases personals*/
-        'Flash' => Laracasts\Flash\Flash::class,
+        //'Flash' => Laracasts\Flash\Flash::class,
 
     ],
 

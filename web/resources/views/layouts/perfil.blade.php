@@ -5,7 +5,7 @@
 </div>
 <div class="form-group">
 <label for="facultad" class="col-form-label text-md-right">{{ __('Facultad') }}</label>
-<input id="facultad" class="form-control" value="{{auth()->user()->facultad}}" disabled>
+<input id="facultad" class="form-control" value="{{$facultades->nombre}}" disabled>
 </div>
 
 <div class="form-group">

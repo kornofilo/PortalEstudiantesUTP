@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Evento;
 use Illuminate\Http\Request;
-use Laracasts\Flash\Flash;
+use Carbon\Carbon;
 use DB;
 
 class EventoController extends Controller
 {
+    public function __construct()
+    {
+          Carbon::setLocale('es');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +20,10 @@ class EventoController extends Controller
      */
     public function index()
     {
-      $datos = Evento::orderBy('id','desc')->get();
+      //muestra los datos
 
+      $datos = Evento::orderBy('id','desc')->get();
+  
       return view('Eventos.eventos')->with(compact('datos'));
     }
 
@@ -61,8 +67,7 @@ class EventoController extends Controller
 
      #salvar en la base de datos
       $eventos->save();
-      Flash::success("se ha registrado de forma exitosa");
-        return back()->with('success',' Data Saved');
+        return back()->with('success','Evento Creado Exitosamente');
 
     }
 

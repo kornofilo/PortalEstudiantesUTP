@@ -2,7 +2,7 @@
 
 <form action="{{ route('eventos.store')}}" method="POST" enctype="multipart/form-data">
  @csrf
- 
+
  <!-- Input del Título del Evento-->
         <div class="form-group row">
           <label for="titulo" class="col-form-label col-sm-3">Título del Evento:</label>
