@@ -9,7 +9,8 @@
     <br>
     <label>Ubicacion: {{isset($ubicacion)?$ubicacion:null}}</label>
     <br>
-    <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label>
+    <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label> <br>
+
     <hr>
 
     <div class="col-sm-8">
@@ -20,8 +21,14 @@
       <label>Celular: {{isset($celular)?$celular:null}}</label>
       <br>
       <label>Email: {{isset($email)?$email:null}}</label>
-
     </div>
+
+    <hr> 
+    <!-- Código de la Publicación -->
+    <div class="col-sm-8">
+      <label>Código de la Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>
+    </div>
+
 
 </div>
 </div>

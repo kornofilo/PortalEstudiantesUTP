@@ -15,6 +15,7 @@ class CrearTablaCompraventa extends Migration
   {
     Schema::create('compraventa', function (Blueprint $table) {
       $table->bigIncrements('id');
+      $table->string('codigoPost',20)->unique();
       $table->string('categoria');
       $table->string('nombreArt');
       $table->decimal('precio', 6, 2)->unsigned();

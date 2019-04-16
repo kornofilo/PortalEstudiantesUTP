@@ -57,6 +57,8 @@ class TutoriasController extends Controller
   ]);
 
       $tutorias = new Tutorias();
+      //Generación de Código de Publicación.
+      $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->count() + 1);
       $tutorias->titulo= $request->input('titulo');
       $tutorias->nomtutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
@@ -69,7 +71,7 @@ class TutoriasController extends Controller
 
      #salvar en la base de datos
       $tutorias->save();
-        return back()->with('success',' Data Saved');
+        return back()->with('success',' Data Saved'); 
     }
 
     /**

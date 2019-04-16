@@ -50,6 +50,8 @@ class EventoController extends Controller
       ]);
 
       $eventos = new Evento();
+      //Generación de Código de Publicación.
+      $eventos->codigoPost = 'EV-' . (Evento::all()->count() + 1);
       $eventos->titulo= $request->input('titulo');
       $eventos->fecha= $request->input('fecha');
       $eventos->lugar= $request->input('lugar');

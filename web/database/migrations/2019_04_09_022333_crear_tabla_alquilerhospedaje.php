@@ -15,6 +15,7 @@ class CrearTablaAlquilerhospedaje extends Migration
     {
         Schema::create('hospedajes', function (Blueprint $table) {
           $table->bigIncrements('id');
+          $table->string('codigoPost',20)->unique();
           $table->string('categoria',25);
           $table->string('titulo');
           $table->string('ubicacion');

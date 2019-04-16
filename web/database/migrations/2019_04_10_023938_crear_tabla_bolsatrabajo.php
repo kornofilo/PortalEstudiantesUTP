@@ -15,6 +15,7 @@ class CrearTablaBolsatrabajo extends Migration
     {
         Schema::create('bolsaTrabajo', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('codigoPost',20)->unique();
             $table->string('urgente',2);
             $table->string('titulo');
             $table->string('ubicacion');

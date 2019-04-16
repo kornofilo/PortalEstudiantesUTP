@@ -33,6 +33,11 @@
 
     </div>
 
+    <hr>
+    <div class="col-sm-8">
+      <label>Código de Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>    
+    </div>
+
 </div>
 </div>
 

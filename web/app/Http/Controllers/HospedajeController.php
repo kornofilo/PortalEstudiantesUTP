@@ -54,8 +54,9 @@ class HospedajeController extends Controller
           ]);
 
           $hospedador = new Hospedaje();
-
-          $hospedador->categoria = $request->input('categoria');
+          //Generación de Código de Publicación.
+          $hospedador->codigoPost= 'AH-' . (Hospedaje::all()->count() + 1);
+          $hospedador->categoria = $request->input('categoria');         
           $hospedador->titulo = $request->input('titulo');
           $hospedador->ubicacion = $request->input('ubicacion');
           $hospedador->descripcion = $request->input('descripcion');

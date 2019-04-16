@@ -15,6 +15,7 @@ class CrearTablaEventos extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('codigoPost',20)->unique();
             $table->string('titulo');
             $table->date('fecha');
             $table->string('lugar');

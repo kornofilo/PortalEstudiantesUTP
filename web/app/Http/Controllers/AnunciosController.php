@@ -60,6 +60,8 @@ class AnunciosController extends Controller
         $anuncio = new Compraventa();
 
         $anuncio->categoria = $request->input('categoria');
+        //Generación de Código de Publicación.
+        $anuncio->codigoPost = 'CV-' . (Compraventa::all()->count() + 1);
         $anuncio->nombreArt = $request->input('nombreArt');
         $anuncio->precio = $request->input('precio');
         $anuncio->estado = $request->input('estado');
