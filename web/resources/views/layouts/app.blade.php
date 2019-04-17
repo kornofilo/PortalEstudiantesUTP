@@ -101,7 +101,7 @@
                             <!-- Texto de Gestión de Usuarios -->
                             {{ __('Gestión de Usuarios') }}
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ url('degreesAdmin') }}">
                             <!-- Icono de Gestión de Facultades y Carreras -->
                             <i class="fas fa-user-graduate"></i>
                             <!-- Texto del Link de Gestión de Facultades y Carreras -->
@@ -174,8 +174,7 @@
 
     <!-- Footer del Portal Estudiantil -->
     <footer>
-        <div class="fixed-bottom">
-            <hr>
+        <div class="fixed-bottom bg-dark text-white">            
             <h6>&copy Portal Estudiantil - 2019</h6>
         </div>
     </footer>

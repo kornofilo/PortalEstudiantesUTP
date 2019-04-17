@@ -42,12 +42,17 @@ Route::resource('eventos','EventoController');
 
 
 ## Rutas del panel de administración ##
-    //Ruta de Gestión de Usuarios
+    //Rutas de Gestión de Usuarios
     Route::get('usersAdmin/getUser/', 'AdminPanel\UsersAdminController@getUser')->name('usersAdmin.getUser')->middleware(['auth','auth.admin','checkUserStatus']); 
     Route::post('usersAdmin/changeRole/{email}', 'AdminPanel\UsersAdminController@changeRole')->name('usersAdmin.changeRole')->middleware(['auth','auth.admin','checkUserStatus']); 
     Route::post('usersAdmin/banUser/{email}', 'AdminPanel\UsersAdminController@banUser')->name('usersAdmin.banUser')->middleware(['auth','auth.admin','checkUserStatus']); 
     Route::post('usersAdmin/reactivateUser/{email}', 'AdminPanel\UsersAdminController@reactivateUser')->name('usersAdmin.reactivateUser')->middleware(['auth','auth.admin','checkUserStatus']); 
     Route::resource('usersAdmin', 'AdminPanel\UsersAdminController')->middleware(['auth','auth.admin','checkUserStatus']); 
+
+    //Rutas de Gestión de Facultades
+    Route::resource('degreesAdmin', 'AdminPanel\DegreesAdminController')->middleware(['auth','auth.admin','checkUserStatus']); 
+
+
     Route::get('/banned', function () {
       return view('auth.banned');
     });

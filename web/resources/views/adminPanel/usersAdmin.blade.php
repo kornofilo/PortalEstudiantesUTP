@@ -6,7 +6,11 @@
 @section('content')
 <!-- Información -->
 <div class="alert alert-info" role="alert">
-    <h6 class="text-center"><span class="font-weight-bold">Gestión de Usuarios</span> - Ingrese la dirección de correo institucional del usuario que desea consultar y de click en el botón de buscar. </h6>
+    <h6 class="text-center"><span class="font-weight-bold">Panel de Administración</span> - Gestión de Usuarios </h6>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+    <h6 class="text-center"> Ingrese la dirección de correo institucional del usuario que desea consultar y de click en el botón de buscar</h6> 
 </div>
 
 <div class="container-fluid">
@@ -59,7 +63,10 @@
                             </select>
                 </td>
                 <td>
-                            <button type="submit" class="btn btn-warning font-weight-bold">Actualizar Rol</button>
+                            <button type="submit" class="btn btn-warning font-weight-bold">
+                                <i class="fas fa-user-tag"></i>
+                                Actualizar Rol                                
+                            </button>
                         </form>
                 </td>     
                 <td>{{$userData->estado}}</td>                   
@@ -68,12 +75,18 @@
                     @if($userData->estado === "Activo")
                         <form action="{{route('usersAdmin.banUser', $userData->email ) }}" method="post">
                             @csrf
-                            <button type="submit" class="btn btn-danger font-weight-bold">Banear</button>
+                            <button type="submit" class="btn btn-danger font-weight-bold">
+                                <i class="fas fa-lock"></i>
+                                Banear
+                            </button>
                         </form>
                     @else
                         <form action="{{route('usersAdmin.reactivateUser', $userData->email ) }}" method="post">
                             @csrf
-                            <button type="submit" class="btn btn-danger font-weight-bold">Reactivar</button>
+                            <button type="submit" class="btn btn-danger font-weight-bold">
+                                <i class="fas fa-unlock"></i>
+                                Reactivar
+                            </button>
                         </form>
                     @endif
                 </td>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\AdminPanel;
 
-use App\User;
-use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//Importamos los modelos que vamos a utilizar
+use App\User;
+use App\Role;
 
 class UsersAdminController extends Controller
 {
