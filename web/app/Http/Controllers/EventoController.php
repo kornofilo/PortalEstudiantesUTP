@@ -52,9 +52,14 @@ class EventoController extends Controller
       'costo' => 'required',
       'facultad_nomb' => 'required',
       'descripcion' => 'required',
-      // 'imagen' => 'required',
+      'imagen' => 'required',
       ]);
 
+      if ($request->hasFile('imagen')) {
+        $file = $request->file('imagen');
+        $name_image = time().$file->getClientOriginalName();
+        $file->move(public_path().'/imagenes/evento',$name_image);
+    }
       $eventos = new Evento();
       //Generación de Código de Publicación.
       $eventos->codigoPost = 'EV-' . (Evento::all()->count() + 1);
@@ -64,7 +69,7 @@ class EventoController extends Controller
       $eventos->costo= $request->input('costo');
       $eventos->facultad_nomb= $request->input('facultad_nomb');
       $eventos->descripcion= $request->input('descripcion');
-      $eventos->imagen = "/test.jpg";
+      $eventos->imagen =$name_image;
 
 
      #salvar en la base de datos
