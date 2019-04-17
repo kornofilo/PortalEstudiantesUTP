@@ -1,6 +1,6 @@
 <div class="col-md-10 blogShort">
         <h4>{{isset($titulo)?$titulo:null}}</h4>
-        <img src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
+        <img src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
 
         <article><p>
           <label>Costo: {{isset($costo)?$costo:null}}</label>
