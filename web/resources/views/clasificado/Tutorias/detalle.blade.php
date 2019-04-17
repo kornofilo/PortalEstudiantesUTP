@@ -3,7 +3,7 @@
 
   <!-- Detalles de tutorias -->
     <h4>{{isset($titulo)?$titulo:null}}</h4>
-    <img src="{{isset($imagen)?$imagen:null}}"  class="card-img-top">
+    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
     <br>
     <label>Costo: {{isset($costo)?$costo:null}}</label>
     <br>
