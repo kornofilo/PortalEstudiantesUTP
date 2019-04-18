@@ -3,7 +3,7 @@
 <div class="col-sm-8">
 
   <h4>{{isset($titulo)?$titulo:null}}</h4>
-  <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+  <img src="/imagenes/evento/{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
   <br>
   <label>Título del Evento: {{isset($titulo)?$titulo:null}}</label>
   <br>

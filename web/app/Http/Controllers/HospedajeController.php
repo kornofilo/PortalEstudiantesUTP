@@ -15,7 +15,7 @@ class HospedajeController extends Controller
     public function index()
     {
       $datos = Hospedaje::orderBy('id','desc')->get();
-  return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
+     return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
     }
 
     /**
@@ -48,10 +48,14 @@ class HospedajeController extends Controller
               'baños' => 'required',
               'amueblado' => 'required',
               'celular' => 'required',
-             //  'imagen' => 'required',
-              //  'email' => 'required',
-
+               'imagen' => 'required',
+             
           ]);
+
+          if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $name_image = time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/clasificado/alquilerhospedaje',$name_image);
 
           $hospedador = new Hospedaje();
           //Generación de Código de Publicación.
@@ -66,6 +70,7 @@ class HospedajeController extends Controller
           $hospedador->baños = $request->input('baños');
           $hospedador->amueblado = $request->input('amueblado');
           $hospedador->celular = $request->input('celular');
+          $hospedador->imagen =$name_image;
           $hospedador->nombre = \Auth::user()->nombre;
           $hospedador->email = \Auth::user()->email;
           
@@ -76,7 +81,7 @@ class HospedajeController extends Controller
           $hospedador->save();
           return back()->with('success',' Data Saved');
     }
-
+    }
     /**
      * Display the specified resource.
      *
@@ -87,7 +92,6 @@ class HospedajeController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *

@@ -1,12 +1,12 @@
 <div class="col-md-10 blogShort">               
         <h4>{{isset($titulo)?$titulo:null}}</h4>
-        <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+        <img src="/imagenes/clasificado/alquilerhospedaje/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
         
         <article><p>
           <label>Precio: {{isset($precio)?$precio:null}}</label>
           <br> 
           <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>  
             </p></article>
-  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Alquileres y Hospedajes','id_modal'=>'anun'.$id,'title'=>'ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle'])
+  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'VER MÁS..','id_modal'=>'anun'.$id,'title'=>'ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle'])
   
 </div>
