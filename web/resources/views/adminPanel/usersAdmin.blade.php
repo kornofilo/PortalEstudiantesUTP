@@ -15,7 +15,7 @@
 
 <div class="container-fluid">
         <!-- Formulario de Búsqueda de usuarios por dirección de correo electrónico -->
-        <form action="{{route('usersAdmin.getUser') }}" method="get">
+        <form action="{{route('usersAdmin.getUser')}}" method="get">
             @csrf
             <div class="form-group row justify-content-center">            
                 <div class="col-auto">

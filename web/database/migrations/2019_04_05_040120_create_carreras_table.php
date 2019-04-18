@@ -13,11 +13,11 @@ class CreateCarrerasTable extends Migration
      */
     public function up()
     {
-        Schema::create('carreras', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('facultad_id');
+        Schema::create('carreras', function (Blueprint $table) {            
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('facultad_id');
             $table->string('nombre')->unique();
-            $table->timestamps();
+            //$table->foreign('facultad_id')->references('id')->on('facultad')->onDelete('cascade');
         });
     }
 

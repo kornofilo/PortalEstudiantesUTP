@@ -12,11 +12,11 @@ class FacultadesTableSeeder extends Seeder
     public function run()
     {
         //Insertamos las facultades de la universidad en la base de datos
-        DB::table('facultades')->insert(['nombre' => 'Ciencias y Tecnología']);
-        DB::table('facultades')->insert(['nombre' => 'Ingeniería Civil']);
-        DB::table('facultades')->insert(['nombre' => 'Ingeniería Eléctrica']);
-        DB::table('facultades')->insert(['nombre' => 'Ingeniería Industrial']);
-        DB::table('facultades')->insert(['nombre' => 'Ingeniería Mecánica']);
-        DB::table('facultades')->insert(['nombre' => 'Ingeniería de Sistemas Computacionales']);
+        DB::table('facultades')->insert(['nombre' => 'Facultad de Ciencias y Tecnología']);
+        DB::table('facultades')->insert(['nombre' => 'Facultad de Ingeniería Civil']);
+        DB::table('facultades')->insert(['nombre' => 'Facultad de Ingeniería Eléctrica']);
+        DB::table('facultades')->insert(['nombre' => 'Facultad de Ingeniería Industrial']);
+        DB::table('facultades')->insert(['nombre' => 'Facultad de Ingeniería Mecánica']);
+        DB::table('facultades')->insert(['nombre' => 'Facultad de Ingeniería de Sistemas Computacionales']);
     }
 }

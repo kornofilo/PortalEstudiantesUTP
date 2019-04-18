@@ -51,6 +51,9 @@ Route::resource('eventos','EventoController');
 
     //Rutas de Gestión de Facultades
     Route::resource('degreesAdmin', 'AdminPanel\DegreesAdminController')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('degreeAdmin/newFacultad', 'AdminPanel\DegreesAdminController@newFacultad')->name('degreeAdmin.newFacultad')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('degreeAdmin/editFacultad/{id}', 'AdminPanel\DegreesAdminController@editFacultad')->name('degreeAdmin.editFacultad')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('degreeAdmin/deleteFacultad/{id}', 'AdminPanel\DegreesAdminController@deleteFacultad')->name('degreeAdmin.deleteFacultad')->middleware(['auth','auth.admin','checkUserStatus']); 
 
 
     Route::get('/banned', function () {
