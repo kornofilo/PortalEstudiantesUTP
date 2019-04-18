@@ -1,17 +1,22 @@
 @extends('layouts.auth')
 
 <!-- Específicamos el Título de la Vista -->
-@section('title','Inicio de Sesión')
+@section('title','Portal Estudiantil - Inicio de Sesión')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center h-100 align-items-center">
-        <div class="bg-light mx-2 col-sm8 col-md8 col-lg6 col-xl-6 rounded-lg text-center">
+        <div class="bg-light mx-2 col-sm8 col-md8 col-lg6 col-xl-6 rounded-lg ">
         <form method="POST" action="{{ route('login') }}">
             @csrf           
-            <div class="mt-4 mb-4">
-            <!-- Título del Form -->
+            
+            <div class="mb-4 text-center">
                 <h3 class="font-weight-bolder">Portal Estudiantil</h3>
+            </div>
+
+            <!-- Título del Form -->
+            <div class="text-center">
+                <h4 class="font-weight-bolder">Inicio de Sesión</h4>
             </div> 
                 <!-- Input de Correo Universitario -->
                 <div class="form-group">
@@ -36,14 +41,14 @@
                 </div>
 
                 <!-- Botón de Iniciar Sesión -->
-                <div class="form-group">
+                <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">
                         {{ __('Iniciar Sesión') }}
                     </button>
                 </div>
 
                 <!-- Link de Formulario de Recuperación de Contraseña -->
-                <div class="form-group">
+                <div class="form-group text-center">
                     @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}">
                         {{ __('¿Olvidaste tu contraseña?') }}
@@ -52,9 +57,9 @@
                 </div>
 
                 <!-- Link de Formulario de Registro de Usuario -->
-                <div class="form-group mb-4">
+                <div class="form-group mb-4 text-center">
                     @if (Route::has('register'))
-                        ¿No tienes cuenta? <a href="{{ route('register') }}"> {{ __('Regístrate') }}</a>
+                        ¿No tienes cuenta? <a href="{{ route('register') }}"> {{ __('Registrate') }}</a>
                     @endif
                 </div>
             </form>

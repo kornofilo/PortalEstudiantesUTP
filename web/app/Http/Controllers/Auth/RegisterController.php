@@ -86,13 +86,7 @@ class RegisterController extends Controller
     {
         //Obtenemos el rol de estudiante de la BD
         $estudianteRole = Role::where('name','estudiante')->first();
-
-        /*if($data->array('imagen')){
-          $file = $data->file('imagen');
-          $name = time().$file->getClientOriginalName();
-          $file->move(public_path().'/images/', $name);
-          return $name;
-        }*/
+       
         //Creamos una variable que contiene el modelo del nuevo usuario
         $newUser = User::create([
             'email' => $data['email'],
@@ -103,7 +97,6 @@ class RegisterController extends Controller
             'carrera' => $data['carrera'],
             'sexo' => $data['sexo'],
             'password' => Hash::make($data['password']),
-            //'imagen' => $data['imagen'],
         ]);
 
 
