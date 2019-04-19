@@ -43,7 +43,7 @@ class DegreesAdminController extends Controller
         return back()->with('success','Facultad eliminada exitosamente.');
     }
 
-    ## Funciones CRUD de Carreras
+    ## Funciones CRUD de Carreras##
     //Función para la crear una nueva carreras en la base de datos.
     public function newCarrera(Request $request,$idFacultad)
     {

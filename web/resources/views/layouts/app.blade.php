@@ -107,11 +107,12 @@
                             <!-- Texto del Link de Gestión de Facultades y Carreras -->
                             {{ __('Gestión de Facultades y Carreras') }}
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <!-- Icono de Gestión de Publicaciones -->
+                        <div class="dropdown-divider"></div>                        
+                        <a class="dropdown-item" href="{{ url('postsMod') }}">
+                            <!-- Icono de Moderación de Publicaciones -->
                             <i class="fas fa-check-double"></i>
-                            <!-- Texto del Link de Gestión de Publicaciones -->
-                            {{ __('Gestión de Publicaciones') }}
+                            <!-- Texto del Link de Moderación de Publicaciones -->
+                            {{ __('Publicaciones por Moderar') }}
                         </a>
                     </div>
                 </li>
@@ -121,11 +122,11 @@
                  <!-- Consultamos con la directuva role si el usuario cuenta con el rol de moderador -->
                  @role('Moderador')
                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                            <!-- Icono de Gestión de Publicaciones -->
+                    <a class="nav-link" href="{{ url('postsMod') }}">
+                            <!-- Icono de Moderación de Publicaciones -->
                             <i class="fas fa-check-double"></i>
-                            <!-- Texto del Link de Gestión de Publicaciones -->
-                            {{ __('Gestión de Publicaciones') }}
+                            <!-- Texto del Link de Moderación de Publicaciones -->
+                            {{ __('Publicaciones por Moderar') }}
                     </a>
                 </li>                
                 @endrole

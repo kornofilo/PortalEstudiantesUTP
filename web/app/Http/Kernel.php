@@ -63,7 +63,9 @@ class Kernel extends HttpKernel
         //Middleware de acceso al panel de administración
         'auth.admin' => \App\Http\Middleware\AccessAdmin::class,
         //Middleware para verificar el estado del usuario
-        'checkUserStatus' => \App\Http\Middleware\CheckUserStatus::class,        
+        'checkUserStatus' => \App\Http\Middleware\CheckUserStatus::class, 
+        //Middleware de acceso al panel de moderación
+        'auth.mod' => \App\Http\Middleware\AccessMod::class,       
     ];
 
     /**
