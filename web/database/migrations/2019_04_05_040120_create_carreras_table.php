@@ -17,6 +17,7 @@ class CreateCarrerasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('facultad_id');
             $table->string('nombre')->unique();
+            $table->timestamps();
             //$table->foreign('facultad_id')->references('id')->on('facultad')->onDelete('cascade');
         });
     }

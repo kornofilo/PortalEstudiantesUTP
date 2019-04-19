@@ -54,7 +54,9 @@ Route::resource('eventos','EventoController');
     Route::post('degreeAdmin/newFacultad', 'AdminPanel\DegreesAdminController@newFacultad')->name('degreeAdmin.newFacultad')->middleware(['auth','auth.admin','checkUserStatus']); 
     Route::post('degreeAdmin/editFacultad/{id}', 'AdminPanel\DegreesAdminController@editFacultad')->name('degreeAdmin.editFacultad')->middleware(['auth','auth.admin','checkUserStatus']); 
     Route::post('degreeAdmin/deleteFacultad/{id}', 'AdminPanel\DegreesAdminController@deleteFacultad')->name('degreeAdmin.deleteFacultad')->middleware(['auth','auth.admin','checkUserStatus']); 
-
+    Route::post('degreeAdmin/newCarrera/{id}', 'AdminPanel\DegreesAdminController@newCarrera')->name('degreeAdmin.newCarrera')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('degreeAdmin/editCarrera/{id}', 'AdminPanel\DegreesAdminController@editCarrera')->name('degreeAdmin.editCarrera')->middleware(['auth','auth.admin','checkUserStatus']); 
+    Route::post('degreeAdmin/deleteCarrera/{id}', 'AdminPanel\DegreesAdminController@deleteCarrera')->name('degreeAdmin.deleteCarrera')->middleware(['auth','auth.admin','checkUserStatus']); 
 
     Route::get('/banned', function () {
       return view('auth.banned');
