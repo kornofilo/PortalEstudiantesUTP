@@ -7,10 +7,9 @@
 <label for="facultad" class="col-form-label text-md-right">{{ __('Facultad') }}</label>
 <input id="facultad" class="form-control" value="{{$facultades->nombre}}" disabled>
 </div>
-
 <div class="form-group">
 <label for="carrera" class="col-form-label text-md-right">{{ __('Carrera') }}</label>
-<input class="form-control" name="carrera" value="{{auth()->user()->carrera}}" disabled>
+<input class="form-control" name="carrera" value="{{$carreras->nombre}}" disabled>
 </select>
 </div>
 <div class="form-group">

@@ -107,7 +107,7 @@
                             <!-- Texto del Link de Gestión de Facultades y Carreras -->
                             {{ __('Gestión de Facultades y Carreras') }}
                         </a>
-                        <div class="dropdown-divider"></div>                        
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('postsMod') }}">
                             <!-- Icono de Moderación de Publicaciones -->
                             <i class="fas fa-check-double"></i>
@@ -128,7 +128,7 @@
                             <!-- Texto del Link de Moderación de Publicaciones -->
                             {{ __('Publicaciones por Moderar') }}
                     </a>
-                </li>                
+                </li>
                 @endrole
              </ul>
 
@@ -136,7 +136,7 @@
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                  <img src="{{auth()->user()->imagen}}" class="rounded" width="30">
+                  <img src="{{url(auth()->user()->imagen)}}" class="rounded" width="30">
                   <!-- Email del usuario  -->
                   {{ Auth::user()->email }}
                 </button>
@@ -175,7 +175,7 @@
 
     <!-- Footer del Portal Estudiantil -->
     <footer>
-        <div class="fixed-bottom bg-dark text-white">            
+        <div class="fixed-bottom bg-dark text-white">
             <h6>&copy Portal Estudiantil - 2019</h6>
         </div>
     </footer>
