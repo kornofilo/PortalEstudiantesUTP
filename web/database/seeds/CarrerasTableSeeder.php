@@ -74,7 +74,7 @@ class CarrerasTableSeeder extends Seeder
             DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Ingeniería de Sistemas de Información']);
             DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Ingeniería de Sistemas y Computación']);
             DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Ingenieria de Software']);
-            DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Licenciatura en Desarrollo de Software']);
+            DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Desarrollo de Software']);
             DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Redes Informáticas']);
             DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Licenciatura en Informática Aplicada a la Educación']);
             DB::table('carreras')->insert(['facultad_id' => '6','nombre' => 'Técnico en Informática para la Gestión Empresarial']);

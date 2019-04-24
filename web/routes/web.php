@@ -19,9 +19,15 @@ Route::get('/', 'HomeController@index')->name('home')->middleware(['checkUserSta
 
 //Ruta de perfil de usuario
 Route::resource('miPerfil', 'PerfilController');
+Route::get('miPerfil/getcarreras/{id}','PerfilController@getCarreras');
+//Ruta de Actualización de Perfil
+Route::post('miPerfil/updateProfile', 'PerfilController@updateProfile')->name('perfil.update')->middleware(['auth']);
+
+
 //Ruta de registro
 Route::get('/register','RegistroController@getFacultades')->name('register');
 Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
+
 
 
 //Ruta de Clasificados

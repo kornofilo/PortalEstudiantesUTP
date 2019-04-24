@@ -6,7 +6,13 @@
         <div class="row">
           <div class="col-md-3">
             <div class="col-md-12" align="center">
-              <img class="img-responsive img-portfolio img-hover" src="{{auth()->user()->imagen}}" width="100">
+           <!-- Si el usuario tiene la imagen de perfil por defecto, la mostramos. -->
+           @if(auth()->user()->imagen === "default_avatar.png")     
+            <img class="img-responsive img-portfolio img-hover" src="{{auth()->user()->imagen}}" width="100">
+          <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
+          @else
+            <img class="img-responsive img-portfolio img-hover" src="/imagenes/profileImages/{{auth()->user()->email}}/{{auth()->user()->imagen}}" width="100">
+          @endif
             </div>
             <div class="row justify-content-md-center">
               {{auth()->user()->nombre}}
