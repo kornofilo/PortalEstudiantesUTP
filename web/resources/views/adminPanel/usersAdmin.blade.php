@@ -44,7 +44,7 @@
                 <select name="role" id="role" class="form-control" id="exampleFormControlSelect1">
                     @foreach($roles as $role) 
                     <!-- Si el rol del usuario coincide con el nombre del rol, se específica como opción seleccionada -->    
-                        @if($userData->roles()->value('name') == $role->name)
+                        @if($userRole == $role->name)
                             <option selected>{{$role->name}}</option> 
                         @else
                             <option>{{$role->name}}</option> 
