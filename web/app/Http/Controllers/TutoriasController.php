@@ -15,8 +15,9 @@ class TutoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+      
       # llama la vista y trae todos datos de la tabla
       $datos = Tutorias::orderBy('id','desc')->get();
       return view('clasificado.Tutorias.tutorias',compact('datos'));
@@ -27,12 +28,19 @@ class TutoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+  
+    public function search(Request $request)
+     {
+         $search = $request->get('search');
+        $datos = Tutorias::where('id','like','%'.$search.'%')->get();
+        echo 'here';
+        return view('clasificado.Tutorias.tutorias',compact('datos'));
+     }
      public function create()
      {
 
      }
-
-
+     
     /**
      * Store a newly created resource in storage.
      *

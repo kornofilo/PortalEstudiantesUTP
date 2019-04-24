@@ -30,6 +30,7 @@ Route::group(['prefix' => 'clasificado'], function () {
 Route::resource('anuncios','AnunciosController');
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
+Route::get('/search','TutoriasController@search');
 //Ruta de alquilerhospedaje
 Route::resource('alquilerhospedajes', 'HospedajeController');
 });
