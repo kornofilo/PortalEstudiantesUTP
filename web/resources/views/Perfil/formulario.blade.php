@@ -4,11 +4,11 @@
   <!-- Input de nueva imagen de perfil-->
  <div class="col-md-12 d-flex justify-content-center">
     <!-- Si el usuario tiene la imagen de perfil por defecto, la mostramos. -->
-    @if(auth()->user()->imagen === "default_avatar.png")     
-      <img class="img-responsive img-portfolio img-hover" src="{{auth()->user()->imagen}}" width="100">
+    @if(auth()->user()->imagen === "default_avatar.png")
+      <img class="img-responsive img-portfolio img-hover" src="{{auth()->user()->imagen}}" width="100" height="100">
     <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
     @else
-      <img class="img-responsive img-portfolio img-hover" src="/imagenes/profileImages/{{auth()->user()->email}}/{{auth()->user()->imagen}}" width="100">
+      <img class="img-responsive img-portfolio img-hover" src="/imagenes/profileImages/{{auth()->user()->email}}/{{auth()->user()->imagen}}" width="100" height="100">
     @endif
   </div>
   <div class="form-group">
@@ -49,8 +49,8 @@
         >
         <label class="form-check-label" for="FemeninoRadio">Femenino</label>
     </div> <br><br>
- 
-  
+
+
 
   <!-- Select de Sede o Centro Regional -->
   <div class="form-group">
@@ -79,7 +79,7 @@
     <label for="facultad" class="col-form-label text-md-right">{{ __('Facultad') }}</label>
     <select id="facultad" class="form-control" name="facultad" value="{{old('facultad')}}" required>
         <option disabled selected>--- Facultad ---</option>
-        @foreach ($facultades as $key => $value)          
+        @foreach ($facultades as $key => $value)
             <option value="{{ $key }}">{{ $value }}</option>
         @endforeach
     </select>
@@ -105,22 +105,22 @@
           <input class="form-control" name="correo" id="correo" value="{{auth()->user()->email}}" disabled>
         </div>
     </div>
-        
+
     <!-- Modal Footer -->
     <div class="modal-footer">
       <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       <button type="submit" class="btn btn-warning">Actualizar</button>
     </div>
 
-  
+
     <script type="text/javascript">
     $(document).ready(function ()
     {
           //Seteamos en el select de sedes la sede que pertenece el usuario.
           $('#sede').val('{{auth()->user()->sede}}').change();
 
-          $('#facultad').on('change', function(){   
-              console.log('facultad changed');     
+          $('#facultad').on('change', function(){
+              console.log('facultad changed');
                var facultadID = jQuery(this).val();
                if(facultadID)
                {
@@ -133,17 +133,17 @@
                         console.log(data);
                       $('select[name="carrera"]').empty();
                         var carrera = '{{auth()->user()->carrera}}';
-                        $.each(data, function(key,value){   
-                            //comparamos la carrera del usuario con las que se van agregando al select. Si coincide, la seteamos como seleccionada.                         
+                        $.each(data, function(key,value){
+                            //comparamos la carrera del usuario con las que se van agregando al select. Si coincide, la seteamos como seleccionada.
                             if(carrera.localeCompare(key) == 0) {
                               $('select[name="carrera"]').append(
-                                '<option value="'+ key +'" selected>'+ value +'</option>'                                                        
-                              ); 
+                                '<option value="'+ key +'" selected>'+ value +'</option>'
+                              );
                             }else{
                               $('select[name="carrera"]').append(
-                                '<option value="'+ key +'">'+ value +'</option>'                                                        
+                                '<option value="'+ key +'">'+ value +'</option>'
                               );
-                            }                                                                            
+                            }
                         });
                      }
                   });
