@@ -96,6 +96,8 @@ class RegisterController extends Controller
             'facultad' => $data['facultad'],
             'carrera' => $data['carrera'],
             'sexo' => $data['sexo'],
+            //Imagen de perfil por defecto
+            'imagen' => 'default_avatar.png',
             'password' => Hash::make($data['password']),
         ]);
 

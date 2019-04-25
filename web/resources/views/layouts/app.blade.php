@@ -135,8 +135,13 @@
               <!-- Dropdown de Opciones de Usuario -->
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                  <img src="{{url(auth()->user()->imagen)}}" class="rounded" width="30">
+                <!-- Si el usuario tiene la imagen de perfil por defecto, la mostramos. -->
+                @if(auth()->user()->imagen === "default_avatar.png")     
+                    <img src="{{url(auth()->user()->imagen)}}" class="rounded" width="30">
+                <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
+                @else
+                    <img src="/imagenes/profileImages/{{auth()->user()->email}}/{{auth()->user()->imagen}}" class="rounded" width="30">
+                @endif
                   <!-- Email del usuario  -->
                   {{ Auth::user()->email }}
                 </button>

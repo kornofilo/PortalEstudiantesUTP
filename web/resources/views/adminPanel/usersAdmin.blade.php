@@ -13,6 +13,8 @@
     <h6 class="text-center"> Ingrese la dirección de correo institucional del usuario que desea consultar y de click en el botón de buscar</h6> 
 </div>
 
+
+
 <div class="container-fluid">
         <!-- Formulario de Búsqueda de usuarios por dirección de correo electrónico -->
         <form action="{{route('usersAdmin.getUser')}}" method="get">
@@ -27,72 +29,59 @@
                 </div>
             </div>
         </form>
-    </div>
-
-
-    <table class="table text-center border">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Facultad</th>
-                <th scope="col">Carrera</th>
-                <th scope="col" colspan="2">Rol</th>
-                <th scope="col" colspan="2">Estatus</th>
-                </tr>                
-            </thead>
-    @if($userData !== null)    
-            <tbody>
-                <th>{{$userData->email}}</td>  
-                <td>{{$userData->nombre}}</td>       
-                <td>{{$userData->facultad}}</td>   
-                <td>{{$userData->carrera}}</td>       
-                <td>
-                    @isset($roles)
-                        <form action="{{route('usersAdmin.changeRole', $userData->email ) }}" method="post">
-                        @csrf
-                            <select name="role" id="role" class="form-control" id="exampleFormControlSelect1">
-                                @foreach($roles as $role) 
-                                    <!-- Si el rol del usuario coincide con el nombre del rol, se específica como opción seleccionada -->    
-                                    @if($userData->roles()->value('name') == $role->name)
-                                        <option selected>{{$role->name}}</option> 
-                                    @else
-                                        <option>{{$role->name}}</option> 
-                                    @endif                                                        
-                                @endforeach                          
-                            </select>
-                </td>
-                <td>
-                            <button type="submit" class="btn btn-warning font-weight-bold">
-                                <i class="fas fa-user-tag"></i>
-                                Actualizar Rol                                
-                            </button>
-                        </form>
-                </td>     
-                <td>{{$userData->estado}}</td>                   
-                <td>
-                    <!-- Si el usario se encuentra activo, se muestra la opción de "banear"-->    
-                    @if($userData->estado === "Activo")
-                        <form action="{{route('usersAdmin.banUser', $userData->email ) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-danger font-weight-bold">
-                                <i class="fas fa-lock"></i>
-                                Banear
-                            </button>
-                        </form>
-                    @else
-                        <form action="{{route('usersAdmin.reactivateUser', $userData->email ) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-danger font-weight-bold">
-                                <i class="fas fa-unlock"></i>
-                                Reactivar
-                            </button>
-                        </form>
-                    @endif
-                </td>
-                    @endisset        
-            </tbody>
-    </table>    
-    @endif
+@if($userData->nombre !== null)
+<div class="card text-center mx-auto col-sm8 col-md8 col-lg6 col-xl-6">
+  <div class="card-header font-weight-bold">
+    {{$userData->nombre}} {{$userData->apellido}} ({{$userData->email}})
+  </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <p class="card-text">Estudia la {{$userData->carrera}} en la {{$userData->facultad}} en la sede {{$userData->sede}}</p>
+        </li>
+        <li class="list-group-item">
+            <form action="{{route('usersAdmin.changeRole', $userData->email ) }}" method="post">
+            @csrf
+                <select name="role" id="role" class="form-control" id="exampleFormControlSelect1">
+                    @foreach($roles as $role) 
+                    <!-- Si el rol del usuario coincide con el nombre del rol, se específica como opción seleccionada -->    
+                        @if($userRole == $role->name)
+                            <option selected>{{$role->name}}</option> 
+                        @else
+                            <option>{{$role->name}}</option> 
+                        @endif                                                        
+                    @endforeach                          
+                </select>                
+                <button type="submit" class="btn btn-warning font-weight-bold">
+                    <i class="fas fa-user-tag"></i>
+                    Actualizar Rol                                
+                </button>
+            </form>
+        </li>
+        <li class="list-group-item">
+                <!-- Si el usario se encuentra activo, se muestra la opción de "banear"-->    
+            @if($userData->estado === "Activo")
+                <form action="{{route('usersAdmin.banUser', $userData->email ) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger font-weight-bold">
+                        <i class="fas fa-lock"></i>
+                        Banear
+                    </button>
+                </form>
+            @else
+                <form action="{{route('usersAdmin.reactivateUser', $userData->email ) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger font-weight-bold">
+                        <i class="fas fa-unlock"></i>
+                        Reactivar
+                    </button>
+                </form>
+            @endif
+        </li>
+    </ul>                            
+  </div>
+@endif
 </div>
+
+ <br><br>
+
 @endsection

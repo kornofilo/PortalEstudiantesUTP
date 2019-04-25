@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 //Importamos los modelos que vamos a utilizar
 use App\User;
 use App\Role;
-
+use DB;
 class UsersAdminController extends Controller
 {
     /**
@@ -23,16 +23,24 @@ class UsersAdminController extends Controller
 
     //Función para obtener el usuario buscado mediante la dirección de correo.
     public function getUser(Request $request){
-        //Obtenemos el la dirección de correo
+        //Obtenemos la dirección de correo
         $userEmail = $request->get('userEmail');  
-        //Verificamos que el email se encuentra registrado. Si no está registrado, enviamos una alerta.
-        if(!$userData = User::where('email', $userEmail)->first()){
+        $userData = User::select('users.email','users.nombre as nombre','users.apellido','users.sede','users.imagen','facultades.nombre as facultad','carreras.nombre as carrera','users.estado')       
+                        ->join('carreras', 'users.carrera', '=', 'carreras.id')
+                        ->join('facultades', 'users.facultad', '=', 'facultades.id')                        
+                        ->where('users.email', $userEmail)                        
+                        ->first(); 
+
+        //Verificamos que el email se encuentra registrado. Si no está registrado, enviamos una alerta.                                
+        if(!$userData){
             return redirect('usersAdmin')->with('warning','Usuario no Encontrado');
         }else{
             //Si está registrado, retornamos el modelo del usuario consultado y los roles de la aplicación.
             $roles = Role::all();
-            return view('adminPanel.usersAdmin',compact('userData','roles'));
-        }   
+            //Recuperamos el rol del usuario
+            $userRole = User::where('email', $userEmail)->first()->roles()->value('name');
+            return view('adminPanel.usersAdmin',compact('userData','roles','userRole'));
+        }
     }
 
     //Función para cambiar el rol de un usuario.
