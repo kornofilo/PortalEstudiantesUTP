@@ -5,7 +5,7 @@ use App\Profile;
 use App\User;
 use DB;
 use Illuminate\Http\Request;
-
+use Request as Rquest;
 class PerfilController extends Controller
 {
   public function index()
@@ -23,7 +23,7 @@ class PerfilController extends Controller
    }
 
    public function updateProfile(Request $request){
-    
+
     $miPerfil = User::where('id', auth()->user()->id)->first();
     $miPerfil->nombre = $request->get('nombre');
     $miPerfil->apellido = $request->get('apellido');
@@ -39,8 +39,25 @@ class PerfilController extends Controller
       $profileImage->move(public_path().'/imagenes/profileImages/'.auth()->user()->email.'/',$name_image);
       $miPerfil->imagen = $name_image;
     }
-    
+
     $miPerfil->save();
-    return back()->with('success','Perfil Actualizado.'); 
+    return back()->with('success','Perfil Actualizado.');
+   }
+   public function postperfiles(Request $request)
+   {
+     $id = $request->get('code');
+     $userData = User::select('users.email','users.nombre as nombre','users.apellido','users.sede','users.imagen','facultades.nombre as facultad','carreras.nombre as carrera','users.estado')
+                     ->join('carreras', 'users.carrera', '=', 'carreras.id')
+                     ->join('facultades', 'users.facultad', '=', 'facultades.id')
+                     ->where('users.email', $id)
+                     ->first();
+  return view('Perfil.OtroPerfil',compact('userData'));
+     // $id= Rquest::input('nombre');
+     //
+     // $user = DB::table('users')->select('nombre','apellido','email','facultad')->where('email','=', $id)->get();
+     //
+     // return view('Perfil.OtroPerfil', compact('user'));
+
+
    }
 }

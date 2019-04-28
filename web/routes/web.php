@@ -23,7 +23,8 @@ Route::resource('miPerfil', 'PerfilController');
 Route::get('miPerfil/getcarreras/{id}','PerfilController@getCarreras');
 //Ruta de Actualización de Perfil
 Route::post('miPerfil/updateProfile', 'PerfilController@updateProfile')->name('perfil.update')->middleware(['auth']);
-
+//Ruta para mostrar otro perfil
+Route::get('OtroPerfil','PerfilController@postperfiles');
 
 //Ruta de registro
 Route::get('/register','RegistroController@getFacultades')->name('register');

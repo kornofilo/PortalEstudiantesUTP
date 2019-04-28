@@ -5,7 +5,7 @@
                   <div class="col-xl">
                 <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar" aria-label="Search">
               </div>
-                <i class="fas fa-bell"></i>
+                <!-- <i class="fas fa-bell"></i> -->
             </form>
               @if(count($errors) > 0)
                         <div class="alert alert-danger">
