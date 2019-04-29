@@ -46,18 +46,12 @@ class PerfilController extends Controller
    public function postperfiles(Request $request)
    {
      $id = $request->get('code');
-     $userData = User::select('users.email','users.nombre as nombre','users.apellido','users.sede','users.imagen','facultades.nombre as facultad','carreras.nombre as carrera','users.estado')
+     $cliente = User::select('users.email','users.nombre as nombre','users.apellido','users.sede','users.imagen','facultades.nombre as facultad','carreras.nombre as carrera','users.estado')
                      ->join('carreras', 'users.carrera', '=', 'carreras.id')
                      ->join('facultades', 'users.facultad', '=', 'facultades.id')
                      ->where('users.email', $id)
                      ->first();
-  return view('Perfil.OtroPerfil',compact('userData'));
-     // $id= Rquest::input('nombre');
-     //
-     // $user = DB::table('users')->select('nombre','apellido','email','facultad')->where('email','=', $id)->get();
-     //
-     // return view('Perfil.OtroPerfil', compact('user'));
-
-
+  return view('Perfil.OtroPerfil',compact('cliente'));
+     // dd(userData);
    }
 }

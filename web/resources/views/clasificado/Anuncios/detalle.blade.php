@@ -25,7 +25,6 @@
         <input type="hidden" name="code" value="{{$email}}">
         <input type="submit" class="btn-info" value="Ver perfil del anunciante">
       </form>
-      <!-- <a href="{{ url($id) }}"> {{ __('Ver') }}</a> -->
     </div>
 
     <hr>
