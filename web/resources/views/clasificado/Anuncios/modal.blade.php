@@ -11,7 +11,7 @@
 @endif
 
 <!-- Si la sección que me encuentro es compra/venta o tutorías o alquiler/hospedaje. Aparece el botón de creación de publicación -->
-@if( (\Request::is('clasificado/anuncios')) || (\Request::is('clasificado/tutorias')) || (\Request::is('clasificado/alquilerhospedajes')) || (\Request::is('clasificado/search')) ) 
+@if( (\Request::is('clasificado/anuncios')) || (\Request::is('clasificado/tutorias')) || (\Request::is('clasificado/alquilerhospedajes')) || (\Request::is('clasificado/searchT')) || (\Request::is('/'))  ) 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">
       @isset($btn_nombre)
           {{$btn_nombre}}

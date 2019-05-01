@@ -15,7 +15,7 @@
 Auth::routes(['verify' => true]);
 
 //Ruta de Página principal
-Route::get('/', 'HomeController@index')->name('home')->middleware(['checkUserStatus']);
+Route::resource('/', 'HomeController')->middleware(['checkUserStatus']);
 
 //Ruta de perfil de usuario
 Route::resource('miPerfil', 'PerfilController');
@@ -37,15 +37,16 @@ Route::group(['prefix' => 'clasificado'], function () {
 Route::resource('anuncios','AnunciosController');
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
-Route::get('/search','TutoriasController@search');
+Route::get('/searchT','TutoriasController@search');
 //Ruta de alquilerhospedaje
 Route::resource('alquilerhospedajes', 'HospedajeController');
 });
 //Ruta de bolsatrabajo
 Route::resource('bolsatrabajos', 'BolsatrabajoController');
-
+Route::get('/searchB','BolsatrabajoController@searchB');
 //Ruta de Eventos
 Route::resource('eventos','EventoController');
+Route::get('/searchE','EventoController@searchE');
 //Route::resource('eventos','EventoController@carga')->name('eventos');
 
 

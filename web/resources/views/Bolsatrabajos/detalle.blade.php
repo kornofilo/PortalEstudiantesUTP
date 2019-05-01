@@ -3,7 +3,7 @@
 <div class="col-sm-8">
 
     <h4>{{isset($titulo)?$titulo:null}}</h4>
-    <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+    <img src="/imagenes/bolsatrabajo/{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
     <br>
     <label>Tipo de Puesto: {{isset($tipopuesto)?$tipopuesto:null}}</label>
     <br>

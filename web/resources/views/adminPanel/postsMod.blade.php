@@ -81,6 +81,8 @@
         </div>
         <div class="card-body font-weight-bold"> 
             <ul class="list-group">
+                   
+              
                 @foreach($tutorias as $tutoria)
                  <li class="list-group-item">
                     <div class="d-flex bd-highlight">
@@ -90,10 +92,12 @@
                         </div>
 
                         <!-- Opción para ver publicación -->
+                        
                         <div class="p-2 bd-highlight">
+                             
                             <button class="btn btn-secondary" type="button">
                                 <i class="fas fa-eye"></i>
-                                Ver Publicación
+                               
                             </button>
                         </div>
 
@@ -121,7 +125,7 @@
                     </div>
                 </li>
                 @endforeach
-                
+             
             </ul>
             
         </div>

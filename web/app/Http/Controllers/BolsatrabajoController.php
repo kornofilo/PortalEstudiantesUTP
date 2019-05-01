@@ -19,6 +19,12 @@ class BolsatrabajoController extends Controller
       return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
     }
 
+    public function searchB(Request $request)
+     {
+         $search = $request->get('search');
+        $datos = Bolsatrabajo::where('id','like','%'.$search.'%')->get();
+        return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
+     }
     /**
      * Show the form for creating a new resource.
      *
@@ -55,10 +61,18 @@ class BolsatrabajoController extends Controller
         'nombcont' => 'required',
         'celular' => 'required',
         'emailcont' => 'required',
-        // 'imagen' => 'required',
+        'imagen' => 'required',
 
 
     ]);
+
+
+    if ($request->hasFile('imagen')) {
+        $file = $request->file('imagen');
+        $name_image = time().$file->getClientOriginalName();
+        $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
+    }
+    
 
         $bolsatrabajo = new Bolsatrabajo();
         //Generación de Código de Publicación.
@@ -77,7 +91,7 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->nombcont= $request->input('nombcont');
         $bolsatrabajo->celular= $request->input('celular');
         $bolsatrabajo->emailcont= $request->input('emailcont');
-
+        $bolsatrabajo->imagen =$name_image;
 
        #salvar en la base de datos
         $bolsatrabajo->save();

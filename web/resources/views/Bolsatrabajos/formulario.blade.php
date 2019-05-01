@@ -99,7 +99,14 @@
                            <textarea class="form-control" id="message-text" name="beneficio" placeholder="Beneficios"></textarea>
                              </div>
                        </div>
-
+                       
+                       <!-- Input de Imagen -->
+                            <div class="form-group row">
+                               <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
+                               <div class="col-sm-8">
+                               <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Add Foto" >
+                               </div>
+                           </div>
   <!-- Informacion de Contacto -->
   <hr>
   <p class="h5">Información de Contacto:</p>

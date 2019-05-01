@@ -33,7 +33,6 @@ class TutoriasController extends Controller
      {
          $search = $request->get('search');
         $datos = Tutorias::where('id','like','%'.$search.'%')->get();
-        echo 'here';
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
      public function create()

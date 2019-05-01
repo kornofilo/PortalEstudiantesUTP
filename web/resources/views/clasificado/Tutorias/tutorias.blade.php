@@ -1,18 +1,19 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Tutoría','id_modal'=>'mod1','title'=>'AGREGA TUTORIAS AQUI','vista'=>'clasificado.Tutorias.formulario'])
- <br><br>
+  
+
   <form action="/clasificado/search" method="get" class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
         name="search" >
         <div class="form-group">
             <button type="submit" class="btn btn-success">Buscar</button>
-          </div>
+        </div>
         
   </form>
-
+  <br>
+  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Tutoría','id_modal'=>'mod1','title'=>'AGREGA TUTORIAS AQUI','vista'=>'clasificado.Tutorias.formulario'])
   @if(count($errors) > 0)
   <div class="alert alert-danger">
   <ul>
@@ -32,12 +33,9 @@
                  @isset($datos)
                  
                      @foreach ($datos as $data)
-                    
-
-                     <div class="col-md-10 blogShort card m-3 p-5">
-
+                
                             @include('clasificado.Tutorias.tutoria', $data)
-                    </div>
+               
                      @endforeach
              
               

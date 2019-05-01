@@ -26,7 +26,12 @@ class EventoController extends Controller
   
       return view('Eventos.eventos')->with(compact('datos'));
     }
-
+    public function searchE(Request $request)
+    {
+       $search = $request->get('search');
+       $datos = Evento::where('id','like','%'.$search.'%')->get();
+       return view('Eventos.eventos',compact('datos'));
+    }
     /**
      * Show the form for creating a new resource.
      *

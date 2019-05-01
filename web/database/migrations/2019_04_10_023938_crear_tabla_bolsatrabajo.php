@@ -27,6 +27,7 @@ class CrearTablaBolsatrabajo extends Migration
             $table->text('habilidades');
             $table->date('fecha');
             $table->text('beneficio');
+            $table->string('imagen');
             $table->string('nombcont',30);
             $table->string('celular',9);
             $table->string('emailcont',100);
