@@ -21,9 +21,15 @@
       <label>Celular: {{isset($celular)?$celular:null}}</label>
       <br>
       <label>Email: {{isset($email)?$email:null}}</label>
+      <br>
+      <form action="/OtroPerfil" method="get">
+        {{csrf_field()}}
+        <input type="hidden" name="code" value="{{$email}}">
+        <input type="submit" class="btn-info" value="Ver perfil del anunciante">
+      </form>
     </div>
 
-    <hr> 
+    <hr>
     <!-- Código de la Publicación -->
     <div class="col-sm-8">
       <label>Código de la Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>
