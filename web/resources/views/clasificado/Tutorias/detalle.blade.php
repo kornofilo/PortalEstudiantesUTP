@@ -1,16 +1,27 @@
+
 <div class="form-group row">
 <div class="col-sm-8">
 
   <!-- Detalles de tutorias -->
     <h4>{{isset($titulo)?$titulo:null}}</h4>
-    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+    <div class="container">
+    <div class="row ">
+        
+    <div class="text-left">
     <br>
     <label>Costo: {{isset($costo)?$costo:null}}</label>
     <br>
     <label>Ubicacion: {{isset($ubicacion)?$ubicacion:null}}</label>
     <br>
     <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label> <br>
-
+</div>
+<br>
+<div >
+    <img style=" width: 300px; " src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}" 
+     class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+    </div>
+</div>
+</div>
     <hr>
 
     <div class="col-sm-8">

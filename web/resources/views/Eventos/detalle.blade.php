@@ -3,8 +3,12 @@
 <div class="col-sm-8">
 
   <h4>{{isset($titulo)?$titulo:null}}</h4>
-  <img src="/imagenes/evento/{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
-  <br>
+  <div class="container">
+    <div class="row ">
+        
+    <div class="text-left">
+    <br>
+  
   <label>Título del Evento: {{isset($titulo)?$titulo:null}}</label>
   <br>
   <label>Lugar: {{isset($lugar)?$lugar:null}}</label>
@@ -18,8 +22,14 @@
   <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>
 
   </div>
-
   <hr>
+  <div >
+      <img style=" width: 300px; " src="/imagenes/evento/{{isset($imagen)?$imagen:null}}" 
+       class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+      </div>
+  </div>
+  </div>
+      <hr>
   <div class="col-sm-8">
       <label>Código de Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>    
   </div>

@@ -3,15 +3,26 @@
 <div class="col-sm-8">
 
     <h4>{{isset($titulo)?$titulo:null}}</h4>
-    <img src="/imagenes/bolsatrabajo/{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+    <div class="container">
+      <div class="row ">
+          
+      <div class="text-left">
+   
     <br>
     <label>Tipo de Puesto: {{isset($tipopuesto)?$tipopuesto:null}}</label>
     <br>
     <label>Ubicacion: {{isset($ubicacion)?$ubicacion:null}}</label>
     <br>
     <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label>
-    <hr>
+  </div>
 
+  <div >
+    <img style=" width: 300px; " src="/imagenes/bolsatrabajo/{{isset($imagen)?$imagen:null}}" 
+     class="rounded float-right img-responsive thumb margin10 img-thumbnail">
+  </div>
+  </div>
+</div>
+    <hr>
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>

@@ -82,8 +82,9 @@
         <div class="card-body font-weight-bold"> 
             <ul class="list-group">
                    
-              
+
                 @foreach($tutorias as $tutoria)
+              
                  <li class="list-group-item">
                     <div class="d-flex bd-highlight">
                         <!-- Nombre de la publicación -->
@@ -92,10 +93,9 @@
                         </div>
 
                         <!-- Opción para ver publicación -->
-                        
+                        @include('clasificado.Anuncios.modal', $tutoria=['btn_nombre'=>'ver detalles','id_modal'=>'anu'.$id_modal,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
                         <div class="p-2 bd-highlight">
-                             
-                            <button class="btn btn-secondary" type="button">
+                            <button class="btn btn-secondary" type="button" >
                                 <i class="fas fa-eye"></i>
                                
                             </button>
@@ -125,7 +125,7 @@
                     </div>
                 </li>
                 @endforeach
-             
+               
             </ul>
             
         </div>

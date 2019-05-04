@@ -8,11 +8,12 @@
 @include('Homes.carousel')
 
 <br><br>
-<div class="row justify-content-center">
+<div class="justify-content-center">
 <div id="evento" >
-        <div class=" col-xs-10 col-lg-10">
-            <div class="card ">
-                <div class="card-header text-center"><h4> Eventos </h4></div>
+        <div class=" col-xs-12 col-lg-12">
+            
+                <div class="card text-center border-primary mb-3"><h4> Eventos </h4></div>
+             
              @isset($datosE)
              
                  @foreach ($datosE  as $data)
@@ -23,17 +24,17 @@
           
              @endisset
            
-            </div>
+            
         </div>
     </div>
 </div>
     <br>
     <br>
- <div class="row justify-content-center">
+ <div class="justify-content-center">
 <div id="bolsatrabajo" >
-        <div class=" col-xs-10 col-lg-10  ">
-            <div class="card ">
-                <div class="card-header text-center"><h4> Bolsa de Trabajo </h4></div>
+        <div class=" col-xs-12 col-lg-12  ">
+            
+                <div class="card text-center border-primary mb-3r"><h4> Bolsa de Trabajo </h4></div>
              @isset($datosB)
              
                  @foreach ($datosB as $data)
@@ -44,7 +45,7 @@
           
              @endisset
            
-            </div>
+            
         </div>
     </div>
 
@@ -53,7 +54,7 @@
         <br><br>
         <h1 class=" text-center">Clasificados</h1>
         <br>
-   <div class="row justify-content-center">
+   <div class=" row justify-content-center">
 
         <div id="compraventa" >
             <div class=" col-xs-12 col-lg-12">

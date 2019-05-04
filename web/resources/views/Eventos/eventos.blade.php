@@ -27,8 +27,9 @@
   <br >
         <div id="eventos" class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header"><h4> Eventos</h4></div>
+                
+                    <div class="card text-center border-primary mb-4"><h4> Eventos</h4></div>
+          
                  @isset($datos)
                      @foreach ($datos as $data)
 
@@ -38,7 +39,7 @@
                  @endisset
 
                     <div class="col-md-12 gap10"></div>
-                </div>
+            
             </div>
 
 
