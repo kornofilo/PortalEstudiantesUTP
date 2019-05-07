@@ -19,13 +19,20 @@ Route::resource('/', 'HomeController')->middleware(['checkUserStatus']);
 
 //Ruta de perfil de usuario
 Route::resource('miPerfil', 'PerfilController');
-
+//Rutas para el crud de anuncios y tutorias
+Route::delete('delete/{id}', 'AnunciosController@destroy')->name('destroy');
+Route::get('Perfil/show/{id}', 'AnunciosController@show')->name('Perfil.show');
+Route::get('Perfil/show2/{id}', 'AnunciosController@show2')->name('Perfil.show2');
+Route::get('Perfil/detalles/{id}', 'AnunciosController@edit')->name('Perfil.detalles');
+Route::get('Perfil/detalles2/{id}', 'AnunciosController@edit2')->name('Perfil.detalles2');
+Route::put ('Perfil/update/{id}', 'AnunciosController@update')->name('Perfil.update');
+Route::put ('Perfil/update2/{id}', 'AnunciosController@update2')->name('Perfil.update2');
+//ruta para cargar carreras al formulario de editar el perfil
 Route::get('miPerfil/getcarreras/{id}','PerfilController@getCarreras');
 //Ruta de Actualización de Perfil
 Route::post('miPerfil/updateProfile', 'PerfilController@updateProfile')->name('perfil.update')->middleware(['auth']);
 //Ruta para mostrar otro perfil
 Route::get('OtroPerfil','PerfilController@postperfiles');
-
 //Ruta de registro
 Route::get('/register','RegistroController@getFacultades')->name('register');
 Route::get('register/getcarreras/{id}','RegistroController@getCarreras');

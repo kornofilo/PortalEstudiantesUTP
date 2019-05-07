@@ -1,20 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Profile;
+use App\Compraventa;
+use App\Tutorias;
 use App\User;
 use DB;
 use Illuminate\Http\Request;
 use Request as Rquest;
+use Illuminate\Pagination\Paginator;
 class PerfilController extends Controller
 {
   public function index()
   {
     //muestra los datos
-    $datos = Profile::orderBy('id','desc')->get();
+
+    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(5);
+    $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(5);
     $facultades = DB::table('facultades')->pluck("nombre","id");
-    return view('Perfil.miPerfil')->with(compact('datos','facultades'));
+    return view('Perfil.miPerfil', compact('datos','facultades','datosT'))
+                  ->with('i', (request()->input('page',1) -1)*5);
+
   }
+
+
+ /**
+  * Show the form for editing the specified resource.
+  *
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+
 
    public function getCarreras($id)
    {
@@ -43,6 +58,7 @@ class PerfilController extends Controller
     $miPerfil->save();
     return back()->with('success','Perfil Actualizado.');
    }
+   //muestra otro usuario dependiendo del anuncio
    public function postperfiles(Request $request)
    {
      $id = $request->get('code');
@@ -52,6 +68,7 @@ class PerfilController extends Controller
                      ->where('users.email', $id)
                      ->first();
   return view('Perfil.OtroPerfil',compact('cliente'));
-     // dd(userData);
    }
+
+
 }
