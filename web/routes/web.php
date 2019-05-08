@@ -20,7 +20,7 @@ Route::resource('/', 'HomeController')->middleware(['checkUserStatus']);
 //Ruta de perfil de usuario
 Route::resource('miPerfil', 'PerfilController');
 //Rutas para el crud de anuncios y tutorias
-Route::delete('delete/{id}', 'AnunciosController@destroy')->name('destroy');
+Route::get('dt/{id}', 'AnunciosController@destroy')->name('dt');
 Route::get('Perfil/show/{id}', 'AnunciosController@show')->name('Perfil.show');
 Route::get('Perfil/show2/{id}', 'AnunciosController@show2')->name('Perfil.show2');
 Route::get('Perfil/detalles/{id}', 'AnunciosController@edit')->name('Perfil.detalles');

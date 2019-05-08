@@ -86,10 +86,7 @@ class AnunciosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //  public function show($id)
-    // {
-    //     $datos = Compraventa::find($id);
-    //     return view('Perfil.detalles', compact('datos'));
+
     // }
 
     public function show($id)
@@ -130,9 +127,6 @@ class AnunciosController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
-
           $datos = Compraventa::find($id);
           $datos->nombreArt = $request->get('nombreArt');
           $datos->precio = $request->get('precio');
@@ -140,6 +134,15 @@ class AnunciosController extends Controller
           $datos->descripcion = $request->get('descripcion');
           $datos->celular = $request->get('celular');
           $datos->estadoPost = ('En Moderación');
+
+          if($request->hasFile('imagen')){
+            $profileImage = $request->file('imagen');
+            $name_image = 'profileImage'.'.'.$request->imagen->extension();
+            $profileImage->move(public_path().'/imagenes/clasificado/anuncios/',$name_image);
+            $datos->imagen = $name_image;
+
+          }
+
           $datos->save();
 
         return redirect('/miPerfil')->with('success','Datos Actualizados.');
@@ -157,6 +160,14 @@ class AnunciosController extends Controller
             $datosT->descripcion = $request->get('descripcion');
             $datosT->celular = $request->get('celular');
             $datosT->estadoPost = ('En moderación');
+
+            if($request->hasFile('imagen')){
+              $TImage = $request->file('imagen');
+              $name_image = 'TImage'.'.'.$request->imagen->extension();
+              $TImage->move(public_path().'/imagenes/clasificado/tutorias/',$name_image);
+              $datosT->imagen = $name_image;
+
+            }
             $datosT->save();
 
           return redirect('/miPerfil')->with('success','Datos Actualizados.');
@@ -172,9 +183,8 @@ class AnunciosController extends Controller
 
       public function destroy($id)
       {
-        dd($id);
         Compraventa::where('id', $id)->delete();
-
+        Tutorias::where('id', $id)->delete();
         return back()->with('success','eliminado exitosamente.');
       }
 }

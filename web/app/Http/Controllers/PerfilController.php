@@ -14,8 +14,8 @@ class PerfilController extends Controller
   {
     //muestra los datos
 
-    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(5);
-    $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(5);
+    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(3);
+    $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(3);
     $facultades = DB::table('facultades')->pluck("nombre","id");
     return view('Perfil.miPerfil', compact('datos','facultades','datosT'))
                   ->with('i', (request()->input('page',1) -1)*5);

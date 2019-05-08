@@ -16,11 +16,11 @@
             </div>
         @endif
         <div class="container">
-            <table class="table table-hover table-lg">
+            <table class="table ">
               <h3>Mis Publicaciones</h3>
               <tr>
-                <th width = "190px"><b>Nombre</b></th>
-                <th width = "180px">Estado</th>
+                <th width = "140px"><b>Nombre</b></th>
+                <th width = "120px">Estado</th>
                 <th width = "10px">Acción</th>
               </tr>
             <div class="card" >
@@ -36,15 +36,9 @@
                       <td>{{$data->nombreArt}}</td>
                       <td>{{$data->estadoPost}}</td>
                       <td>
-
-                         <form action="{{route('destroy',$data->id)}}" method="post">
-                             @csrf
-                             @method('DELETE')
-                             <a class="btn btn-info" href="{{route('Perfil.show',$data->id)}}">Ver</a>
-                             <a class="btn btn-warning" href="{{route('Perfil.detalles',$data->id)}}">Editar</a>
-                             <!-- <button type="submit" class="btn btn-danger">
-                                Borrar
-                             </button> -->
+                        <a class="btn btn-info" href="{{route('Perfil.show',$data->id)}}">Ver</a>
+                        <a class="btn btn-warning" href="{{route('Perfil.detalles',$data->id)}}">Editar</a>
+                        <a class="btn btn-danger" href="{{route('dt',$data->id)}}">Borrar</a>
                          </form>
                     </td>
                   </tr>
@@ -66,9 +60,7 @@
                                      @method('DELETE')
                                      <a class="btn btn-info" href="{{route('Perfil.show2',$data->id)}}">Ver</a>
                                      <a class="btn btn-warning" href="{{route('Perfil.detalles2',$data->id)}}">Editar</a>
-                                     <!-- <button type="submit" class="btn btn-danger">
-                                        Borrar
-                                     </button> -->
+                                     <a class="btn btn-danger" href="{{route('dt',$data->id)}}">Borrar</a>
                                  </form>
                             </td>
                           </tr>
@@ -76,8 +68,9 @@
               </table>
 
           @endif
-                <br>
+
               </div>
+
               </table>
 {!! $datos->links() !!}
             <br>

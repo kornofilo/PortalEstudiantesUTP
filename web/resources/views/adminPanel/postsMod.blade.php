@@ -13,12 +13,12 @@
     <div class="alert alert-success" role="alert">
         <h6 class="text-center font-weight-bold"> No tiene publicaciones de Compra/Venta por Moderar </h6>
     </div>
-@else    
+@else
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-header">
-           <h4>Publicaciones de Compra/Venta Por Moderar: <span class="badge badge-primary">{{$compraVenta->count()}}</span> </h4> 
+           <h4>Publicaciones de Compra/Venta Por Moderar: <span class="badge badge-primary">{{$compraVenta->count()}}</span> </h4>
         </div>
-        <div class="card-body font-weight-bold"> 
+        <div class="card-body font-weight-bold">
             <ul class="list-group">
                 @foreach($compraVenta as $anuncio)
                  <li class="list-group-item">
@@ -44,9 +44,9 @@
                                     <i class="far fa-thumbs-up"></i>
                                     Aprobar
                                 </button>
-                            </form>                       
+                            </form>
                         </div>
-                        
+
                         <!-- Opción para rechazar publicación -->
                         <div class="p-2 bd-highlight">
                             <form action="{{route('postsMod.rechazarCyVPost', $anuncio->id)}}" method="post">
@@ -55,14 +55,14 @@
                                     <i class="far fa-thumbs-down"></i>
                                     Rechazar
                                 </button>
-                            </form>                             
-                        </div>                         
+                            </form>
+                        </div>
                     </div>
                 </li>
                 @endforeach
-                
+
             </ul>
-            
+
         </div>
     </div>
 @endif
@@ -74,17 +74,17 @@
     <div class="alert alert-success" role="alert">
         <h6 class="text-center font-weight-bold"> No tiene publicaciones de Tutorías por Moderar </h6>
     </div>
-@else    
+@else
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-header">
-           <h4>Publicaciones de Tutorías Por Moderar: <span class="badge badge-primary">{{$tutorias->count()}}</span> </h4> 
+           <h4>Publicaciones de Tutorías Por Moderar: <span class="badge badge-primary">{{$tutorias->count()}}</span> </h4>
         </div>
-        <div class="card-body font-weight-bold"> 
+        <div class="card-body font-weight-bold">
             <ul class="list-group">
-                   
+
 
                 @foreach($tutorias as $tutoria)
-              
+
                  <li class="list-group-item">
                     <div class="d-flex bd-highlight">
                         <!-- Nombre de la publicación -->
@@ -93,11 +93,11 @@
                         </div>
 
                         <!-- Opción para ver publicación -->
-                        @include('clasificado.Anuncios.modal', $tutoria=['btn_nombre'=>'ver detalles','id_modal'=>'anu'.$id_modal,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
+                        
                         <div class="p-2 bd-highlight">
                             <button class="btn btn-secondary" type="button" >
                                 <i class="fas fa-eye"></i>
-                               
+
                             </button>
                         </div>
 
@@ -109,9 +109,9 @@
                                     <i class="far fa-thumbs-up"></i>
                                     Aprobar
                                 </button>
-                            </form>                       
+                            </form>
                         </div>
-                        
+
                         <!-- Opción para rechazar publicación -->
                         <div class="p-2 bd-highlight">
                             <form action="{{route('postsMod.rechazarTutPost', $tutoria->id)}}" method="post">
@@ -120,30 +120,30 @@
                                     <i class="far fa-thumbs-down"></i>
                                     Rechazar
                                 </button>
-                            </form>                             
-                        </div>                         
+                            </form>
+                        </div>
                     </div>
                 </li>
                 @endforeach
-               
+
             </ul>
-            
+
         </div>
     </div>
 @endif
- 
+
 <br>
 
 @if($hospedajes->count() === 0)
     <div class="alert alert-success" role="alert">
         <h6 class="text-center font-weight-bold"> No tiene publicaciones de Alquiler/Hospedaje por Moderar </h6>
     </div>
-@else    
+@else
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-header">
-           <h4>Publicaciones de Alquiler/Hospedaje Por Moderar: <span class="badge badge-primary">{{$hospedajes->count()}}</span> </h4> 
+           <h4>Publicaciones de Alquiler/Hospedaje Por Moderar: <span class="badge badge-primary">{{$hospedajes->count()}}</span> </h4>
         </div>
-        <div class="card-body font-weight-bold"> 
+        <div class="card-body font-weight-bold">
             <ul class="list-group">
                 @foreach($hospedajes as $hospedaje)
                  <li class="list-group-item">
@@ -169,9 +169,9 @@
                                 <i class="far fa-thumbs-up"></i>
                                 Aprobar
                             </button>
-                        </form>                       
+                        </form>
                     </div>
-                    
+
                     <!-- Opción para rechazar publicación -->
                     <div class="p-2 bd-highlight">
                         <form action="{{route('postsMod.rechazarHosPost', $hospedaje->id)}}" method="post">
@@ -180,14 +180,14 @@
                                 <i class="far fa-thumbs-down"></i>
                                 Rechazar
                             </button>
-                        </form>                             
-                    </div>                   
+                        </form>
+                    </div>
                 </div>
                 </li>
                 @endforeach
-                
+
             </ul>
-            
+
         </div>
     </div>
 @endif

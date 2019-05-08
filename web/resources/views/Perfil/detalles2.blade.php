@@ -8,7 +8,7 @@
       </div>
     </div>
     <!--error  -->
-    <form action="{{route('Perfil.update2',$datosT->id)}}" method="post">
+    <form action="{{route('Perfil.update2',$datosT->id)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="container">
@@ -16,7 +16,15 @@
       <div class="bg-light mx-2 col-sm8 col-md8 col-lg6 col-xl-7 rounded-lg ">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-         <img class="img-responsive img-portfolio img-hover" src="{{$datosT->imagen}}" width="100" height="100">
+          <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/tutorias/{{$datosT->imagen}}"
+           class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+       </div>
+       <br>
+       <div class="col-md-12">
+       <div class="form-group">
+         <label for="imagen">Nueva Imagen</label>
+         <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
+       </div>
        </div>
         <div class="col-md-12">
           <div class="form-group">

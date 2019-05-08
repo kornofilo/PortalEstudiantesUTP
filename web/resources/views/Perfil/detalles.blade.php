@@ -7,7 +7,7 @@
       </div>
     </div>
     <!--error  -->
-    <form action="{{route('Perfil.update',$datos->id)}}" method="post">
+    <form action="{{route('Perfil.update',$datos->id)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="container">
@@ -16,7 +16,8 @@
       <div class="row">
         <!-- Input de nueva imagen -->
        <div class="col-md-12 d-flex justify-content-center">
-        <img class="img-responsive img-portfolio img-hover" src="{{$datos->imagen}}" width="200" height="200">
+         <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/anuncios/"
+          class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
 
         <div class="col-md-12">
@@ -56,6 +57,7 @@
           <br>
           <button type="submit" class="btn btn-sm btn-warning">Actualizar</button>
           <a href="{{url('miPerfil')}}" class="btn btn-sm btn-danger">Regresar</a>
+          <br></br>
         </div>
       </div>
     </form>
