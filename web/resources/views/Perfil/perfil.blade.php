@@ -36,9 +36,9 @@
                       <td>{{$data->nombreArt}}</td>
                       <td>{{$data->estadoPost}}</td>
                       <td>
-                        <a class="btn btn-info" href="{{route('Perfil.show',$data->id)}}">Ver</a>
-                        <a class="btn btn-warning" href="{{route('Perfil.detalles',$data->id)}}">Editar</a>
-                        <a class="btn btn-danger" href="{{route('dt',$data->id)}}">Borrar</a>
+                        <a class="btn btn-outline-info" href="{{route('Perfil.show',$data->id)}}">Ver</a>
+                        <a class="btn btn-outline-warning" href="{{route('Perfil.detalles',$data->id)}}">Editar</a>
+                        <a class="btn btn-outline-danger" href="{{route('dt',$data->id)}}">Borrar</a>
                          </form>
                     </td>
                   </tr>
@@ -58,9 +58,9 @@
                                  <form action="{{route('destroy',$data->id)}}" method="post">
                                      @csrf
                                      @method('DELETE')
-                                     <a class="btn btn-info" href="{{route('Perfil.show2',$data->id)}}">Ver</a>
-                                     <a class="btn btn-warning" href="{{route('Perfil.detalles2',$data->id)}}">Editar</a>
-                                     <a class="btn btn-danger" href="{{route('dt',$data->id)}}">Borrar</a>
+                                     <a class="btn btn-outline-info" href="{{route('Perfil.show2',$data->id)}}">Ver</a>
+                                     <a class="btn btn-outline-warning" href="{{route('Perfil.detalles2',$data->id)}}">Editar</a>
+                                     <a class="btn btn-outline-danger" href="{{route('dt',$data->id)}}">Borrar</a>
                                  </form>
                             </td>
                           </tr>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Compraventa;
 use App\Tutorias;
+use App\Evento;
+use App\Bolsatrabajo;
+use App\Hospedaje;
 use App\User;
 use DB;
 use Illuminate\Http\Request;
@@ -12,17 +15,16 @@ class PerfilController extends Controller
 {
   public function index()
   {
-    //muestra los datos
-
+    //muestra los datos en el perfil
+    // $datosE = Evento::where('email', auth()->user()->email)->latest()->paginate(3);
+    // $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->paginate(3);
+    // $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->paginate(3);
     $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(3);
     $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(3);
     $facultades = DB::table('facultades')->pluck("nombre","id");
     return view('Perfil.miPerfil', compact('datos','facultades','datosT'))
                   ->with('i', (request()->input('page',1) -1)*5);
-
   }
-
-
  /**
   * Show the form for editing the specified resource.
   *

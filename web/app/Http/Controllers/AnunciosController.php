@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Compraventa;
-use App\Tutorias;
 use App\User;
 
 
@@ -92,14 +91,8 @@ class AnunciosController extends Controller
     public function show($id)
     {
         $datos = Compraventa::find($id);
-        return view('Perfil.show', compact('datos'));
+        return view('Perfil.Compraventa.show', compact('datos'));
     }
-    public function show2($id)
-    {
-        $datosT = Tutorias::find($id);
-        return view('Perfil.show2', compact('datosT'));
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -109,15 +102,8 @@ class AnunciosController extends Controller
      public function edit($id)
      {
          $datos = Compraventa::find($id);
-         return view('Perfil.detalles', compact('datos'));
+         return view('Perfil.Compraventa.detalles', compact('datos'));
      }
-
-     public function edit2($id)
-     {
-         $datosT = Tutorias::find($id);
-         return view('Perfil.detalles2', compact('datosT'));
-     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -148,31 +134,6 @@ class AnunciosController extends Controller
         return redirect('/miPerfil')->with('success','Datos Actualizados.');
       }
 
-      public function update2(Request $request, $id)
-      {
-
-            $datosT = Tutorias::find($id);
-            $datosT->titulo = $request->get('titulo');
-            $datosT->nomtutor = $request->get('nomtutor');
-            $datosT->materia = $request->get('materia');
-            $datosT->costo = $request->get('costo');
-            $datosT->ubicacion = $request->get('ubicacion');
-            $datosT->descripcion = $request->get('descripcion');
-            $datosT->celular = $request->get('celular');
-            $datosT->estadoPost = ('En moderación');
-
-            if($request->hasFile('imagen')){
-              $TImage = $request->file('imagen');
-              $name_image = 'TImage'.'.'.$request->imagen->extension();
-              $TImage->move(public_path().'/imagenes/clasificado/tutorias/',$name_image);
-              $datosT->imagen = $name_image;
-
-            }
-            $datosT->save();
-
-          return redirect('/miPerfil')->with('success','Datos Actualizados.');
-        }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -184,7 +145,6 @@ class AnunciosController extends Controller
       public function destroy($id)
       {
         Compraventa::where('id', $id)->delete();
-        Tutorias::where('id', $id)->delete();
         return back()->with('success','eliminado exitosamente.');
       }
 }

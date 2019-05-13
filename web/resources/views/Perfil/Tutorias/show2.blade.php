@@ -21,24 +21,14 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Nmobre del tutor : </strong> {{$datosT->nomtutor}}
+          <strong>Nombre del tutor : </strong> {{$datosT->nomtutor}}
         </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <strong>Título :</strong> {{$datosT->titulo}}
-      </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <strong>Nombre del Tutor :</strong> {{$datosT->nomtutor}}
-      </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
         <strong>Materia :</strong> {{$datosT->materia}}
       </div>
-      </div>
+    </div>
       <div class="col-md-12">
         <div class="form-group">
         <strong>Costo :</strong> {{$datosT->costo}}
@@ -66,7 +56,17 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Fue Anunciada el :</strong> {{$datosT->created_at}}
+        <strong>Nombre del Anunciante :</strong> {{$datosT->nombre}}
+      </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Correo :</strong> {{$datosT->email}}
+      </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Fue Anunciada el :</strong> {{$datosT->created_at->format('d/m/Y')}}
       </div>
       </div>
       <br>

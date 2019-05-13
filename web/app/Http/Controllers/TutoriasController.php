@@ -17,7 +17,7 @@ class TutoriasController extends Controller
      */
     public function index(Request $request)
     {
-      
+
       # llama la vista y trae todos datos de la tabla
       $datos = Tutorias::orderBy('id','desc')->get();
       return view('clasificado.Tutorias.tutorias',compact('datos'));
@@ -28,7 +28,7 @@ class TutoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-  
+
     public function search(Request $request)
      {
          $search = $request->get('search');
@@ -39,7 +39,7 @@ class TutoriasController extends Controller
      {
 
      }
-     
+
     /**
      * Store a newly created resource in storage.
      *
@@ -62,14 +62,14 @@ class TutoriasController extends Controller
 
 
   ]);
-      
+
 
       if ($request->hasFile('imagen')) {
           $file = $request->file('imagen');
           $name_image = time().$file->getClientOriginalName();
           $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
       }
-      
+
       $tutorias = new Tutorias () ;
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->count() + 1);
@@ -87,7 +87,7 @@ class TutoriasController extends Controller
 
      #salvar en la base de datos
       $tutorias->save();
-        return back()->with('success',' Data Saved'); 
+        return back()->with('success',' Data Saved');
     }
 
     /**
@@ -96,10 +96,11 @@ class TutoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+     public function show($id)
+     {
+         $datosT = Tutorias::find($id);
+         return view('Perfil.Tutorias.show2', compact('datosT'));
+     }
 
     /**
      * Show the form for editing the specified resource.
@@ -107,10 +108,11 @@ class TutoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+     public function edit($id)
+     {
+         $datosT = Tutorias::find($id);
+         return view('Perfil.Tutorias.detalles2', compact('datosT'));
+     }
 
     /**
      * Update the specified resource in storage.
@@ -119,10 +121,30 @@ class TutoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+     public function update(Request $request, $id)
+     {
+
+           $datosT = Tutorias::find($id);
+           $datosT->titulo = $request->get('titulo');
+           $datosT->nomtutor = $request->get('nomtutor');
+           $datosT->materia = $request->get('materia');
+           $datosT->costo = $request->get('costo');
+           $datosT->ubicacion = $request->get('ubicacion');
+           $datosT->descripcion = $request->get('descripcion');
+           $datosT->celular = $request->get('celular');
+           $datosT->estadoPost = ('En moderación');
+
+           if($request->hasFile('imagen')){
+             $TImage = $request->file('imagen');
+             $name_image = 'TImage'.'.'.$request->imagen->extension();
+             $TImage->move(public_path().'/imagenes/clasificado/tutorias/',$name_image);
+             $datosT->imagen = $name_image;
+
+           }
+           $datosT->save();
+
+         return redirect('/miPerfil')->with('success','Datos Actualizados.');
+       }
 
     /**
      * Remove the specified resource from storage.
@@ -130,8 +152,9 @@ class TutoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+     public function destroy($id)
+     {
+       Tutorias::where('id', $id)->delete();
+       return back()->with('success','eliminado exitosamente.');
+     }
 }
