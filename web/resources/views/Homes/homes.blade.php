@@ -3,7 +3,7 @@
 @section('title','Portal Estudiantil - UTP')
 
 @section('content')
-<div class="conteinar">
+<div class="container">
         
 @include('Homes.carousel')
 
@@ -79,7 +79,7 @@
               <div id="tutorias" >
                   <div class=" col-xs-4 col-lg-4 ">
                       <div class="card ">
-                          <div class="card-header text-center"><h4> Tutotias</h4></div>
+                          <div class="card-header text-center"><h4> Tutorías</h4></div>
                        @isset($datosT)
                        
                            @foreach ($datosT as $data)
