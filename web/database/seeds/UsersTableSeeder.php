@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         //Asignamos el rol de moderador al nuevo usuario
-        $admin->roles()->attach($modRole);
+        $mod->roles()->attach($modRole);
 
 
     }
