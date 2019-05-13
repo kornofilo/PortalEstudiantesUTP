@@ -88,6 +88,7 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->habilidades= $request->input('habilidades');
         $bolsatrabajo->fecha= $request->input('fecha');
         $bolsatrabajo->beneficio= $request->input('beneficio');
+        $bolsatrabajo->email = \Auth::user()->email;
         $bolsatrabajo->nombcont= $request->input('nombcont');
         $bolsatrabajo->celular= $request->input('celular');
         $bolsatrabajo->emailcont= $request->input('emailcont');

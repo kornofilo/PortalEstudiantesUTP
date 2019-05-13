@@ -23,6 +23,7 @@ class CrearTablaEventos extends Migration
             $table->string('facultad_nomb');
             $table->text('descripcion');
             $table->string('imagen');
+            $table->string('email',100);
             $table->timestamps();
         });
     }

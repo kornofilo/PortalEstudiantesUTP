@@ -74,6 +74,7 @@ class EventoController extends Controller
       $eventos->costo= $request->input('costo');
       $eventos->facultad_nomb= $request->input('facultad_nomb');
       $eventos->descripcion= $request->input('descripcion');
+      $eventos->email = \Auth::user()->email;
       $eventos->imagen =$name_image;
 
 

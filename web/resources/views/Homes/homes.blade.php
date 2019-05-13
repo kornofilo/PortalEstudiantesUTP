@@ -1,33 +1,36 @@
 @extends('layouts.app')
 
-@section('title','Portal Estudiantil - UTP')
+@section('title','Portal Estudiantil - Página Principal')
 
 @section('content')
-<div class="container">
-        
-@include('Homes.carousel')
+<!-- Incluimos el carousel -->
+<div class="container">            
+    @include('Homes.carousel')
+<br>
 
-<br><br>
 <div class="justify-content-center">
-<div id="evento" >
-        <div class=" col-xs-12 col-lg-12">
-            
-                <div class="card text-center border-primary mb-3"><h4> Eventos </h4></div>
-             
-             @isset($datosE)
-             
-                 @foreach ($datosE  as $data)
-            
-                        @include('Eventos.evento', $data)
-               
-                 @endforeach
-          
-             @endisset
-           
-            
+    <!-- Sección con los últomos 5 eventos publicados -->'
+    @isset($datosE)                    
+    <div id="evento" >
+            <div class=" col-xs-12 col-lg-12">
+                <h4 class="text-center">  Últimos Eventos  </h4> 
+                <div class="card-deck">
+                    @foreach ($datosE  as $evento)                    
+                    <div class="card">
+                        <img src="/imagenes/evento/{{$evento->imagen}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$evento->titulo}}</h5>
+                            <p class="card-text">Descripción: {{$evento->descripcion}}</p>
+                            <p class="card-text">Ubicación: {{$evento->lugar}}</p>
+                        </div>
+                    </div>
+                    @endforeach                
+                </div>         
+            </div>
         </div>
     </div>
-</div>
+    @endisset                        
+
     <br>
     <br>
  <div class="justify-content-center">

@@ -14,7 +14,7 @@ class HospedajeController extends Controller
      */
     public function index()
     {
-      $datos = Hospedaje::orderBy('id','desc')->get();
+      $datos = Hospedaje::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
      return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
     }
 
