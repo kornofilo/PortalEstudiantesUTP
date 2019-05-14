@@ -29,8 +29,5 @@ steps:
     export PATH=$PATH:~/usr/local/bin/ 
     sudo composer self-update
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
-
 - script: phpunit
   displayName: 'Run tests with phpunit'
