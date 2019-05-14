@@ -45,3 +45,5 @@ Proyecto colaborativo de ingenería de software 6 creditos.
 * Ejecutar _php artisan db:seed_ para realizar las inserciones a la base de datos que son necesarias para que el sitio funcione de manera correcta (si no les funciona el comando anterior utilizar _composer dump-autoload_ primero y luego ejecutar el comando _php artisan db:seed_)
 
 * Para levantar el proyecto, abrir xampp, iniciar apache y mysql, ir a la carpeta ¨web¨ del proyecto y ejecutar los comandos en terminal: _php artisan serve_ y abrir la pagina usando la direccion que aparece en la linea de comandos. 
+
+* Para ingresar al sistema en modo administrador utilice "admin.portalE@utp.ac.pa" contraseña "admin".
