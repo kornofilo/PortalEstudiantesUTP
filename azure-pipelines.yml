@@ -22,7 +22,3 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: sudo apt-get -y remove composer 
-
-- script: composer install
-  displayName: 'composer install'
