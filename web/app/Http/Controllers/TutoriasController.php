@@ -32,7 +32,10 @@ class TutoriasController extends Controller
     public function search(Request $request)
      {
          $search = $request->get('search');
-        $datos = Tutorias::where('id','like','%'.$search.'%')->get();
+        $datos = Tutorias::where('titulo','like','%'.$search.'%')
+                ->orWhere('costo','like','%'.$search.'%')
+                ->orWhere('materia','like','%'.$search.'%')
+                ->orWhere('descripcion','like','%'.$search.'%')->get();
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
      public function create()
@@ -59,8 +62,6 @@ class TutoriasController extends Controller
       'descripcion' => 'required',
       'celular' => 'required',
       'imagen' => 'required',
-
-
   ]);
 
 
