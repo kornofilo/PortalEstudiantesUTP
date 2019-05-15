@@ -3,10 +3,10 @@
         <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
         
         <article><p>
-          <label>Precio: {{isset($precio)?$precio:null}}</label>
+          <label>Precio: {{$anuncio->precio}}</label>
           <br> 
-          <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label>  
+          <label>Descripción: {{$anuncio->descripcion}}</label>  
             </p></article>
-  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
+          @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
   
 </div>

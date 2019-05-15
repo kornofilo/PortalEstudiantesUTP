@@ -1,35 +1,35 @@
 <div class="form-group row">
 <div class="col-sm-8">
 
-    <h4>{{isset($nombreArt)?$nombreArt:null}}</h4>
+    <h4>{{$anuncio->nombreArt}}</h4>
     <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
     <br>
-    <label>Precio: {{isset($precio)?$precio:null}}</label>
+    <label>Precio: {{$anuncio->precio}}</label>
     <br>
-    <label>Estado: {{isset($estado)?$estado:null}}</label>
+    <label>Estado: {{$anuncio->estado}}</label>
     <br>
-    <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label>
+    <label>Descripcion: {{$anuncio->descripcion}}</label>
     <hr>
 
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
-      <label>Nombre del Contacto: {{isset($nombre)?$nombre." ".$anunciante['apellido']:null}}</label>
+      <label>Nombre del Contacto: {{$anuncio->nombreArt}}</label>
       <br>
-      <label>Celular: {{isset($celular)?$celular:null}}</label>
+      <label>Celular: {{$anuncio->celular}}</label>
       <br>
-      <label>Email: {{isset($email)?$email:null}}</label>
+      <label>Email: {{$anuncio->email}}</label>
       <br>
       <form action="/OtroPerfil" method="get">
         {{csrf_field()}}
-        <input type="hidden" name="code" value="{{$email}}">
+        <input type="hidden" name="code" value="">
         <input type="submit" class="btn-info" value="Ver perfil del anunciante">
       </form>
     </div>
 
     <hr>
     <div class="col-sm-8">
-      <label>Código de Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>
+      <label>Código de Publicación: {{$anuncio->codigoPost}}</label>
     </div>
 
 </div>

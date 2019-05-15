@@ -25,11 +25,10 @@
                 <div class="card">
                     <div class="card-header"><h4> Ofertas Compra/Ventas</h4></div>         
                  @isset($datos)
-                     @foreach ($datos as $data)
+                     @foreach ($datos as $anuncio)
                      
                      <div class="col-md-10 blogShort card m-3 p-5">
-                            {{ $data->anunciante->apellido}}
-                            @include('clasificado.Anuncios.anuncio', $data)
+                            @include('clasificado.Anuncios.anuncio', $anuncio)
                     </div>
                      @endforeach
                  @endisset
