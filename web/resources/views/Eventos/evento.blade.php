@@ -6,7 +6,7 @@
             <!-- Card image -->
             <div class="card-block card-cascade wider reverse text-center ">
         <div class="view overlay">
-                <img class="card-img-top" style="max-width: 350px;" src="/imagenes/evento/{{$evento->imagen}}" alt="Card image cap">
+                <img class="card-img-top" style="max-width: 350px;" src="/imagenes/eventos/{{$evento->imagen}}" alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>

@@ -17,7 +17,7 @@
                 <div class="card-deck">
                     @foreach ($datosE  as $evento)                    
                     <div class="card">
-                        <img src="/imagenes/evento/{{$evento->imagen}}" class="card-img-top" alt="...">
+                        <img src="/imagenes/eventos/{{$evento->imagen}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$evento->titulo}}</h5>
                             <p class="card-text">Descripción: {{$evento->descripcion}}</p>
