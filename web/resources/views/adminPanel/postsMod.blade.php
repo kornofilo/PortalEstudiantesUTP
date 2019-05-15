@@ -30,10 +30,8 @@
 
                         <!-- Opción para ver publicación -->
                         <div class="p-2 bd-highlight">
-                            <button class="btn btn-secondary" type="button">
-                                <i class="fas fa-eye"></i>
-                                Ver Publicación
-                            </button>
+
+                             @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver Detalles','id_modal'=>'anuncio'.$anuncio->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])                            
                         </div>
 
                         <!-- Opción para aprobar publicación -->
@@ -94,11 +92,7 @@
 
                         <!-- Opción para ver publicación -->
                         
-                        <div class="p-2 bd-highlight">
-                            <button class="btn btn-secondary" type="button" >                    
-                                <i class="fas fa-eye"></i>                    
-                            </button>
-                        </div>
+                       
 
                         <!-- Opción para aprobar publicación -->
                         <div class="p-2 bd-highlight">
@@ -120,6 +114,10 @@
                                     Rechazar
                                 </button>
                             </form>
+                        </div>
+
+                        <div class="p-2 bd-highlight">
+                            @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver Detalles','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])                            
                         </div>
                     </div>
                 </li>

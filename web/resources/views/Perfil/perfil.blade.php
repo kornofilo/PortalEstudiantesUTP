@@ -50,7 +50,6 @@
 
                 @foreach ($datosT as $data)
                             <tr>
-
                               <td>{{$data->titulo}}</td>
                               <td>{{$data->estadoPost}}</td>
                               <td>
