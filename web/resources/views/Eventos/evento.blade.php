@@ -20,6 +20,13 @@
               <h6 class="font-weight-bold indigo-text py-2">Lugar: {{$evento->Lugar}}</h6>
               <!-- Text -->
               <p class="card-text">Descripcion: {{$evento->Descripcion}}
+                
+               @if ($evento->costo == '0' )
+               <p class="card-text">{{$evento->costo = "Gratuito"}}
+               @else
+               <p class="card-text">Costo: {{$evento->costo}}
+               @endif
+                  
               </p>
               @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'Detalle del evento','vista'=>'Eventos.detalle'])
             </div>

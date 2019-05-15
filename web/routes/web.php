@@ -43,18 +43,20 @@ Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
 Route::group(['prefix' => 'clasificado'], function () {
   //1.1 Ruta de Compras/Ventas
 Route::resource('anuncios','AnunciosController');
+Route::get('/anuncios','AnunciosController@search')->name('anuncios.search');
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
 Route::get('/tutorias','TutoriasController@search')->name('tutorias.search');
 //Ruta de alquilerhospedaje
 Route::resource('alquilerhospedajes', 'HospedajeController');
+Route::get('/alquilerhospedajes','HospedajeController@search')->name('alquilerhospedajes.search');
 });
 //Ruta de bolsatrabajo
 Route::resource('bolsatrabajos', 'BolsatrabajoController');
-Route::get('/searchB','BolsatrabajoController@searchB');
+Route::get('/bolsatrabajos','BolsatrabajoController@searchB');
 //Ruta de Eventos
 Route::resource('eventos','EventoController');
-Route::get('/searchE','EventoController@searchE');
+Route::get('/eventos','EventoController@searchE');
 //Route::resource('eventos','EventoController@carga')->name('eventos');
 
 

@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  
-
+        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Tutoría','id_modal'=>'mod1','title'=>'AGREGA TUTORIAS AQUI','vista'=>'clasificado.Tutorias.formulario'])
+        <br>
+        
   <form action="{{route('tutorias.search')}}" method="get" class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
@@ -12,8 +13,8 @@
         </div>
         
   </form>
-  <br>
-  @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Tutoría','id_modal'=>'mod1','title'=>'AGREGA TUTORIAS AQUI','vista'=>'clasificado.Tutorias.formulario'])
+
+  
   @if(count($errors) > 0)
   <div class="alert alert-danger">
   <ul>
