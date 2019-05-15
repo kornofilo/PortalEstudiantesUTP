@@ -22,9 +22,12 @@ class CrearTablaEventos extends Migration
             $table->decimal('costo',6,2)->unsigned();
             $table->string('facultad_nomb');
             $table->text('descripcion');
-            $table->string('imagen');
+            $table->string('imagen')->default('post-placeholder.jpg');
             $table->string('email',100);
             $table->timestamps();
+
+            //Foreing Keys
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
         });
     }
 

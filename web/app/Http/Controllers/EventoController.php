@@ -63,7 +63,7 @@ class EventoController extends Controller
       if ($request->hasFile('imagen')) {
         $file = $request->file('imagen');
         $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/evento',$name_image);
+        $file->move(public_path().'/imagenes/eventos',$name_image);
     }
       $eventos = new Evento();
       //Generación de Código de Publicación.

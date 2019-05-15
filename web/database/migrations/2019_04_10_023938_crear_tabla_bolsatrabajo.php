@@ -33,6 +33,9 @@ class CrearTablaBolsatrabajo extends Migration
             $table->string('celular',9);
             $table->string('emailcont',100);
             $table->timestamps();
+
+            //Foreing Keys
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
         });
     }
 
