@@ -76,7 +76,7 @@ class BolsatrabajoController extends Controller
 
         $bolsatrabajo = new Bolsatrabajo();
         //Generación de Código de Publicación.
-        $bolsatrabajo->codigoPost = 'BDT-' . (Bolsatrabajo::all()->count() + 1);
+        $bolsatrabajo->codigoPost = 'BDT-' . (Bolsatrabajo::all()->max('id') + 1);
         $bolsatrabajo->urgente= $request->input('urgente');
         $bolsatrabajo->titulo= $request->input('titulo');
         $bolsatrabajo->ubicacion= $request->input('ubicacion');
