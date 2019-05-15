@@ -21,12 +21,12 @@ Route::resource('/', 'HomeController')->middleware(['checkUserStatus']);
 Route::resource('miPerfil', 'PerfilController');
 //Rutas para el crud de anuncios y tutorias
 Route::get('dt/{id}', 'AnunciosController@destroy')->name('dt');
-Route::get('Perfil/show/{id}', 'AnunciosController@show')->name('Perfil.show');
-Route::get('Perfil/show2/{id}', 'AnunciosController@show2')->name('Perfil.show2');
-Route::get('Perfil/detalles/{id}', 'AnunciosController@edit')->name('Perfil.detalles');
-Route::get('Perfil/detalles2/{id}', 'AnunciosController@edit2')->name('Perfil.detalles2');
-Route::put ('Perfil/update/{id}', 'AnunciosController@update')->name('Perfil.update');
-Route::put ('Perfil/update2/{id}', 'AnunciosController@update2')->name('Perfil.update2');
+Route::get('Perfil/Compraventa/show/{id}', 'AnunciosController@show')->name('Perfil.show');
+Route::get('Perfil/show2/{id}', 'TutoriasController@show')->name('Perfil.show2');
+Route::get('Perfil/Compraventa/detalles/{id}', 'AnunciosController@edit')->name('Perfil.detalles');
+Route::get('Perfil/detalles2/{id}', 'TutoriasController@edit')->name('Perfil.detalles2');
+Route::post ('Perfil/update/{id}', 'AnunciosController@update')->name('Perfil.update');
+Route::post ('Perfil/update2/{id}', 'TutoriasController@update')->name('Perfil.update2');
 //ruta para cargar carreras al formulario de editar el perfil
 Route::get('miPerfil/getcarreras/{id}','PerfilController@getCarreras');
 //Ruta de Actualización de Perfil

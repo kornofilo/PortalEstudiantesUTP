@@ -31,7 +31,7 @@
                 <div class="form-group row">
                   <label for="costo" class="col-form-label col-sm-3">Costo:</label>
                   <div class="col-sm-8">
-                    <input type="number" name="costo"  min="1" max="9999" step="0.01" name="costo" id="costo" class="form-control" placeholder="B/." required>
+                    <input type="number" name="costo"  min="0" max="9999" step="0.01" name="costo" id="costo" class="form-control" placeholder="B/." required>
                   </div>
                 </div>
                 <!-- Input de Facultades-->

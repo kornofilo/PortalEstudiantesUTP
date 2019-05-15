@@ -24,7 +24,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Estado :</strong> {{$datos->estado}}
+        <strong>Estado del Artículo :</strong> {{$datos->estado}}
       </div>
       </div>
       <div class="col-md-12">
@@ -54,7 +54,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Publicada el :</strong> {{$datos->created_at}}
+        <strong>Publicada el :</strong> {{$datos->created_at->format('d/m/Y')}}
       </div>
       </div>
 

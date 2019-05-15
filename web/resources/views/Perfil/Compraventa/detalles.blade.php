@@ -9,7 +9,7 @@
     <!--error  -->
     <form action="{{route('Perfil.update',$datos->id)}}" method="post" enctype="multipart/form-data">
       @csrf
-      @method('PUT')
+      @method('POST')
       <div class="container">
       <div class="row justify-content-center h-100 align-items-center">
       <div class="bg-light mx-2 col-sm8 col-md8 col-lg6 col-xl-7 rounded-lg ">
