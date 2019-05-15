@@ -3,7 +3,7 @@
 <div class="container">
   
 
-  <form action="/clasificado/search" method="get" class="form-inline">
+  <form action="{{route('tutorias.search')}}" method="get" class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
         name="search" >
