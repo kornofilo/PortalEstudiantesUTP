@@ -1,6 +1,6 @@
 <div class="col-md-10 blogShort">               
         <h4>{{$alquilerhosp->titulo}}</h4>
-        <img src="/imagenes/clasificado/alquilerhospedaje/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
+        <img src="/imagenes/clasificado/hospedador/{{$alquilerhosp->imagen}}"  class="card-img-top">
         
         <article><p>
           <label>Precio: {{$alquilerhosp->precio}}</label>

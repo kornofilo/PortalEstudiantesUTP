@@ -2,22 +2,22 @@
 <div class="form-group row">
 <div class="col-sm-8">
 
-    <h4>{{isset($titulo)?$titulo:null}}</h4>
+    <h4>{{$bolsatrabajo->titulo}}</h4>
     <div class="container">
       <div class="row ">
           
       <div class="text-left">
    
     <br>
-    <label>Tipo de Puesto: {{isset($tipopuesto)?$tipopuesto:null}}</label>
+    <label>Tipo de Puesto: {{$bolsatrabajo->tipopuesto}}</label>
     <br>
-    <label>Ubicacion: {{isset($ubicacion)?$ubicacion:null}}</label>
+    <label>Ubicacion: {{$bolsatrabajo->ubicacion}}</label>
     <br>
-    <label>Descripcion: {{isset($descripcion)?$descripcion:null}}</label>
+    <label>Descripcion: {{$bolsatrabajo->descripcion}}</label>
   </div>
 
   <div >
-    <img style=" width: 300px; " src="/imagenes/bolsatrabajo/{{isset($imagen)?$imagen:null}}" 
+    <img style=" width: 300px; " src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}" 
      class="rounded float-right img-responsive thumb margin10 img-thumbnail">
   </div>
   </div>
@@ -26,17 +26,17 @@
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
-      <label>Nombre del Contacto: {{isset($nombcont)?$nombcont:null}}</label>
+      <label>Nombre del Contacto: {{$bolsatrabajo->nombcont}}</label>
       <br>
-      <label>Celular: {{isset($celular)?$celular:null}}</label>
+      <label>Celular: {{$bolsatrabajo->celular}}</label>
       <br>
-      <label>Email: {{isset($emailcont)?$emailcont:null}}</label>
+      <label>Email: {{$bolsatrabajo->emailcont}}</label>
 
     </div>
 
     <hr>
     <div class="col-sm-8">
-      <label>Código de Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>    
+      <label>Código de Publicación: {{$bolsatrabajo->codigoPost}}</label>    
     </div>
 
 </div>

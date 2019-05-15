@@ -22,7 +22,12 @@ class AnunciosController extends Controller
 
 
     }
-
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+       $datos = Compraventa::where('id','like','%'.$search.'%')->get();
+       return view('clasificado.Anuncios.anuncios',compact('datos'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -50,10 +55,17 @@ class AnunciosController extends Controller
             'estado' => 'required',
             'descripcion' => 'required',
             'celular' => 'required',
-            // 'imagen' => 'required',
-            //  'email' => 'required',
+            'imagen' => 'required',
+           
 
         ]);
+        
+          
+      if ($request->hasFile('imagen')) {
+        $file = $request->file('imagen');
+        $name_image = time().$file->getClientOriginalName();
+        $file->move(public_path().'/imagenes/clasificado/anuncio',$name_image);
+    }
 
         $anuncio = new Compraventa();
 
@@ -65,10 +77,10 @@ class AnunciosController extends Controller
         $anuncio->estado = $request->input('estado');
         $anuncio->descripcion = $request->input('descripcion');
         $anuncio->celular = $request->input('celular');
+        $anuncio->imagen =$name_image;
         $anuncio->email = \Auth::user()->email;
-        $anuncio->imagen = "/def.png";
         $anuncio->nombre = \Auth::user()->nombre;
-      //  $anuncio->apellido = \Auth::user()->apellido;
+  
 
 
 

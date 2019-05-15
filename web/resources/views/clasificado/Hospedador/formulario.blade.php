@@ -87,7 +87,7 @@
               <hr>
                
               
-        
+        <!-- Input de Imagen -->
          <div class="form-group row">
             <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
             <div class="col-sm-8">

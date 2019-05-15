@@ -31,10 +31,10 @@
                 
                     <div class="card text-center border-primary mb-4"><h4> Bolsa de Trabajo</h4></div>
                  @isset($datos)
-                     @foreach ($datos as $data)
+                     @foreach ($datos as $bolsatrabajo)
 
                     
-                   @include('Bolsatrabajos.bolsatrabajo', $data)
+                   @include('Bolsatrabajos.bolsatrabajo', $bolsatrabajo)
                     
                      @endforeach
                  @endisset

@@ -27,14 +27,10 @@
   <br >
         <div id="eventos" class="row justify-content-center">
             <div class="col-md-8">
-                
                     <div class="card text-center border-primary mb-4"><h4> Eventos</h4></div>
-          
                  @isset($datos)
-                     @foreach ($datos as $data)
-
-                            @include('Eventos.evento', $data)
-                
+                     @foreach ($datos as $evento)
+                            @include('Eventos.evento', $evento)
                      @endforeach
                  @endisset
 

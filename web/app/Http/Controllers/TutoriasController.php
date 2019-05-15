@@ -68,6 +68,7 @@ class TutoriasController extends Controller
       if ($request->hasFile('imagen')) {
           $file = $request->file('imagen');
           $name_image = time().$file->getClientOriginalName();
+          $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
       }
 
       $tutorias = new Tutorias () ;
@@ -86,7 +87,7 @@ class TutoriasController extends Controller
 
      #salvar en la base de datos
       $tutorias->save();
-      $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
+      
         return back()->with('success',' Data Saved'); 
     }
 
