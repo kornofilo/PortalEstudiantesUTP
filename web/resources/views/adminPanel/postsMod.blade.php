@@ -153,9 +153,12 @@
                     </div>
 
                     <!-- Opción para ver publicación -->
+                   
                     <div class="p-2 bd-highlight">
                         <button class="btn btn-secondary" type="button">
+                               
                             <i class="fas fa-eye"></i>
+                           
                             Ver Publicación
                         </button>
                     </div>

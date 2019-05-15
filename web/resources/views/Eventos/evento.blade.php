@@ -12,11 +12,8 @@
                 </a>
         </div>
              
-           
-          
             <!-- Card content -->
             <div class="card-body card-body-cascade shadow text-center " >
-          
               <!-- Title -->
               <h4 class="card-title"><strong>{{isset($titulo)?$titulo:null}}</strong></h4>
               <!-- Subtitle -->
@@ -24,7 +21,6 @@
               <!-- Text -->
               <p class="card-text">Descripcion: {{isset($descripcion)?$descripcion:null}}
               </p>
-          
               @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'Detalle del evento','vista'=>'Eventos.detalle'])
             </div>
           

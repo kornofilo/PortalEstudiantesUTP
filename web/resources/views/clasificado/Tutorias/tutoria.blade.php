@@ -8,6 +8,7 @@
                         <p class="card-text">Costo: {{isset($costo)?$costo:null}}</p>
                         <p class="card-text">Descripcion: {{isset($descripcion)?$descripcion:null}}</p>
                         @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anu'.$id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
+                   
                     </div>
                     <div class="text-right view view-cascade overlay"  width="400px">
                         <img class="card-img-top" src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}" 
