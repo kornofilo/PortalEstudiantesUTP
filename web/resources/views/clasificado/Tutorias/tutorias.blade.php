@@ -31,9 +31,11 @@
                 <div class="card">
                     <div class="card-header"><h4> Tutorias Disponibles</h4></div>
                  @isset($datos)                 
-                     @foreach ($datos as $tutoria)                
+                     @foreach ($datos as $tutoria)         
+                           
                             @include('clasificado.Tutorias.tutoria', $tutoria)               
-                     @endforeach                           
+                        
+                            @endforeach                           
                  @endisset
 
                     <div class="col-md-12 gap10"></div>

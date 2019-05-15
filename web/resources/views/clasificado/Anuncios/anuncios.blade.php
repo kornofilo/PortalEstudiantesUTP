@@ -34,9 +34,9 @@
                  @isset($datos)
                      @foreach ($datos as $anuncio)
                      
-                     <div class="col-md-10 blogShort card m-3 p-5">
+                 
                             @include('clasificado.Anuncios.anuncio', $anuncio)
-                    </div>
+                 
                      @endforeach
                  @endisset
                     

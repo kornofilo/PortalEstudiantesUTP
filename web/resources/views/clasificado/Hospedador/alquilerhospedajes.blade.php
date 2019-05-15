@@ -32,9 +32,9 @@
                     <div class="card-header"><h4>Alquileres y Hospedajes</h4></div>         
                  @isset($datos)
                      @foreach ($datos as $alquilerhosp)                     
-                        <div class="col-md-10 blogShort card m-3 p-5">                           
+                                                 
                                 @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)
-                        </div>
+                       
                      @endforeach
                  @endisset
                     
