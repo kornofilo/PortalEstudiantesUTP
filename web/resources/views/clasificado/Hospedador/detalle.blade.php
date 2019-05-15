@@ -3,44 +3,44 @@
 <div class="form-group row">
 <div class="col-sm-8">
 
-    <h4>{{isset($titulo)?$titulo:null}}</h4>
-    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/hospedador/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
+    <h4>{{$alquilerhosp->titulo}}</h4>
+    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/alquilerhospedaje/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
     <br>
-    <label>Precio por mes: {{isset($precio)?$precio:null}}</label>
+    <label>Precio por mes: {{$alquilerhosp->precio}}</label>
     <br>
-    <label>Ubicación: {{isset($ubicacion)?$ubicacion:null}}</label>
+    <label>Ubicación: {{$alquilerhosp->ubicacion}}</label>
     <br>
-    <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>
+    <label>Descripción: {{$alquilerhosp->descripcion}}</label>
     <hr>
     <h3>Detalles</h3>
     <br>
-    <label>Estacionamiento: {{isset($estacionamiento)?$estacionamiento:null}}</label>
+    <label>Estacionamiento: {{$alquilerhosp->estacionamiento}}</label>
     <br>
-    <label>Habitaciones: {{isset($habitaciones)?$habitaciones:null}}</label>
+    <label>Habitaciones: {{$alquilerhosp->habitaciones}}</label>
     <br>
-    <label>Baños: {{isset($baños)?$baños:null}}</label>
+    <label>Baños: {{$alquilerhosp->baños}}</label>
     <br>
-    <label>Amueblada: {{isset($amueblado)?$amueblado:null}}</label>
+    <label>Amueblada: {{$alquilerhosp->amueblado}}</label>
     <hr>
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
-      <label>Nombre del Contacto: {{isset($nombre)?$nombre:null}}</label>
+      <label>Nombre del Contacto: {{$alquilerhosp->nombre}}</label>
       <br>
-      <label>Celular: {{isset($celular)?$celular:null}}</label>
+      <label>Celular: {{$alquilerhosp->celular}}</label>
       <br>
-      <label>Email: {{isset($email)?$email:null}}</label>
+      <label>Email: {{$alquilerhosp->email}}</label>
       <br>
       <form action="/OtroPerfil" method="get">
         {{csrf_field()}}
-        <input type="hidden" name="code" value="{{$email}}">
+        <input type="hidden" name="code" value="">
         <input type="submit" class="btn-info" value="Ver perfil del anunciante">
       </form>
     </div>
 
     <hr>
     <div class="col-sm-8">
-      <label>Código de Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>
+      <label>Código de Publicación: {{$alquilerhosp->codigoPost}}</label>
     </div>
 
 </div>

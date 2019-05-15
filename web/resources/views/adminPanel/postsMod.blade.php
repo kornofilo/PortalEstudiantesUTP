@@ -30,8 +30,7 @@
 
                         <!-- Opción para ver publicación -->
                         <div class="p-2 bd-highlight">
-
-                             @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver Detalles','id_modal'=>'anuncio'.$anuncio->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])                            
+                          @include('clasificado.Anuncios.modal', $dataAnuncio=[$anuncio,'btn_nombre'=>'Ver Detalles','id_modal'=>'anuncio'.$anuncio->id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
                         </div>
 
                         <!-- Opción para aprobar publicación -->
@@ -91,7 +90,9 @@
                         </div>
 
                         <!-- Opción para ver publicación -->
-                        
+                        <div class="p-2 bd-highlight">
+                            @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver Detalles','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])                            
+                        </div>
                        
 
                         <!-- Opción para aprobar publicación -->
@@ -114,11 +115,7 @@
                                     Rechazar
                                 </button>
                             </form>
-                        </div>
-
-                        <div class="p-2 bd-highlight">
-                            @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver Detalles','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])                            
-                        </div>
+                        </div>                      
                     </div>
                 </li>
                 @endforeach
@@ -142,28 +139,22 @@
         </div>
         <div class="card-body font-weight-bold">
             <ul class="list-group">
-                @foreach($hospedajes as $hospedaje)
+                @foreach($hospedajes as $alquilerhosp)
                  <li class="list-group-item">
                  <div class="d-flex bd-highlight">
                     <!-- Nombre de la publicación -->
                     <div class="p-2 flex-grow-1 bd-highlight">
-                        {{$hospedaje->titulo}}
+                        {{$alquilerhosp->titulo}}
                     </div>
 
-                    <!-- Opción para ver publicación -->
-                   
+                    <!-- Opción para ver la publicación -->                   
                     <div class="p-2 bd-highlight">
-                        <button class="btn btn-secondary" type="button">
-                               
-                            <i class="fas fa-eye"></i>
-                           
-                            Ver Publicación
-                        </button>
+                        @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquilerhosp'.$alquilerhosp->id,'title'=>'ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle'])
                     </div>
 
                     <!-- Opción para aprobar publicación -->
                     <div class="p-2 bd-highlight">
-                        <form action="{{route('postsMod.aprobarHosPost', $hospedaje->id)}}" method="post">
+                        <form action="{{route('postsMod.aprobarHosPost', $alquilerhosp->id)}}" method="post">
                             @csrf
                             <button class="btn btn-success" type="submit">
                                 <i class="far fa-thumbs-up"></i>
@@ -174,7 +165,7 @@
 
                     <!-- Opción para rechazar publicación -->
                     <div class="p-2 bd-highlight">
-                        <form action="{{route('postsMod.rechazarHosPost', $hospedaje->id)}}" method="post">
+                        <form action="{{route('postsMod.rechazarHosPost', $alquilerhosp->id)}}" method="post">
                             @csrf
                             <button class="btn btn-danger" type="submit">
                                 <i class="far fa-thumbs-down"></i>

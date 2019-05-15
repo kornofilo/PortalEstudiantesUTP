@@ -15,13 +15,13 @@
   @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO','vista'=>'clasificado.Hospedador.formulario'])
  
   @if(count($errors) > 0)
-  <div class="alert alert-danger">
-  <ul>
-  @foreach($errors->all() as $error)
-  <li>{{$error}}</li>
-  @endforeach
-  </ul>
-  </div>
+    <div class="alert alert-danger">
+        <ul>
+     @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+     @endforeach
+        </ul>
+    </div>
   @endif
   
   <br><br>
@@ -31,12 +31,10 @@
                 <div class="card">
                     <div class="card-header"><h4>Alquileres y Hospedajes</h4></div>         
                  @isset($datos)
-                     @foreach ($datos as $data)
-                     
-                     <div class="col-md-10 blogShort card m-3 p-5">
-                           
-                            @include('clasificado.Hospedador.alquilerhospedaje', $data)
-                    </div>
+                     @foreach ($datos as $alquilerhosp)                     
+                        <div class="col-md-10 blogShort card m-3 p-5">                           
+                                @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)
+                        </div>
                      @endforeach
                  @endisset
                     
