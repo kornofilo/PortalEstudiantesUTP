@@ -23,7 +23,7 @@
                             <p class="card-text">Descripción: {{$evento->descripcion}}</p>
                             <p class="card-text">Ubicación: {{$evento->lugar}}</p>
                         </div>
-                       
+                        @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver Detalles','id_modal'=>'evento'.$evento->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'Eventos.detalle']) 
                     </div>
                     @endforeach                
                 </div>         
@@ -89,13 +89,14 @@
                   <div class=" col-xs-12 col-lg-12 ">
                           <div class=" card text-center border-primary mb-3r"><h4> Tutorías</h4></div>
                           <div class="card-deck">
-                                @foreach ($datosT  as $tutorias)                    
+                                @foreach ($datosT  as $tutoria)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/tutorias/{{$tutorias->imagen}}" class="card-img-top" alt="...">
+                                    <img src="/imagenes/clasificado/tutorias/{{$tutoria->imagen}}" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{$tutorias->titulo}}</h5>
-                                        <p class="card-text">Descripción: {{$tutorias->descripcion}}</p>
+                                        <h5 class="card-title">{{$tutoria->titulo}}</h5>
+                                        <p class="card-text">Descripción: {{$tutoria->descripcion}}</p>
                                     </div>
+                                    @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver Detalles','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
                                 </div>
                                 @endforeach            
                          </div>
@@ -113,7 +114,7 @@
                           <div class="card-deck">
                                 @foreach ($datosH  as $alquiler)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/tutorias/{{$alquiler->imagen}}" class="card-img-top" alt="...">
+                                    <img src="/imagenes/clasificado/hospedador/{{$alquiler->imagen}}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$alquiler->titulo}}</h5>
                                         <p class="card-text">Descripción: {{$alquiler->descripcion}}</p>

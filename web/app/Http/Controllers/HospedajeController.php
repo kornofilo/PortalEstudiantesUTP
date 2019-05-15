@@ -27,7 +27,12 @@ class HospedajeController extends Controller
     {
         //
     }
-
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+       $datos = Hospedaje::where('id','like','%'.$search.'%')->get();
+       return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -52,10 +57,12 @@ class HospedajeController extends Controller
              
           ]);
 
-          if ($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $name_image = time().$file->getClientOriginalName();
-            $file->move(public_path().'/imagenes/clasificado/alquilerhospedaje',$name_image);
+          
+      if ($request->hasFile('imagen')) {
+        $file = $request->file('imagen');
+        $name_image = time().$file->getClientOriginalName();
+        $file->move(public_path().'/imagenes/clasificado/hospedador',$name_image);
+    }
 
           $hospedador = new Hospedaje();
           //Generación de Código de Publicación.
@@ -80,7 +87,7 @@ class HospedajeController extends Controller
 
           $hospedador->save();
           return back()->with('success',' Data Saved');
-    }
+    
     }
     /**
      * Display the specified resource.

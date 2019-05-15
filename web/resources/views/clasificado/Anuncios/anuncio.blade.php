@@ -1,3 +1,4 @@
+
 <div class="col-md-10 blogShort">               
         <h4>{{isset($nombreArt)?$nombreArt:null}}</h4>
         <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">

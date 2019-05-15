@@ -59,6 +59,7 @@
                                 <textarea class="form-control" id="message-text" name="descripcion" placeholder="Descripción"></textarea>
                               </div>
                             </div>
+                            
                             <!-- Input de Imagen -->
                             <div class="form-group row">
                                <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>

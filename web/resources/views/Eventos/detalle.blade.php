@@ -2,36 +2,35 @@
 <div class="form-group row">
 <div class="col-sm-8">
 
-  <h4>{{isset($titulo)?$titulo:null}}</h4>
+  <h4>{{$evento->titulo}}</h4>
   <div class="container">
     <div class="row ">
         
     <div class="text-left">
     <br>
-  
-  <label>Título del Evento: {{isset($titulo)?$titulo:null}}</label>
+
   <br>
-  <label>Lugar: {{isset($lugar)?$lugar:null}}</label>
+  <label>Lugar:{{$evento->lugar}}</label>
   <br>
-  <label>Fecha: {{  date("d M Y", strtotime($fecha)) }}</label>
+  <label>Fecha: {{  date("d M Y", strtotime($evento->fecha)) }}</label>
   <br>
-  <label>Costo: {{isset($costo)?$costo:null}}</label>
+  <label>Costo: {{$evento->costo}}</label>
   <br>
-  <label>Facultad: {{isset($facultad_nomb)?$facultad_nomb:null}}</label>
+  <label>Facultad:{{$evento->facultad_nomb}}</label>
   <br>
-  <label>Descripción: {{isset($descripcion)?$descripcion:null}}</label>
+  <label>Descripción: {{$evento->descripcion}}</label>
 
   </div>
   <hr>
   <div >
-      <img style=" width: 300px; " src="/imagenes/evento/{{isset($imagen)?$imagen:null}}" 
+      <img style=" width: 300px; " src="/imagenes/evento/{{$evento->imagen}}" 
        class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
   </div>
   </div>
       <hr>
   <div class="col-sm-8">
-      <label>Código de Publicación: {{isset($codigoPost)?$codigoPost:null}}</label>    
+      <label>Código de Publicación: {{$evento->codigoPost}}</label>    
   </div>
 
 </div>

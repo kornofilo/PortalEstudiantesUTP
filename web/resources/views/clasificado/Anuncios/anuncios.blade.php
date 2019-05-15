@@ -1,12 +1,19 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    
+        <form action="/clasificado/search" method="get" class="form-inline">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
+            name="search" >
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Buscar</button>
+            </div>
+            
+      </form>
+      <br>
   @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO AQUI','vista'=>'clasificado.Anuncios.formulario'])
- <br><br>
-  <form class="form-inline">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-  </form>
+
   
   @if(count($errors) > 0)
   <div class="alert alert-danger">

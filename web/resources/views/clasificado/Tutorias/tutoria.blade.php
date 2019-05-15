@@ -11,7 +11,7 @@
                    
                     </div>
                     <div class="text-right view view-cascade overlay"  width="400px">
-                        <img class="card-img-top" src="/imagenes/clasificado/tutorias/{{isset($imagen)?$imagen:null}}" 
+                        <img class="card-img-top" src="/imagenes/clasificado/tutorias/{{$tutoria->imagen}}" 
                         class="pull-left img-responsive thumb margin10 img-thumbnail rounded">
                         <a>
                             <div class="mask rgba-white-slight"></div>

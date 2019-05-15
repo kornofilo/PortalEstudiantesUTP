@@ -4,7 +4,7 @@
 <div class="col-sm-8">
 
     <h4>{{isset($titulo)?$titulo:null}}</h4>
-    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/alquilerhospedaje/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
+    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/hospedador/{{isset($imagen)?$imagen:null}}"  class="card-img-top">
     <br>
     <label>Precio por mes: {{isset($precio)?$precio:null}}</label>
     <br>
