@@ -1,7 +1,7 @@
 
 <div class="col-md-10 blogShort">               
         <h4>{{isset($nombreArt)?$nombreArt:null}}</h4>
-        <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+        <img src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}"  class="card-img-top">
         
         <article><p>
           <label>Precio: {{$anuncio->precio}}</label>

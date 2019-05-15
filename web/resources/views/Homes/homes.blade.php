@@ -23,7 +23,7 @@
                             <p class="card-text">Descripción: {{$evento->descripcion}}</p>
                             <p class="card-text">Ubicación: {{$evento->lugar}}</p>
                         </div>
-                        @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver Detalles','id_modal'=>'evento'.$evento->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'Eventos.detalle']) 
+                        @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver Detalles','id_modal'=>'evento'.$evento->id,'title'=>'DETALLES DE EVENTO','vista'=>'Eventos.detalle']) 
                     </div>
                     @endforeach                
                 </div>         
@@ -48,6 +48,7 @@
                                 <h5 class="card-title">{{$bolsatrabajo->titulo}}</h5>
                                 <p class="card-text">Descripción: {{$bolsatrabajo->descripcion}}</p>
                             </div>
+                            @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver Detalles','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'title'=>'DETALLE DE BOLSA DE TRABAJO ','vista'=>'Bolsatrabajos.detalle']) 
                         </div>
                         @endforeach            
         </div>
@@ -67,13 +68,14 @@
                     <div class=" card text-center border-primary mb-3r"><h4> Compra/Venta</h4></div>
                     <br>
                  <div class="card-deck">
-                        @foreach ($datosC  as $compraventa)                    
+                        @foreach ($datosC  as $anuncio)                    
                         <div class="card">
-                            <img src="/imagenes/clasificado/compraventa/{{$compraventa->imagen}}" class="card-img-top" alt="...">
+                            <img src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">{{$compraventa->titulo}}</h5>
-                                <p class="card-text">Descripción: {{$compraventa->descripcion}}</p>
+                                <h5 class="card-title">{{$anuncio->titulo}}</h5>
+                                <p class="card-text">Descripción: {{$anuncio->descripcion}}</p>
                             </div>
+                            @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquiler'.$anuncio->id,'title'=>'DETALLES DE COMPRA/VENTA','vista'=>'clasificado.Anuncios.detalle']) 
                         </div>
                         @endforeach            
                 </div>
@@ -112,13 +114,14 @@
                     <div class=" col-xs-12 col-lg-12">
                         <div class=" card text-center border-primary mb-3r"><h4> Alquiler/Hospedaje</h4></div>
                           <div class="card-deck">
-                                @foreach ($datosH  as $alquiler)                    
+                                @foreach ($datosH  as $alquilerhosp)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/hospedador/{{$alquiler->imagen}}" class="card-img-top" alt="...">
+                                    <img src="/imagenes/clasificado/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{$alquiler->titulo}}</h5>
-                                        <p class="card-text">Descripción: {{$alquiler->descripcion}}</p>
+                                        <h5 class="card-title">{{$alquilerhosp->titulo}}</h5>
+                                        <p class="card-text">Descripción: {{$alquilerhosp->descripcion}}</p>
                                     </div>
+                                    @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle']) 
                                 </div>
                                 @endforeach  
                         </div>

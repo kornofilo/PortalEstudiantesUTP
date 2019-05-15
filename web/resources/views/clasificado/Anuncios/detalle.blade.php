@@ -2,7 +2,7 @@
 <div class="col-sm-8">
 
     <h4>{{$anuncio->nombreArt}}</h4>
-    <img src="{{isset($imagen)?$imagen:null}}"  class="pull-left img-responsive thumb margin10 img-thumbnail">
+    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}"  class="card-img-top">
     <br>
     <label>Precio: {{$anuncio->precio}}</label>
     <br>
