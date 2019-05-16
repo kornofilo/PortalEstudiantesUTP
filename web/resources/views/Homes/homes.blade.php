@@ -3,10 +3,11 @@
 @section('title','Portal Estudiantil - Página Principal')
 
 @section('content')
+
 <!-- Incluimos el carousel -->
 <div class="container">            
     @include('Homes.carousel')
-
+    @include('Homes.BacktoTop')
 <div class="justify-content-center">
     <!-- Sección con los últomos 5 eventos publicados -->'
     @isset($datosE) 
