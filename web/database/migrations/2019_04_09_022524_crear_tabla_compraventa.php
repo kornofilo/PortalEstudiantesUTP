@@ -13,7 +13,7 @@ class CrearTablaCompraventa extends Migration
   */
   public function up()
   {
-    Schema::create('compraventa', function (Blueprint $table) {
+    Schema::create('compraVenta', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->string('codigoPost',20)->unique();
       $table->string('categoria');
@@ -21,7 +21,7 @@ class CrearTablaCompraventa extends Migration
       $table->decimal('precio', 6, 2)->unsigned();
       $table->string('estado',5);
       $table->text('descripcion');
-      $table->string('imagen');
+      $table->string('imagen')->default('post-placeholder.jpg');
       $table->string('celular',9);
       $table->string('nombre',30);
       $table->string('email',100);

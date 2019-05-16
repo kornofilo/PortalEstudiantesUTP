@@ -78,7 +78,7 @@
                         @foreach ($datosC  as $anuncio)                    
                         <div class="card">
                                 <
-                            <img src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="...">
+                            <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="...">
                             <div class="card-body">
 
                                 <p class="card-text">Descripción: {{$anuncio->descripcion}}</p>

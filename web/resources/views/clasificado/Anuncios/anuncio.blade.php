@@ -12,7 +12,7 @@
                    
                     </div>
                     <div class="text-right view view-cascade overlay"  width="500px">
-                        <img class="card-img-top shadow" src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}"
+                        <img class="card-img-top shadow" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}"
                         class="pull-left img-responsive thumb margin10 img-thumbnail rounded">
                         <a>
                             <div class="mask rgba-white-slight"></div>
