@@ -25,7 +25,7 @@
                     <div class="d-flex bd-highlight">
                         <!-- Nombre de la publicación -->
                         <div class="p-2 flex-grow-1 bd-highlight">
-                            {{$anuncio->nombreArt}}
+                            {{$anuncio->nombreArt}} ({{$anuncio->codigoPost}})
                         </div>
 
                         <!-- Opción para ver publicación -->
@@ -86,7 +86,7 @@
                     <div class="d-flex bd-highlight">
                         <!-- Nombre de la publicación -->
                         <div class="p-2 flex-grow-1 bd-highlight">
-                            {{$tutoria->titulo}}
+                            {{$tutoria->titulo}} ({{$tutoria->codigoPost}})
                         </div>
 
                         <!-- Opción para ver publicación -->

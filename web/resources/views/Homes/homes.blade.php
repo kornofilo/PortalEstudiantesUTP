@@ -104,7 +104,7 @@
                           <div class="card-deck">
                                 @foreach ($datosT  as $tutoria)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="...">
+                                    <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$tutoria->titulo}}</h5>
                                         <p class="card-text">Materia: {{$tutoria->materia}}</p>

@@ -10,7 +10,7 @@ $factory->define(Anuncio::class, function (Faker $faker) {
     'Raspberry Pi 3 B+', 'XBOX One', 'MacBook Air', 'Libro - Programacion En C',
     'Pixel 3', 'Cuenta de Fornite', 'Libro - Head First Java (Segunda Edición)', 'Zapatillas Nike'];
     $estadoArticulo = ['Nuevo', 'Usado'];
-    $estadoPost = ['Aprobado', 'En Moderación'];
+    $estadoPost = ['Aprobada', 'En Moderación'];
 
     return [
         'codigoPost' => 'CV-'. $faker->unique->numberBetween($min = 100, $max = 999), 

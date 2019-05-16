@@ -19,7 +19,7 @@ class TutoriasController extends Controller
     {
 
       # llama la vista y trae todos datos de la tabla
-      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
+      $datos = Tutorias::where('estadoPost','Aprobada')->get();
       return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 
@@ -31,13 +31,15 @@ class TutoriasController extends Controller
 
     public function search(Request $request)
      {
-         $search = $request->get('search');
+        $search = $request->get('search');
         $datos = Tutorias::where('titulo','like','%'.$search.'%')
                 ->orWhere('costo','like','%'.$search.'%')
-                ->orWhere('materia','like','%'.$search.'%')
-                ->orWhere('descripcion','like','%'.$search.'%')->get();
+                ->orWhere('materia','like','%'.$search.'%')                
+                ->orWhere('descripcion','like','%'.$search.'%')
+                ->where('estadoPost','Aprobada')->get();
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
+
      public function create()
      {
 
@@ -69,7 +71,7 @@ class TutoriasController extends Controller
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);    
       $tutorias->titulo= $request->input('titulo');
-      $tutorias->nomtutor= $request->input('nomtutor');
+      $tutorias->nombreTutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
       $tutorias->costo= $request->input('costo');
       $tutorias->ubicacion= $request->input('ubicacion');
