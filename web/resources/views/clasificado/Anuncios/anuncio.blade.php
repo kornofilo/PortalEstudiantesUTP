@@ -2,11 +2,12 @@
 <div class="container">
     <div class="row">
             <div class="card shadow card-cascade ">
-                <div class="card-body d-flex">
-                    <div class="col-md-8 px-3">
-                        <h5 class="card-title">{{$anuncio->titulo}}</h5>
+                <div class="card-body d-flex ">
+                    <div class="col-md-8 px-3 ">
+                        <h3 class="card-title  ">{{$anuncio->titulo}}</h3>
                         
                         <p class="card-text">Descripcion: {{$anuncio->descripcion}}</p>
+                        <p class="card-text">Estado: {{$anuncio->estado}}</p>
                         @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
                    
                     </div>

@@ -14,7 +14,12 @@
   <br>
   <label>Fecha: {{  date("d M Y", strtotime($evento->fecha)) }}</label>
   <br>
-  <label>Costo: {{$evento->costo}}</label>
+             @if ($evento->costo == "Gratuito" )
+             <p class="card-text">{{$evento->costo = "Gratuito"}}
+               @else
+               <p class="card-text">Costo: {{$evento->costo}}
+               @endif
+                  
   <br>
   <label>Facultad:{{$evento->facultad_nomb}}</label>
   <br>
@@ -23,7 +28,7 @@
   </div>
   <hr>
   <div >
-      <img style=" width: 300px; " src="/imagenes/evento/{{$evento->imagen}}" 
+      <img style=" width: 300px; " src="/imagenes/eventos/{{$evento->imagen}}" 
        class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
   </div>

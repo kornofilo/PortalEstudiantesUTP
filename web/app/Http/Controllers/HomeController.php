@@ -30,11 +30,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $datosB = Bolsatrabajo::latest()->take(5) ->get();
-        $datosE = Evento::latest()->take(5)->get();
-        $datosC = Compraventa::where('estadoPost','Aprobada')->latest()->take(5) ->get();
-        $datosT = Tutorias::where('estadoPost','Aprobada')->latest()->take(5) ->get();
-        $datosH = Hospedaje::where('estadoPost','Aprobada')->latest()->take(5) ->get();
+        $datosB = Bolsatrabajo::latest()->take(4) ->get();
+        $datosE = Evento::latest()->take(4)->get();
+        $datosC = Compraventa::where('estadoPost','Aprobada')->latest()->take(4) ->get();
+        $datosT = Tutorias::where('estadoPost','Aprobada')->latest()->take(4) ->get();
+        $datosH = Hospedaje::where('estadoPost','Aprobada')->latest()->take(4) ->get();
         return view('Homes.homes',compact('datosB','datosE','datosC','datosT','datosH'));
     }
 }

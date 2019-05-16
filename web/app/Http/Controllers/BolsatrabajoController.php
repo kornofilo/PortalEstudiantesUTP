@@ -67,11 +67,7 @@ class BolsatrabajoController extends Controller
     ]);
 
 
-    if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
-    }
+  
     
 
         $bolsatrabajo = new Bolsatrabajo();
@@ -92,8 +88,15 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->nombcont= $request->input('nombcont');
         $bolsatrabajo->celular= $request->input('celular');
         $bolsatrabajo->emailcont= $request->input('emailcont');
-        $bolsatrabajo->imagen =$name_image;
+       
 
+        if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $name_image = time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
+            $bolsatrabajo->imagen =$name_image;
+        }
+        
        #salvar en la base de datos
         $bolsatrabajo->save();
           return back()->with('success',' Data Saved');

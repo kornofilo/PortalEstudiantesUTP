@@ -5,6 +5,8 @@
                 <div class="card-body d-flex">
                     <div class="col-md-8 px-3">
                         <h5 class="card-title">{{$tutoria->titulo}}</h5>
+                        <p class="card-text">Materia: {{$tutoria->materia}}</p>
+                        <p class="card-text">Ubicación: {{$tutoria->ubicacion}}</p>
                         <p class="card-text">Descripcion: {{$tutoria->descripcion}}</p>
                         @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anu'.$id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
                    
