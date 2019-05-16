@@ -53,7 +53,7 @@
                                 <h5 class="card-title">{{$bolsatrabajo->titulo}}</h5>
                                 <p class="card-text">Empresa: {{$bolsatrabajo->empresa}}</p>
                                 <p class="card-text">Ubicación: {{$bolsatrabajo->ubicacion}}</p>
-                                <h5 class="card-center text-success">Salario: ${{$evento->salario}}</h5>
+                                <h5 class="card-center text-success">Salario: ${{$bolsatrabajo->salario}}</h5>
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver Detalles','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'title'=>'DETALLE DE BOLSA DE TRABAJO ','vista'=>'Bolsatrabajos.detalle']) 
                         </div>
