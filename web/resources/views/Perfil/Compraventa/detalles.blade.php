@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -6,7 +7,7 @@
         <h3 align="center">Editar el Anuncio</h3>
       </div>
     </div>
-    <!--error  -->
+    <script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
     <form action="{{route('Perfil.update',$datos->id)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('POST')
@@ -19,10 +20,18 @@
          <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/anuncios/"
           class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
-
+      <br></br>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Categoría :</strong>
+        <select id="categoria" class="form-control" name="categoria" >
+            <option>Compra</option>
+            <option>Venta</option>
+        </select>
+      </div>
+      </div>
         <div class="col-md-12">
           <div class="form-group">
-            <br></br>
           <strong>Nombre del Artículo :</strong>
           <input type="text" name="nombreArt" class="form-control" value="{{$datos->nombreArt}}">
         </div>
@@ -30,13 +39,16 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Precio :</strong>
-          <input type="number" name="precio"  min="1" max="9999" step="0.01" class="form-control" value="{{$datos->precio}}">
+          <input type="number" name="precio"  min="0" max="9999" step="0.01" class="form-control" value="{{$datos->precio}}">
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
-          <strong>Estado :</strong>
-          <input type="text" name="estado" class="form-control" value="{{$datos->estado}}">
+          <strong>Estado del Artículo :</strong>
+          <select id="estado" class="form-control" name="estado" >
+              <option>Nuevo</option>
+              <option>Usado</option>
+          </select>
         </div>
         </div>
         <div class="col-md-12">
@@ -64,4 +76,12 @@
   </div>
   </div>
   </div>
+  <script type="text/javascript">
+  $(document).ready(function ()
+  {
+  $('#estado').val('{{$datos->estado}}').change();
+  $('#categoria').val('{{$datos->categoria}}').change();
+  });
+
+  </script>
     @endsection

@@ -57,12 +57,17 @@ class AnunciosController extends Controller
             'estado' => 'required',
             'descripcion' => 'required',
             'celular' => 'required',
-            'imagen' => 'required',
-           
+            // 'imagen' => 'required',
+
 
         ]);
-        
-    
+
+
+      if ($request->hasFile('imagen')) {
+        $file = $request->file('imagen');
+        $name_image = time().$file->getClientOriginalName();
+        $file->move(public_path().'/imagenes/clasificado/anuncio',$name_image);
+    }
 
         $anuncio = new Compraventa();
 
@@ -74,22 +79,12 @@ class AnunciosController extends Controller
         $anuncio->estado = $request->input('estado');
         $anuncio->descripcion = $request->input('descripcion');
         $anuncio->celular = $request->input('celular');
+        $anuncio->imagen =("test");
         $anuncio->email = \Auth::user()->email;
         $anuncio->nombre = \Auth::user()->nombre;
-  
-      
-        if ($request->hasFile('imagen')) {
-          $file = $request->file('imagen');
-          $name_image = time().$file->getClientOriginalName();
-          $file->move(public_path().'/imagenes/clasificados/anuncios',$name_image);
-          $anuncio->imagen =$name_image;
-      }
-
 
         $anuncio->save();
         return back()->with('success',' Data Saved');
-
-
     }
 
     /**
@@ -127,6 +122,7 @@ class AnunciosController extends Controller
     public function update(Request $request, $id)
     {
           $datos = Compraventa::find($id);
+          $datos->categoria = $request->get('categoria');
           $datos->nombreArt = $request->get('nombreArt');
           $datos->precio = $request->get('precio');
           $datos->estado = $request->get('estado');
@@ -136,7 +132,7 @@ class AnunciosController extends Controller
 
           if($request->hasFile('imagen')){
             $profileImage = $request->file('imagen');
-            $name_image = 'profileImage'.'.'.$request->imagen->extension();
+            $name_image = 'compraventa'.'.'.$request->imagen->extension();
             $profileImage->move(public_path().'/imagenes/clasificado/anuncios/',$name_image);
             $datos->imagen = $name_image;
 
@@ -157,7 +153,7 @@ class AnunciosController extends Controller
 
       public function destroy($id)
       {
-        Compraventa::where('id', $id)->delete();
-        return back()->with('success','eliminado exitosamente.');
+        Compraventa::where('id',$id)->delete();
+        return back()->with('success','Anuncio eliminado exitosamente.');
       }
 }

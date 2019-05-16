@@ -68,8 +68,12 @@ class BolsatrabajoController extends Controller
     ]);
 
 
-  
-    
+    if ($request->hasFile('imagen')) {
+        $file = $request->file('imagen');
+        $name_image = time().$file->getClientOriginalName();
+        $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
+    }
+
 
         $bolsatrabajo = new Bolsatrabajo();
         //Generación de Código de Publicación.
@@ -89,15 +93,8 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->nombcont= $request->input('nombcont');
         $bolsatrabajo->celular= $request->input('celular');
         $bolsatrabajo->emailcont= $request->input('emailcont');
-       
+        $bolsatrabajo->imagen =$name_image;
 
-        if ($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $name_image = time().$file->getClientOriginalName();
-            $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
-            $bolsatrabajo->imagen =$name_image;
-        }
-        
        #salvar en la base de datos
         $bolsatrabajo->save();
           return back()->with('success',' Data Saved');
@@ -110,9 +107,10 @@ class BolsatrabajoController extends Controller
      * @param  \App\Bolsatrabajo  $bolsatrabajo
      * @return \Illuminate\Http\Response
      */
-    public function show(Bolsatrabajo $bolsatrabajo)
+    public function show($id)
     {
-        //
+      $datosB = Bolsatrabajo::find($id);
+      return view('Perfil.Bolsatrabajo.show', compact('datosB'));
     }
 
     /**
@@ -121,9 +119,10 @@ class BolsatrabajoController extends Controller
      * @param  \App\Bolsatrabajo  $bolsatrabajo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bolsatrabajo $bolsatrabajo)
+    public function edit($id)
     {
-        //
+      $datosB = Bolsatrabajo::find($id);
+      return view('Perfil.Bolsatrabajo.detalles', compact('datosB'));
     }
 
     /**
@@ -133,19 +132,46 @@ class BolsatrabajoController extends Controller
      * @param  \App\Bolsatrabajo  $bolsatrabajo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bolsatrabajo $bolsatrabajo)
+    public function update(Request $request, $id)
     {
-        //
-    }
+          $bolsatrabajo = Bolsatrabajo::find($id);
 
+          $bolsatrabajo->urgente= $request->input('urgente');
+          $bolsatrabajo->titulo= $request->input('titulo');
+          $bolsatrabajo->ubicacion= $request->input('ubicacion');
+          $bolsatrabajo->empresa= $request->input('empresa');
+          $bolsatrabajo->tipopuesto= $request->input('tipopuesto');
+          $bolsatrabajo->salario= $request->input('salario');
+          $bolsatrabajo->direccion= $request->input('direccion');
+          $bolsatrabajo->descripcion= $request->input('descripcion');
+          $bolsatrabajo->habilidades= $request->input('habilidades');
+          $bolsatrabajo->fecha= $request->input('fecha');
+          $bolsatrabajo->beneficio= $request->input('beneficio');
+          $bolsatrabajo->email = \Auth::user()->email;
+          $bolsatrabajo->nombcont= $request->input('nombcont');
+          $bolsatrabajo->celular= $request->input('celular');
+          $bolsatrabajo->emailcont= $request->input('emailcont');
+
+          if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $name_image = 'compraventa'.'.'.$request->imagen->extension();
+            $file->move(public_path().'/imagenes/bolsatrabajo/',$name_image);
+            $bolsatrabajo->imagen = $name_image;
+
+          }
+
+          $bolsatrabajo->save();
+          return redirect('/miPerfil')->with('success','Datos Actualizados.');
+      }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Bolsatrabajo  $bolsatrabajo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bolsatrabajo $bolsatrabajo)
+    public function destroy($id)
     {
-        //
+      Bolsatrabajo::where('id',$id)->delete();
+      return back()->with('success','Anuncio eliminado exitosamente.');
     }
 }

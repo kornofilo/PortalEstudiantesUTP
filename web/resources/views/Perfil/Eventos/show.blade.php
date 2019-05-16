@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Nombre del Evento : </strong> {{$datos->nombreArt}}
+          <strong>Nombre del Evento : </strong> {{$datos->titulo}}
         </div>
       </div>
       <div class="col-md-12">
@@ -34,22 +34,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Celular :</strong> {{$datos->celular}}
-      </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <strong>Nombre :</strong> {{$datos->nombre}}
-      </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <strong>Estado de la Publicación :</strong> {{$datos->estadoPost}}
-      </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <strong>Publicada el :</strong> {{$datos->created_at}}
+        <strong>Publicada el :</strong> {{$datos->created_at->format('d/m/Y')}}
       </div>
       </div>
 

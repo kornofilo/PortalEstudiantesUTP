@@ -68,12 +68,11 @@
           <input type="text" name="celular" class="form-control" value="{{$datosT->celular}}">
         </div>
         </div>
-
         <div class="col-md-12">
-          <br>
           <button type="submit" class="btn btn-sm btn-warning">Actualizar</button>
           <a href="{{url('miPerfil')}}" class="btn btn-sm btn-danger">Regresar</a>
         </div>
+        <br></br>
       </div>
     </form>
   </div>

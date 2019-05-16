@@ -19,7 +19,7 @@ class TutoriasController extends Controller
     {
 
       # llama la vista y trae todos datos de la tabla
-      $datos = Tutorias::where('estadoPost','Aprobada')->get();
+      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
       return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 
@@ -37,7 +37,6 @@ class TutoriasController extends Controller
           ->get();        
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
-
      public function create()
      {
 
@@ -61,34 +60,34 @@ class TutoriasController extends Controller
       'ubicacion' => 'required',
       'descripcion' => 'required',
       'celular' => 'required',
+      // 'imagen' => 'required',
   ]);
 
 
-     
+      if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = time().$file->getClientOriginalName();
+          $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
+      }
+
       $tutorias = new Tutorias () ;
       //Generación de Código de Publicación.
-      $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);    
+      $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);
       $tutorias->titulo= $request->input('titulo');
-      $tutorias->nombreTutor= $request->input('nomtutor');
+      $tutorias->nomtutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
       $tutorias->costo= $request->input('costo');
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
+      $tutorias->imagen =('lol');
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
 
-      if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
-        $tutorias->imagen =$name_image;
-    }
-
      #salvar en la base de datos
       $tutorias->save();
-      
-        return back()->with('success',' Data Saved'); 
+
+        return back()->with('success',' Data Saved');
     }
 
     /**
@@ -156,6 +155,6 @@ class TutoriasController extends Controller
      public function destroy($id)
      {
        Tutorias::where('id', $id)->delete();
-       return back()->with('success','eliminado exitosamente.');
+       return back()->with('success','Tutoría eliminada exitosamente.');
      }
 }
