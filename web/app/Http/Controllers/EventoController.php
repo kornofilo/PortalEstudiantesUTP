@@ -29,7 +29,8 @@ class EventoController extends Controller
     public function searchE(Request $request)
     {
        $search = $request->get('search');
-       $datos = Evento::where('id','like','%'.$search.'%')->get();
+       $datos = Evento::whereRaw('concat(codigoPost,titulo,lugar,costo,descripcion,facultad_nomb) like \'%' .$search .'%\' ')
+                        ->get();
        return view('Eventos.eventos',compact('datos'));
     }
     /**

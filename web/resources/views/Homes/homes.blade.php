@@ -6,7 +6,7 @@
 <!-- Incluimos el carousel -->
 <div class="container">            
     @include('Homes.carousel')
-<br>
+<hr>
 
 <div class="justify-content-center">
     <!-- Sección con los últomos 5 eventos publicados -->'
@@ -38,8 +38,7 @@
     </div>
     @endisset                        
 
-    <br>
-    <br>
+    <hr>
  <div class="justify-content-center">
         @isset($datosB)  
 <div id="bolsatrabajo" >
@@ -64,7 +63,7 @@
 @endisset
 </div>
 
-        <br><br>
+        <hr>
         <h1 class=" text-center">Clasificados</h1>
         <br>
 
@@ -76,8 +75,7 @@
                     <br>
                  <div class="card-deck">
                         @foreach ($datosC  as $anuncio)                    
-                        <div class="card">
-                                <
+                        <div class="card">                                
                             <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="...">
                             <div class="card-body">
 

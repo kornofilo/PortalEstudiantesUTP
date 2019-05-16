@@ -24,9 +24,11 @@ class AnunciosController extends Controller
     }
     public function search(Request $request)
     {
-        $search = $request->get('search');
-       $datos = Compraventa::where('id','like','%'.$search.'%')->get();
-       return view('clasificado.Anuncios.anuncios',compact('datos'));
+      $search = $request->get('search');
+      $datos = Compraventa::where('estadoPost','Aprobada')
+                            ->whereRaw('concat(nombreArt,categoria,precio,estado,codigoPost) like \'%' .$search .'%\' ')
+                            ->get();
+      return view('clasificado.Anuncios.anuncios',compact('datos'));
     }
     /**
      * Show the form for creating a new resource.

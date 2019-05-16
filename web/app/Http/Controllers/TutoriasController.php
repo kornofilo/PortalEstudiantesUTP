@@ -32,11 +32,9 @@ class TutoriasController extends Controller
     public function search(Request $request)
      {
         $search = $request->get('search');
-        $datos = Tutorias::where('titulo','like','%'.$search.'%')
-                ->orWhere('costo','like','%'.$search.'%')
-                ->orWhere('materia','like','%'.$search.'%')                
-                ->orWhere('descripcion','like','%'.$search.'%')
-                ->where('estadoPost','Aprobada')->get();
+        $datos = Tutorias::where('estadoPost','Aprobada')
+          ->whereRaw('concat(titulo,materia,costo,ubicacion,codigoPost) like \'%' .$search .'%\' ')      
+          ->get();        
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
 

@@ -30,7 +30,9 @@ class HospedajeController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-       $datos = Hospedaje::where('id','like','%'.$search.'%')->get();
+       $datos = Hospedaje::where('estadoPost','Aprobada')
+                ->whereRaw('concat(codigoPost,categoria,titulo,descripcion,ubicacion,precio) like \'%' .$search .'%\' ')      
+                ->get();
        return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
     }
     /**

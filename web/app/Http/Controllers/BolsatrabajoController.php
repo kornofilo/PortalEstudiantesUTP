@@ -22,7 +22,8 @@ class BolsatrabajoController extends Controller
     public function searchB(Request $request)
      {
          $search = $request->get('search');
-        $datos = Bolsatrabajo::where('id','like','%'.$search.'%')->get();
+        $datos = Bolsatrabajo::whereRaw('concat(codigoPost,titulo,ubicacion,empresa,salario,beneficio) like \'%' .$search .'%\' ')
+                                ->get();
         return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
      }
     /**
