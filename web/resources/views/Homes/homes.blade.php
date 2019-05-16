@@ -20,7 +20,7 @@
                         <img src="/imagenes/eventos/{{$evento->imagen}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$evento->titulo}}</h5>
-                            <p class="card-text">Descripción: {{$evento->descripcion}}</p>
+                            <p class="card-text text-truncate">Descripción: {{$evento->descripcion}}</p>
                             <p class="card-text">Ubicación: {{$evento->lugar}}</p>
                         </div>
                         @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver Detalles','id_modal'=>'evento'.$evento->id,'title'=>'DETALLES DE EVENTO','vista'=>'Eventos.detalle']) 

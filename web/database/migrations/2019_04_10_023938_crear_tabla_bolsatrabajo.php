@@ -20,18 +20,18 @@ class CrearTablaBolsatrabajo extends Migration
             $table->string('titulo');
             $table->string('ubicacion');
             $table->string('empresa',100);
-            $table->string('tipopuesto');
-            $table->decimal('salario',4,2)->unsigned();
+            $table->string('tipoPuesto');
+            $table->decimal('salario',6,2)->unsigned();
             $table->text('direccion');
             $table->text('descripcion');
             $table->text('habilidades');
             $table->date('fecha');
             $table->text('beneficio');
-            $table->string('imagen');
+            $table->string('imagen')->default('post-placeholder.jpg');
             $table->string('email',100);
-            $table->string('nombcont',30);
+            $table->string('nombreContacto',30);
             $table->string('celular',9);
-            $table->string('emailcont',100);
+            $table->string('emailContacto',100);
             $table->timestamps();
 
             //Foreing Keys
