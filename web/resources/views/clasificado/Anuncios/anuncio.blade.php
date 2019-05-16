@@ -6,6 +6,7 @@
                     <div class="col-md-8 px-3 ">
                         <h3 class="card-title  ">{{$anuncio->titulo}}</h3>
                         
+                        <p class="card-text">Categoria: {{$anuncio->categoria}}</p>
                         <p class="card-text">Descripcion: {{$anuncio->descripcion}}</p>
                         <p class="card-text">Estado: {{$anuncio->estado}}</p>
                         @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
