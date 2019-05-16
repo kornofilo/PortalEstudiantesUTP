@@ -6,27 +6,26 @@
 <!-- Incluimos el carousel -->
 <div class="container">            
     @include('Homes.carousel')
-<hr>
 
 <div class="justify-content-center">
     <!-- Sección con los últomos 5 eventos publicados -->'
-    @isset($datosE)                    
-    <div id="evento" >
-            <h1 class=" text-center">Eventos</h1>
+    @isset($datosE) 
+    <div id="evento">
+            <h1 class="text-center rounded-pill bg-dark text-white">Próximos Eventos</h1>
             <div class=" col-xs-12 col-lg-12">
                    
                 <div class="card-deck">
                     @foreach ($datosE  as $evento)                    
                     <div class="card">
-                        <img src="/imagenes/eventos/{{$evento->imagen}}" class="card-img-top shadow" alt="...">
+                        <img src="/imagenes/eventos/{{$evento->imagen}}" class="card-img-top shadow img-fluid img-thumbnail" alt="..." style="height: 200px; max-width: 400px">
                         <div class="card-body">
-                            <h5 class="card-title">{{$evento->titulo}}</h5>
-                            <p class="card-text"> Lugar: {{$evento->lugar}}</p>
-                            <p class="card-text">Fecha: {{$evento->fecha}}</p>
+                            <h5 class="card-title font-weight-bold">{{$evento->titulo}}</h5>
+                            <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$evento->lugar}}</p>
+                            <p class="card-text"><i class="fas fa-calendar-alt"></i> {{strftime("%d-%m-%Y",strtotime($evento->fecha))}}</p>
                             @if ($evento->costo == '0' )
-                            <h5 class="card-center text-success">{{$evento->costo = "Gratuito"}}</h5>
+                            <h5 class="card-center text-success font-weight-bold text-right"> {{$evento->costo = "Gratuito"}}</h5>
                             @else
-                            <h5 class="card-center text-success">${{$evento->costo}}</h5>
+                            <h5 class="card-center text-success font-weight-bold text-right">Admisión: ${{$evento->costo}}</h5>
                             @endif
                         </div>
                         @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver Detalles','id_modal'=>'evento'.$evento->id,'title'=>'DETALLES DE EVENTO','vista'=>'Eventos.detalle']) 
@@ -35,24 +34,23 @@
                 </div>         
             </div>
         </div>
-    </div>
+    </div> <br><br>
     @endisset                        
 
-    <hr>
  <div class="justify-content-center">
         @isset($datosB)  
 <div id="bolsatrabajo" >
-        <h1 class=" text-center">Bolsa de Trabajo</h1>
+    <h1 class="text-center rounded-pill bg-dark text-white">Nuevas Oportunidades de Empleo</h1>
         <div class=" col-xs-12 col-lg-12  ">
                 <div class="card-deck">
                         @foreach ($datosB  as $bolsatrabajo)                    
                         <div class="card">
-                            <img src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}" class="card-img-top shadow" alt="...">
+                            <img src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
                             <div class="card-body">
-                                <h5 class="card-title">{{$bolsatrabajo->titulo}}</h5>
-                                <p class="card-text">Empresa: {{$bolsatrabajo->empresa}}</p>
-                                <p class="card-text">Ubicación: {{$bolsatrabajo->ubicacion}}</p>
-                                <h5 class="card-center text-success">Salario: ${{$bolsatrabajo->salario}}</h5>
+                                <h5 class="card-title font-weight-bold">{{$bolsatrabajo->titulo}}</h5>
+                                <p class="card-text"><i class="fas fa-building"></i> {{$bolsatrabajo->empresa}}</p>
+                                <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$bolsatrabajo->ubicacion}}</p>
+                                <h5 class="card-center text-success font-weight-bold text-right">Salario: ${{$bolsatrabajo->salario}}</h5>
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver Detalles','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'title'=>'DETALLE DE BOLSA DE TRABAJO ','vista'=>'Bolsatrabajos.detalle']) 
                         </div>
@@ -61,27 +59,22 @@
     </div>
 </div>
 @endisset
-</div>
-
-        <hr>
-        <h1 class=" text-center">Clasificados</h1>
-        <br>
-
+</div> <br>
         <div class="justify-content-center">
-                @isset($datosC)
+        @isset($datosC)
         <div id="compraventa" >
-                <div class="text-center "><h3> Compra/Venta</h3></div>
+        <h1 class="text-center rounded-pill bg-dark text-white">Nuevos artículos para vender o comprar</h1>
             <div class=" col-xs-12 col-lg-12">
                     <br>
                  <div class="card-deck">
                         @foreach ($datosC  as $anuncio)                    
                         <div class="card">                                
-                            <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="...">
+                            <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="..." style="height: 200px; max-width: 400px">
                             <div class="card-body">
-
-                                <p class="card-text">Descripción: {{$anuncio->descripcion}}</p>
-                                <p class="card-text">Estado: {{$anuncio->estado}}</p>
-                                <h5 class="card-center text-success">Precio: ${{$anuncio->precio}}</h5>
+                                <h5 class="card-title font-weight-bold">{{$anuncio->nombreArt}}</h5>
+                                <p class="card-text"><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
+                                <p class="card-text"><i class="fas fa-heart"></i> {{$anuncio->estado}}</p>
+                                <h5 class="card-center text-success font-weight-bold text-right">Precio: ${{$anuncio->precio}}</h5>
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquiler'.$anuncio->id,'title'=>'DETALLES DE COMPRA/VENTA','vista'=>'clasificado.Anuncios.detalle']) 
                         </div>
@@ -92,22 +85,22 @@
         </div>
         @endisset
     </div>
-    <br>
+    <br><br>
     <div class="justify-content-center">
             @isset($datosT)
               <div id="tutorias" >
-                    <div class="text-center"><h3> Tutorías</h3></div>
+              <h1 class="text-center rounded-pill bg-dark text-white">Nuevas tutorías</h1>
                   <div class=" col-xs-12 col-lg-12">
                          
                           <div class="card-deck">
                                 @foreach ($datosT  as $tutoria)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="...">
+                                    <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{$tutoria->titulo}}</h5>
-                                        <p class="card-text">Materia: {{$tutoria->materia}}</p>
-                                        <p class="card-text">Ubicación: {{$tutoria->ubicacion}}</p>
-                                        <h5 class="card-center text-success">Por Hora: ${{$tutoria->costo}}</h5>
+                                        <h5 class="card-title font-weight-bold">{{$tutoria->titulo}}</h5>
+                                        <p class="card-text"><i class="fas fa-book-open"></i> {{$tutoria->materia}}</p>
+                                        <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$tutoria->ubicacion}}</p>
+                                        <h5 class="card-center text-success font-weight-bold text-right">${{$tutoria->costo}}/Hora</h5>
                                     </div>
                                     @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver Detalles','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
                                 </div>
@@ -118,21 +111,30 @@
             @endisset
      </div>
         
-     <br>
+     <br><br>
             <div class="justify-content-center">
                     @isset($datosH)
               <div id="alquilerhospedaje" >
                     <div class=" col-xs-12 col-lg-12">
-                        <div class=" text-center "><h3> Alquiler/Hospedaje</h3></div>
+                    <h1 class="text-center rounded-pill bg-dark text-white">Nuevos Anuncios de Alquiler</h1>
                           <div class="card-deck">
                                 @foreach ($datosH  as $alquilerhosp)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="...">
+                                    <img src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{$alquilerhosp->titulo}}</h5>
-                                        <p class="card-text">Ubicación: {{$alquilerhosp->ubicacion}}</p>
-                                        <p class="card-text">Descripción: {{$alquilerhosp->descripcion}}</p>
-                                        <h5 class="card-center text-success">Precio: ${{$alquilerhosp->precio}}</h5>
+                                        <h5 class="card-title font-weight-bold">{{$alquilerhosp->titulo}}</h5>
+                                        <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$alquilerhosp->ubicacion}}</p>
+                                        <p class="card-text">
+                                                @if($alquilerhosp->estacionamiento === "Sí")
+                                                    <i class="fas fa-parking"></i>
+                                                @endif
+                                                @if($alquilerhosp->amueblado === "Sí")
+                                                    <i class="fas fa-couch"></i>
+                                                @endif
+                                        </p>
+                                        <p class="card-text"> {{$alquilerhosp->habitaciones}} <i class="fas fa-bed"></i> </p>
+                                        <p class="card-text"> {{$alquilerhosp->baños}} <i class="fas fa-toilet"></i> </p>
+                                        <h5 class="card-center text-success font-weight-bold text-right">${{$alquilerhosp->precio}}/Mes</h5>
                                     </div>
                                     @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle']) 
                                 </div>
@@ -141,7 +143,7 @@
                     </div>
                 </div>
                 @endisset
-            </div>
+            </div> <br>
   
 </div>
 

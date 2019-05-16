@@ -18,7 +18,7 @@ $factory->define(Hospedaje::class, function (Faker $faker) {
         'titulo' => 'Alquilo ' . Arr::random($categoria),
         'ubicacion' => Arr::random($ubicaciones),
         'descripcion' => $faker->text($maxNbChars = 25),
-        'precio' => $faker->randomFloat($nbMaxDecimals = 2, $min = 50, $max = 1000),
+        'precio' => $faker->randomFloat($nbMaxDecimals = 0, $min = 50, $max = 1000),
         'estacionamiento' => Arr::random($siNo),
         'habitaciones' => $faker->numberBetween($min = 1, $max = 5),
         'baños' => $faker->numberBetween($min = 1, $max = 5),

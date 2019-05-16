@@ -16,7 +16,7 @@ $factory->define(Anuncio::class, function (Faker $faker) {
         'codigoPost' => 'CV-'. $faker->unique->numberBetween($min = 100, $max = 999), 
         'categoria' => Arr::random($categoria),
         'nombreArt' => Arr::random($articulo),
-        'precio' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 9999),
+        'precio' => $faker->randomFloat($nbMaxDecimals = 0, $min = 1, $max = 9999),
         'estado' => Arr::random($estadoArticulo),
         'descripcion' => $faker->text($maxNbChars = 25),
         'celular' => $faker->numberBetween($min = 6000, $max = 6999) . '-' . $faker->numberBetween($min = 1000, $max = 9999),

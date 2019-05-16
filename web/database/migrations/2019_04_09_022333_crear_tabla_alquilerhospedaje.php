@@ -27,7 +27,7 @@ class CrearTablaAlquilerhospedaje extends Migration
           $table->string('amueblado',2);
           $table->string('imagen')->default('post-placeholder.jpg');
           $table->string('celular',9);
-          $table->string('nombre',30);
+          $table->string('nombre',100);
           $table->string('email',100);
           $table->string('estadoPost',25)->default('En Moderación');
           $table->timestamps();

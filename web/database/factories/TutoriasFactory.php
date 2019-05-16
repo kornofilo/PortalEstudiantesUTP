@@ -15,7 +15,7 @@ $factory->define(App\Tutorias::class, function (Faker $faker) {
         'titulo' => 'Tutorías de ' . Arr::random($asignatura),
         'nombreTutor' =>  $faker->name,
         'materia' => Arr::random($asignatura),
-        'costo' =>  $faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 99),
+        'costo' =>  $faker->randomFloat($nbMaxDecimals = 0, $min = 1, $max = 99),
         'ubicacion' => Arr::random($ubicacion),
         'descripcion' => $faker->text($maxNbChars = 25),
         'celular' => $faker->numberBetween($min = 6000, $max = 6999) . '-' . $faker->numberBetween($min = 1000, $max = 9999),

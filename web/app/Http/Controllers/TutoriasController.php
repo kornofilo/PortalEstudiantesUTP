@@ -74,7 +74,7 @@ class TutoriasController extends Controller
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);
       $tutorias->titulo= $request->input('titulo');
-      $tutorias->nomtutor= $request->input('nomtutor');
+      $tutorias->nombreTutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
       $tutorias->costo= $request->input('costo');
       $tutorias->ubicacion= $request->input('ubicacion');
