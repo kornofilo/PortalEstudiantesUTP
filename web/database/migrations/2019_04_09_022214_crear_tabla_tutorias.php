@@ -17,12 +17,12 @@ class CrearTablaTutorias extends Migration
             $table->bigIncrements('id');
             $table->string('codigoPost',20)->unique();
             $table->string('titulo');
-            $table->string('nomtutor',50);
+            $table->string('nombreTutor',100);
             $table->string('materia',50);
             $table->decimal('costo', 4, 2)->unsigned();
             $table->string('ubicacion');
             $table->text('descripcion');
-            $table->string('imagen');
+            $table->string('imagen')->default('post-placeholder.jpg');
             $table->string('celular',9);
             $table->string('nombre',30);
             $table->string('email',100);

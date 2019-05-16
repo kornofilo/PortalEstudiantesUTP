@@ -25,7 +25,7 @@ class CrearTablaAlquilerhospedaje extends Migration
           $table->unsignedTinyInteger('habitaciones');
           $table->unsignedTinyInteger('baños');
           $table->string('amueblado',2);
-          $table->string('imagen');
+          $table->string('imagen')->default('post-placeholder.jpg');
           $table->string('celular',9);
           $table->string('nombre',30);
           $table->string('email',100);

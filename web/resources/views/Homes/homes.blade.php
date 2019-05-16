@@ -18,7 +18,7 @@
                 <div class="card-deck">
                     @foreach ($datosE  as $evento)                    
                     <div class="card">
-                        <img src="/imagenes/eventos/{{$evento->imagen}}" class="card-img-top" alt="...">
+                        <img src="/imagenes/eventos/{{$evento->imagen}}" class="card-img-top shadow" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$evento->titulo}}</h5>
                             <p class="card-text"> Lugar: {{$evento->lugar}}</p>
@@ -53,7 +53,7 @@
                                 <h5 class="card-title">{{$bolsatrabajo->titulo}}</h5>
                                 <p class="card-text">Empresa: {{$bolsatrabajo->empresa}}</p>
                                 <p class="card-text">Ubicación: {{$bolsatrabajo->ubicacion}}</p>
-                                <h5 class="card-center text-success">Salario: ${{$evento->salario}}</h5>
+                                <h5 class="card-center text-success">Salario: ${{$bolsatrabajo->salario}}</h5>
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver Detalles','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'title'=>'DETALLE DE BOLSA DE TRABAJO ','vista'=>'Bolsatrabajos.detalle']) 
                         </div>
@@ -78,7 +78,7 @@
                         @foreach ($datosC  as $anuncio)                    
                         <div class="card">
                                 <
-                            <img src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="...">
+                            <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="...">
                             <div class="card-body">
 
                                 <p class="card-text">Descripción: {{$anuncio->descripcion}}</p>
@@ -104,7 +104,7 @@
                           <div class="card-deck">
                                 @foreach ($datosT  as $tutoria)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="...">
+                                    <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$tutoria->titulo}}</h5>
                                         <p class="card-text">Materia: {{$tutoria->materia}}</p>
@@ -129,7 +129,7 @@
                           <div class="card-deck">
                                 @foreach ($datosH  as $alquilerhosp)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="...">
+                                    <img src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$alquilerhosp->titulo}}</h5>
                                         <p class="card-text">Ubicación: {{$alquilerhosp->ubicacion}}</p>

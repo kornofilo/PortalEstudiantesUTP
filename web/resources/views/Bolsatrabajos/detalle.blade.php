@@ -9,7 +9,7 @@
       <div class="text-left">
    
     <br>
-    <label>Tipo de Puesto: {{$bolsatrabajo->tipopuesto}}</label>
+    <label>Tipo de Puesto: {{$bolsatrabajo->tipoPuesto}}</label>
     <br>
     <label>Ubicacion: {{$bolsatrabajo->ubicacion}}</label>
     <br>
@@ -26,11 +26,11 @@
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
-      <label>Nombre del Contacto: {{$bolsatrabajo->nombcont}}</label>
+      <label>Nombre del Contacto: {{$bolsatrabajo->nombreContacto}}</label>
       <br>
       <label>Celular: {{$bolsatrabajo->celular}}</label>
       <br>
-      <label>Email: {{$bolsatrabajo->emailcont}}</label>
+      <label>Email: {{$bolsatrabajo->emailContacto}}</label>
 
     </div>
 

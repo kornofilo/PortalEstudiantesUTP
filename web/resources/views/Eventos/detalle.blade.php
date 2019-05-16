@@ -28,7 +28,7 @@
   </div>
   <hr>
   <div >
-      <img style=" width: 300px; " src="/imagenes/evento/{{$evento->imagen}}" 
+      <img style=" width: 300px; " src="/imagenes/eventos/{{$evento->imagen}}" 
        class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
   </div>
