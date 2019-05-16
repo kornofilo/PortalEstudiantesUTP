@@ -60,12 +60,7 @@ class AnunciosController extends Controller
 
         ]);
         
-          
-      if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/clasificado/anuncio',$name_image);
-    }
+    
 
         $anuncio = new Compraventa();
 
@@ -77,11 +72,16 @@ class AnunciosController extends Controller
         $anuncio->estado = $request->input('estado');
         $anuncio->descripcion = $request->input('descripcion');
         $anuncio->celular = $request->input('celular');
-        $anuncio->imagen =$name_image;
         $anuncio->email = \Auth::user()->email;
         $anuncio->nombre = \Auth::user()->nombre;
   
-
+      
+        if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = time().$file->getClientOriginalName();
+          $file->move(public_path().'/imagenes/clasificado/anuncio',$name_image);
+          $anuncio->imagen =$name_image;
+      }
 
 
         $anuncio->save();
