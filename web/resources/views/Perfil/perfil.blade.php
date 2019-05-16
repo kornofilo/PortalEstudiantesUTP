@@ -21,7 +21,7 @@
 
             <div class="card" >
 <!--Condición por si no hay anuncios  -->
-              @if($datos->count() === 0)
+              @if(($datos->count() === 0) && ($datosT->count() === 0) && ($datosE->count() === 0) && ($datosT->count() === 0) && ($datosH->count() === 0) && ($datosB->count() === 0) && ($datosE->count() === 0))
               <div class="alert alert-success" role="alert">
                 <h6 class="text-center font-weight"> No tiene Anuncios</h6>
               </div>
@@ -29,7 +29,9 @@
                     <thead class="thead-light">
 
 <!--  Tabla de anuncios-->
-                    <th>Anuncios</th>
+                  @if($datos->count() === 0)
+                  @else
+                    <th>Clasificados</th>
                     <tr>
                       <th width = "500px">Nombre del anuncio</th>
                       <th width = "600px">Estado de la publicación</th>
@@ -50,6 +52,7 @@
                   </tr>
                   </thead>
                 @endforeach
+                @endif
                 @endif
 
 <!--Condición por si no hay anuncios  -->

@@ -79,7 +79,7 @@ class AnunciosController extends Controller
         $anuncio->estado = $request->input('estado');
         $anuncio->descripcion = $request->input('descripcion');
         $anuncio->celular = $request->input('celular');
-        $anuncio->imagen =("test");
+        $anuncio->imagen =$name_image;
         $anuncio->email = \Auth::user()->email;
         $anuncio->nombre = \Auth::user()->nombre;
 
@@ -153,7 +153,17 @@ class AnunciosController extends Controller
 
       public function destroy($id)
       {
-        Compraventa::where('id',$id)->delete();
-        return back()->with('success','Anuncio eliminado exitosamente.');
+        $usr = (auth()->user()->email);
+        $file = Compraventa::where('id', $id)->find($id);
+        // dd($usr);
+        if ($usr ===$file->email) {
+        if (unlink(public_path().'/imagenes/clasificado/anuncio/'.$file->imagen)) {
+          $file->delete();
+          return back()->with('success','Anuncio eliminado exitosamente.');
+        }
+        else {
+          return back()->with('success','?.');
+        }
+       }
       }
 }

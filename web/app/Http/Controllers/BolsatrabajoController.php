@@ -171,7 +171,17 @@ class BolsatrabajoController extends Controller
      */
     public function destroy($id)
     {
-      Bolsatrabajo::where('id',$id)->delete();
-      return back()->with('success','Anuncio eliminado exitosamente.');
+      $usr = (auth()->user()->email);
+      $file = Bolsatrabajo::where('id', $id)->find($id);
+      // dd($usr);
+      if ($usr ===$file->email) {
+      if (unlink(public_path().'/imagenes/bolsatrabajo/'.$file->imagen)) {
+        $file->delete();
+        return back()->with('success','Bolsa de Trabajo eliminada exitosamente.');
+      }
+      else {
+        return back()->with('success','?.');
+      }
+     }
     }
 }

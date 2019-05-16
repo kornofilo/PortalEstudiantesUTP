@@ -23,7 +23,7 @@ Route::resource('miPerfil', 'PerfilController');
 Route::get('Perfil/Compraventa/show/{id}', 'AnunciosController@show')->name('Perfil.show');
 Route::get('Perfil/Compraventa/detalles/{id}', 'AnunciosController@edit')->name('Perfil.detalles');
 Route::post ('Perfil/update/{id}', 'AnunciosController@update')->name('Perfil.update');
-Route::get('dts/{id}', 'AnunciosController@destroy')->name('dts');
+Route::get('dts/{id}', 'AnunciosController@destroy')->name('dts')->middleware(['auth']);
 //Rutas para el crud de tutorias
 Route::get('Perfil/show2/{id}', 'TutoriasController@show')->name('Perfil.show2');
 Route::get('Perfil/detalles2/{id}', 'TutoriasController@edit')->name('Perfil.detalles2');
