@@ -23,7 +23,7 @@ class EventoController extends Controller
       //muestra los datos
 
       $datos = Evento::orderBy('id','desc')->get();
-  
+
       return view('Eventos.eventos')->with(compact('datos'));
     }
     public function searchE(Request $request)
@@ -90,9 +90,10 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function show(Evento $evento)
+    public function show($id)
     {
-        //
+      $datos = Evento::find($id);
+      return view('Perfil.Eventos.show', compact('datos'));
     }
 
     /**
@@ -101,9 +102,10 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Evento $evento)
+    public function edit($id)
     {
-        //
+      $datosE = Evento::find($id);
+      return view('Perfil.Eventos.detalles', compact('datosE'));
     }
 
     /**
@@ -113,9 +115,27 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request, $id)
     {
-        //
+          $eventos = Evento::find($id);
+          $eventos->titulo= $request->input('titulo');
+          $eventos->fecha= $request->input('fecha');
+          $eventos->lugar= $request->input('lugar');
+          $eventos->costo= $request->input('costo');
+          $eventos->facultad_nomb= $request->input('facultad_nomb');
+          $eventos->descripcion= $request->input('descripcion');
+
+          if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $name_image = 'Evento'.'.'.$request->imagen->extension();
+            $file->move(public_path().'/imagenes/evento/',$name_image);
+            $eventos->imagen = $name_image;
+
+          }
+
+          $eventos->save();
+          return redirect('/miPerfil')->with('success','Datos Actualizados.');
+
     }
 
     /**
@@ -124,8 +144,9 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Evento $evento)
+    public function destroy($id)
     {
-        //
+      Evento::where('id',$id)->delete();
+      return back()->with('success','Anuncio eliminado exitosamente.');
     }
 }

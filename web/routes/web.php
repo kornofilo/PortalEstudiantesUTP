@@ -19,14 +19,33 @@ Route::resource('/', 'HomeController')->middleware(['checkUserStatus']);
 
 //Ruta de perfil de usuario
 Route::resource('miPerfil', 'PerfilController');
-//Rutas para el crud de anuncios y tutorias
-Route::get('dt/{id}', 'AnunciosController@destroy')->name('dt');
+//Rutas para el crud de anuncios
 Route::get('Perfil/Compraventa/show/{id}', 'AnunciosController@show')->name('Perfil.show');
-Route::get('Perfil/show2/{id}', 'TutoriasController@show')->name('Perfil.show2');
 Route::get('Perfil/Compraventa/detalles/{id}', 'AnunciosController@edit')->name('Perfil.detalles');
-Route::get('Perfil/detalles2/{id}', 'TutoriasController@edit')->name('Perfil.detalles2');
 Route::post ('Perfil/update/{id}', 'AnunciosController@update')->name('Perfil.update');
-Route::post ('Perfil/update2/{id}', 'TutoriasController@update')->name('Perfil.update2');
+Route::get('dts/{id}', 'AnunciosController@destroy')->name('dts');
+//Rutas para el crud de tutorias
+Route::get('Perfil/show2/{id}', 'TutoriasController@show')->name('Perfil.show2');
+Route::get('Perfil/detalles2/{id}', 'TutoriasController@edit')->name('Perfil.detalles2');
+Route::put ('Perfil/update2/{id}', 'TutoriasController@update')->name('Perfil.update2');
+Route::get('dt/{id}', 'TutoriasController@destroy')->name('dt');
+//Rutas para el crud de Bolsa de trabajo
+Route::get('Perfil/showB/{id}', 'BolsatrabajoController@show')->name('Perfil.showB');
+Route::get('Perfil/detallesB/{id}', 'BolsatrabajoController@edit')->name('Perfil.detallesB');
+Route::put ('Perfil/updateB/{id}', 'BolsatrabajoController@update')->name('Perfil.updateB');
+Route::get('dB/{id}', 'BolsatrabajoController@destroy')->name('dtB');
+//Rutas para el crud de Eventos
+Route::get('Perfil/showE/{id}', 'EventoController@show')->name('Perfil.showE');
+Route::get('Perfil/detallesE/{id}', 'EventoController@edit')->name('Perfil.detallesE');
+Route::put ('Perfil/updateE/{id}', 'EventoController@update')->name('Perfil.updateE');
+Route::get('dE/{id}', 'EventoController@destroy')->name('dtE');
+//Rutas para el crud de Alquiler y Hospedaje
+Route::get('Perfil/showH/{id}', 'HospedajeController@show')->name('Perfil.showH');
+Route::get('Perfil/detallesH/{id}', 'HospedajeController@edit')->name('Perfil.detallesH');
+Route::put ('Perfil/updateH/{id}', 'HospedajeController@update')->name('Perfil.updateH');
+Route::get('dtH/{id}', 'HospedajeController@destroy')->name('dtH');
+
+
 //ruta para cargar carreras al formulario de editar el perfil
 Route::get('miPerfil/getcarreras/{id}','PerfilController@getCarreras');
 //Ruta de Actualización de Perfil

@@ -54,10 +54,10 @@ class HospedajeController extends Controller
               'amueblado' => 'required',
               'celular' => 'required',
                'imagen' => 'required',
-             
+
           ]);
 
-          
+
       if ($request->hasFile('imagen')) {
         $file = $request->file('imagen');
         $name_image = time().$file->getClientOriginalName();
@@ -67,7 +67,7 @@ class HospedajeController extends Controller
           $hospedador = new Hospedaje();
           //Generación de Código de Publicación.
           $hospedador->codigoPost= 'AH-' . (Hospedaje::all()->max('id') + 1);
-          $hospedador->categoria = $request->input('categoria');         
+          $hospedador->categoria = $request->input('categoria');
           $hospedador->titulo = $request->input('titulo');
           $hospedador->ubicacion = $request->input('ubicacion');
           $hospedador->descripcion = $request->input('descripcion');
@@ -80,14 +80,14 @@ class HospedajeController extends Controller
           $hospedador->imagen =$name_image;
           $hospedador->nombre = \Auth::user()->nombre;
           $hospedador->email = \Auth::user()->email;
-          
-          
+
+
 
 
 
           $hospedador->save();
           return back()->with('success',' Data Saved');
-    
+
     }
     /**
      * Display the specified resource.
@@ -95,9 +95,10 @@ class HospedajeController extends Controller
      * @param  \App\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
-    public function show(Hospedaje $hospedaje)
+    public function show($id)
     {
-        //
+      $datosB = Hospedaje::find($id);
+      return view('Perfil.alquilerHospedaje.show', compact('datosB'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -105,9 +106,10 @@ class HospedajeController extends Controller
      * @param  \App\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hospedaje $hospedaje)
+    public function edit($id)
     {
-        //
+      $datosH = Hospedaje::find($id);
+      return view('Perfil.alquilerHospedaje.detalles', compact('datosH'));
     }
 
     /**
@@ -117,9 +119,31 @@ class HospedajeController extends Controller
      * @param  \App\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hospedaje $hospedaje)
+    public function update(Request $request, $id)
     {
-        //
+        $hospedador = Hospedaje::find($id);
+        $hospedador->categoria = $request->input('categoria');
+        $hospedador->titulo = $request->input('titulo');
+        $hospedador->ubicacion = $request->input('ubicacion');
+        $hospedador->descripcion = $request->input('descripcion');
+        $hospedador->precio = $request->input('precio');
+        $hospedador->estacionamiento = $request->input('estacionamiento');
+        $hospedador->habitaciones = $request->input('habitaciones');
+        $hospedador->baños = $request->input('baños');
+        $hospedador->amueblado = $request->input('amueblado');
+        $hospedador->celular = $request->input('celular');
+
+        if($request->hasFile('imagen')){
+          $profileImage = $request->file('imagen');
+          $name_image = 'hospedaje'.'.'.$request->imagen->extension();
+          $profileImage->move(public_path().'/imagenes/clasificado/hospedador/',$name_image);
+          $hospedador->imagen = $name_image;
+
+        }
+
+        $hospedador->save();
+
+      return redirect('/miPerfil')->with('success','Datos Actualizados.');
     }
 
     /**
@@ -128,8 +152,9 @@ class HospedajeController extends Controller
      * @param  \App\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hospedaje $hospedaje)
+    public function destroy($id)
     {
-        //
+      Hospedaje::where('id',$id)->delete();
+      return back()->with('success','Anuncio eliminado exitosamente.');
     }
 }

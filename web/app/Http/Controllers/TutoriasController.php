@@ -61,7 +61,7 @@ class TutoriasController extends Controller
       'ubicacion' => 'required',
       'descripcion' => 'required',
       'celular' => 'required',
-      'imagen' => 'required',
+      // 'imagen' => 'required',
   ]);
 
 
@@ -73,7 +73,7 @@ class TutoriasController extends Controller
 
       $tutorias = new Tutorias () ;
       //Generación de Código de Publicación.
-      $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);    
+      $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);
       $tutorias->titulo= $request->input('titulo');
       $tutorias->nomtutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
@@ -81,14 +81,14 @@ class TutoriasController extends Controller
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
-      $tutorias->imagen =$name_image;
+      $tutorias->imagen =('lol');
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
 
      #salvar en la base de datos
       $tutorias->save();
-      
-        return back()->with('success',' Data Saved'); 
+
+        return back()->with('success',' Data Saved');
     }
 
     /**
@@ -156,6 +156,6 @@ class TutoriasController extends Controller
      public function destroy($id)
      {
        Tutorias::where('id', $id)->delete();
-       return back()->with('success','eliminado exitosamente.');
+       return back()->with('success','Tutoría eliminada exitosamente.');
      }
 }

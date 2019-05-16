@@ -16,14 +16,13 @@ class PerfilController extends Controller
   public function index()
   {
     //muestra los datos en el perfil
-    // $datosE = Evento::where('email', auth()->user()->email)->latest()->paginate(3);
-    // $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->paginate(3);
-    // $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->paginate(3);
-    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(3);
-    $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(3);
+    $datosE = Evento::where('email', auth()->user()->email)->latest()->get();
+    $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->get();
+    $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->get();
+    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->get();
+    $datos = Compraventa::where('email', auth()->user()->email)->latest()->get();
     $facultades = DB::table('facultades')->pluck("nombre","id");
-    return view('Perfil.miPerfil', compact('datos','facultades','datosT'))
-                  ->with('i', (request()->input('page',1) -1)*5);
+    return view('Perfil.miPerfil', compact('datos','facultades','datosT','datosB','datosE','datosH'));
   }
  /**
   * Show the form for editing the specified resource.
@@ -56,7 +55,6 @@ class PerfilController extends Controller
       $profileImage->move(public_path().'/imagenes/profileImages/'.auth()->user()->email.'/',$name_image);
       $miPerfil->imagen = $name_image;
     }
-
     $miPerfil->save();
     return back()->with('success','Perfil Actualizado.');
    }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 @section('content')
 <div class="container">
 <div class="row justify-content-center h-100 align-items-center">
@@ -7,54 +7,64 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalles del anuncio</h3>
+        <h3>Detalles de la Bolsa de Trabajo</h3>
         <hr>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Nombre del Artículo : </strong> {{$datos->nombreArt}}
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-          <strong>Precio : </strong> B/. {{$datos->precio}}
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <strong>Estado del Artículo :</strong> {{$datos->estado}}
+        <strong>Título del alquiler/hospedaje:</strong> {{$datosB->titulo}}
       </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Categoria :</strong> {{$datos->categoria}}
+        <strong>Ubicación :</strong> {{$datosB->ubicacion}}
       </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Descripción :</strong> {{$datos->descripcion}}
+        <strong>Precio :</strong> {{$datosB->precio}}
       </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Celular :</strong> {{$datos->celular}}
+        <strong>Estacionamiento :</strong> {{$datosB->estacionamiento}}
       </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Nombre del Anunciante :</strong> {{$datos->nombre}}
+        <strong>Habitaciones :</strong> {{$datosB->habitaciones}}
       </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Estado de la Publicación :</strong> {{$datos->estadoPost}}
+        <strong>Baños :</strong> {{$datosB->baños}}
       </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Publicada el :</strong> {{$datos->created_at->format('d/m/Y')}}
+        <strong>Descripción :</strong> {{$datosB->descripcion}}</textarea>
+      </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Nombre del contacto :</strong> {{$datosB->nombre}}
+      </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Celular :</strong> {{$datosB->celular}}
+      </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Email del contacto :</strong> {{$datosB->email}}
+      </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+        <strong>Publicada el :</strong> {{$datosB->created_at->format('d/m/Y')}}
       </div>
       </div>
 
