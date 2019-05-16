@@ -2,7 +2,7 @@
 <div class="col-sm-8">
 
     <h4>{{$anuncio->nombreArt}}</h4>
-    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/anuncio/{{$anuncio->imagen}}"  class="card-img-top">
+    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}"  class="card-img-top">
     <br>
     <label>Precio: {{$anuncio->precio}}</label>
     <br>
@@ -14,7 +14,7 @@
     <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
     <br>
-      <label>Nombre del Contacto: {{$anuncio->nombreArt}}</label>
+      <label>Nombre del Contacto: {{$anuncio->nombre}}</label>
       <br>
       <label>Celular: {{$anuncio->celular}}</label>
       <br>

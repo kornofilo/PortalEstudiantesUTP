@@ -29,7 +29,7 @@ class CrearTablaBolsatrabajo extends Migration
             $table->text('beneficio');
             $table->string('imagen')->default('post-placeholder.jpg');
             $table->string('email',100);
-            $table->string('nombreContacto',30);
+            $table->string('nombreContacto',100);
             $table->string('celular',9);
             $table->string('emailContacto',100);
             $table->timestamps();
