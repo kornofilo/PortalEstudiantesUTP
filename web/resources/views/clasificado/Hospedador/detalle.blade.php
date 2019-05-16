@@ -4,7 +4,7 @@
 <div class="col-sm-8">
 
     <h4>{{$alquilerhosp->titulo}}</h4>
-    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificado/hospedador/{{$alquilerhosp->imagen}}"  class="card-img-top">
+    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}"  class="card-img-top">
     <br>
     <label>Precio por mes: {{$alquilerhosp->precio}}</label>
     <br>

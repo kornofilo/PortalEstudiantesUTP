@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BolsaTrabajoTableSeeder::class);
         $this->call(AnunciosTableSeeder::class);
         $this->call(TutoriasTableSeeder::class);
+        $this->call(AlquilerHospedajeTableSeeder::class);
 
     }
 }

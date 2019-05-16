@@ -144,7 +144,7 @@
                  <div class="d-flex bd-highlight">
                     <!-- Nombre de la publicación -->
                     <div class="p-2 flex-grow-1 bd-highlight">
-                        {{$alquilerhosp->titulo}}
+                        {{$alquilerhosp->titulo}} ({{$alquilerhosp->codigoPost}})
                     </div>
 
                     <!-- Opción para ver la publicación -->                   

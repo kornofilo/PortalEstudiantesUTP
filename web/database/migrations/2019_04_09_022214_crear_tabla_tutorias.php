@@ -22,7 +22,7 @@ class CrearTablaTutorias extends Migration
             $table->decimal('costo', 4, 2)->unsigned();
             $table->string('ubicacion');
             $table->text('descripcion');
-            $table->string('imagen')->default('post-placeholder.jpg');;
+            $table->string('imagen')->default('post-placeholder.jpg');
             $table->string('celular',9);
             $table->string('nombre',30);
             $table->string('email',100);

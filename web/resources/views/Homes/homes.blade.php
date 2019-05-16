@@ -129,7 +129,7 @@
                           <div class="card-deck">
                                 @foreach ($datosH  as $alquilerhosp)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificado/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="...">
+                                    <img src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$alquilerhosp->titulo}}</h5>
                                         <p class="card-text">Ubicación: {{$alquilerhosp->ubicacion}}</p>
