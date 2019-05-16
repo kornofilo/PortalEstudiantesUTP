@@ -17,9 +17,9 @@
               <!-- Title -->
               <h4 class="card-title"><strong>{{$evento->titulo}}</strong></h4>
               <!-- Subtitle -->
-              <h6 class="font-weight-bold indigo-text py-2">Lugar: {{$evento->Lugar}}</h6>
+              <h6 class="font-weight-bold indigo-text py-2">Lugar: {{$evento->lugar}}</h6>
               <!-- Text -->
-              <p class="card-text">Descripcion: {{$evento->Descripcion}}
+              <p class="card-text">Descripción: {{$evento->descripcion}}
                 
                @if ($evento->costo == '0' )
                <p class="card-text">{{$evento->costo = "Gratuito"}}
