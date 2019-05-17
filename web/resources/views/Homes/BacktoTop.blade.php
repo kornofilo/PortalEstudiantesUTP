@@ -1,5 +1,5 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script  src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
 <script type="text/javascript">
 $(document).ready(function(){
    /*  jQuery hace un seguimiento del desplazamiento de la página y aparece el botón si la página se desplaza hacia abajo. */

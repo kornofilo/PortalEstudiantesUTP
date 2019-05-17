@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 
 #llamar al modal
 use App\Tutorias;
@@ -15,11 +16,11 @@ class TutoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
+  
       # llama la vista y trae todos datos de la tabla
-      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
+      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->get;
       return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 

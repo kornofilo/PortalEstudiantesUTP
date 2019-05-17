@@ -31,21 +31,25 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h4> Tutorias Disponibles</h4></div>
+                   
                  @isset($datos)                 
                      @foreach ($datos as $tutoria)         
                            
                             @include('clasificado.Tutorias.tutoria', $tutoria)               
                         
-                            @endforeach                           
-                 @endisset
-
+                            @endforeach  
+                                
                     <div class="col-md-12 gap10"></div>
                 </div>
             </div>
 
-
+            <div class="pagination">
+              
+                </div>
         </div>
-
+      
 </div>
+
+@endisset
 
 @endsection
