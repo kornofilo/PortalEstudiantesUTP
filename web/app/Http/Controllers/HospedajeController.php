@@ -55,16 +55,8 @@ class HospedajeController extends Controller
               'baños' => 'required',
               'amueblado' => 'required',
               'celular' => 'required',
-               'imagen' => 'required',
-
+               // 'imagen' => 'required',
           ]);
-
-
-      if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/clasificado/hospedador',$name_image);
-    }
 
           $hospedador = new Hospedaje();
           //Generación de Código de Publicación.
@@ -79,16 +71,19 @@ class HospedajeController extends Controller
           $hospedador->baños = $request->input('baños');
           $hospedador->amueblado = $request->input('amueblado');
           $hospedador->celular = $request->input('celular');
-          $hospedador->imagen =$name_image;
           $hospedador->nombre = \Auth::user()->nombre;
           $hospedador->email = \Auth::user()->email;
-
-
-
-
+          //
+          if ($request->hasFile('imagen'))
+           {
+            $file = $request->file('imagen');
+            $name_image = time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/clasificado/hospedador',$name_image);
+            $hospedador->imagen =$name_image;
+           }
 
           $hospedador->save();
-          return back()->with('success',' Data Saved');
+          return back()->with('success','Anuncio: '.$hospedador->titulo.' Creado exitosamente');
 
     }
     /**

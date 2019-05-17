@@ -39,7 +39,7 @@
                      <label for="facultad_nomb" class="col-form-label col-sm-3">Facultades:</label>
                          <div class="col-sm-8">
                           <select id="facultad_nomb" class="form-control" name="facultad_nomb" required>
-                            <option>--Selecciona una Facultad--</option disabled>
+                            <option disabled selected>--Selecciona una Facultad--</option>
                              <option value="Ciencias Y Tecnología">Ciencias Y Tecnología</option>
                              <option value="Ingeniería Civil" >Ingeniería Civil</option>
                              <option value="Ingeniería de Sistemas computacionales">Ingeniería de Sistemas computacionales</option>

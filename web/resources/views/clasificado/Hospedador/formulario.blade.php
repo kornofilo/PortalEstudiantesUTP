@@ -4,6 +4,7 @@
             <label for="categoria" class="col-form-label col-sm-3">Categorías:</label>
                 <div class="col-sm-8">
                  <select id="categoria" class="form-control" name="categoria" required>
+                   <option disabled selected>---selecione una categoría---</option>
                     <option value="Apartamento">Apartamento</option>
                     <option value="Cuarto" >Cuarto</option>
                     <option value="Casa">Casa</option>
@@ -76,7 +77,7 @@
 
               <!-- Input de Amueblada -->
               <div class="form-group row">
-                <label for="amueblada" class="col-form-label col-sm-3">Amueblada:</label>
+                <label for="amueblado" class="col-form-label col-sm-3">Amueblada:</label>
                 <div class="col-sm-8">
                 <select id="amueblado" class="form-control" name="amueblado" required>
                     <option value="No">No</option>
@@ -89,7 +90,7 @@
 
         <!-- Input de Imagen -->
          <div class="form-group row">
-            <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
+            <label for="imagen" class="col-form-label col-sm-3">Agregar Fotos:</label>
             <div class="col-sm-8">
             <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Agregar foto" tabindex="1">
             </div>
