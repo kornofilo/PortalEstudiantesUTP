@@ -5,15 +5,16 @@
 @section('content')
 
 <!-- Incluimos el carousel -->
+@include('Homes.carousel')
+
 <div class="container">            
-    @include('Homes.carousel')
     @include('Homes.BacktoTop')
 <div class="justify-content-center">
-    <!-- Sección con los últomos 5 eventos publicados -->'
+    <!-- Sección con los últomos 4 eventos publicados -->
     @isset($datosE) 
     <div id="evento">
             <h1 class="text-center rounded-pill bg-dark text-white">Próximos Eventos</h1>
-            <div class=" col-xs-12 col-lg-12">
+            <div class="col-xs-12 col-lg-12">
                    
                 <div class="card-deck">
                     @foreach ($datosE  as $evento)                    
@@ -41,7 +42,7 @@
  <div class="justify-content-center">
         @isset($datosB)  
 <div id="bolsatrabajo" >
-    <h1 class="text-center rounded-pill bg-dark text-white">Nuevas Oportunidades de Empleo</h1>
+    <h1 class="text-center rounded-pill bg-dark text-white">Nuevas Vacantes</h1>
         <div class=" col-xs-12 col-lg-12  ">
                 <div class="card-deck">
                         @foreach ($datosB  as $bolsatrabajo)                    
@@ -64,7 +65,7 @@
         <div class="justify-content-center">
         @isset($datosC)
         <div id="compraventa" >
-        <h1 class="text-center rounded-pill bg-dark text-white">Nuevos artículos para vender o comprar</h1>
+        <h1 class="text-center rounded-pill bg-dark text-white">Artículos Recientes</h1>
             <div class=" col-xs-12 col-lg-12">
                     <br>
                  <div class="card-deck">
@@ -98,7 +99,7 @@
                                 <div class="card">
                                     <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
                                     <div class="card-body">
-                                        <h5 class="card-title font-weight-bold">{{$tutoria->titulo}}</h5>
+                                        <h5 class="card-title font-weight-bold text-break">{{$tutoria->titulo}}</h5>
                                         <p class="card-text"><i class="fas fa-book-open"></i> {{$tutoria->materia}}</p>
                                         <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$tutoria->ubicacion}}</p>
                                         <h5 class="card-center text-success font-weight-bold text-right">${{$tutoria->costo}}/Hora</h5>
@@ -117,7 +118,7 @@
                     @isset($datosH)
               <div id="alquilerhospedaje" >
                     <div class=" col-xs-12 col-lg-12">
-                    <h1 class="text-center rounded-pill bg-dark text-white">Nuevos Anuncios de Alquiler</h1>
+                    <h1 class="text-center rounded-pill bg-dark text-white">Nuevos Alquileres</h1>
                           <div class="card-deck">
                                 @foreach ($datosH  as $alquilerhosp)                    
                                 <div class="card">
@@ -144,8 +145,7 @@
                     </div>
                 </div>
                 @endisset
-            </div> <br>
-  
+            </div> <br>          
 </div>
 
 
