@@ -10,15 +10,16 @@ $factory->define(Bolsatrabajo::class, function (Faker $faker) {
     $ubicaciones = ['David', 'Puerto Armuelles', 'Bugaba', 'Chorrera', 'Tocumen', 'Boquete', 'Paso Canoas'];
     $posiciones = ['Desarrollador Web', 'Lavaplatos', 'Ingeniero Civil', 
                     'Profesor', 'Mercaderista', 'Gerente de TI', 'Arquitecto', 'Desarrollador Móvil', 'Cajero'];
-
+    $siNo = ['Sí','No'];
+    $tipoPuesto = ['Tiempo Completo', 'Tiempo Parcial', 'Contrato/Temporario'];
 
     return [
         'codigoPost' => 'BDT-'. $faker->unique->numberBetween($min = 100, $max = 999), 
-        'urgente' => $faker->boolean,
+        'urgente' => Arr::random($siNo),
         'titulo' => Arr::random($titulos) . Arr::random($posiciones),
         'ubicacion' => Arr::random($ubicaciones),
         'empresa' => $faker->company,
-        'tipoPuesto'=> Arr::random($posiciones),
+        'tipoPuesto'=> Arr::random($tipoPuesto),
         'salario' => $faker->randomFloat($nbMaxDecimals = 2, $min = 400, $max = 2500),
         'direccion' => $faker->address,
         'descripcion' => $faker->text($maxNbChars = 200),

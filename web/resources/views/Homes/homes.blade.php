@@ -57,8 +57,12 @@
                                 <h5 class="card-title font-weight-bold">{{$bolsatrabajo->titulo}}</h5>
                                 <p class="card-text"><i class="fas fa-building"></i> {{$bolsatrabajo->empresa}}</p>
                                 <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$bolsatrabajo->ubicacion}}</p>
+                                <p class="card-text"><i class="fas fa-file-contract"></i> {{$bolsatrabajo->tipoPuesto}}</p>  
                                 <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>                   
                                 <h5 class="card-center text-success font-weight-bold text-right">Salario: ${{$bolsatrabajo->salario}}</h5>
+                                @if($bolsatrabajo->urgente === "Sí")
+                                     <h5 class="card-center text-danger font-weight-bold text-right">Urgente</h5>
+                                @endif
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver Detalles','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'title'=>'DETALLE DE BOLSA DE TRABAJO ','vista'=>'Bolsatrabajos.detalle']) 
                         </div>

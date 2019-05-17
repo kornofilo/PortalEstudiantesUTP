@@ -72,7 +72,7 @@ Route::get('/alquilerhospedajes','HospedajeController@search')->name('alquilerho
 });
 //Ruta de bolsatrabajo
 Route::resource('bolsatrabajos', 'BolsatrabajoController');
-Route::get('/bolsatrabajos','BolsatrabajoController@searchB');
+Route::get('bolsatrabajos','BolsatrabajoController@search')->name('bolsaDeTrabajo.search');
 //Ruta de Eventos
 Route::resource('eventos','EventoController');
 Route::get('/eventos','EventoController@searchE');

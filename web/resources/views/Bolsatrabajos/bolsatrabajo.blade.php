@@ -1,35 +1,32 @@
 
-  <div class="container">
-        <!-- Card -->
-        <div class="card card-cascade wider reverse my-2">
-        
-            <!-- Card image -->
-            <div class="card-block card-cascade wider reverse text-center ">
-        <div class="view overlay">
-                <img class="card-img-top" style="max-width: 350px;" src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}" alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-        </div>
-             
-           
-          
-            <!-- Card content -->
-            <div class="card-body card-body-cascade shadow text-center " >
-          
-              <!-- Title -->
-              <h4 class="card-title"><strong>{{$bolsatrabajo->titulo}}</strong></h4>
-              <!-- Subtitle -->
-              <h6 class="font-weight-bold indigo-text py-2">Ubicacion: {{$bolsatrabajo->ubicacion}}</h6>
-              <!-- Text -->
-              <p class="card-text">Descripcion: {{$bolsatrabajo->descripcion}}</p>
-          
-              @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'Detalle Bolsa de Trabajo','vista'=>'Bolsatrabajos.detalle'])
+<div class="container">
+    <div class="row">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded card ">
+                <div class="card-body d-flex ">
+                    <div class="col-md-8 px-3 ">
+                        <h3 class="card-title">{{$bolsatrabajo->titulo}}</h3>
+                        <p class="card-text"><i class="fas fa-building"></i> {{$bolsatrabajo->empresa}}</p>
+                        <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$bolsatrabajo->ubicacion}}</p>   
+                        <p class="card-text"><i class="fas fa-file-contract"></i> {{$bolsatrabajo->tipoPuesto}}</p>  
+                        <p class="card-text"><i class="fas fa-location-arrow"></i> {{$bolsatrabajo->direccion}}</p>  
+                         
+                        <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>                                           
+                    </div>
+                    <div class="text-right view view-cascade overlay"  width="500px">
+                        <img class="card-img-top shadow" src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}"
+                        class="pull-left img-responsive thumb margin10 img-thumbnail rounded">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                            
+                          </a>
+                          <br>  
+                          <h5 class="card-center text-success font-weight-bold text-right">Salario: ${{$bolsatrabajo->salario}}</h5>
+                          @if($bolsatrabajo->urgente === "Sí")
+                            <h5 class="card-center text-danger font-weight-bold text-right">Urgente</h5>
+                          @endif
+                          @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'Detalle Bolsa de Trabajo','vista'=>'Bolsatrabajos.detalle'])
+                    </div>
+                </div>
             </div>
-          
-          </div>
-          <!-- Card -->
-        </div>
-        </div>
-        
-
+    </div>
+</div>
