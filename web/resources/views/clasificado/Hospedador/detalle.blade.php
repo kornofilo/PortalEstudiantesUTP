@@ -12,6 +12,7 @@
     <br>
     <label>Descripción: {{$alquilerhosp->descripcion}}</label>
     <hr>
+    
     <h3>Detalles</h3>
     <br>
     <label>Estacionamiento: {{$alquilerhosp->estacionamiento}}</label>
