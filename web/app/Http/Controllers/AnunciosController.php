@@ -57,14 +57,6 @@ class AnunciosController extends Controller
             'celular' => 'required',
             // 'imagen' => 'required',
         ]);
-
-
-      if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/clasificados/anuncios',$name_image);
-    }
-
         $anuncio = new Compraventa();
 
         $anuncio->categoria = $request->input('categoria');
@@ -75,12 +67,18 @@ class AnunciosController extends Controller
         $anuncio->estado = $request->input('estado');
         $anuncio->descripcion = $request->input('descripcion');
         $anuncio->celular = $request->input('celular');
-        $anuncio->imagen =$name_image;
         $anuncio->email = \Auth::user()->email;
         $anuncio->nombre = \Auth::user()->nombre;
-
+        //
+        if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = 'Compraventa.'.$request->imagen->extension();
+          $file->move(public_path().'/imagenes/clasificados/anuncios',$name_image);
+          $anuncio->imagen =$name_image;
+        }
+        //
         $anuncio->save();
-        return back()->with('success',' Data Saved');
+        return back()->with('success','Anuncio: '.$anuncio->nombreArt.' Creado exitosamente');
     }
 
     /**
@@ -127,9 +125,9 @@ class AnunciosController extends Controller
           $datos->estadoPost = ('En Moderación');
 
           if($request->hasFile('imagen')){
-            $profileImage = $request->file('imagen');
-            $name_image = time().$file->getClientOriginalName();
-            $profileImage->move(public_path().'/imagenes/clasificados/anuncios/',$name_image);
+            $file = $request->file('imagen');
+            $name_image = 'Compraventa.'.$request->imagen->extension();
+            $file->move(public_path().'/imagenes/clasificados/anuncios/',$name_image);
             $datos->imagen = $name_image;
           }
 
@@ -152,13 +150,12 @@ class AnunciosController extends Controller
         $file = Compraventa::where('id', $id)->find($id);
         // dd($usr);
         if ($usr ===$file->email) {
-        if (unlink(public_path().'/imagenes/clasificados/anuncio/'.$file->imagen)) {
+        if (unlink(public_path().'/imagenes/clasificados/anuncios/'.$file->imagen)) 
+        {
           $file->delete();
           return back()->with('success','Anuncio eliminado exitosamente.');
         }
-        else {
-          return back()->with('success','?.');
-        }
+
        }
       }
 }

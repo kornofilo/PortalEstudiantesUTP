@@ -17,8 +17,13 @@
       <div class="row">
         <!-- Input de nueva imagen -->
        <div class="col-md-12 d-flex justify-content-center">
-         <img style=" width: 200px;height: 200px" src="/imagenes/clasificados/anuncios/{{$datos->imagen}}"
+         @if($datos->imagen === "post-placeholder.jpg")
+         <img style=" width: 200px;height: 200px" src="/{{$datos->imagen}}"
           class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+        @else
+        <img style=" width: 200px;height: 200px" src="/imagenes/clasificados/anuncios/{{$datos->imagen}}"
+         class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+        @endif
       </div>
       <div class="col-md-12">
       <div class="form-group">

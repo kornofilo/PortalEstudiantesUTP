@@ -21,6 +21,7 @@
                    <label for="materia" class="col-form-label  col-sm-3 ">Materia:</label>
                    <div class="col-sm-8">
                    <select id="materia" class="form-control" name="materia" required>
+                     <option disabled selected>---Escoja una materia---</option>
                        <option>Programación</option>
                        <option>Cálculo</option>
                        <option>Otros</option>
@@ -37,7 +38,7 @@
                    <div class="form-group row">
                      <label for="costo" class="col-form-label col-sm-3">Costo:</label>
                      <div class="col-sm-8">
-                       <input type="number" name="costo" id="costo" class="form-control" min="1" max="99" step="0.01" oninput="validity.valid||(value=)" placeholder="Costo">
+                       <input type="number" name="costo" id="costo" class="form-control" min="0" max="9999" step="0.01" oninput="validity.valid||(value=)" placeholder="Costo">
 
 
 

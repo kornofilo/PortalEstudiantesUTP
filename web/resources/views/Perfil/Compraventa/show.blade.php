@@ -11,8 +11,14 @@
         <hr>
       </div>
     </div>
-    <img style=" width: 300px; " src="/imagenes/clasificados/anuncios/{{$datos->imagen}}"
-     class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+    @if($datos->imagen === "post-placeholder.jpg")
+     <img style=" width: 300px; " src="/{{$datos->imagen}}"
+     class=" rounded float-right img-responsive thumb margin10 img-thumbnail">
+   <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
+   @else
+   <img style=" width: 300px; " src="/imagenes/clasificados/anuncios/{{$datos->imagen}}"
+    class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
+   @endif
     <div class="row">
     <div class="row">
       <div class="col-md-12">

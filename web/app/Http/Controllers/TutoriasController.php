@@ -63,13 +63,6 @@ class TutoriasController extends Controller
        // 'imagen' => 'required',
   ]);
 
-
-      if ($request->hasFile('imagen')) {
-          $file = $request->file('imagen');
-          $name_image = 'tutoria.'.$request->imagen->extension();
-          $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
-      }
-
       $tutorias = new Tutorias () ;
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);
@@ -80,20 +73,20 @@ class TutoriasController extends Controller
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
-      if ($request->hasFile('imagen'))
-      {
-        $tutorias->imagen =$name_image;
-      }else{
-         $tutorias->imagen =('post-placeholder.jpg');
-       }
-
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
+      //
+      if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = 'tutoria.'.$request->imagen->extension();
+          $file->move(public_path().'/imagenes/clasificados/tutorias',$name_image);
+          $tutorias->imagen =$name_image;
+      }
 
      #salvar en la base de datos
       $tutorias->save();
 
-        return back()->with('success',' Data Saved');
+        return back()->with('success',' Tutoría: '.$tutorias->titulo.' Creada exitosamente');
     }
 
     /**
