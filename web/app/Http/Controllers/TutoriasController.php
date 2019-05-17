@@ -136,6 +136,7 @@ class TutoriasController extends Controller
 
            if($request->hasFile('imagen')){
              $TImage = $request->file('imagen');
+             // ejemplo para guardar fotos encima de otra foto.
              $name_image = 'TImage'.'.'.$request->imagen->extension();
              $TImage->move(public_path().'/imagenes/clasificado/tutorias/',$name_image);
              $datosT->imagen = $name_image;

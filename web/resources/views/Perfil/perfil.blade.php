@@ -26,12 +26,13 @@
                 <h6 class="text-center font-weight"> No tiene Anuncios</h6>
               </div>
                     @else
+
                     <thead class="thead-light">
 
 <!--  Tabla de anuncios-->
                   @if($datos->count() === 0)
                   @else
-                    <th>Clasificados</th>
+                    <h5 class="text-center rounded-pill bg-dark text-white" align="center">Clasificados</h5class="text-center rounded-pill bg-dark text-white">
                     <tr>
                       <th width = "500px">Nombre del anuncio</th>
                       <th width = "600px">Estado de la publicación</th>
@@ -41,7 +42,15 @@
                     @foreach ($datos as $data)
                     <tr>
                       <td>{{$data->nombreArt}}</td>
-                      <td>{{$data->estadoPost}}</td>
+                      @if ( $data->estadoPost == "Aprobada")
+                    <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
+
+                      @elseif ( $data->estadoPost == "En Moderación")
+                    <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
+
+                      @elseif ( $data->estadoPost == "Rechazada")
+                    <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
+                      @endif
                       <td>
                         <div class="p-2 bd-highlight">
                         <a class="btn btn-outline-info" href="{{route('Perfil.show',$data->id)}}">Ver</a>
@@ -51,6 +60,7 @@
                     </td>
                   </tr>
                   </thead>
+                  </table>
                 @endforeach
                 @endif
                 @endif
@@ -58,9 +68,11 @@
 <!--Condición por si no hay anuncios  -->
                 @if($datosT->count() === 0)
                 @else
+                <table class="table ">
                 <thead class="thead-light">
 <!-- Tabla de Tutorías -->
-                <th>Turorías</th>
+                <hr>
+                <h5 class="text-center rounded-pill bg-dark text-white" align="center">Tutorías</h5>
                 <tr>
                   <th width = "500px">Nombre de la tutoría</th>
                   <th width = "600px">Estado de la publicación</th>
@@ -69,7 +81,16 @@
                 @foreach ($datosT as $data)
                       <tr>
                         <td>{{$data->titulo}}</td>
-                        <td>{{$data->estadoPost}}</td>
+
+                        @if ( $data->estadoPost == "Aprobada")
+                      <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
+
+                        @elseif ( $data->estadoPost == "En Moderación")
+                      <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
+
+                        @elseif ( $data->estadoPost == "Rechazada")
+                      <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
+                        @endif
                       <td>
                        <a class="btn btn-outline-info" href="{{route('Perfil.show2',$data->id)}}">Ver</a>
                        <a class="btn btn-outline-warning" href="{{route('Perfil.detalles2',$data->id)}}">Editar</a>
@@ -81,13 +102,15 @@
                         @endforeach
                         @endif
                       </div>
+                      </table>
 
                       <!--Condición por si no hay Hospedaje  -->
                                       @if($datosH->count() === 0)
                                       @else
+                                      <table class="table ">
                                       <thead class="thead-light">
                       <!-- Tabla de Tutorías -->
-                                      <th>Alquiler / Hospedaje</th>
+                                      <h5 class="text-center rounded-pill bg-dark text-white" align="center">Alquiler / Hospedaje</h5>
                                       <tr>
                                         <th width = "500px">Nombre del anuncio</th>
                                         <th width = "600px">Estado de la publicación</th>
@@ -96,7 +119,15 @@
                                       @foreach ($datosH as $data)
                                             <tr>
                                               <td>{{$data->titulo}}</td>
-                                              <td>{{$data->estadoPost}}</td>
+                                              @if ( $data->estadoPost == "Aprobada")
+                                            <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
+
+                                              @elseif ( $data->estadoPost == "En Moderación")
+                                            <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
+
+                                              @elseif ( $data->estadoPost == "Rechazada")
+                                            <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
+                                              @endif
                                             <td>
                                              <a class="btn btn-outline-info" href="{{route('Perfil.showH',$data->id)}}">Ver</a>
                                              <a class="btn btn-outline-warning" href="{{route('Perfil.detallesH',$data->id)}}">Editar</a>
@@ -108,15 +139,17 @@
                                               @endforeach
                                               @endif
                                             </div>
-
+                                              </table>
 <!-- Condición para solo mostrar estas tablas al Administrador y Moderador -->
               @if((Auth::user()->roles()->value('name') == "Administrador") || (Auth::user()->roles()->value('name') == "Moderador"))
 <!--Condición por si no hay Bolsas de trabajo  -->
               @if($datosB->count() === 0)
               @else
+              <table class="table ">
               <thead class="thead-light">
 <!-- Tabla de Bolsa de trabajos -->
-              <th>Bolsa de trabajo</th>
+              <hr>
+              <h5 class="text-center rounded-pill bg-dark text-white" align="center">Bolsa de trabajo</h5 align="center">
               <tr>
                 <th width = "500px">Nombre del trabajo</th>
                 <th width = "600px">Es de urgencia</th>
@@ -133,15 +166,18 @@
                           </td>
                         </tr>
                         </thead>
+                      </table>
                       @endforeach
 
                 @endif
 <!--Condición por si no hay Eventos  -->
                 @if($datosE->count() === 0)
                 @else
+                <table class="table ">
                 <thead class="thead-light">
 <!-- Tabla de Eventos -->
-                <th>Eventos</th>
+                <hr class="my-4">
+                <h5 class="text-center rounded-pill bg-dark text-white" align="center">Eventos</h5>
                 <tr>
                   <th width = "500px">Nombre del Evento</th>
                   <th width = "600px">Fecha de Evento</th>
