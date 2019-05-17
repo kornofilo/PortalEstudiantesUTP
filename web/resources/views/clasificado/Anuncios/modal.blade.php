@@ -33,8 +33,8 @@
 
 
 <!-- The Modal -->
-<div class="modal fade" id="{{isset($id_modal)?$id_modal:modal1}}">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="{{isset($id_modal)?$id_modal:modal1}}" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
         <!-- Modal Header -->
