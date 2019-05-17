@@ -17,7 +17,7 @@ class AnunciosController extends Controller
     public function index()
     {
 
-        $datos = Compraventa::where('estadoPost','Aprobada')->get();
+        $datos = Compraventa::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
         return view('clasificado.Anuncios.anuncios')->with(compact('datos'));
 
 
