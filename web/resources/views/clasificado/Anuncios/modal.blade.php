@@ -4,8 +4,16 @@
 @if(((\Request::is('eventos')) || (\Request::is('postsMod'))  || (\Request::is('bolsatrabajos'))) &&
   ((Auth::user()->roles()->value('name') == "Administrador") || (Auth::user()->roles()->value('name') == "Moderador")) )
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">
+      @isset($btn_icon)
+        <i class="{{$btn_icon}}"></i>
+      @endisset
+      
       @isset($btn_nombre)
           {{$btn_nombre}}
+      @endisset
+
+      @isset($btn_icon)
+          {{$btn_icon}}
       @endisset
   </button>
 @endif
@@ -14,9 +22,12 @@
 @if( (\Request::is('clasificado/anuncios')) || (\Request::is('clasificado/tutorias')) || (\Request::is('clasificado/alquilerhospedajes')) || (\Request::is('clasificado/searchT')) 
 || (\Request::is('/')) ) 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">
+      <i class="@isset($btn_icon) {{$btn_icon}} @endisset"></i>
       @isset($btn_nombre)
           {{$btn_nombre}}
       @endisset
+
+      
   </button>
 @endif
 
@@ -44,9 +55,6 @@
             @endisset
 
         </div>
-
-
-
       </div>
     </div>
   </div>

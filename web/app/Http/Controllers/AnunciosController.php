@@ -19,8 +19,6 @@ class AnunciosController extends Controller
 
         $datos = Compraventa::where('estadoPost','Aprobada')->get();
         return view('clasificado.Anuncios.anuncios')->with(compact('datos'));
-
-
     }
     public function search(Request $request)
     {

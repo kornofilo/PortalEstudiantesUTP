@@ -1,15 +1,13 @@
 
 <div class="container">
     <div class="row">
-            <div class="card shadow card-cascade ">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded card ">
                 <div class="card-body d-flex ">
                     <div class="col-md-8 px-3 ">
                         <h3 class="card-title  ">{{$anuncio->titulo}}</h3>
-                        
-                        <p class="card-text">Categoria: {{$anuncio->categoria}}</p>
-                        <p class="card-text">Descripcion: {{$anuncio->descripcion}}</p>
-                        <p class="card-text">Estado: {{$anuncio->estado}}</p>
-                        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
+                        <h5 class="card-title font-weight-bold">{{$anuncio->nombreArt}}</h5>
+                        <p class="card-text"><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
+                        <p class="card-text"><i class="fas fa-heart"></i> {{$anuncio->estado}}</p>
                    
                     </div>
                     <div class="text-right view view-cascade overlay"  width="500px">
@@ -20,7 +18,9 @@
                             
                           </a>
                           <br>  
-                            <h5 class="card-center text-success">${{$anuncio->precio}}</h5>
+                            <h5 class="card-center text-success font-weight-bold">${{$anuncio->precio}}</h5>
+                            @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver Detalles','id_modal'=>'anun'.$id,'title'=>'DETALLES DEL ANUNCIO ','vista'=>'clasificado.Anuncios.detalle'])
+
                     </div>
                 </div>
             </div>
