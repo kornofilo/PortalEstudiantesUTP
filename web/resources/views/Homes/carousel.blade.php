@@ -1,7 +1,5 @@
-<div class="container">
-    <div class="row">
-            <div class="col-md-12">
-                    <div id="carouselHome" class="carousel slide" data-ride="carousel">
+
+                    <div id="carouselHome" class="carousel slide carousel-fade" data-ride="carousel">
                         <ol class="carousel-indicators">
                           <!--Indicadores-->
                           <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
@@ -16,7 +14,7 @@
 
                           <div class="carousel-item active">
                             <a href="{{ url('eventos') }}">
-                              <img class="d-block w-100 " src="{{asset('imagenes/carousel/carousel-eventos.jpg')}} " alt="Eventos">
+                              <img class="d-block w-100" src="{{asset('imagenes/carousel/carousel-eventos.jpg')}} " alt="Eventos">
                               <div class="carousel-caption d-none d-md-block hidden-xs hidden-sm">
                                   <h5 class="font-weight-bolder">Eventos</h5>
                                   <p class="font-weight-bolder">Aquí encontrarás información de los próximos eventos que se realizarán en la universidad</p>
@@ -77,10 +75,7 @@
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="sr-only">Siguiente</span>
                         </a>
-                      </div>
-                </div>
-    </div>  
-          
- </div>
+                      </div> <br>
+
 
 
