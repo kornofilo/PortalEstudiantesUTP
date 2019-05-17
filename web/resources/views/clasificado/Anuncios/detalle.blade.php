@@ -1,19 +1,13 @@
-<div class="form-group row">
-<div class="col-sm-8">
-
-    <h4>{{$anuncio->nombreArt}}</h4>
-    <img style="height:200px; width: 200px; margin: 40px;" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}"  class="card-img-top">
-    <br>
-    <label>Precio: {{$anuncio->precio}}</label>
-    <br>
-    <label>Estado: {{$anuncio->estado}}</label>
-    <br>
-    <label>Descripcion: {{$anuncio->descripcion}}</label>
+    <h4 class="text-center">{{$anuncio->nombreArt}}</h4> <br>
+    <div class="text-center">
+      <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}">
+    </div>
+    <p><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
+    <p><i class="fas fa-heart"></i> Estado: {{$anuncio->estado}}</p>
+    <p><i class="fas fa-info"></i> Descripción del Artículo: {{$anuncio->descripcion}}</p>
     <hr>
 
-    <div class="col-sm-8">
     <p class="h5">Información de Contacto</p>
-    <br>
       <label>Nombre del Contacto: {{$anuncio->nombre}}</label>
       <br>
       <label>Celular: {{$anuncio->celular}}</label>
@@ -23,18 +17,15 @@
       <form action="/OtroPerfil" method="get">
         {{csrf_field()}}
         <input type="hidden" name="code" value="">
-        <input type="submit" class="btn-info" value="Ver perfil del anunciante">
+        <button type="submit" class="btn btn-info">
+          Ver perfil del anunciante
+        </button>
       </form>
-    </div>
 
     <hr>
-    <div class="col-sm-8">
-      <label>Código de Publicación: {{$anuncio->codigoPost}}</label>
-    </div>
-
-</div>
-</div>
-
+      <p class="h5 bold-text">Información de la Publicación</p>
+      <p><i class="fas fa-ticket-alt"></i> Código de Publicación: {{$anuncio->codigoPost}}</p> 
+      <p><i class="fas fa-clock"></i> Publicado {{$anuncio->created_at->diffForHumans()}}</p> 
 <div class="modal-footer">
     <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
 </div>
