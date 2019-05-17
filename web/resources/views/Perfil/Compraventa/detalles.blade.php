@@ -17,10 +17,15 @@
       <div class="row">
         <!-- Input de nueva imagen -->
        <div class="col-md-12 d-flex justify-content-center">
-         <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/anuncios/"
+         <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/anuncio/{{$datos->imagen}}"
           class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
-      <br></br>
+      <div class="col-md-12">
+      <div class="form-group">
+        <label for="imagen">Nueva Imagen</label>
+        <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
+      </div>
+      </div>
       <div class="col-md-12">
         <div class="form-group">
         <strong>Categoría :</strong>

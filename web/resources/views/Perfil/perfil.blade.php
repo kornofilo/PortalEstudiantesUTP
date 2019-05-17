@@ -60,10 +60,11 @@
                     </td>
                   </tr>
                   </thead>
-                  </table>
+
                 @endforeach
                 @endif
                 @endif
+                </table>
 
 <!--Condición por si no hay anuncios  -->
                 @if($datosT->count() === 0)
@@ -84,11 +85,11 @@
 
                         @if ( $data->estadoPost == "Aprobada")
                       <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
-
-                        @elseif ( $data->estadoPost == "En Moderación")
+                        @endif
+                        @if ( $data->estadoPost == "En Moderación")
                       <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
-
-                        @elseif ( $data->estadoPost == "Rechazada")
+                        @endif
+                        @if ( $data->estadoPost == "Rechazada")
                       <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
                         @endif
                       <td>
@@ -148,15 +149,15 @@
               <table class="table ">
               <thead class="thead-light">
 <!-- Tabla de Bolsa de trabajos -->
-              <hr>
-              <h5 class="text-center rounded-pill bg-dark text-white" align="center">Bolsa de trabajo</h5 align="center">
+
+              <h5 class="text-center rounded-pill bg-dark text-white" align="center">Bolsa de trabajo</h5>
               <tr>
                 <th width = "500px">Nombre del trabajo</th>
                 <th width = "600px">Es de urgencia</th>
                 <th width = "600px">Acción</th>
               </tr>
               @foreach ($datosB as $data)
-                          <tr>
+                            <tr>
                             <td>{{$data->titulo}}</td>
                             <td>{{$data->urgente}}</td>
                             <td>
@@ -166,9 +167,9 @@
                           </td>
                         </tr>
                         </thead>
-                      </table>
-                      @endforeach
 
+                      @endforeach
+                      </table>
                 @endif
 <!--Condición por si no hay Eventos  -->
                 @if($datosE->count() === 0)

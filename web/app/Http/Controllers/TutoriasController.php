@@ -17,9 +17,9 @@ class TutoriasController extends Controller
      */
     public function index()
     {
-  
+
       # llama la vista y trae todos datos de la tabla
-      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->get;
+      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
       return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 
@@ -54,33 +54,39 @@ class TutoriasController extends Controller
 
       $this->validate($request,[
       'titulo' => 'required',
-      'nomtutor' => 'required',
+      'nombreTutor' => 'required',
       'materia' => 'required',
       'costo' => 'required',
       'ubicacion' => 'required',
       'descripcion' => 'required',
       'celular' => 'required',
-      // 'imagen' => 'required',
+       // 'imagen' => 'required',
   ]);
 
 
       if ($request->hasFile('imagen')) {
           $file = $request->file('imagen');
-          $name_image = time().$file->getClientOriginalName();
-          $file->move(public_path().'/imagenes/clasificados/tutorias',$name_image);
+          $name_image = 'tutoria.'.$request->imagen->extension();
+          $file->move(public_path().'/imagenes/clasificado/tutorias',$name_image);
       }
 
       $tutorias = new Tutorias () ;
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);
       $tutorias->titulo= $request->input('titulo');
-      $tutorias->nomtutor= $request->input('nomtutor');
+      $tutorias->nombreTutor= $request->input('nombreTutor');
       $tutorias->materia= $request->input('materia');
       $tutorias->costo= $request->input('costo');
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
-      $tutorias->imagen =$name_image;
+      if ($request->hasFile('imagen'))
+      {
+        $tutorias->imagen =$name_image;
+      }else{
+         $tutorias->imagen =('post-placeholder.jpg');
+       }
+
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
 
@@ -126,19 +132,19 @@ class TutoriasController extends Controller
 
            $datosT = Tutorias::find($id);
            $datosT->titulo = $request->get('titulo');
-           $datosT->nomtutor = $request->get('nomtutor');
+           $datosT->nombreTutor = $request->get('nombreTutor');
            $datosT->materia = $request->get('materia');
            $datosT->costo = $request->get('costo');
            $datosT->ubicacion = $request->get('ubicacion');
            $datosT->descripcion = $request->get('descripcion');
            $datosT->celular = $request->get('celular');
-           $datosT->estadoPost = ('En moderación');
+           $datosT->estadoPost = ('En Moderación');
 
            if($request->hasFile('imagen')){
              $TImage = $request->file('imagen');
              // ejemplo para guardar fotos encima de otra foto.
-             $name_image = 'TImage'.'.'.$request->imagen->extension();
-             $TImage->move(public_path().'/imagenes/clasificado/tutorias/',$name_image);
+             $name_image = 'tutoria.'.$request->imagen->extension();
+             $TImage->move(public_path().'/imagenes/clasificados/tutorias/',$name_image);
              $datosT->imagen = $name_image;
 
            }
@@ -158,9 +164,8 @@ class TutoriasController extends Controller
 
        $usr = (auth()->user()->email);
        $file = Tutorias::where('id', $id)->find($id);
-       // dd($usr);
        if ($usr ===$file->email) {
-       if (unlink(public_path().'/imagenes/clasificado/tutorias/'.$file->imagen)) {
+       if (unlink(public_path().'/imagenes/clasificados/tutorias/'.$file->imagen)) {
          $file->delete();
          return back()->with('success','Tutoría eliminada exitosamente.');
        }

@@ -6,12 +6,12 @@
  <label>Urgente: </label> <br>
 
  <div class="form-check form-check-inline">
-<label class="form-check-label" for="MasculinoRadio">Si</label>
-     <input class="form-check-input" type="radio" name="urgente" id="MasculinoRadio" value="Si" required>
+<label class="form-check-label" for="Si">Si</label>
+     <input class="form-check-input" type="radio" name="urgente" id="Si" value="Si" required>
  </div>
  <div class="form-check form-check-inline">
-    <label class="form-check-label" for="FemeninoRadio">No</label>
-     <input class="form-check-input" type="radio" name="urgente" id="FemeninoRadio" value="No" required>
+    <label class="form-check-label" for="No">No</label>
+     <input class="form-check-input" type="radio" name="urgente" id="No" value="No" required>
 
  </div>
  <!-- Input de Titulo -->
@@ -26,7 +26,7 @@
               <div class="form-group row">
                 <label for="ubicacion" class="col-form-label col-sm-3">Ubicación:</label>
                 <div class="col-sm-8">
-                  <input type="text" name="ubicacion" id="ubicación" class="form-control" placeholder="Ubicación" required >
+                  <input type="text" name="ubicacion" id="ubicacion" class="form-control" placeholder="Ubicación" required >
                 </div>
               </div>
 
@@ -40,9 +40,9 @@
 
             <!-- Input de M -->
                  <div class="form-group row">
-                   <label for="tipopuesto" class="col-form-label  col-sm-3 ">Tipo de Puesto:</label>
+                   <label for="tipoPuesto" class="col-form-label  col-sm-3 ">Tipo de Puesto:</label>
                    <div class="col-sm-8">
-                   <select id="tipopuesto" class="form-control" name="tipopuesto" required>
+                   <select id="tipoPuesto" class="form-control" name="tipoPuesto" required>
                        <option>Tiempo Completo</option>
                        <option>Tiempo Parcial</option>
                        <option>Contrato/Temporario</option>
@@ -99,7 +99,7 @@
                            <textarea class="form-control" id="message-text" name="beneficio" placeholder="Beneficios"></textarea>
                              </div>
                        </div>
-                       
+
                        <!-- Input de Imagen -->
                             <div class="form-group row">
                                <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
@@ -112,9 +112,9 @@
   <p class="h5">Información de Contacto:</p>
   <!-- Input de Nombre del Contacto -->
          <div class="form-group row">
-           <label for="nombcont" class="col-form-label col-sm-3">Nombre Contacto:</label>
+           <label for="nombreContacto" class="col-form-label col-sm-3">Nombre Contacto:</label>
            <div class="col-sm-8">
-             <input type="text" name="nombcont" id="nombcont" class="form-control" placeholder="Nombre del Contacto">
+             <input type="text" name="nombreContacto" id="nombreContacto" class="form-control" placeholder="Nombre del Contacto">
            </div>
          </div>
   <!-- Input de Celular -->
@@ -128,7 +128,7 @@
   <div class="form-group row">
     <label for="Email" class="col-form-label col-sm-3">Email:</label>
     <div class="col-sm-8">
-      <input type="text" name="emailcont" id="emailcont" class="form-control" placeholder="Email">
+      <input type="text" name="emailContacto" id="emailContacto" class="form-control" placeholder="Email">
     </div>
   </div>
 
