@@ -11,7 +11,7 @@
         <hr>
       </div>
     </div>
-    <img style=" width: 300px; " src="/imagenes/clasificado/tutorias/{{$datosT->imagen}}"
+    <img style=" width: 300px; " src="/imagenes/clasificados/tutorias/{{$datosT->imagen}}"
      class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
     <div class="row">
       <div class="col-md-12">

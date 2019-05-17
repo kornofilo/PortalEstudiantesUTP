@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 align="center">Editar el Anuncio</h3>
+        <h3 align="center">Editar Tutoría</h3>
         <div class="form-group">
       </div>
     </div>
@@ -16,7 +16,7 @@
       <div class="bg-light mx-2 col-sm8 col-md8 col-lg6 col-xl-7 rounded-lg ">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-          <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/tutorias/{{$datosT->imagen}}"
+          <img style=" width: 200px;height: 200px" src="/imagenes/clasificados/tutorias/{{$datosT->imagen}}"
            class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
        </div>
        <br>
@@ -35,7 +35,7 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Nombre del Tutor :</strong>
-          <input type="text" name="nomtutor" class="form-control" value="{{$datosT->nomtutor}}">
+          <input type="text" name="nombreTutor" class="form-control" value="{{$datosT->nombreTutor}}">
         </div>
         </div>
         <div class="col-md-12">

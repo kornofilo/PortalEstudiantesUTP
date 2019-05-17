@@ -10,9 +10,9 @@
 
         <!-- Input de Nombre del tutor -->
             <div class="form-group row">
-              <label for="nomtutor" class="col-form-label col-sm-3">Nombre del Tutor:</label>
+              <label for="nombreTutor" class="col-form-label col-sm-3">Nombre del Tutor:</label>
               <div class="col-sm-8">
-                <input type="text" name="nomtutor" id="nomtutor" class="form-control" placeholder="Nombre del Tutor">
+                <input type="text" name="nombreTutor" id="nombreTutor" class="form-control" placeholder="Nombre del Tutor">
               </div>
             </div>
 
@@ -22,7 +22,7 @@
                    <div class="col-sm-8">
                    <select id="materia" class="form-control" name="materia" required>
                        <option>Programación</option>
-                       <option>Calculo</option>
+                       <option>Cálculo</option>
                        <option>Otros</option>
                    </select>
                    </div>
@@ -59,7 +59,7 @@
                                 <textarea class="form-control" id="message-text" name="descripcion" placeholder="Descripción"></textarea>
                               </div>
                             </div>
-                            
+
                             <!-- Input de Imagen -->
                             <div class="form-group row">
                                <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
