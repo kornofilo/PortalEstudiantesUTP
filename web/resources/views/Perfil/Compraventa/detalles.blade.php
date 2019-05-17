@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 align="center">Editar el Anuncio</h3>
+        <h3 class="text-center">Editar el Anuncio</h3>
       </div>
     </div>
      <script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
@@ -17,7 +17,7 @@
       <div class="row">
         <!-- Input de nueva imagen -->
        <div class="col-md-12 d-flex justify-content-center">
-         <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/anuncio/{{$datos->imagen}}"
+         <img style=" width: 200px;height: 200px" src="/imagenes/clasificados/anuncios/{{$datos->imagen}}"
           class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
       </div>
       <div class="col-md-12">

@@ -39,6 +39,7 @@
     <div id="anuncios" class="row justify-content-center">      
         <div class="col-md-8"> 
               @isset($datos)
+                  
                   @foreach ($datos as $anuncio)                                     
                         @include('clasificado.Anuncios.anuncio', $anuncio)                 
                   @endforeach
