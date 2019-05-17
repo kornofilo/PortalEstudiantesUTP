@@ -7,7 +7,7 @@
         <div class="form-group">
       </div>
     </div>
-    <!--error  -->
+    <script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
     <form action="{{route('Perfil.updateH',$datosH->id)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
@@ -29,7 +29,11 @@
        <div class="col-md-12">
          <div class="form-group">
          <strong>Categoría :</strong>
-         <input type="text" name="categoria" class="form-control" value="{{$datosH->categoria}}">
+         <select id="categoria" class="form-control" name="categoria" >
+             <option>Apartamento</option>
+             <option>Cuarto</option>
+             <option>Casa</option>
+         </select>
        </div>
        </div>
         <div class="col-md-12">
@@ -41,7 +45,7 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Ubicación :</strong>
-          <input type="text" name="materia" class="form-control" value="{{$datosH->ubicacion}}">
+          <input type="text" name="ubicacion" class="form-control" value="{{$datosH->ubicacion}}">
         </div>
         </div>
         <div class="col-md-12">
@@ -58,8 +62,11 @@
         </div>
         <div class="col-md-12">
           <div class="form-group">
-          <strong>Estacionamiento :</strong>
-          <input type="text" name="estacionamiento" class="form-control" value="{{$datosH->estacionamiento}}">
+          <strong>Tiene estacionamiento :</strong>
+          <select id="estacionamiento" class="form-control" name="estacionamiento" >
+              <option>No</option>
+              <option>Si</option>
+          </select>
         </div>
         </div>
         <div class="col-md-12">
@@ -76,8 +83,11 @@
         </div>
         <div class="col-md-12">
           <div class="form-group">
-          <strong>Amueblado :</strong>
-          <input type="text" name="amueblado" class="form-control" value="{{$datosH->amueblado}}">
+          <strong>Está amueblado :</strong>
+          <select id="amueblado" class="form-control" name="amueblado" >
+              <option>No</option>
+              <option>Si</option>
+          </select>
         </div>
         </div>
         <div class="col-md-12">
@@ -110,4 +120,12 @@
   </div>
   </div>
   </div>
+  <script type="text/javascript">
+  $(document).ready(function ()
+  {
+  $('#categoria').val('{{$datosH->categoria}}').change();
+  $('#estacionamiento').val('{{$datosH->estacionamiento}}').change();
+  $('#amueblado').val('{{$datosH->amueblado}}').change();
+  });
+  </script>
     @endsection

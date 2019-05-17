@@ -31,7 +31,7 @@ class HospedajeController extends Controller
     {
         $search = $request->get('search');
        $datos = Hospedaje::where('estadoPost','Aprobada')
-                ->whereRaw('concat(codigoPost,categoria,titulo,descripcion,ubicacion,precio) like \'%' .$search .'%\' ')      
+                ->whereRaw('concat(codigoPost,categoria,titulo,descripcion,ubicacion,precio) like \'%' .$search .'%\' ')
                 ->get();
        return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
     }
@@ -137,7 +137,7 @@ class HospedajeController extends Controller
 
         if($request->hasFile('imagen')){
           $profileImage = $request->file('imagen');
-          $name_image = 'hospedaje'.'.'.$request->imagen->extension();
+          $name_image = time().$file->getClientOriginalName();
           $profileImage->move(public_path().'/imagenes/clasificado/hospedador/',$name_image);
           $hospedador->imagen = $name_image;
 
@@ -156,7 +156,18 @@ class HospedajeController extends Controller
      */
     public function destroy($id)
     {
-      Hospedaje::where('id',$id)->delete();
-      return back()->with('success','Anuncio eliminado exitosamente.');
-    }
+      $usr = (auth()->user()->email);
+      $file = Hospedaje::where('id', $id)->find($id);
+      // dd($usr);
+      if ($usr ===$file->email) {
+      if (unlink(public_path().'/imagenes/clasificado/hospedador/'.$file->imagen)) {
+        $file->delete();
+        return back()->with('success','Anuncio eliminado exitosamente.');
+      }
+      else {
+        return back()->with('success','?.');
+      }
+     }
+   }
+
 }

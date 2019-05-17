@@ -5,7 +5,7 @@
                 <div class="col-sm-8">
                  <select id="categoria" class="form-control" name="categoria" required>
                     <option value="Apartamento">Apartamento</option>
-                    <option value="Cuartos" >Cuarto</option>
+                    <option value="Cuarto" >Cuarto</option>
                     <option value="Casa">Casa</option>
                 </select>
                 </div>
@@ -34,12 +34,12 @@
                 <textarea class="form-control"  id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
                 </div>
               </div>
-  
+
 
         <div class="form-group row">
             <label for="precio" class="col-form-label col-sm-3">Precio por Mes:</label>
             <div class="col-sm-8">
-            <input id="precio" type="number" name="precio"  min="1" max="9999" step="0.01"  placeholder="B/" oninput="validity.valid||(value='');" required>
+            <input id="precio" type="number" name="precio"  min="0" max="9999" step="0.01"  placeholder="B/" oninput="validity.valid||(value='');" required>
             </div>
         </div>
 
@@ -53,7 +53,7 @@
                 <div class="col-sm-8">
                 <select id="estacionamiento" class="form-control" name="estacionamiento" required>
                     <option value="No">No</option>
-                    <option>Sí</option>
+                    <option value="Si">Si</option>
                </select>
                 </div>
               </div>
@@ -80,13 +80,13 @@
                 <div class="col-sm-8">
                 <select id="amueblado" class="form-control" name="amueblado" required>
                     <option value="No">No</option>
-                    <option>Sí</option>
+                    <option value="Si">Si</option>
                 </select>
                 </div>
               </div>
               <hr>
-               
-              
+
+
         <!-- Input de Imagen -->
          <div class="form-group row">
             <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
@@ -99,8 +99,8 @@
         <!-- Informacion de Contacto -->
         <hr>
         <p class="h5">Información de Contacto:</p>
-        
-        
+
+
 
         <!-- Input de Celular -->
         <div class="form-group row">
@@ -112,8 +112,8 @@
 
 
 
-      
-  
+
+
         <!-- Modal Footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

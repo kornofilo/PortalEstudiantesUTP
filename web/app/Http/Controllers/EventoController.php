@@ -60,7 +60,7 @@ class EventoController extends Controller
       'descripcion' => 'required',
       ]);
 
-     
+
       $eventos = new Evento();
       //Generación de Código de Publicación.
       $eventos->codigoPost = 'EV-' . (Evento::all()->max('id') + 1);
@@ -78,7 +78,7 @@ class EventoController extends Controller
         $file->move(public_path().'/imagenes/eventos',$name_image);
         $eventos->imagen =$name_image;
     }
-    
+
 
 
      #salvar en la base de datos
@@ -130,7 +130,7 @@ class EventoController extends Controller
 
           if($request->hasFile('imagen')){
             $file = $request->file('imagen');
-            $name_image = 'Evento'.'.'.$request->imagen->extension();
+            $name_image = time().$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/evento/',$name_image);
             $eventos->imagen = $name_image;
 
@@ -149,7 +149,17 @@ class EventoController extends Controller
      */
     public function destroy($id)
     {
-      Evento::where('id',$id)->delete();
-      return back()->with('success','Anuncio eliminado exitosamente.');
+      $usr = (auth()->user()->email);
+      $file = Evento::where('id', $id)->find($id);
+      // dd($usr);
+      if ($usr ===$file->email) {
+      if (unlink(public_path().'/imagenes/eventos/'.$file->imagen)) {
+        $file->delete();
+        return back()->with('success','Evento eliminado exitosamente.');
+      }
+      else {
+        return back()->with('success','?.');
+      }
+     }
     }
 }

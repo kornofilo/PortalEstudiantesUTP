@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Pagination\Paginator;
-
-#llamar al modal
+use Illuminate\Support\Facades\Storage;
+use App\User;
 use App\Tutorias;
 
 class TutoriasController extends Controller
@@ -34,8 +33,8 @@ class TutoriasController extends Controller
      {
         $search = $request->get('search');
         $datos = Tutorias::where('estadoPost','Aprobada')
-          ->whereRaw('concat(titulo,materia,costo,ubicacion,codigoPost) like \'%' .$search .'%\' ')      
-          ->get();        
+          ->whereRaw('concat(titulo,materia,costo,ubicacion,codigoPost) like \'%' .$search .'%\' ')
+          ->get();
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
      public function create()
@@ -75,13 +74,13 @@ class TutoriasController extends Controller
       //Generación de Código de Publicación.
       $tutorias->codigoPost= 'TUT-' . (Tutorias::all()->max('id') + 1);
       $tutorias->titulo= $request->input('titulo');
-      $tutorias->nombreTutor= $request->input('nomtutor');
+      $tutorias->nomtutor= $request->input('nomtutor');
       $tutorias->materia= $request->input('materia');
       $tutorias->costo= $request->input('costo');
       $tutorias->ubicacion= $request->input('ubicacion');
       $tutorias->descripcion= $request->input('descripcion');
       $tutorias->celular= $request->input('celular');
-      $tutorias->imagen =('lol');
+      $tutorias->imagen =$name_image;
       $tutorias->nombre =\Auth::user()->nombre;
       $tutorias->email =\Auth::user()->email;
 
@@ -137,6 +136,7 @@ class TutoriasController extends Controller
 
            if($request->hasFile('imagen')){
              $TImage = $request->file('imagen');
+             // ejemplo para guardar fotos encima de otra foto.
              $name_image = 'TImage'.'.'.$request->imagen->extension();
              $TImage->move(public_path().'/imagenes/clasificado/tutorias/',$name_image);
              $datosT->imagen = $name_image;
@@ -155,7 +155,19 @@ class TutoriasController extends Controller
      */
      public function destroy($id)
      {
-       Tutorias::where('id', $id)->delete();
-       return back()->with('success','Tutoría eliminada exitosamente.');
+
+       $usr = (auth()->user()->email);
+       $file = Tutorias::where('id', $id)->find($id);
+       // dd($usr);
+       if ($usr ===$file->email) {
+       if (unlink(public_path().'/imagenes/clasificado/tutorias/'.$file->imagen)) {
+         $file->delete();
+         return back()->with('success','Tutoría eliminada exitosamente.');
+       }
+       else {
+         return back()->with('error','?');
+       }
+      }
+
      }
 }
