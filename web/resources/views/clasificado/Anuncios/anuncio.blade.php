@@ -8,7 +8,7 @@
                         <h5 class="card-title font-weight-bold">{{$anuncio->nombreArt}}</h5>
                         <p class="card-text"><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
                         <p class="card-text"><i class="fas fa-heart"></i> {{$anuncio->estado}}</p>
-                   
+                        <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$anuncio->created_at->diffForHumans()}}</p>                   
                     </div>
                     <div class="text-right view view-cascade overlay"  width="500px">
                         <img class="card-img-top shadow" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}"

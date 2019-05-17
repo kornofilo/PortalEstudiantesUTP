@@ -27,6 +27,8 @@
                             <h5 class="card-title font-weight-bold">{{$evento->titulo}}</h5>
                             <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$evento->lugar}}</p>
                             <p class="card-text"><i class="fas fa-calendar-alt"></i> {{strftime("%d-%m-%Y",strtotime($evento->fecha))}}</p>
+                            <p class="card-text"><i class="fas fa-hourglass"></i> {{\Carbon\Carbon::parse($evento->fecha)->diffForHumans()}}</p>
+                            <!-- Si el costo del evento es de 0$, mostramos el mensaje 'Gratuito' -->
                             @if ($evento->costo == '0' )
                             <h5 class="card-center text-success font-weight-bold text-right"> {{$evento->costo = "Gratuito"}}</h5>
                             @else
@@ -55,6 +57,7 @@
                                 <h5 class="card-title font-weight-bold">{{$bolsatrabajo->titulo}}</h5>
                                 <p class="card-text"><i class="fas fa-building"></i> {{$bolsatrabajo->empresa}}</p>
                                 <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$bolsatrabajo->ubicacion}}</p>
+                                <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>                   
                                 <h5 class="card-center text-success font-weight-bold text-right">Salario: ${{$bolsatrabajo->salario}}</h5>
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver Detalles','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'title'=>'DETALLE DE BOLSA DE TRABAJO ','vista'=>'Bolsatrabajos.detalle']) 
@@ -79,6 +82,7 @@
                                 <h5 class="card-title font-weight-bold">{{$anuncio->nombreArt}}</h5>
                                 <p class="card-text"><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
                                 <p class="card-text"><i class="fas fa-heart"></i> {{$anuncio->estado}}</p>
+                                <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$anuncio->created_at->diffForHumans()}}</p>                   
                                 <h5 class="card-center text-success font-weight-bold text-right">Precio: ${{$anuncio->precio}}</h5>
                             </div>
                             @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquiler'.$anuncio->id,'title'=>'DETALLES DE COMPRA/VENTA','vista'=>'clasificado.Anuncios.detalle']) 
@@ -105,6 +109,7 @@
                                         <h5 class="card-title font-weight-bold text-break">{{$tutoria->titulo}}</h5>
                                         <p class="card-text"><i class="fas fa-book-open"></i> {{$tutoria->materia}}</p>
                                         <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$tutoria->ubicacion}}</p>
+                                        <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$tutoria->created_at->diffForHumans()}}</p>                   
                                         <h5 class="card-center text-success font-weight-bold text-right">${{$tutoria->costo}}/Hora</h5>
                                     </div>
                                     @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver Detalles','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
@@ -140,6 +145,7 @@
                                         </p>
                                         <p class="card-text"> {{$alquilerhosp->habitaciones}} <i class="fas fa-bed"></i> </p>
                                         <p class="card-text"> {{$alquilerhosp->baños}} <i class="fas fa-toilet"></i> </p>
+                                        <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$alquilerhosp->created_at->diffForHumans()}}</p>                   
                                         <h5 class="card-center text-success font-weight-bold text-right">${{$alquilerhosp->precio}}/Mes</h5>
                                     </div>
                                     @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver Detalles','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle']) 

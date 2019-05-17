@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function index()
     {
         $datosB = Bolsatrabajo::latest()->take(4) ->get();
-        $datosE = Evento::orderBy('fecha', 'asc')->take(4)->get();
+        $datosE = Evento::where('fecha','>',now())->orderBy('fecha', 'asc')->take(4)->get();
         $datosC = Compraventa::where('estadoPost','Aprobada')->latest()->take(4) ->get();
         $datosT = Tutorias::where('estadoPost','Aprobada')->latest()->take(4) ->get();
         $datosH = Hospedaje::where('estadoPost','Aprobada')->latest()->take(4) ->get();

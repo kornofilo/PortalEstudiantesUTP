@@ -165,7 +165,7 @@
     </div>
         </nav>
 
-        <main class="py-4">
+        <main class="pb-4">
             @include('includes.alerts')
             @yield('content')
         </main>

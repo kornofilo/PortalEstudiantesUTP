@@ -63,8 +63,6 @@ class BolsatrabajoController extends Controller
         'celular' => 'required',
         'emailContacto' => 'required',
         'imagen' => 'required',
-
-
     ]);
 
 
