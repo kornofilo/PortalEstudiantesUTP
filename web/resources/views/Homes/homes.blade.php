@@ -47,7 +47,7 @@
                 <div class="card-deck">
                         @foreach ($datosB  as $bolsatrabajo)                    
                         <div class="card">
-                            <img src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
+                            <img src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}" class="card-img-top shadow img-fluid img-thumbnail" alt="..." style="height: 200px; max-width: 400px">
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{$bolsatrabajo->titulo}}</h5>
                                 <p class="card-text"><i class="fas fa-building"></i> {{$bolsatrabajo->empresa}}</p>
@@ -71,7 +71,7 @@
                  <div class="card-deck">
                         @foreach ($datosC  as $anuncio)                    
                         <div class="card">                                
-                            <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow" alt="..." style="height: 200px; max-width: 400px">
+                            <img src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}" class="card-img-top  shadow img-fluid img-thumbnail" alt="..." style="height: 200px; max-width: 400px">
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{$anuncio->nombreArt}}</h5>
                                 <p class="card-text"><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
@@ -97,7 +97,7 @@
                           <div class="card-deck">
                                 @foreach ($datosT  as $tutoria)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
+                                    <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top shadow img-fluid img-thumbnail" alt="..." style="height: 200px; max-width: 400px">
                                     <div class="card-body">
                                         <h5 class="card-title font-weight-bold text-break">{{$tutoria->titulo}}</h5>
                                         <p class="card-text"><i class="fas fa-book-open"></i> {{$tutoria->materia}}</p>
@@ -122,7 +122,8 @@
                           <div class="card-deck">
                                 @foreach ($datosH  as $alquilerhosp)                    
                                 <div class="card">
-                                    <img src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow" alt="..." style="height: 200px; max-width: 400px">
+                                    
+                                    <img src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}" class="card-img-top shadow img-fluid img-thumbnail " alt="..." style="height: 200px; max-width: 400px">
                                     <div class="card-body">
                                         <h5 class="card-title font-weight-bold">{{$alquilerhosp->titulo}}</h5>
                                         <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$alquilerhosp->ubicacion}}</p>
