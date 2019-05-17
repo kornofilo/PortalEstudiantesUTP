@@ -58,17 +58,23 @@ class PerfilController extends Controller
     $miPerfil->save();
     return back()->with('success','Perfil Actualizado.');
    }
-   //muestra otro usuario dependiendo del anuncio
-   public function postperfiles(Request $request)
+   
+   //Función que obtiene los datos de un determinado un usuario para mostrarlo en su perfil.
+   public function verPerfil($email)
    {
-     $id = $request->get('code');
-     $cliente = User::select('users.email','users.nombre as nombre','users.apellido','users.sede','users.imagen','facultades.nombre as facultad','carreras.nombre as carrera','users.estado')
+     $userData = User::select('users.email','users.nombre as nombre','users.apellido','users.sede','users.imagen','facultades.nombre as facultad','carreras.nombre as carrera')
                      ->join('carreras', 'users.carrera', '=', 'carreras.id')
                      ->join('facultades', 'users.facultad', '=', 'facultades.id')
-                     ->where('users.email', $id)
-                     ->get();
-  return view('Perfil.OtroPerfil',compact('cliente'));
+                     ->where('users.email', $email)
+                     ->first();
+      
+      $userRole = User::where('email', $email)->first()->roles()->value('name');
+
+      $eventos = Evento::where('email', $email)->latest()->paginate(3);
+      $datosB = Bolsatrabajo::where('email', $email)->latest()->get();
+      $datosH = Hospedaje::where('email', $email)->where('estadoPost','Aprobada')->latest()->get();
+      $datosT = Tutorias::where('email', $email)->where('estadoPost','Aprobada')->latest()->get();
+      $datos = Compraventa::where('email', $email)->where('estadoPost','Aprobada')->latest()->get();
+      return view('Perfil.OtroPerfil',compact('userData','userRole','eventos','datosT','datosB','datos','datosH'));
    }
-
-
 }

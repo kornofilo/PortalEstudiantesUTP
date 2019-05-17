@@ -71,8 +71,7 @@
                 @else
                 <table class="table ">
                 <thead class="thead-light">
-<!-- Tabla de Tutorías -->
-                <hr>
+<!-- Tabla de Tutorías -->                
                 <h5 class="text-center rounded-pill bg-dark text-white" align="center">Tutorías</h5>
                 <tr>
                   <th width = "500px">Nombre de la tutoría</th>
@@ -177,7 +176,6 @@
                 <table class="table ">
                 <thead class="thead-light">
 <!-- Tabla de Eventos -->
-                <hr class="my-4">
                 <h5 class="text-center rounded-pill bg-dark text-white" align="center">Eventos</h5>
                 <tr>
                   <th width = "500px">Nombre del Evento</th>

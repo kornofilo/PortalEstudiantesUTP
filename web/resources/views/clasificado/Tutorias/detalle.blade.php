@@ -40,9 +40,7 @@
         <br>
         <label><i class="fas fa-at"></i>  Email: {{$tutoria->email}}</label>
         
-        <form action="/OtroPerfil" method="get">
-          {{csrf_field()}}
-          <input type="hidden" name="code" value="">
+        <form action="{{route('perfil.verPerfil', $tutoria->email)}}" method="get">
           <button type="submit" class="btn btn-info">
             Ver perfil del tutorias
           </button>       

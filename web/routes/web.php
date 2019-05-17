@@ -50,17 +50,17 @@ Route::get('dtH/{id}', 'HospedajeController@destroy')->name('dtH');
 Route::get('miPerfil/getcarreras/{id}','PerfilController@getCarreras');
 //Ruta de Actualización de Perfil
 Route::post('miPerfil/updateProfile', 'PerfilController@updateProfile')->name('perfil.update')->middleware(['auth']);
-//Ruta para mostrar otro perfil
-Route::get('OtroPerfil','PerfilController@postperfiles');
+//Ruta para mostrar los perfiles de los usuarios
+Route::get('usuario/{email}', 'PerfilController@verPerfil')->name('perfil.verPerfil')->middleware(['auth','checkUserStatus']);
 //Ruta de registro
 Route::get('/register','RegistroController@getFacultades')->name('register');
 Route::get('register/getcarreras/{id}','RegistroController@getCarreras');
 
 
 
-//Ruta de Clasificados
+//Rutas de Clasificados
 Route::group(['prefix' => 'clasificado'], function () {
-  //1.1 Ruta de Compras/Ventas
+//Rutas de Compras/Ventas
 Route::resource('anuncios','AnunciosController');
 Route::get('/anuncios','AnunciosController@search')->name('anuncios.search');
 //Ruta de tutorias

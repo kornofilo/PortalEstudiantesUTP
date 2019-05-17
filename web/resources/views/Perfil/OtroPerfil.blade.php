@@ -1,42 +1,37 @@
 @extends('layouts.app')
 
+<title>Portal Estudiantil - Perfil de {{$userData->nombre}} {{$userData->apellido}}</title>
+
 @section('content')
-<div class="text-center">
-@if($cliente->imagen === "default_avatar.png")
-    <img src="{{$cliente->imagen}}" class="rounded" width="200">
-@else
-    <img src="/imagenes/profileImages/{{$cliente->email}}/{{$cliente->imagen}}" class="rounded" width="200">
-@endif
-</div><br></br>
-<div class="card text-center mx-auto col-sm8 col-md8 col-lg6 col-xl-6">
-  <div class="card-header font-weight-bold">
-    Perfil
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Usuario : {{$cliente->nombre}} {{$cliente->apellido}}</h5>
-    <p class="card-text">  <li>Correo: {{$cliente->email}}
+<br>
+<body> 
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="col-md-12 text-center">
+           <!-- Si el usuario tiene la imagen de perfil por defecto, la mostramos. -->
+           @if($userData->imagen === "default_avatar.png")
+            <img class="img-responsive img-portfolio img-hover" src="{{$userData->imagen}}" width="100" height="100">
+          <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
+          @else
+            <img class="img-responsive img-portfolio img-hover" src="/imagenes/profileImages/{{$userData->email}}/{{$userData->imagen}}" width="100" height="100">
+          @endif
+            </div> <br>
+            <div class="justify-content-center">              
+              <h5 class="font-weight-bold text-center rounded-pill pb-2 mb-1 bg-info text-white"> <i class="fas fa-star"></i> {{$userRole}} <i class="fas fa-star"></i> </h5>      
+              <h5 class="text-center"><i class="fas fa-user"></i> {{$userData->nombre}}  {{$userData->apellido}}</h5>
+              <h5 class="text-center"><i class="fas fa-university"></i> {{$userData->facultad}}</h5>      
+              <h5 class="text-center"><i class="fas fa-user-graduate"></i> {{$userData->carrera}}</h5>  
+              <h5 class="text-center"><i class="fas fa-inbox"></i> <a href="mailto:{{$userData->email}}">{{$userData->email}}</a> </h5>  
+              <!-- Si el perfil que ingresamos es de nuestro usario, mostramos un botón que lleva a la vista de adminsitración de perfilS -->
+              @if($userData->email === auth()->user()->email)
+                <button type="button" class="btn btn-primary btn-lg btn-block">
+                  <a class="text-white" href="{{ url('miPerfil') }}"><i class="fas fa-user-cog"></i> Administrar mi Perfil</a>
+                </button>
+              @endif
+              @include('perfil.usuarioPublicaciones')
 
-      <li>Sede: {{$cliente->sede}}</li>
+            </div>
 
-      <li>Carrera: {{$cliente->carrera}}</li>
-
-      <li>Facultad: {{$cliente->facultad}}</li>
-
-      <li>Estado del Usuario: {{$cliente->estado}}</li></p>
-    <a class="btn btn-outline-danger" href="{{ URL::previous() }}"> {{ __('Regresar') }}</a>
-  </div>
-</div>
-
-
-
-
-
-  <br></br>
-
-
-
- <br><br>
-
-
-
+       
 @endsection

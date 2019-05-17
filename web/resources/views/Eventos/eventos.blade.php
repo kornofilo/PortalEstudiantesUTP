@@ -32,10 +32,12 @@
         </div> 
       </div>                      
     </form>  
-
+    @if(auth()->check() && ( auth()->user()->hasAnyRole('Administrador') || auth()->user()->hasAnyRole('Moderador') ) )
     <div class="text-center"> 
       @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Evento','id_modal'=>'mod1','title'=>'AGREGA EVENTOS AQUÍ','vista'=>'Eventos.formulario'])
     </div> 
+    @endif
+    
   
   <br>
         <div id="eventos" class="row justify-content-center">
@@ -55,7 +57,7 @@
                       {{ $datos->links() }}       
                     </div>
                  @endisset                    
-            </div>
+          </div>
 
 
         </div>

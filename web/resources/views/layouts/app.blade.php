@@ -147,12 +147,16 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <!-- Opción para acceder al perfil del usuario -->
-                    <a class="dropdown-item" href="{{ url('miPerfil') }}">Mi Perfil</a>
+                    <a class="dropdown-item" href="{{ url('miPerfil') }}">
+                        <i class="fas fa-user-cog"></i>
+                        Administrar mi Perfil
+                    </a>
 
                     <!-- Opción para cerrar la sesión -->
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i>
                         {{ __('Cerrar Sesión') }}
                     </a>
 

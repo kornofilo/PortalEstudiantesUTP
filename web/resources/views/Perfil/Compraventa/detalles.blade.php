@@ -79,7 +79,7 @@
           <br>
           <button type="submit" class="btn btn-sm btn-warning">Actualizar</button>
           <a href="{{url('miPerfil')}}" class="btn btn-sm btn-danger">Regresar</a>
-          <br></br>
+          <br>
         </div>
       </div>
     </form>

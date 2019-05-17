@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@section('title','Portal Estudiantil - Administrar mi Perfil')
+
 @section('content')
 <br>
 <body> 
     <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="col-md-12" align="center">
+            <div class="col-md-12 text-center">
            <!-- Si el usuario tiene la imagen de perfil por defecto, la mostramos. -->
            @if(auth()->user()->imagen === "default_avatar.png")
             <img class="img-responsive img-portfolio img-hover" src="{{auth()->user()->imagen}}" width="100" height="100">
