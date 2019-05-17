@@ -7,8 +7,11 @@
 <!-- Incluimos el carousel -->
 @include('Homes.carousel')
 
-<div class="container">            
+<div class="container">    
+    
+    <!-- Back to top -->        
     @include('Homes.BacktoTop')
+
 <div class="justify-content-center">
     <!-- Sección con los últomos 4 eventos publicados -->
     @isset($datosE) 
