@@ -2,6 +2,7 @@
     <div class="text-center">
       <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}">
     </div>
+    
     <p><i class="fas fa-exchange-alt"></i> {{$anuncio->categoria}}</p>
     <p><i class="fas fa-heart"></i> Estado: {{$anuncio->estado}}</p>
     <p><i class="fas fa-info"></i> Descripción del Artículo: {{$anuncio->descripcion}}</p>

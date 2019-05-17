@@ -1,80 +1,78 @@
+<div class="card-body" >
+<h2 class="h2-responsive text-center"><strong>{{$tutoria->titulo}}</strong></h2> <br>
+    <div class="text-center">
+      <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}">
+      <br><br>
+      <h4 class="h4-responsive text-success"><strong>${{$tutoria->costo}}/Hora</h5></strong></h4>
+    
+    </div>
 
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-lg-5">
-                <img src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" class="card-img-top  
-                shadow img-fluid img-thumbnail" alt="..." style="height: 200px; max-width: 400px"/> 
-              <!--/.Carousel Wrapper-->
-            </div>
-            <div class="col-lg-7 text-left">
-              <h2 class="h2-responsive product-name">
-                <strong>{{$tutoria->materia}}</strong>
-              </h2>
-              <h4 class="h4-responsive">
-                <span class="green-text">
-                  <strong>${{$tutoria->costo}}/Hora</h5></strong>
-                </span>
-               
-              </h4>
-  
+
+    
+    <h6 class="h6-responsive"><i class="fas fa-exchange-alt" style="font-size:20px;"></i> {{$tutoria->nombreTutor}}</h6>
+    <h6 class="h6-responsive"><i class="fas fa-heart" style="font-size:20px;"></i> Estado: {{$tutoria->materia}}</h6>
+    <h6 class="h6-responsive heading"><i class="fas fa-map-marker-alt" style="font-size:20px;"></i> {{$tutoria->ubicacion}}</h6>
+    <h6 class="h6-responsive"><i class="fas fa-info" style="font-size:20px;"></i> {{$tutoria->descripcion}}</h6>
+    <hr>
+
+<!--Accordion wrapper-->
+<div class="accordion md-accordion shadow" id="accordionEx" role="tablist" >
+  <!-- Accordion card -->
+  <div class="card ">
+    <!-- Card header -->
+    <div class="card-header bg-info " role="tab" id="headingOne1">
+      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapscard" aria-expanded="true"
+        aria-controls="collapsecard">
+        <h6 class="mb-0 text-white ">
+          <i class=" fas fa-angle-down rotate-icon"></i> Información de Contacto 
+        </h6>
+      </a>
+    </div>
+ 
+    <!-- Card body -->
+    <div id="collapscard" class="collapse show thumb-shadow" role="tabpanel" aria-labelledby="headingOne1"
+      data-parent="#accordionEx">
+      <div class="col-xs-12 col-lg-12 text-justify">
+          <div class="card-body" >
+        <label><i class="far fa-id-badge"></i>  Nombre del Contacto: {{$tutoria->nombre}}</label>
+        <br>
+        <label><i class="far fa-id-card"></i>  Celular: {{$tutoria->celular}}</label>
+        <br>
+        <label><i class="fas fa-at"></i>  Email: {{$tutoria->email}}</label>
+        
+        <form action="/OtroPerfil" method="get">
+          {{csrf_field()}}
+          <input type="hidden" name="code" value="">
+          <button type="submit" class="btn btn-info">
+            Ver perfil del tutorias
+          </button>       
+        </form>
+
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!-- Accordion card -->
+
+  <hr>
+
+      <p class="h5 bold-text">Información de la Publicación</p>
+      <p><i class="fas fa-ticket-alt"></i> Código de Publicación: {{$tutoria->codigoPost}}</p> 
+      <p><i class="fas fa-clock"></i> Publicado {{$tutoria->created_at->diffForHumans()}}</p> 
+    
+<div class="modal-footer">
+    <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+</div>
+</div>
+
+       
+       
+       
+       
+      
               
-              <h6 ><i class="fas fa-map-marker-alt"></i>{{$tutoria->ubicacion}} </h6>
              
-          <p class="h5">Información de Contacto</p>
-          
-          <label>Nombre del Contacto: {{$tutoria->nombre}}</label>
-          <br>
-          <label>Celular: {{$tutoria->celular}}</label>
-          <br>
-          <label>Email: {{$tutoria->email}}  </label>
-          <br>
-            <form action="/OtroPerfil" method="get">
-              {{csrf_field()}}
-              <input type="hidden" name="code" value="">
-              <input type="submit" class="btn-info" value="Ver perfil del tutorial">
-            </form>
-          
-              <!--Accordion wrapper-->
-              <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
-  
-                <!-- Accordion card -->
-                <div class="card">
-  
-                  <!-- Card header -->
-                  <div class="card-header" role="tab" id="headingOne1">
-                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
-                      aria-controls="collapseOne1">
-                      <h6 class="mb-0">
-                        DETALLES <i class="fas fa-angle-down rotate-icon"></i>
-                      </h6>
-                    </a>
-                  </div>
-  
-                  <!-- Card body -->
-                  <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-                    data-parent="#accordionEx">
-                    <div class="card-body">
-                        {{$tutoria->descripcion}}
-                    </div>
-                  </div>
-  
-                </div>
-                <!-- Accordion card -->
-
-  
-              </div>
-              <!-- Accordion wrapper -->
-              <div class="card-body">
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  </button>
-                </div>
-              </div>
-            
-              <!-- /.Add to Cart -->
-            </div>
-          </div>
-     
      
  
 
