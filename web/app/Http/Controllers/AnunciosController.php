@@ -132,7 +132,7 @@ class AnunciosController extends Controller
 
           if($request->hasFile('imagen')){
             $profileImage = $request->file('imagen');
-            $name_image = 'compraventa'.'.'.$request->imagen->extension();
+            $name_image = time().$file->getClientOriginalName();
             $profileImage->move(public_path().'/imagenes/clasificado/anuncios/',$name_image);
             $datos->imagen = $name_image;
 

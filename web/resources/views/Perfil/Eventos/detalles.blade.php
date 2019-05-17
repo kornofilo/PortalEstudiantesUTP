@@ -7,7 +7,7 @@
         <div class="form-group">
       </div>
     </div>
-    <!--error  -->
+    <script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
     <form action="{{route('Perfil.updateE',$datosE->id)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
@@ -52,8 +52,15 @@
         </div>
         <div class="col-md-12">
           <div class="form-group">
-          <strong>Nombre de la Facultad :</strong>
-          <input type="text" name="ubicacion" class="form-control" value="{{$datosE->facultad_nomb}}">
+          <strong>Nombre de la facultad :</strong>
+          <select id="facultad_nomb" class="form-control" name="facultad_nomb" required>
+             <option value="Ciencias Y Tecnología">Ciencias Y Tecnología</option>
+             <option value="Ingeniería Civil" >Ingeniería Civil</option>
+             <option value="Ingeniería de Sistemas computacionales">Ingeniería de Sistemas computacionales</option>
+             <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+             <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+             <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+         </select>
         </div>
         </div>
         <div class="col-md-12">
@@ -80,4 +87,10 @@
   </div>
   </div>
   </div>
+  <script type="text/javascript">
+  $(document).ready(function ()
+  {
+  $('#facultad_nomb').val('{{$datosE->facultad_nomb}}').change();
+  })
+  </script>
     @endsection

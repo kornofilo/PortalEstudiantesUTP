@@ -154,7 +154,7 @@ class BolsatrabajoController extends Controller
 
           if($request->hasFile('imagen')){
             $file = $request->file('imagen');
-            $name_image = 'compraventa'.'.'.$request->imagen->extension();
+            $name_image = time().$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/bolsatrabajo/',$name_image);
             $bolsatrabajo->imagen = $name_image;
 

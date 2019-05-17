@@ -137,7 +137,7 @@ class HospedajeController extends Controller
 
         if($request->hasFile('imagen')){
           $profileImage = $request->file('imagen');
-          $name_image = 'hospedaje'.'.'.$request->imagen->extension();
+          $name_image = time().$file->getClientOriginalName();
           $profileImage->move(public_path().'/imagenes/clasificado/hospedador/',$name_image);
           $hospedador->imagen = $name_image;
 
