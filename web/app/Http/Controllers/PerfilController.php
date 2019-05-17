@@ -66,7 +66,7 @@ class PerfilController extends Controller
                      ->join('carreras', 'users.carrera', '=', 'carreras.id')
                      ->join('facultades', 'users.facultad', '=', 'facultades.id')
                      ->where('users.email', $id)
-                     ->first();
+                     ->get();
   return view('Perfil.OtroPerfil',compact('cliente'));
    }
 

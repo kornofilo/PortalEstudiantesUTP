@@ -79,11 +79,9 @@ class EventoController extends Controller
         $eventos->imagen =$name_image;
     }
 
-
-
-     #salvar en la base de datos
+     //salvar en la base de datos
       $eventos->save();
-        return back()->with('success','Evento Creado Exitosamente');
+        return back()->with('success','Evento: '.$evento->titulo.' Creado exitosamente');
 
     }
 
