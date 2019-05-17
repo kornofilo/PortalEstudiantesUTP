@@ -1,53 +1,50 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-       
-        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO AQUI','vista'=>'clasificado.Anuncios.formulario'])
-        <br>
-      
-        <form action="{{route('anuncios.search')}}" method="get" class="form-inline">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
-            name="search" >
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Buscar</button>
-            </div>
-            
-      </form>
-      
-  
-  @if(count($errors) > 0)
-  <div class="alert alert-danger">
-  <ul>
-  @foreach($errors->all() as $error)
-  <li>{{$error}}</li>
-  @endforeach
-  </ul>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Sección de Compra/Venta</h1>
+    <p class="lead">Aquí podrás comprar o poner a la venta artículos.</p>
   </div>
-  @endif
-  
-  <br><br>
-  <br >
-        <div id="anuncios" class="row justify-content-center">
-            <div class="col-md-8"> 
-                <div class="card">
-                    <div class="card-header"><h4> Ofertas Compra/Ventas</h4></div>         
-                 @isset($datos)
-                     @foreach ($datos as $anuncio)
-                     
-                 
-                            @include('clasificado.Anuncios.anuncio', $anuncio)
-                 
-                     @endforeach
-                 @endisset
-                    
-                    
-                    <div class="col-md-12 gap10"></div>
-                </div>
-            </div>
-            
+</div>
+<div class="container">    
+    @if(count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+            @endforeach
+        </ul>
+      </div>
+    @endif
+    <!-- Formulario de Búsqueda -->
+    
+    <form action="{{route('anuncios.search')}}" method="get">
+      <div class="form-group row justify-content-center">         
+        <div class="col-auto">
+          <input class="form-control form-control" type="search" placeholder="Buscar Artículo" aria-label="Search" name="search" >
+        </div>    
 
-        </div>
+        <div class="col-auto">
+            <button class="btn btn-success col" type="submit"> <i class="fas fa-search"></i> </button> 
+        </div> 
+      </div>                      
+    </form>  
+
+    <div class="text-center"> 
+        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','btn_icon'=>'fas fa-plus','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO AQUI','vista'=>'clasificado.Anuncios.formulario'])                
+    </div> 
+    
+     <br>
+
+    <div id="anuncios" class="row justify-content-center">      
+        <div class="col-md-8"> 
+              @isset($datos)
+                  @foreach ($datos as $anuncio)                                     
+                        @include('clasificado.Anuncios.anuncio', $anuncio)                 
+                  @endforeach
+              @endisset              
+        </div>        
+    </div> <br>
        
 </div>
 

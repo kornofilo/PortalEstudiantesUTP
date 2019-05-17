@@ -19,8 +19,6 @@ class AnunciosController extends Controller
 
         $datos = Compraventa::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
         return view('clasificado.Anuncios.anuncios')->with(compact('datos'));
-
-
     }
     public function search(Request $request)
     {
@@ -66,7 +64,7 @@ class AnunciosController extends Controller
       if ($request->hasFile('imagen')) {
         $file = $request->file('imagen');
         $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/clasificado/anuncio',$name_image);
+        $file->move(public_path().'/imagenes/clasificados/anuncio',$name_image);
     }
 
         $anuncio = new Compraventa();
@@ -133,9 +131,8 @@ class AnunciosController extends Controller
           if($request->hasFile('imagen')){
             $profileImage = $request->file('imagen');
             $name_image = time().$file->getClientOriginalName();
-            $profileImage->move(public_path().'/imagenes/clasificado/anuncios/',$name_image);
+            $profileImage->move(public_path().'/imagenes/clasificados/anuncios/',$name_image);
             $datos->imagen = $name_image;
-
           }
 
           $datos->save();
@@ -157,7 +154,7 @@ class AnunciosController extends Controller
         $file = Compraventa::where('id', $id)->find($id);
         // dd($usr);
         if ($usr ===$file->email) {
-        if (unlink(public_path().'/imagenes/clasificado/anuncio/'.$file->imagen)) {
+        if (unlink(public_path().'/imagenes/clasificados/anuncio/'.$file->imagen)) {
           $file->delete();
           return back()->with('success','Anuncio eliminado exitosamente.');
         }
