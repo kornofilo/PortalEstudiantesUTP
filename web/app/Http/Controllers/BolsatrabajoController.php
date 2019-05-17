@@ -52,16 +52,16 @@ class BolsatrabajoController extends Controller
         'titulo' => 'required',
         'ubicacion' => 'required',
         'empresa' => 'required',
-        'tipopuesto' => 'required',
+        'tipoPuesto' => 'required',
         'salario' => 'required',
         'direccion' => 'required',
         'descripcion' => 'required',
         'habilidades' => 'required',
         'fecha' => 'required',
         'beneficio' => 'required',
-        'nombcont' => 'required',
+        'nombreContacto' => 'required',
         'celular' => 'required',
-        'emailcont' => 'required',
+        'emailContacto' => 'required',
         'imagen' => 'required',
 
 
@@ -82,7 +82,7 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->titulo= $request->input('titulo');
         $bolsatrabajo->ubicacion= $request->input('ubicacion');
         $bolsatrabajo->empresa= $request->input('empresa');
-        $bolsatrabajo->tipopuesto= $request->input('tipopuesto');
+        $bolsatrabajo->tipoPuesto= $request->input('tipoPuesto');
         $bolsatrabajo->salario= $request->input('salario');
         $bolsatrabajo->direccion= $request->input('direccion');
         $bolsatrabajo->descripcion= $request->input('descripcion');
@@ -90,9 +90,9 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->fecha= $request->input('fecha');
         $bolsatrabajo->beneficio= $request->input('beneficio');
         $bolsatrabajo->email = \Auth::user()->email;
-        $bolsatrabajo->nombcont= $request->input('nombcont');
+        $bolsatrabajo->nombreContacto= $request->input('nombreContacto');
         $bolsatrabajo->celular= $request->input('celular');
-        $bolsatrabajo->emailcont= $request->input('emailcont');
+        $bolsatrabajo->emailContacto= $request->input('emailContacto');
         $bolsatrabajo->imagen =$name_image;
 
        #salvar en la base de datos
@@ -140,7 +140,7 @@ class BolsatrabajoController extends Controller
           $bolsatrabajo->titulo= $request->input('titulo');
           $bolsatrabajo->ubicacion= $request->input('ubicacion');
           $bolsatrabajo->empresa= $request->input('empresa');
-          $bolsatrabajo->tipopuesto= $request->input('tipopuesto');
+          $bolsatrabajo->tipoPuesto= $request->input('tipoPuesto');
           $bolsatrabajo->salario= $request->input('salario');
           $bolsatrabajo->direccion= $request->input('direccion');
           $bolsatrabajo->descripcion= $request->input('descripcion');
@@ -148,9 +148,9 @@ class BolsatrabajoController extends Controller
           $bolsatrabajo->fecha= $request->input('fecha');
           $bolsatrabajo->beneficio= $request->input('beneficio');
           $bolsatrabajo->email = \Auth::user()->email;
-          $bolsatrabajo->nombcont= $request->input('nombcont');
+          $bolsatrabajo->nombreContacto= $request->input('nombreContacto');
           $bolsatrabajo->celular= $request->input('celular');
-          $bolsatrabajo->emailcont= $request->input('emailcont');
+          $bolsatrabajo->emailContacto= $request->input('emailContacto');
 
           if($request->hasFile('imagen')){
             $file = $request->file('imagen');

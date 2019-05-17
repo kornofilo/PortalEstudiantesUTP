@@ -67,7 +67,7 @@
           <div class="form-group">
           <strong>Tipo de puesto :</strong>
 
-            <select id="tipopuesto" class="form-control" name="tipopuesto" required>
+            <select id="tipoPuesto" class="form-control" name="tipoPuesto" required>
                 <option>Tiempo Completo</option>
                 <option>Tiempo Parcial</option>
                 <option>Contrato/Temporario</option>
@@ -119,7 +119,7 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Nombre del contacto :</strong>
-          <input type="text" name="nombcont" class="form-control" value="{{$datosB->nombcont}}">
+          <input type="text" name="nombreContacto" class="form-control" value="{{$datosB->nombreContacto}}">
         </div>
         </div>
         <div class="col-md-12">
@@ -131,7 +131,7 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Email del contacto :</strong>
-          <input type="text" name="emailcont" class="form-control" value="{{$datosB->emailcont}}">
+          <input type="text" name="emailContacto" class="form-control" value="{{$datosB->emailContacto}}">
         </div>
         </div>
 
