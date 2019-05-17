@@ -3,7 +3,7 @@
 <!--Jumbotron -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Bolsa de Trabajo</h1>
+    <h1 class="display-4">Sección de Bolsa de Trabajo</h1>
     <p class="lead">Aquí podrás encontrar oportunidades de empleo con las empresas más prestigiosas de la región.</p>
   </div>
 </div>
@@ -23,7 +23,7 @@
     <form action="{{route('bolsaDeTrabajo.search')}}" method="get">
         <div class="form-group row justify-content-center">         
             <div class="col-auto">
-            <input class="form-control form-control" type="search" placeholder="Buscar Artículo" aria-label="Search" name="search" >
+            <input class="form-control form-control" type="search" placeholder="Buscar Vacante" aria-label="Search" name="search" >
             </div>    
 
             <div class="col-auto">
@@ -37,11 +37,21 @@
     </div> 
   <br>
         <div id="tutorias" class="row justify-content-center">
-            <div class="col-md-8">                
+            <div class="col-md-8"> 
+                 <!-- Paginación de publicaciones -->
+                 <div class="pagination justify-content-center">
+                    {{ $datos->links() }}       
+                </div>
+
                  @isset($datos)
                     @foreach ($datos as $bolsatrabajo)                    
                         @include('Bolsatrabajos.bolsatrabajo', $bolsatrabajo)                    
                     @endforeach
+
+                     <!-- Paginación de publicaciones -->
+                    <div class="pagination justify-content-center">
+                        {{ $datos->links() }}       
+                    </div>
                  @endisset                
             </div>
         </div>

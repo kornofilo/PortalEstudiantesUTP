@@ -41,12 +41,20 @@
     <div id="anuncios" class="row justify-content-center">      
         <div class="col-md-8"> 
               @isset($datos)
-
+                  <!-- Paginación de publicaciones -->
+                  <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                  </div>
                   @foreach ($datos as $anuncio)                                     
                         @include('clasificado.Anuncios.anuncio', $anuncio)                 
                   @endforeach
-              @endisset              
-        </div>        
+
+                  <!-- Paginación de publicaciones -->
+                  <div class="pagination justify-content-center">
+                    {{ $datos->links() }}       
+                  </div>                  
+              @endisset                          
+        </div> 
     </div> <br>
        
 </div>

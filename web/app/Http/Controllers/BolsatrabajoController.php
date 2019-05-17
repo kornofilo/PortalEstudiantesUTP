@@ -15,7 +15,7 @@ class BolsatrabajoController extends Controller
     public function index()
     {
       # llama la vista y trae todos datos de la tabla
-      $datos = Bolsatrabajo::orderBy('id','desc')->get();
+      $datos = Bolsatrabajo::orderBy('id','desc')->paginate(10);
       return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
     }
 
@@ -23,7 +23,7 @@ class BolsatrabajoController extends Controller
      {
          $search = $request->get('search');
         $datos = Bolsatrabajo::whereRaw('concat(codigoPost,titulo,ubicacion,empresa,salario,beneficio) like \'%' .$search .'%\' ')
-                                ->get();
+                                ->paginate(10);
         return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
      }
     /**

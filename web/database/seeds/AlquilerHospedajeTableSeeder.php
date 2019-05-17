@@ -13,6 +13,6 @@ class AlquilerHospedajeTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Hospedaje::class, 10)->create();
+        factory(Hospedaje::class, 20)->create();
     }
 }

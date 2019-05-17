@@ -4,7 +4,7 @@
 <!--Jumbotron -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Eventos</h1>
+    <h1 class="display-4">Sección de Eventos</h1>
     <p class="lead">Aquí podrás encontrar información sobre las próximas conferencias, ferias y eventos que se realizan en la universidad.</p>
   </div>
 </div>
@@ -40,11 +40,21 @@
   <br>
         <div id="eventos" class="row justify-content-center">
             <div class="col-md-8">
+                <!-- Paginación de publicaciones -->
+                <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                </div>
+
                  @isset($datos)
                      @foreach ($datos as $evento)
                             @include('Eventos.evento', $evento)
                      @endforeach
-                 @endisset            
+
+                    <!-- Paginación de publicaciones -->
+                    <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                    </div>
+                 @endisset                    
             </div>
 
 

@@ -13,6 +13,6 @@ class AnunciosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Anuncio::class, 10)->create();
+        factory(Anuncio::class, 20)->create();
     }
 }

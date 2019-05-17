@@ -8,9 +8,10 @@
                         <p class="card-text"><i class="fas fa-building"></i> {{$bolsatrabajo->empresa}}</p>
                         <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$bolsatrabajo->ubicacion}}</p>   
                         <p class="card-text"><i class="fas fa-file-contract"></i> {{$bolsatrabajo->tipoPuesto}}</p>  
-                        <p class="card-text"><i class="fas fa-location-arrow"></i> {{$bolsatrabajo->direccion}}</p>  
-                         
+                        <p class="card-text"><i class="fas fa-location-arrow"></i> {{$bolsatrabajo->direccion}}</p>                           
                         <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>                                           
+                        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver más Detalles','id_modal'=>'anun'.$id,'title'=>'Detalle Bolsa de Trabajo','vista'=>'Bolsatrabajos.detalle'])
+
                     </div>
                     <div class="text-right view view-cascade overlay"  width="500px">
                         <img class="card-img-top shadow" src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}"
@@ -24,7 +25,6 @@
                           @if($bolsatrabajo->urgente === "Sí")
                             <h5 class="card-center text-danger font-weight-bold text-right">Urgente</h5>
                           @endif
-                          @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anun'.$id,'title'=>'Detalle Bolsa de Trabajo','vista'=>'Bolsatrabajos.detalle'])
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ class TutoriasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tutorias::class, 10)->create();
+        factory(Tutorias::class, 20)->create();
 
     }
 }

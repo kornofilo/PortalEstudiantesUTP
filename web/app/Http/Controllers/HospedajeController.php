@@ -14,7 +14,7 @@ class HospedajeController extends Controller
      */
     public function index()
     {
-      $datos = Hospedaje::where('estadoPost','Aprobada')->orderBy('id','desc')->get();
+      $datos = Hospedaje::where('estadoPost','Aprobada')->orderBy('id','desc')->paginate(10);
      return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
     }
 
@@ -32,7 +32,7 @@ class HospedajeController extends Controller
         $search = $request->get('search');
        $datos = Hospedaje::where('estadoPost','Aprobada')
                 ->whereRaw('concat(codigoPost,categoria,titulo,descripcion,ubicacion,precio) like \'%' .$search .'%\' ')
-                ->get();
+                ->paginate(10);
        return view('clasificado.Hospedador.alquilerhospedajes',compact('datos'));
     }
     /**

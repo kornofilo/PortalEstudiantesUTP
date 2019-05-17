@@ -9,7 +9,7 @@
                             <p class="card-text"><i class="fas fa-calendar-alt"></i> {{strftime("%d-%m-%Y",strtotime($evento->fecha))}}</p>
                             <p class="card-text"><i class="fas fa-hourglass"></i> {{\Carbon\Carbon::parse($evento->fecha)->diffForHumans()}}</p>
                             <p class="card-text"><i class="fas fa-clock"></i> Publicado {{$evento->created_at->diffForHumans()}}</p>                   
-                        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver Detalles del Evento','id_modal'=>'anun'.$id,'title'=>'Detalle del evento','vista'=>'Eventos.detalle'])
+                            @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver más Detalles','id_modal'=>'anun'.$id,'title'=>'Detalle del evento','vista'=>'Eventos.detalle'])
                     </div>
                     <div class="text-right view view-cascade overlay"  width="500px">
                         <img class="card-img-top shadow" src="/imagenes/eventos/{{$evento->imagen}}"

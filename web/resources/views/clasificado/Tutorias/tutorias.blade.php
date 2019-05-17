@@ -21,7 +21,7 @@
     <form action="{{route('tutorias.search')}}" method="get">
       <div class="form-group row justify-content-center">         
         <div class="col-auto">
-          <input class="form-control form-control" type="search" placeholder="Buscar Artículo" aria-label="Search" name="search" >
+          <input class="form-control form-control" type="search" placeholder="Buscar Tutoría" aria-label="Search" name="search" >
         </div>    
 
         <div class="col-auto">
@@ -39,9 +39,19 @@
     <div id="anuncios" class="row justify-content-center">      
         <div class="col-md-8"> 
               @isset($datos)
+                  <!-- Paginación de publicaciones -->
+                  <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                  </div>
+
                   @foreach ($datos as $tutoria)                                     
                      @include('clasificado.Tutorias.tutoria', $tutoria)                 
                   @endforeach
+
+                  <!-- Paginación de publicaciones -->
+                  <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                  </div>
               @endisset              
         </div>        
     </div> <br>

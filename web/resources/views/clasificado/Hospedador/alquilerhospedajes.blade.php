@@ -3,7 +3,7 @@
 <div class="jumbotron jumbotron-fluid  ">  
   <div class="container">
     <h1 class="display-4">Sección de Alquiler/Hospedaje</h1>
-    <p class="lead">Aquí podras encontral cuartos o apartamentos en alquilar .</p>
+    <p class="lead">Aquí podras encontral cuartos o apartamentos en alquiler .</p>
   </div>
 </div>
 <div class="container">    
@@ -21,7 +21,7 @@
     <form action="{{route('alquilerhospedajes.search')}}" method="get">
       <div class="form-group row justify-content-center">         
         <div class="col-auto">
-          <input class="form-control form-control" type="search" placeholder="Buscar Artículo" aria-label="Search" name="search" >
+          <input class="form-control form-control" type="search" placeholder="Buscar Hospedaje" aria-label="Search" name="search" >
         </div>    
 
         <div class="col-auto">
@@ -39,9 +39,19 @@
     <div id="anuncios" class="row justify-content-center">      
         <div class="col-md-8"> 
               @isset($datos)
+                  <!-- Paginación de publicaciones -->
+                  <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                  </div>
+
                   @foreach ($datos as $alquilerhosp)                                     
-                  @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)                 
+                    @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)                 
                   @endforeach
+
+                  <!-- Paginación de publicaciones -->
+                  <div class="pagination justify-content-center">
+                      {{ $datos->links() }}       
+                  </div>
               @endisset              
         </div>        
     </div> <br>

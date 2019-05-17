@@ -22,7 +22,7 @@ class EventoController extends Controller
     {
       //muestra los datos
 
-      $datos = Evento::orderBy('id','desc')->get();
+      $datos = Evento::orderBy('id','desc')->paginate(10);
 
       return view('Eventos.eventos')->with(compact('datos'));
     }
@@ -30,7 +30,7 @@ class EventoController extends Controller
     {
        $search = $request->get('search');
        $datos = Evento::whereRaw('concat(codigoPost,titulo,lugar,costo,descripcion,facultad_nomb) like \'%' .$search .'%\' ')
-                        ->get();
+                        ->paginate(10);
        return view('Eventos.eventos',compact('datos'));
     }
     /**

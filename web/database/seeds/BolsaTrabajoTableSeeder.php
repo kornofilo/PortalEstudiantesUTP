@@ -13,6 +13,6 @@ class BolsaTrabajoTableSeeder extends Seeder
     public function run()
     {
         
-        factory(BolsaTrabajo::class, 5)->create();
+        factory(BolsaTrabajo::class, 20)->create();
     }
 }
