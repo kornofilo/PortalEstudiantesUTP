@@ -19,7 +19,7 @@ class BolsatrabajoController extends Controller
       return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
     }
 
-    public function searchB(Request $request)
+    public function search(Request $request)
      {
          $search = $request->get('search');
         $datos = Bolsatrabajo::whereRaw('concat(codigoPost,titulo,ubicacion,empresa,salario,beneficio) like \'%' .$search .'%\' ')

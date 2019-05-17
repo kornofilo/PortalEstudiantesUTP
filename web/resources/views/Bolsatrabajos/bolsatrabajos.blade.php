@@ -1,51 +1,49 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-
-    
-    @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Empleo','id_modal'=>'mod1','title'=>'AGREGA EMPLEOS AQUI','vista'=>'Bolsatrabajos.formulario'])
-    <br>
-    <form action="/bolsatrabajos" method="get" class="form-inline">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
-        name="search" >
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Buscar</button>
-        </div>
-        
-  </form>
- 
-  @if(count($errors) > 0)
-  <div class="alert alert-danger">
-  <ul>
-  @foreach($errors->all() as $error)
-  <li>{{$error}}</li>
-  @endforeach
-  </ul>
+<!--Jumbotron -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Bolsa de Trabajo</h1>
+    <p class="lead">Aquí podrás encontrar oportunidades de empleo con las empresas más prestigiosas de la región.</p>
   </div>
-  @endif
+</div>
 
-  <br><br>
-  <br >
+<div class="container">    
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+    <!-- Formulario de Búsqueda -->
+    <form action="{{route('bolsaDeTrabajo.search')}}" method="get">
+        <div class="form-group row justify-content-center">         
+            <div class="col-auto">
+            <input class="form-control form-control" type="search" placeholder="Buscar Artículo" aria-label="Search" name="search" >
+            </div>    
+
+            <div class="col-auto">
+                <button class="btn btn-success col" type="submit"> <i class="fas fa-search"></i> </button> 
+            </div> 
+        </div>                      
+    </form>  
+
+    <div class="text-center"> 
+        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Empleo','id_modal'=>'mod1','title'=>'AGREGA EMPLEOS AQUI','vista'=>'Bolsatrabajos.formulario'])
+    </div> 
+  <br>
         <div id="tutorias" class="row justify-content-center">
-            <div class="col-md-8">
-                
-                    <div class="card text-center border-primary mb-4"><h4> Bolsa de Trabajo</h4></div>
+            <div class="col-md-8">                
                  @isset($datos)
-                     @foreach ($datos as $bolsatrabajo)
-
-                    
-                   @include('Bolsatrabajos.bolsatrabajo', $bolsatrabajo)
-                    
-                     @endforeach
-                 @endisset
-
-
-                    <div class="col-md-12 gap10"></div>
-                
+                    @foreach ($datos as $bolsatrabajo)                    
+                        @include('Bolsatrabajos.bolsatrabajo', $bolsatrabajo)                    
+                    @endforeach
+                 @endisset                
             </div>
-
-
         </div>
 
 </div>
