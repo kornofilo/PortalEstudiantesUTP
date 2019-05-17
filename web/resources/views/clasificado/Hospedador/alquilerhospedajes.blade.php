@@ -1,52 +1,53 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-     
-        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO','vista'=>'clasificado.Hospedador.formulario'])
-        <br>
-        <form action="{{route('alquilerhospedajes.search')}}" method="get" class="form-inline">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="search" placeholder="Search" aria-label="Search"
-            name="search" >
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Buscar</button>
-            </div>
-            
-      </form>
-     
-  @if(count($errors) > 0)
-    <div class="alert alert-danger">
+<div class="jumbotron jumbotron-fluid  ">  
+  <div class="container">
+    <h1 class="display-4">Sección de Alquiler/Hospedaje</h1>
+    <p class="lead">Aquí podras encontral cuartos o apartamentos en alquilar .</p>
+  </div>
+</div>
+<div class="container">    
+    @if(count($errors) > 0)
+      <div class="alert alert-danger">
         <ul>
-     @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-     @endforeach
+            @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+            @endforeach
         </ul>
-    </div>
-  @endif
-  
-  <br><br>
-  <br >
-        <div id="hospedores" class="row justify-content-center">
-            <div class="col-md-8"> 
-                <div class="card">
-                    <div class="card-header"><h4>Alquileres y Hospedajes</h4></div>         
-                 @isset($datos)
-                     @foreach ($datos as $alquilerhosp)                     
-                                                 
-                                @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)
-                       
-                     @endforeach
-                 @endisset
-                    
-                    
-                    <div class="col-md-12 gap10"></div>
-                </div>
-            </div>
-            
+      </div>
+    @endif
+    <!-- Formulario de Búsqueda -->
+    
+    <form action="{{route('alquilerhospedajes.search')}}" method="get">
+      <div class="form-group row justify-content-center">         
+        <div class="col-auto">
+          <input class="form-control form-control" type="search" placeholder="Buscar Artículo" aria-label="Search" name="search" >
+        </div>    
 
-        </div>
+        <div class="col-auto">
+            <button class="btn btn-success col" type="submit"> <i class="fas fa-search"></i> </button> 
+        </div> 
+      </div>                      
+    </form>  
+
+    <div class="text-center"> 
+            @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Anuncio','id_modal'=>'mod1','title'=>'AGREGA TU ANUNCIO','vista'=>'clasificado.Hospedador.formulario'])
+    </div> 
+    
+     <br>
+
+    <div id="anuncios" class="row justify-content-center">      
+        <div class="col-md-8"> 
+              @isset($datos)
+                  @foreach ($datos as $alquilerhosp)                                     
+                  @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)                 
+                  @endforeach
+              @endisset              
+        </div>        
+    </div> <br>
        
 </div>
 
 @endsection
+
 
