@@ -65,7 +65,11 @@
                   </thead>
 
                 @endforeach
+
                 @endif
+                <div class="pagination justify-content-center">
+                  {{ $datos->links() }}
+                </div>
                 @endif
                 </table>
 
@@ -103,8 +107,13 @@
                        </div>                            </td>
                           </tr>
                         </thead>
+
                         @endforeach
+                        <div class="pagination justify-content-center">
+                          {{ $datosT->links() }}
+                        </div>
                         @endif
+
                       </div>
                       </table>
 
@@ -142,6 +151,9 @@
                                                 </tr>
                                               </thead>
                                               @endforeach
+                                              <div class="pagination justify-content-center">
+                                                {{ $datosH->links() }}
+                                              </div>
                                               @endif
                                             </div>
                                               </table>
@@ -176,6 +188,9 @@
 
                       @endforeach
                       </table>
+                      <div class="pagination justify-content-center">
+                        {{ $datosB->links() }}
+                      </div>
                 @endif
 <!--Condición por si no hay Eventos  -->
                 @if($datosE->count() === 0)
@@ -205,6 +220,9 @@
                         @endforeach
                       </table>
                   @endif
+                  <div class="pagination justify-content-center">
+                    {{ $datosE->links() }}
+                  </div>
              @endif
             <br>
           </div>

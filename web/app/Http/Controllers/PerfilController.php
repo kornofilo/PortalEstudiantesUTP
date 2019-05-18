@@ -17,11 +17,11 @@ class PerfilController extends Controller
   public function index()
   {
     //muestra los datos en el perfil
-    $datosE = Evento::where('email', auth()->user()->email)->latest()->get();
-    $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->get();
-    $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->get();
-    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->get();
-    $datos = Compraventa::where('email', auth()->user()->email)->latest()->get();
+    $datosE = Evento::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'Evento');
+    $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'bolsaTrabajo');
+    $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'Hospedaje');
+    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'Tutorias');
+    $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'compraVenta');
     $facultades = DB::table('facultades')->pluck("nombre","id");
     return view('Perfil.miPerfil', compact('datos','facultades','datosT','datosB','datosE','datosH'));
   }
