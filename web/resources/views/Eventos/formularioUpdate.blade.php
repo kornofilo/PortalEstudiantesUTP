@@ -1,4 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <h2 class="h2-responsive text-center"><strong>{{$evento->titulo}} ({{$evento->codigoPost}})</strong></h2>
 <form action="{{route('eventos.update', $evento->id)}}" method="POST" enctype="multipart/form-data">
      @csrf
@@ -48,9 +47,9 @@
         <!-- Facultad del Evento -->
         <div class="form-group row p-2">
             <label for="costo" class="col-form-label col-sm-3 font-weight-bold">Facultad:</label>
-            <select id="facultad_nomb" name="facultad_nomb" class="form-control col-sm-8" required>
+            <select id="evento_facultad_nomb_{{$evento->id}}" name="evento_facultad_nomb_{{$evento->id}}" class="form-control col-sm-8" required>
                 <option value="Facultad de Ciencias y Tecnología">Facultad de Ciencias y Tecnología</option>
-                <option value="Facultad de Ingeniería Civil" >Facultad de Ingeniería Civil</option>
+                <option value="Facultad de Ingeniería Civil">Facultad de Ingeniería Civil</option>
                 <option value="Facultad de Ingeniería Eléctrica">Facultad de Ingeniería Eléctrica</option>
                 <option value="Facultad de Ingeniería Industrial">Facultad de Ingeniería Industrial</option>
                 <option value="Facultad de Ingeniería Mecánica">Facultad de Ingeniería Mecánica</option>
@@ -68,10 +67,11 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-success">Actualizar</button>
-        </div>        
+        </div> 
+        <script type="text/javascript">
+            $(document).ready(function () {
+            $('#evento_facultad_nomb_{{$evento->id}}').val('{{$evento->facultad_nomb}}').change();
+        })
+</script>       
 </form>   
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#facultad_nomb').val('{{$evento->facultad_nomb}}').change();
-    })
-</script>
+

@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 use App\User;
 
 $factory->define(App\Tutorias::class, function (Faker $faker) {
-    $asignatura = ['Programación, Cálculo, Otros'];
+    $asignatura = ['Programación', 'Cálculo', 'Otros', 'Física', 'Química', 'Matemáticas'];
     $ubicacion = ['Biblioteca', 'Cafetín', 'Sala de Estudio de Eléctrica', 'Cafeteria', 'En los pasillos'];
     $estadoPost = ['Aprobada', 'En Moderación'];
 

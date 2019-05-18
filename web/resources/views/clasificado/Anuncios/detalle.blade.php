@@ -1,16 +1,16 @@
 <div class="card-body" >
-  <h2 class="h2-responsive text-center"><strong>{{$anuncio->categoria}}</strong></h2> <br>
+  <h2 class="h2-responsive text-center"><strong>{{$anuncio->nombreArt}}</strong></h2> <br>
       <div class="text-center">
         <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}">
         <br><br>
-        <h4 class="h4-responsive text-success"><strong>${{$anuncio->precio}}</h5></strong></h4>
+        <h4 class="h4-responsive text-success font-weight-bold">${{$anuncio->precio}}</h4>
       
       </div>
   
   
       
       <h6 class="h6-responsive"><i class="fas class=fas fa-heart" style="font-size:20px;"></i>  Estado: {{$anuncio->estado}}</h6>
-      <h6 class="h6-responsive"><i class="fab fa-product-hunt" style="font-size:20px;"></i>  Articulo:  {{$anuncio->nombreArt}}</h6>
+      <h6 class="h6-responsive"><i class="fas fa-exchange-alt" style="font-size:20px;"></i>  {{$anuncio->categoria}}</h6>
       <h6 class="h6-responsive"><i class="fas fa-info" style="font-size:20px;"></i>  Descripción:       {{$anuncio->descripcion}}</h6>
       <hr>
   
@@ -45,7 +45,7 @@
     <!-- Accordion card -->
   
     <hr>  
-        <p class="h5 bold-text">Información de la Publicación</p>
+        <p class="h5">Información de la Publicación</p>
         <p><i class="fas fa-user" style="font-size:20px;"></i>Publicado por: <a href="{{route('perfil.verPerfil', $anuncio->email)}}"> {{$anuncio->email}}</a> </p>
         <p><i class="fas fa-ticket-alt"></i> Código de Publicación: {{$anuncio->codigoPost}}</p> 
         <p><i class="fas fa-clock"></i> Publicado {{$anuncio->created_at->diffForHumans()}}</p> 

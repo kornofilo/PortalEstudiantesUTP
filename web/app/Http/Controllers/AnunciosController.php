@@ -78,7 +78,7 @@ class AnunciosController extends Controller
         }
         //
         $anuncio->save();
-        return back()->with('success','Anuncio: '.$anuncio->nombreArt.' Creado exitosamente');
+        return back()->with('success','Anuncio: '.$anuncio->nombreArt.' Creado exitosamente y se ha Enviado a Moderación.');
     }
 
     /**
@@ -138,7 +138,7 @@ class AnunciosController extends Controller
 
           $datos->save();
 
-        return redirect('/miPerfil')->with('success','Datos Actualizados.');
+        return redirect('/miPerfil')->with('success','Datos del Anuncio Actualizados Existosamente.');
       }
 
     /**
@@ -158,13 +158,13 @@ class AnunciosController extends Controller
           if ($file->imagen === 'post-placeholder.jpg')
           {
           Compraventa::where('id', $id)->delete();
-          return back()->with('success','Anuncio exitosamente.');
+          return back()->with('success','Anuncio Eliminado Exitosamente.');
           }
          else {
            $file = Compraventa::where('id', $id)->find($id);
            if(unlink(public_path().'/imagenes/clasificados/anuncios/'.$file->imagen)){
             $file->delete();
-            return back()->with('success','Anuncio eliminado exitosamente.');
+            return back()->with('success','Anuncio Eliminado Exitosamente.');
                }
          }
         }

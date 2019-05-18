@@ -26,42 +26,39 @@
               </div>
                     @else
 
-<!--  Tabla de anuncios-->
+                  <!--  Tabla de anuncios-->
                   @if($datos->count() === 0)
                   @else
+                  <h5 class="text-center rounded-pill bg-dark text-white card-img-top shadow">Clasificados</h5>
                   <table class="table card-img-top shadow">
-                    <h5 class="text-center rounded-pill bg-dark text-white card-img-top shadow" align="center">Clasificados</h5class="text-center rounded-pill bg-dark text-white">
-                      <thead class="thead-light">
-                    <tr>
+                      <tr>
                       <th width = "500px">Nombre del anuncio</th>
                       <th width = "600px">Estado de la publicación</th>
                       <th width = "600px">Acción</th>
                     </tr>
-                  </div>
-                    @foreach ($datos as $data)
+                    @foreach ($datos as $anuncio)
                     <tr>
-                      <td>{{$data->nombreArt}}</td>
-                      @if ( $data->estadoPost == "Aprobada")
-                    <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
+                      <td>{{$anuncio->nombreArt}}</td>
+                      @if ( $anuncio->estadoPost == "Aprobada")
+                    <td class="text-success font-weight-bold">{{$anuncio->estadoPost}}</td>
 
-                      @elseif ( $data->estadoPost == "En Moderación")
-                    <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
+                      @elseif ( $anuncio->estadoPost == "En Moderación")
+                    <td class="text-warning font-weight-bold">{{$anuncio->estadoPost}}</td>
 
-                      @elseif ( $data->estadoPost == "Rechazada")
-                    <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
+                      @elseif ( $anuncio->estadoPost == "Rechazada")
+                    <td class="text-danger font-weight-bold">{{$anuncio->estadoPost}}</td>
                       @endif
                       <td>
                         <div class="p-2 bd-highlight">
-                        <a class="btn btn-outline-info" href="{{route('Perfil.show',$data->id)}}">Ver</a>
-                        <a class="btn btn-outline-warning" href="{{route('Perfil.detalles',$data->id)}}">Editar</a>
-                        <a class="btn btn-outline-danger" href="{{route('dts',$data->id)}}">Borrar</a>
+                        @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'anuncio'.$anuncio->id,'title'=>'Detalles del Anuncio','vista'=>'clasificado.Anuncios.detalle']) 
+                        <a class="btn btn-outline-warning" href="{{route('Perfil.detalles',$anuncio->id)}}">Editar</a>
+                        <a class="btn btn-outline-danger" href="{{route('dts',$anuncio->id)}}">Borrar</a>
                       </div>
                       <div class="text-right">
-                      <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                      <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$anuncio->created_at->diffForHumans()}}</p>
                       </div>
                     </td>
                   </tr>
-                  </thead>
 
                 @endforeach
 
@@ -78,31 +75,31 @@
                 <table class="table card-img-top shadow">
                 <thead class="thead-light">
 <!-- Tabla de Tutorías -->
-                <h5 class="text-center rounded-pill bg-dark text-white" align="center">Tutorías</h5>
+                <h5 class="text-center rounded-pill bg-dark text-white">Tutorías</h5>
                 <tr>
                   <th width = "500px">Nombre de la tutoría</th>
                   <th width = "600px">Estado de la publicación</th>
                   <th width = "600px">Acción</th>
                 </tr>
-                @foreach ($datosT as $data)
+                @foreach ($datosT as $tutoria)
                       <tr>
-                        <td>{{$data->titulo}}</td>
+                        <td>{{$tutoria->titulo}}</td>
 
-                        @if ( $data->estadoPost == "Aprobada")
-                      <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
+                        @if ( $tutoria->estadoPost == "Aprobada")
+                      <td class="text-success font-weight-bold">{{$tutoria->estadoPost}}</td>
                         @endif
-                        @if ( $data->estadoPost == "En Moderación")
-                      <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
+                        @if ( $tutoria->estadoPost == "En Moderación")
+                      <td class="text-warning font-weight-bold">{{$tutoria->estadoPost}}</td>
                         @endif
-                        @if ( $data->estadoPost == "Rechazada")
-                      <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
+                        @if ( $tutoria->estadoPost == "Rechazada")
+                      <td class="text-danger font-weight-bold">{{$tutoria->estadoPost}}</td>
                         @endif
                       <td>
-                       <a class="btn btn-outline-info" href="{{route('Perfil.show2',$data->id)}}">Ver</a>
-                       <a class="btn btn-outline-warning" href="{{route('Perfil.detalles2',$data->id)}}">Editar</a>
-                       <a class="btn btn-outline-danger" href="{{route('dt',$data->id)}}">Borrar</a>
+                        @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
+                       <a class="btn btn-outline-warning" href="{{route('Perfil.detalles2',$tutoria->id)}}">Editar</a>
+                       <a class="btn btn-outline-danger" href="{{route('dt',$tutoria->id)}}">Borrar</a>
                        <div class="text-right">
-                       <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                       <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$tutoria->created_at->diffForHumans()}}</p>
                        </div>                            </td>
                           </tr>
                         </thead>
@@ -128,24 +125,24 @@
                                         <th width = "600px">Estado de la publicación</th>
                                         <th width = "600px">Acción</th>
                                       </tr>
-                                      @foreach ($datosH as $data)
+                                      @foreach ($datosH as $alquilerhosp)
                                             <tr>
-                                              <td>{{$data->titulo}}</td>
-                                              @if ( $data->estadoPost == "Aprobada")
-                                            <td class="text-success font-weight-bold">{{$data->estadoPost}}</td>
+                                              <td>{{$alquilerhosp->titulo}}</td>
+                                              @if ( $alquilerhosp->estadoPost == "Aprobada")
+                                            <td class="text-success font-weight-bold">{{$alquilerhosp->estadoPost}}</td>
 
-                                              @elseif ( $data->estadoPost == "En Moderación")
-                                            <td class="text-warning font-weight-bold">{{$data->estadoPost}}</td>
+                                              @elseif ( $alquilerhosp->estadoPost == "En Moderación")
+                                            <td class="text-warning font-weight-bold">{{$alquilerhosp->estadoPost}}</td>
 
-                                              @elseif ( $data->estadoPost == "Rechazada")
-                                            <td class="text-danger font-weight-bold">{{$data->estadoPost}}</td>
+                                              @elseif ( $alquilerhosp->estadoPost == "Rechazada")
+                                            <td class="text-danger font-weight-bold">{{$alquilerhosp->estadoPost}}</td>
                                               @endif
                                             <td>
-                                             <a class="btn btn-outline-info" href="{{route('Perfil.showH',$data->id)}}">Ver</a>
-                                             <a class="btn btn-outline-warning" href="{{route('Perfil.detallesH',$data->id)}}">Editar</a>
-                                             <a class="btn btn-outline-danger" href="{{route('dtH',$data->id)}}">Borrar</a>
+                                             @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle']) 
+                                             <a class="btn btn-outline-warning" href="{{route('Perfil.detallesH',$alquilerhosp->id)}}">Editar</a>
+                                             <a class="btn btn-outline-danger" href="{{route('dtH',$alquilerhosp->id)}}">Borrar</a>
                                              <div class="text-right">
-                                             <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                                             <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$alquilerhosp->created_at->diffForHumans()}}</p>
                                              </div>                                                  </td>
                                                 </tr>
                                               </thead>
@@ -165,7 +162,7 @@
               <thead class="thead-light">
 <!-- Tabla de Bolsa de trabajos -->
 
-              <h5 class="text-center rounded-pill bg-dark text-white" align="center">Bolsa de trabajo</h5>
+              <h5 class="text-center rounded-pill bg-dark text-white">Bolsa de trabajo</h5>
               <tr>
                 <th width = "500px">Nombre del trabajo</th>
                 <th width = "600px">Es de urgencia</th>
@@ -183,8 +180,6 @@
                               <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>
                               </div>                          </td>
                         </tr>
-                        </thead>
-
                       @endforeach
                       </table>
                       <div class="pagination justify-content-center">
@@ -194,30 +189,29 @@
 <!--Condición por si no hay Eventos  -->
                 @if($datosE->count() === 0)
                 @else
-                <table class="table card-img-top shadow">
-                <thead class="thead-light">
-<!-- Tabla de Eventos -->
-                <h5 class="text-center rounded-pill bg-dark text-white" align="center">Eventos</h5>
-                <tr>
-                  <th width = "500px">Nombre del Evento</th>
-                  <th width = "600px">Fecha de Evento</th>
-                  <th width = "600px">Acción</th>
-                </tr>
-                @foreach ($datosE as $evento)
-                            <tr>
-                              <td>{{$evento->titulo}}</td>
-                              <td>{{strftime("%d-%m-%Y",strtotime($evento->fecha))}} a las {{date("g:ia", strtotime($evento->hora))}} </td>
-                              <td>
-                                @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info', 'id_modal'=>'evento'.$evento->id,'title'=>'Detalles del Evento','vista'=>'Eventos.detalle']) 
-                                @include('clasificado.Anuncios.modal', $dataU=[$evento,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'eventoU'.$evento->id,'title'=>'Editar Evento','vista'=>'Eventos.formularioUpdate']) 
-                                <a class="btn btn-outline-danger" href="{{route('dtE',$evento->id)}}">Borrar</a>
-                                <div class="text-right">
-                                <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$evento->created_at->diffForHumans()}}</p>
-                                </div>   
-                          </tr>
-                          </thead>
-                        @endforeach
-                      </table>
+                <!-- Tabla de Eventos -->
+                <h5 class="text-center rounded-pill bg-dark text-white">Eventos</h5>
+                <table class="table card-img-top shadow">                  
+                  <tr>
+                    <th width = "500px">Nombre del Evento</th>
+                    <th width = "600px">Fecha de Evento</th>
+                    <th width = "600px">Acción</th>
+                  </tr>
+                    @foreach ($datosE as $evento)
+                      <tr>
+                        <td>{{$evento->titulo}}</td>
+                        <td>{{strftime("%d-%m-%Y",strtotime($evento->fecha))}} a las {{date("g:ia", strtotime($evento->hora))}} </td>
+                        <td>
+                          @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info', 'id_modal'=>'evento'.$evento->id,'title'=>'Detalles del Evento','vista'=>'Eventos.detalle']) 
+                          @include('clasificado.Anuncios.modal', $dataU=[$evento,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'eventoU'.$evento->id,'title'=>'Editar Evento','vista'=>'Eventos.formularioUpdate']) 
+                          <a class="btn btn-outline-danger" href="{{route('dtE',$evento->id)}}">Borrar</a>
+                          <div class="text-right">
+                            <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$evento->created_at->diffForHumans()}}</p>
+                          </div>   
+                        </td>  
+                      </tr>
+                      @endforeach
+                  </table>
                   @endif
                   <div class="pagination justify-content-center">
                     {{ $datosE->links() }}
@@ -228,5 +222,3 @@
           </div>
           </div>
           </div>
-        </form>
-     </body>
