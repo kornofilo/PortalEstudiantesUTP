@@ -17,7 +17,7 @@ class AnunciosController extends Controller
     public function index()
     {
 
-        $datos = Compraventa::where('estadoPost','Aprobada')->orderBy('id','desc')->paginate(10);
+        $datos = Compraventa::where('estadoPost','Aprobada')->orderBy('created_at','desc')->paginate(10);
         return view('clasificado.Anuncios.anuncios')->with(compact('datos'));
     }
     public function search(Request $request)
@@ -25,6 +25,7 @@ class AnunciosController extends Controller
       $search = $request->get('search');
       $datos = Compraventa::where('estadoPost','Aprobada')
                             ->whereRaw('concat(nombreArt,categoria,precio,estado,codigoPost) like \'%' .$search .'%\' ')
+                            ->orderBy('created_at','desc')
                             ->paginate(10);
       return view('clasificado.Anuncios.anuncios',compact('datos'));
     }

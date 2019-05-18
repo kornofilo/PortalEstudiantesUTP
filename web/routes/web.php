@@ -59,6 +59,8 @@ Route::group(['prefix' => 'clasificado'], function () {
 //Rutas de Compras/Ventas
 Route::resource('anuncios','AnunciosController');
 Route::get('/anuncios','AnunciosController@search')->name('anuncios.search');
+Route::post('anuncios/update/{id}', 'AnunciosController@update')->name('anuncios.update')->middleware(['auth']);
+
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
 Route::get('/tutorias','TutoriasController@search')->name('tutorias.search');

@@ -49,7 +49,7 @@
     <!-- Tipo de Puesto -->
     <div class="form-group row p-2">
         <label for="tipoPuesto" class="col-form-label col-sm-3 font-weight-bold">Tipo de Puesto:</label>
-        <select id="BT_tipoPuesto_{{$bolsatrabajo->id}}" class="form-control col-sm-8" name="BT_tipoPuesto_{{$bolsatrabajo->id}}" required>
+        <select id="BT_tipoPuesto_{{$bolsatrabajo->id}}" class="form-control col-sm-8" name="tipoPuesto" required>
             <option value="Tiempo Completo">Tiempo Completo</option>
             <option value="Tiempo Parcial">Tiempo Parcial</option>
             <option value="Contrato/Temporario">Contrato/Temporario</option>

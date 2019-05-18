@@ -2,8 +2,7 @@
   <div class="col-md-9">
 
   <div class="col-xl">
-    <!-- <i class="fas fa-search" aria-hidden="true"></i> -->
-    <!-- <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar" aria-label="Search"> -->
+
       <br><br>
         @if(count($errors) > 0)
             <div class="alert alert-danger">
@@ -19,55 +18,50 @@
               <h3 class="table card-img-top shadow">Mis Publicaciones</h3>
 
             <div class="card" >
-<!--Condición por si no hay anuncios  -->
-              @if(($datos->count() === 0) && ($datosT->count() === 0) && ($datosE->count() === 0) && ($datosT->count() === 0) && ($datosH->count() === 0) && ($datosB->count() === 0) && ($datosE->count() === 0))
-              <div class="alert alert-success" role="alert">
-                <h6 class="text-center font-weight"> No tiene Anuncios</h6>
-              </div>
-                    @else
+              <!--Condición por si no hay anuncios  -->
+                @if(($datos->count() === 0) && ($datosT->count() === 0) && ($datosE->count() === 0) && ($datosT->count() === 0) && ($datosH->count() === 0) && ($datosB->count() === 0) && ($datosE->count() === 0))
+                  <div class="alert alert-success" role="alert">
+                    <h6 class="text-center font-weight"> No tiene Anuncios</h6>
+                  </div>
+                @else            
+                  <!--  Tabla de compra/venta -->
+                  @if($datos->count() > 0)
+                    <h5 class="text-center rounded-pill bg-dark text-white card-img-top shadow">Clasificados</h5>
+                    <table class="table card-img-top shadow">
+                        <tr>
+                        <th width = "500px">Nombre del anuncio</th>
+                        <th width = "600px">Estado de la publicación</th>
+                        <th width = "600px">Acción</th>
+                      </tr>
+                      @foreach ($datos as $anuncio)
+                        <tr>
+                          <td>{{$anuncio->nombreArt}}</td>
+                          @if ( $anuncio->estadoPost == "Aprobada")
+                            <td class="text-success font-weight-bold">{{$anuncio->estadoPost}}</td>
+                          @elseif ( $anuncio->estadoPost == "En Moderación")
+                            <td class="text-warning font-weight-bold">{{$anuncio->estadoPost}}</td>
+                          @elseif ( $anuncio->estadoPost == "Rechazada")
+                            <td class="text-danger font-weight-bold">{{$anuncio->estadoPost}}</td>
+                          @endif
+                          <td>
+                            <div class="p-2 bd-highlight">
+                              @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'anuncio'.$anuncio->id,'title'=>'Detalles del Anuncio','vista'=>'clasificado.Anuncios.detalle']) 
+                              @include('clasificado.Anuncios.modal', $dataU=[$anuncio,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'anuncioU'.$anuncio->id,'title'=>'Editar Anuncio de Compra/Venta','vista'=>'clasificado.Anuncios.formularioUpdate']) 
 
-                  <!--  Tabla de anuncios-->
-                  @if($datos->count() === 0)
-                  @else
-                  <h5 class="text-center rounded-pill bg-dark text-white card-img-top shadow">Clasificados</h5>
-                  <table class="table card-img-top shadow">
-                      <tr>
-                      <th width = "500px">Nombre del anuncio</th>
-                      <th width = "600px">Estado de la publicación</th>
-                      <th width = "600px">Acción</th>
-                    </tr>
-                    @foreach ($datos as $anuncio)
-                    <tr>
-                      <td>{{$anuncio->nombreArt}}</td>
-                      @if ( $anuncio->estadoPost == "Aprobada")
-                    <td class="text-success font-weight-bold">{{$anuncio->estadoPost}}</td>
-
-                      @elseif ( $anuncio->estadoPost == "En Moderación")
-                    <td class="text-warning font-weight-bold">{{$anuncio->estadoPost}}</td>
-
-                      @elseif ( $anuncio->estadoPost == "Rechazada")
-                    <td class="text-danger font-weight-bold">{{$anuncio->estadoPost}}</td>
-                      @endif
-                      <td>
-                        <div class="p-2 bd-highlight">
-                        @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'anuncio'.$anuncio->id,'title'=>'Detalles del Anuncio','vista'=>'clasificado.Anuncios.detalle']) 
-                        <a class="btn btn-outline-warning" href="{{route('Perfil.detalles',$anuncio->id)}}">Editar</a>
-                        <a class="btn btn-outline-danger" href="{{route('dts',$anuncio->id)}}">Borrar</a>
+                              <a class="btn btn-outline-danger" href="{{route('dts',$anuncio->id)}}">Borrar</a>
+                            </div>
+                            <div class="text-right">
+                              <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$anuncio->created_at->diffForHumans()}}</p>
+                            </div>
+                          </td>
+                        </tr>
+                        @endforeach                        
+                      </table>
+                      <div class="pagination justify-content-center">
+                          {{ $datos->links() }}
                       </div>
-                      <div class="text-right">
-                      <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$anuncio->created_at->diffForHumans()}}</p>
-                      </div>
-                    </td>
-                  </tr>
-
-                @endforeach
-
+                    @endif
                 @endif
-                <div class="pagination justify-content-center">
-                  {{ $datos->links() }}
-                </div>
-                @endif
-                </table>
 
 <!--Condición por si no hay anuncios  -->
                 @if($datosT->count() === 0)
@@ -96,7 +90,6 @@
                         @endif
                       <td>
                         @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
-                       <a class="btn btn-outline-warning" href="{{route('Perfil.detalles2',$tutoria->id)}}">Editar</a>
                        <a class="btn btn-outline-danger" href="{{route('dt',$tutoria->id)}}">Borrar</a>
                        <div class="text-right">
                        <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$tutoria->created_at->diffForHumans()}}</p>
@@ -114,8 +107,7 @@
                       </table>
 
                       <!--Condición por si no hay Hospedaje  -->
-                                      @if($datosH->count() === 0)
-                                      @else
+                                      @if($datosH->count() > 0)                                      
                                       <table class="table card-img-top shadow">
                                       <thead class="thead-light">
                       <!-- Tabla de Tutorías -->

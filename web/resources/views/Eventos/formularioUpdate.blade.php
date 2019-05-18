@@ -47,7 +47,7 @@
         <!-- Facultad del Evento -->
         <div class="form-group row p-2">
             <label for="costo" class="col-form-label col-sm-3 font-weight-bold">Facultad:</label>
-            <select id="evento_facultad_nomb_{{$evento->id}}" name="evento_facultad_nomb_{{$evento->id}}" class="form-control col-sm-8" required>
+            <select id="evento_facultad_nomb_{{$evento->id}}" name="facultad_nomb" class="form-control col-sm-8" required>
                 <option value="Facultad de Ciencias y Tecnología">Facultad de Ciencias y Tecnología</option>
                 <option value="Facultad de Ingeniería Civil">Facultad de Ingeniería Civil</option>
                 <option value="Facultad de Ingeniería Eléctrica">Facultad de Ingeniería Eléctrica</option>
