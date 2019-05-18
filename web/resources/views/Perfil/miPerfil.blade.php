@@ -3,6 +3,8 @@
 @section('title','Portal Estudiantil - Administrar mi Perfil')
 
 @section('content')
+
+@include('Homes.BacktoTop')
 <br>
     <div class="container">
         <div class="row">
