@@ -20,13 +20,15 @@ class CreateUsersTable extends Migration
             $table->string('nombre',30);
             $table->string('apellido',30);
             $table->string('sede',20);
-            $table->string('facultad',30);
-            $table->string('carrera',100);
-            $table->string('sexo',9);            
+            $table->integer('facultad');
+            $table->integer('carrera');
+            $table->string('sexo',9);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('imagen')->default('default_avatar.png');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('estado')->default('Activo');
         });
     }
 

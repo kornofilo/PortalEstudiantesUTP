@@ -61,7 +61,11 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //Middleware de acceso al panel de administración
-        'auth.admin' => \App\Http\Middleware\AccessAdmin::class
+        'auth.admin' => \App\Http\Middleware\AccessAdmin::class,
+        //Middleware para verificar el estado del usuario
+        'checkUserStatus' => \App\Http\Middleware\CheckUserStatus::class, 
+        //Middleware de acceso al panel de moderación
+        'auth.mod' => \App\Http\Middleware\AccessMod::class,       
     ];
 
     /**

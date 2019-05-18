@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'email', 'nombre', 'apellido','sede','facultad','carrera','sexo','password',
+        'email', 'nombre', 'apellido','sede','facultad','carrera','sexo','password','imagen',
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','rol'
+        'password', 'remember_token','estado'
     ];
 
     /**
@@ -55,6 +55,15 @@ class User extends Authenticatable implements MustVerifyEmail
 
   public function hasAnyRole($role){
     return null !== $this->roles()->where('name', $role)->first();
+  }
+
+  public function getUserInfo($email){
+    $user = App\User::where('email', $email)->first();
+    return $user;
+  }
+
+  public function compraventa(){
+    return $this->belongsToMany('App\Compraventa','email','email');
   }
 
 }

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Role;
+use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -52,8 +54,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         //Validación de los campos del formulario de registro de usuarios
-        return Validator::make($data, [   
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],      
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users', 'regex: /([a-z]*)\.([a-z 1-9]*)\@utp\.ac\.pa$/'],
             'nombre' => ['required', 'string', 'max:30'],
             'apellido' => ['required', 'string', 'max:30'],
             'sede' => ['required', 'string'],
@@ -61,14 +63,16 @@ class RegisterController extends Controller
             'carrera' => ['required', 'string'],
             'sexo' => ['required', 'string'],
             'password' => [
-                'required', 
-                'string', 
+                'required',
+                'string',
                 'min:8', //Longitud mínima de 8 caracteres
                 'regex:/[a-z]/', //Debe contar con al menos 1 letra minúscula
                 'regex:/[A-Z]/', // Debe contar con al menos 1 letra mayúscula
                 'regex:/[0-9]/', // Debe contener con al menos 1 número
                 'regex:/[@$!%*#?&]/', //Debe contener al menos 1 carácter especial
                 'confirmed'],
+
+
         ]);
     }
 
@@ -82,7 +86,7 @@ class RegisterController extends Controller
     {
         //Obtenemos el rol de estudiante de la BD
         $estudianteRole = Role::where('name','estudiante')->first();
-        
+       
         //Creamos una variable que contiene el modelo del nuevo usuario
         $newUser = User::create([
             'email' => $data['email'],
@@ -92,12 +96,16 @@ class RegisterController extends Controller
             'facultad' => $data['facultad'],
             'carrera' => $data['carrera'],
             'sexo' => $data['sexo'],
+            //Imagen de perfil por defecto
+            'imagen' => 'default_avatar.png',
             'password' => Hash::make($data['password']),
         ]);
-        
+
+
         //Asignamos el rol de estudiante al nuevo usuario
         $newUser->roles()->attach($estudianteRole);
-        
+
         return $newUser;
+
     }
 }

@@ -15,8 +15,8 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         //Creamos los roles del sitio web
-        Role::create(['name' => 'estudiante']);
-        Role::create(['name' => 'moderador']);
-        Role::create(['name' => 'administrador']);
+        Role::create(['name' => 'Estudiante']);
+        Role::create(['name' => 'Moderador']);
+        Role::create(['name' => 'Administrador']);
     }
 }

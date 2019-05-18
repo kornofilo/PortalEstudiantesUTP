@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'es_AR',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\RoleServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -175,6 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /* Provider personals*/
+        //Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
@@ -226,6 +230,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*aliases personals*/
+        //'Flash' => Laracasts\Flash\Flash::class,
 
     ],
 
