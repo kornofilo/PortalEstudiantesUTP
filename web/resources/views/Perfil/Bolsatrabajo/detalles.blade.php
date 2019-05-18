@@ -29,7 +29,7 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Título de la oferta de trabajo:</strong>
-          <input type="text" name="titulo" class="form-control" value="{{$datosB->titulo}}">
+          <input type="text" name="titulo" class="form-control" value="{{$datosB->titulo}}" required>
         </div>
         </div>
         <div class="col-md-12">
@@ -54,13 +54,13 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Ubicación :</strong>
-          <input type="text" name="ubicacion" class="form-control" value="{{$datosB->ubicacion}}">
+          <input type="text" name="ubicacion" class="form-control" value="{{$datosB->ubicacion}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Empresa :</strong>
-          <input type="text" name="empresa" class="form-control" value="{{$datosB->empresa}}">
+          <input type="text" name="empresa" class="form-control" value="{{$datosB->empresa}}" required>
         </div>
         </div>
         <div class="col-md-12">
@@ -142,6 +142,7 @@
           <a href="{{url('miPerfil')}}" class="btn btn-sm btn-danger">Regresar</a>
         </div>
       </div>
+      <br></br>
     </form>
   </div>
   </div>

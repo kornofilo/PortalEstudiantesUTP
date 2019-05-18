@@ -6,7 +6,7 @@ use App\Evento;
 
 
 $factory->define(Evento::class, function (Faker $faker) {
-    //Arrays complementarios para generar datos aleatorios.
+    //Arrays complementarios para generar datos aleatorios.    
     $ubicaciones = ['Sala de Conferencias', 'Biblioteca'];
     $tipoEvento = ['Conferencia', 'Exposición', 'Feria','Taller'];
     $tematica = ['Robótica', 'Control de Versiones', 'Integración Continua', 'Diseño de Interfaces',

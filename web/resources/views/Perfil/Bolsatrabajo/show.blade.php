@@ -11,7 +11,7 @@
         <hr>
       </div>
     </div>
-    @if($datos->imagen === "post-placeholder.jpg")
+    @if($datosB->imagen === "post-placeholder.jpg")
      <img style=" width: 300px; " src="/{{$datosB->imagen}}"
      class=" rounded float-right img-responsive thumb margin10 img-thumbnail">
    <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->

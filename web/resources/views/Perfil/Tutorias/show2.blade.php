@@ -51,7 +51,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Estado de la Tutoria :</strong> {{$datosT->estadoPost}}
+        <strong>Estado de la Tutoría :</strong> {{$datosT->estadoPost}}
       </div>
       </div>
       <div class="col-md-12">

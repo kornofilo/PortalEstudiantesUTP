@@ -1,7 +1,7 @@
 <!--Boton modal -->
 
 @if( (\Request::is('miPerfil')) )
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">
+  <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}"><i class="fas fa-user-cog"></i>
       @isset($btn_nombre)
           {{$btn_nombre}}
       @endisset

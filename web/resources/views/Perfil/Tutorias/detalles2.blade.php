@@ -29,43 +29,43 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Título :</strong>
-          <input type="text" name="titulo" class="form-control" value="{{$datosT->titulo}}">
+          <input type="text" name="titulo" class="form-control" value="{{$datosT->titulo}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Nombre del Tutor :</strong>
-          <input type="text" name="nombreTutor" class="form-control" value="{{$datosT->nombreTutor}}">
+          <input type="text" name="nombreTutor" class="form-control" value="{{$datosT->nombreTutor}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Materia :</strong>
-          <input type="text" name="materia" class="form-control" value="{{$datosT->materia}}">
+          <input type="text" name="materia" class="form-control" value="{{$datosT->materia}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Costo :</strong>
-          <input type="number" name="costo"  min="1" max="9999" step="0.01" class="form-control" value="{{$datosT->costo}}">
+          <input type="number" name="costo"  min="1" max="9999" step="0.01" class="form-control" value="{{$datosT->costo}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Ubicación :</strong>
-          <input type="text" name="ubicacion" class="form-control" value="{{$datosT->ubicacion}}">
+          <input type="text" name="ubicacion" class="form-control" value="{{$datosT->ubicacion}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Descripción :</strong>
-          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datosT->descripcion}}</textarea>
+          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datosT->descripcion}}</textarea required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Celular :</strong>
-          <input type="text" name="celular" class="form-control" value="{{$datosT->celular}}">
+          <input type="text" name="celular" class="form-control" value="{{$datosT->celular}}" required>
         </div>
         </div>
         <div class="col-md-12">

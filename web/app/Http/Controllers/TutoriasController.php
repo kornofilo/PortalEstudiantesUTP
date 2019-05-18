@@ -134,10 +134,10 @@ class TutoriasController extends Controller
            $datosT->estadoPost = ('En Moderación');
 
            if($request->hasFile('imagen')){
-             if ($tdatosT->imagen === 'post-placeholder.jpg')
+             if ($datosT->imagen === 'post-placeholder.jpg')
              {
              }else {
-             unlink(public_path().'/imagenes/clasificados/tutorias/'.$tdatosT->imagen);
+             unlink(public_path().'/imagenes/clasificados/tutorias/'.$datosT->imagen);
              }
              $file = $request->file('imagen');
              // ejemplo para guardar fotos encima de otra foto.
