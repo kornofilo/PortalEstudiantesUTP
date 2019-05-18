@@ -91,8 +91,7 @@ class BolsatrabajoController extends Controller
 
 
         #salvar en la base de datos
-        $bolsatrabajo->save();
-          return back()->with('success','Anuncio de Empleo creado exitosamente.');
+
 
       if ($request->hasFile('imagen')) {
           $file = $request->file('imagen');
@@ -100,7 +99,9 @@ class BolsatrabajoController extends Controller
           $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
           $bolsatrabajo->imagen =$name_image;
       }
-}
+      $bolsatrabajo->save();
+      return back()->with('success','Anuncio de Empleo creado exitosamente.');
+    }
 
     /**
      * Display the specified resource.
