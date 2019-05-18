@@ -8,12 +8,12 @@ use App\User;
 $factory->define(Hospedaje::class, function (Faker $faker) {
     $categoria = ['Apartamento','Cuarto','Casa'];
     $ubicaciones = ['David', 'Puerto Armuelles', 'Bugaba', 'Chorrera', 'Tocumen', 'Boquete', 'Paso Canoas'];
-    $siNo = ['Sí','No'];
+    $siNo = ['Si','No'];
     $estadoPost = ['Aprobada', 'En Moderación'];
 
 
     return [
-        'codigoPost' => 'AH-'. $faker->unique->numberBetween($min = 100, $max = 999), 
+        'codigoPost' => 'AH-'. $faker->unique->numberBetween($min = 100, $max = 999),
         'categoria' => Arr::random($categoria),
         'titulo' => 'Alquilo ' . Arr::random($categoria),
         'ubicacion' => Arr::random($ubicaciones),

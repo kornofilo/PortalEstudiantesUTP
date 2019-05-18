@@ -12,7 +12,7 @@
       </div>
     </div>
     @if($datos->imagen === "post-placeholder.jpg")
-     <img style=" width: 300px; " src="/{{$datos->imagen}}"
+     <img style=" width: 300px; " src="/imagenes/clasificados/anuncios/{{$datos->imagen}}"
      class=" rounded float-right img-responsive thumb margin10 img-thumbnail">
    <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
    @else
@@ -38,7 +38,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-        <strong>Categoria :</strong> {{$datos->categoria}}
+        <strong>Categoría :</strong> {{$datos->categoria}}
       </div>
       </div>
       <div class="col-md-12">

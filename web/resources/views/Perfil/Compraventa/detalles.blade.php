@@ -1,4 +1,4 @@
-
+required
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -34,7 +34,7 @@
       <div class="col-md-12">
         <div class="form-group">
         <strong>Categoría :</strong>
-        <select id="categoria" class="form-control" name="categoria" >
+        <select id="categoria" class="form-control" name="categoria" required>
             <option>Compra</option>
             <option>Venta</option>
         </select>
@@ -43,19 +43,19 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Nombre del Artículo :</strong>
-          <input type="text" name="nombreArt" class="form-control" value="{{$datos->nombreArt}}">
+          <input type="text" name="nombreArt" class="form-control" value="{{$datos->nombreArt}}"required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Precio :</strong>
-          <input type="number" name="precio"  min="0" max="9999" step="0.01" class="form-control" value="{{$datos->precio}}">
+          <input type="number" name="precio"  min="0" max="9999" step="0.01" class="form-control" value="{{$datos->precio}}"required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Estado del Artículo :</strong>
-          <select id="estado" class="form-control" name="estado" >
+          <select id="estado" class="form-control" name="estado" required>
               <option>Nuevo</option>
               <option>Usado</option>
           </select>
@@ -64,13 +64,13 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Celular :</strong>
-          <input type="text" name="celular" class="form-control" value="{{$datos->celular}}">
+          <input type="text" name="celular" class="form-control" value="{{$datos->celular}}"required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Descripcion :</strong>
-          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datos->descripcion}}</textarea>
+          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datos->descripcion}}</textarea required>
         </div>
         </div>
 
@@ -82,6 +82,7 @@
           <br>
         </div>
       </div>
+      <br></br>
     </form>
   </div>
   </div>

@@ -29,25 +29,25 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Título del evento:</strong>
-          <input type="text" name="titulo" class="form-control" value="{{$datosE->titulo}}">
+          <input type="text" name="titulo" class="form-control" value="{{$datosE->titulo}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Fecha :</strong>
-          <input type="text" name="fecha" class="form-control" value="{{$datosE->fecha}}">
+          <input type="text" name="fecha" class="form-control" value="{{$datosE->fecha}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Lugar :</strong>
-          <input type="text" name="lugar" class="form-control" value="{{$datosE->lugar}}">
+          <input type="text" name="lugar" class="form-control" value="{{$datosE->lugar}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Costo :</strong>
-          <input type="number" name="costo"  min="0" max="9999" step="0.01" class="form-control" value="{{$datosE->costo}}">
+          <input type="number" name="costo"  min="0" max="9999" step="0.01" class="form-control" value="{{$datosE->costo}}" required>
         </div>
         </div>
         <div class="col-md-12">
@@ -66,13 +66,13 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Email :</strong>
-          <input type="text" name="ubicacion" class="form-control" value="{{$datosE->email}}">
+          <input type="text" name="ubicacion" class="form-control" value="{{$datosE->email}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Descripción :</strong>
-          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datosE->descripcion}}</textarea>
+          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datosE->descripcion}}</textarea required>
         </div>
         </div>
 
@@ -83,6 +83,7 @@
           <a href="{{url('miPerfil')}}" class="btn btn-sm btn-danger">Regresar</a>
         </div>
       </div>
+      <br></br>
     </form>
   </div>
   </div>

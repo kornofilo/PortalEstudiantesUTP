@@ -29,7 +29,7 @@
        <div class="col-md-12">
          <div class="form-group">
          <strong>Categoría :</strong>
-         <select id="categoria" class="form-control" name="categoria" >
+         <select id="categoria" class="form-control" name="categoria" required>
              <option>Apartamento</option>
              <option>Cuarto</option>
              <option>Casa</option>
@@ -39,31 +39,31 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Título del alquiler/hospedaje:</strong>
-          <input type="text" name="titulo" class="form-control" value="{{$datosH->titulo}}">
+          <input type="text" name="titulo" class="form-control" value="{{$datosH->titulo}}"required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Ubicación :</strong>
-          <input type="text" name="ubicacion" class="form-control" value="{{$datosH->ubicacion}}">
+          <input type="text" name="ubicacion" class="form-control" value="{{$datosH->ubicacion}}"required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Descripción :</strong>
-          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datosH->descripcion}}</textarea>
+          <textarea class="form-control" name="descripcion" rows="4" cols="80">{{$datosH->descripcion}}</textarea required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Precio :</strong>
-          <input type="text" name="precio" class="form-control" value="{{$datosH->precio}}">
+          <input type="number" name="precio" min="0" max="9999" step="0.01" class="form-control" value="{{$datosH->precio}}"required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Tiene estacionamiento :</strong>
-          <select id="estacionamiento" class="form-control" name="estacionamiento" >
+          <select id="estacionamiento" class="form-control" name="estacionamiento" required>
               <option>No</option>
               <option>Si</option>
           </select>
@@ -72,19 +72,19 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Habitaciones :</strong>
-          <input type="text" name="habitaciones"  class="form-control" value="{{$datosH->habitaciones}}">
+          <input type="text" name="habitaciones"  class="form-control" value="{{$datosH->habitaciones}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Baños :</strong>
-          <input type="number" name="baños" class="form-control" value="{{$datosH->baños}}">
+          <input type="number" name="baños" class="form-control" value="{{$datosH->baños}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Está amueblado :</strong>
-          <select id="amueblado" class="form-control" name="amueblado" >
+          <select id="amueblado" class="form-control" name="amueblado"  required>
               <option>No</option>
               <option>Si</option>
           </select>
@@ -93,19 +93,19 @@
         <div class="col-md-12">
           <div class="form-group">
           <strong>Nombre del contacto :</strong>
-          <input type="text" name="nombre" class="form-control" value="{{$datosH->nombre}}">
+          <input type="text" name="nombre" class="form-control" value="{{$datosH->nombre}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Celular :</strong>
-          <input type="text" name="celular" class="form-control" value="{{$datosH->celular}}">
+          <input type="text" name="celular" class="form-control" value="{{$datosH->celular}}" required>
         </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <strong>Email del contacto :</strong>
-          <input type="text" name="email" class="form-control" value="{{$datosH->email}}">
+          <input type="text" name="email" class="form-control" value="{{$datosH->email}}" required>
         </div>
         </div>
 
@@ -116,10 +116,12 @@
           <a href="{{url('miPerfil')}}" class="btn btn-sm btn-danger">Regresar</a>
         </div>
       </div>
+      <br></br>
     </form>
   </div>
   </div>
   </div>
+
   <script type="text/javascript">
   $(document).ready(function ()
   {
