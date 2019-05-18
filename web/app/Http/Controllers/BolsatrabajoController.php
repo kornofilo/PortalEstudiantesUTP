@@ -62,7 +62,7 @@ class BolsatrabajoController extends Controller
         'nombreContacto' => 'required',
         'celular' => 'required',
         'emailContacto' => 'required',
-        'imagen' => 'required',
+        // 'imagen' => 'required',
     ]);
 
 
@@ -151,6 +151,11 @@ class BolsatrabajoController extends Controller
           $bolsatrabajo->emailContacto= $request->input('emailContacto');
 
           if($request->hasFile('imagen')){
+            if ($bolsatrabajo->imagen === 'post-placeholder.jpg')
+            {
+            }else {
+            unlink(public_path().'/imagenes/bolsatrabajo/'.$bolsatrabajo->imagen);
+            }
             $file = $request->file('imagen');
             $name_image = time().$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/bolsatrabajo/',$name_image);
@@ -168,18 +173,24 @@ class BolsatrabajoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { $file = Bolsatrabajo::where('id', $id)->find($id);
       $usr = (auth()->user()->email);
-      $file = Bolsatrabajo::where('id', $id)->find($id);
-      // dd($usr);
-      if ($usr ===$file->email) {
-      if (unlink(public_path().'/imagenes/bolsatrabajo/'.$file->imagen)) {
-        $file->delete();
-        return back()->with('success','Bolsa de Trabajo eliminada exitosamente.');
-      }
-      else {
-        return back()->with('success','?.');
+
+      if ($usr ===$file->email)
+      {
+        if ($file->imagen === 'post-placeholder.jpg')
+        {
+        Bolsatrabajo::where('id', $id)->delete();
+        return back()->with('success','Anuncio de trabajo eliminado exitosamente.');
+        }
+       else {
+         $file = Bolsatrabajo::where('id', $id)->find($id);
+         if(unlink(public_path().'/imagenes/bolsatrabajo/'.$file->imagen)){
+          $file->delete();
+          return back()->with('success','Anuncio de trabajo eliminado exitosamente.');
+             }
+       }
       }
      }
-    }
+
 }

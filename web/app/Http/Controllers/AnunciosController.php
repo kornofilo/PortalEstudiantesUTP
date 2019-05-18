@@ -72,7 +72,7 @@ class AnunciosController extends Controller
         //
         if ($request->hasFile('imagen')) {
           $file = $request->file('imagen');
-          $name_image = 'Compraventa.'.$request->imagen->extension();
+          $name_image = time().$file->getClientOriginalName();
           $file->move(public_path().'/imagenes/clasificados/anuncios',$name_image);
           $anuncio->imagen =$name_image;
         }
@@ -125,8 +125,13 @@ class AnunciosController extends Controller
           $datos->estadoPost = ('En Moderación');
 
           if($request->hasFile('imagen')){
+            if ($datos->imagen === 'post-placeholder.jpg')
+            {
+            }else {
+            unlink(public_path().'/imagenes/clasificados/anuncios/'.$datos->imagen);
+            }
             $file = $request->file('imagen');
-            $name_image = 'Compraventa.'.$request->imagen->extension();
+            $name_image = time().$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/clasificados/anuncios/',$name_image);
             $datos->imagen = $name_image;
           }
@@ -145,17 +150,23 @@ class AnunciosController extends Controller
 
 
       public function destroy($id)
-      {
+      { $file = Compraventa::where('id', $id)->find($id);
         $usr = (auth()->user()->email);
-        $file = Compraventa::where('id', $id)->find($id);
-        // dd($usr);
-        if ($usr ===$file->email) {
-        if (unlink(public_path().'/imagenes/clasificados/anuncios/'.$file->imagen)) 
-        {
-          $file->delete();
-          return back()->with('success','Anuncio eliminado exitosamente.');
-        }
 
+        if ($usr ===$file->email)
+        {
+          if ($file->imagen === 'post-placeholder.jpg')
+          {
+          Compraventa::where('id', $id)->delete();
+          return back()->with('success','Anuncio exitosamente.');
+          }
+         else {
+           $file = Compraventa::where('id', $id)->find($id);
+           if(unlink(public_path().'/imagenes/clasificados/anuncios/'.$file->imagen)){
+            $file->delete();
+            return back()->with('success','Anuncio eliminado exitosamente.');
+               }
+         }
+        }
        }
-      }
 }
