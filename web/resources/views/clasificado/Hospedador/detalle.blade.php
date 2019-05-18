@@ -27,7 +27,7 @@
         <a data-toggle="collapse" data-parent="#accordionEx" href="#collapscard1" aria-expanded="true"
           aria-controls="collapsecard">
           <h6 class="mb-0 text-white ">
-            <i class=" fas fa-angle-down rotate-icon"></i> Detalles de  {{$alquilerhosp->categoria}} 
+            <i class=" fas fa-angle-down rotate-icon"></i> Detalles de {{$alquilerhosp->categoria}} 
           </h6>
         </a>
       </div>
@@ -68,17 +68,9 @@
               <div class="card-body" >
             <label><i class="far fa-id-badge"style="font-size:20px;"></i>  Nombre del Contacto: {{$alquilerhosp->nombre}}</label>
             <br>
-            <label><i class="far fa-id-card"style="font-size:20px;"></i>  Celular: {{$alquilerhosp->celular}}</label>
+            <label><i class="fas fa-mobile"style="font-size:20px;"></i>  Celular: {{$alquilerhosp->celular}}</label>
             <br>
-            <label><i class="fas fa-at"style="font-size:20px;"></i>  Email: {{$alquilerhosp->email}}</label>
-            
-            <form action="{{route('perfil.verPerfil', $alquilerhosp->email)}}" method="get">
-              <button type="submit" class="btn btn-info">
-                Ver perfil del tutorias
-              </button>       
-            </form>
-    
-      
+            <label><i class="fas fa-at"style="font-size:20px;"></i>  Email: {{$alquilerhosp->email}}</label>                                  
           </div>
           </div>
         </div>
@@ -89,6 +81,7 @@
       <hr>
     
           <p class="h5 bold-text">Información de del contacto</p>
+          <p><i class="fas fa-user" style="font-size:20px;"></i> Publicado por: <a href="{{route('perfil.verPerfil', $alquilerhosp->email)}}"> {{$alquilerhosp->email}}</a> </p>
           <p><i class="fas fa-ticket-alt"style="font-size:20px;"></i> Código de Publicación: {{$alquilerhosp->codigoPost}}</p> 
           <p><i class="fas fa-clock"style="font-size:20px;"></i> Publicado {{$alquilerhosp->created_at->diffForHumans()}}</p> 
         

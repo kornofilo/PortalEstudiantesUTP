@@ -19,9 +19,11 @@
     
       <hr>
     
-          <p class="h5 bold-text">Información del contacto</p>
+          <p class="h5 bold-text">Información de la Publicación</p>
+          <p><i class="fas fa-user" style="font-size:20px;"></i>Publicado por: <a href="{{route('perfil.verPerfil', $evento->email)}}"> {{$evento->email}}</a> </p>
           <p><i class="fas fa-ticket-alt" style="font-size:20px;"></i> Código de Publicación: {{$evento->codigoPost}}</p> 
-          <p><i class="fas fa-clock" style="font-size:20px;"></i> Publicado {{$evento->created_at->diffForHumans()}}</p> 
+          <p><i class="fas fa-clock" style="font-size:20px;"></i> Publicado {{$evento->created_at->diffForHumans()}}</p>
+
         
     <div class="modal-footer">
         <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>

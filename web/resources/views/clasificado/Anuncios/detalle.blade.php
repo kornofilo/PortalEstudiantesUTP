@@ -35,26 +35,18 @@
             <div class="card-body" >
           <label><i class="far fa-id-badge"></i>  Nombre del Contacto: {{$anuncio->nombre}}</label>
           <br>
-          <label><i class="far fa-id-card"></i>  Celular: {{$anuncio->celular}}</label>
+          <label><i class="fas fa-mobile"></i>  Celular: {{$anuncio->celular}}</label>
           <br>
-          <label><i class="fas fa-at"></i>  Email: {{$anuncio->email}}</label>
-          
-          <form action="{{route('perfil.verPerfil', $anuncio->email)}}" method="get">
-            <button type="submit" class="btn btn-info">
-              Ver perfil del tutorias
-            </button>       
-          </form>
-  
-    
+          <label><i class="fas fa-at"></i>  Email: {{$anuncio->email}}</label>                        
         </div>
         </div>
       </div>
     </div>
     <!-- Accordion card -->
   
-    <hr>
-  
-        <p class="h5 bold-text">Información del contacto</p>
+    <hr>  
+        <p class="h5 bold-text">Información de la Publicación</p>
+        <p><i class="fas fa-user" style="font-size:20px;"></i>Publicado por: <a href="{{route('perfil.verPerfil', $anuncio->email)}}"> {{$anuncio->email}}</a> </p>
         <p><i class="fas fa-ticket-alt"></i> Código de Publicación: {{$anuncio->codigoPost}}</p> 
         <p><i class="fas fa-clock"></i> Publicado {{$anuncio->created_at->diffForHumans()}}</p> 
       

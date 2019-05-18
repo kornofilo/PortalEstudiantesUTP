@@ -6,7 +6,7 @@
 <!--Jumbotron -->
 <div class="jumbotron jumbotron-fluid  ">  
   <div class="container">
-    <h1 class="display-4">Sección de Tutoriales</h1>
+    <h1 class="display-4">Sección de Tutorías</h1>
     <p class="lead">Aquí tendras acceso a tutorias de diversas materias.</p>
   </div>
 </div>

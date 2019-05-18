@@ -8,7 +8,7 @@
                         <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$tutoria->ubicacion}}</p>
                         <p class="card-text"><i class="fas fa-info"></i> {{$tutoria->descripcion}}</p>
                         <p class="card-text"><i class="fas fa-clock"></i> {{$tutoria->created_at->diffForHumans()}}</p>
-                        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'ver detalles','id_modal'=>'anu'.$id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
+                        @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver más Detalles','id_modal'=>'anu'.$id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
                     </div>
                     <div class="text-right view view-cascade overlay"  width="500px">
                         <img class="card-img-top shadow" src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" 
