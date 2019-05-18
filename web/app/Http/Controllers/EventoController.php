@@ -126,9 +126,14 @@ class EventoController extends Controller
           $eventos->descripcion= $request->input('descripcion');
 
           if($request->hasFile('imagen')){
+            if ($eventos->imagen === 'post-placeholder.jpg')
+            {
+            }else {
+            unlink(public_path().'/imagenes/eventos/'.$eventos->imagen);
+            }
             $file = $request->file('imagen');
             $name_image = time().$file->getClientOriginalName();
-            $file->move(public_path().'/imagenes/evento/',$name_image);
+            $file->move(public_path().'/imagenes/eventos/',$name_image);
             $eventos->imagen = $name_image;
 
           }
@@ -145,18 +150,23 @@ class EventoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { $file = Evento::where('id', $id)->find($id);
       $usr = (auth()->user()->email);
-      $file = Evento::where('id', $id)->find($id);
-      // dd($usr);
-      if ($usr ===$file->email) {
-      if (unlink(public_path().'/imagenes/eventos/'.$file->imagen)) {
-        $file->delete();
+
+      if ($usr ===$file->email)
+      {
+        if ($file->imagen === 'post-placeholder.jpg')
+        {
+        Evento::where('id', $id)->delete();
         return back()->with('success','Evento eliminado exitosamente.');
-      }
-      else {
-        return back()->with('success','?.');
+        }
+       else {
+         $file = Evento::where('id', $id)->find($id);
+         if(unlink(public_path().'/imagenes/eventos/'.$file->imagen)){
+          $file->delete();
+          return back()->with('success','Evento eliminado exitosamente.');
+             }
+       }
       }
      }
-    }
 }

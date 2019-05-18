@@ -16,7 +16,7 @@
       <div class="bg-light mx-2 col-sm8 col-md8 col-lg6 col-xl-7 rounded-lg ">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-          <img style=" width: 200px;height: 200px" src="/imagenes/clasificado/hospedador/{{$datosH->imagen}}"
+          <img style=" width: 200px;height: 200px" src="/imagenes/clasificados/hospedador/{{$datosH->imagen}}"
            class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
        </div>
        <br>
