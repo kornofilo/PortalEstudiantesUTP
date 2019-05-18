@@ -90,6 +90,7 @@
                         @endif
                       <td>
                         @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
+                        @include('clasificado.Anuncios.modal', $dataU=[$tutoria,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'tutoriaU'.$tutoria->id,'title'=>'Editar Anuncio de Tutoría','vista'=>'clasificado.Tutorias.formularioUpdate']) 
                        <a class="btn btn-outline-danger" href="{{route('dt',$tutoria->id)}}">Borrar</a>
                        <div class="text-right">
                        <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$tutoria->created_at->diffForHumans()}}</p>
@@ -98,13 +99,13 @@
                         </thead>
 
                         @endforeach
+                        </table>
                         <div class="pagination justify-content-center">
                           {{ $datosT->links() }}
                         </div>
                         @endif
 
                       </div>
-                      </table>
 
                       <!--Condición por si no hay Hospedaje  -->
                                       @if($datosH->count() > 0)                                      

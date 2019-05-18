@@ -64,6 +64,8 @@ Route::post('anuncios/update/{id}', 'AnunciosController@update')->name('anuncios
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
 Route::get('/tutorias','TutoriasController@search')->name('tutorias.search');
+Route::post('tutorias/update/{id}', 'TutoriasController@update')->name('tutorias.update')->middleware(['auth']);
+
 //Ruta de alquilerhospedaje
 Route::resource('alquilerhospedajes', 'HospedajeController');
 Route::get('/alquilerhospedajes','HospedajeController@search')->name('alquilerhospedajes.search');

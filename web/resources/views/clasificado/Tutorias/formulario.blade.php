@@ -34,16 +34,13 @@
                    @endif
                </div>
 
-               <!-- Input de costo por hora -->
-                   <div class="form-group row">
-                     <label for="costo" class="col-form-label col-sm-3">Costo:</label>
-                     <div class="col-sm-8">
-                       <input type="number" name="costo" id="costo" class="form-control" min="0" max="9999" step="0.01" oninput="validity.valid||(value=)" placeholder="Costo">
-
-
-
-                     </div>
-                   </div>
+              <!-- Input de costo por hora -->
+              <div class="form-group row">
+                <label for="costo" class="col-form-label col-sm-3">Costo Por Hora:</label>
+                <div class="col-sm-8">
+                  <input type="number" name="costo" id="costo" class="form-control" min="0" max="9999" step="0.01" oninput="validity.valid||(value=)" placeholder="Costo">
+                </div>
+              </div>
 
                    <!-- Input de Ubicacion -->
                          <div class="form-group row">

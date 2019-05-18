@@ -19,7 +19,7 @@ class TutoriasController extends Controller
     {
 
       # llama la vista y trae todos datos de la tabla
-      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->paginate(10);
+      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('created_at','desc')->paginate(10);
       return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 
@@ -34,6 +34,7 @@ class TutoriasController extends Controller
         $search = $request->get('search');
         $datos = Tutorias::where('estadoPost','Aprobada')
           ->whereRaw('concat(titulo,materia,costo,ubicacion,codigoPost) like \'%' .$search .'%\' ')
+          ->orderBy('created_at','desc')
           ->paginate(10);
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
@@ -148,7 +149,7 @@ class TutoriasController extends Controller
            }
            $datosT->save();
 
-         return redirect('/miPerfil')->with('success','Datos Actualizados.');
+         return redirect('/miPerfil')->with('success','Datos de la Tutoría Actualizados Exitosamente.');
        }
 
     /**
