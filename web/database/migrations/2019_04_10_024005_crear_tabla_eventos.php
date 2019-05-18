@@ -18,6 +18,7 @@ class CrearTablaEventos extends Migration
             $table->string('codigoPost',20)->unique();
             $table->string('titulo');
             $table->date('fecha');
+            $table->time('hora');
             $table->string('lugar');
             $table->decimal('costo',6,2)->unsigned();
             $table->string('facultad_nomb');

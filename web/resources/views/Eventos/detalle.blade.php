@@ -3,10 +3,10 @@
         <div class="text-center">
           <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/eventos/{{$evento->imagen}}">
           <br><br>
-          @if ($evento->costo == "0" )
-          <h4 class="h4-responsive text-success"><strong>Admisión: {{$evento->costo = "Gratuito"}}</strong></h4>
+          @if ($evento->costo == 0 )
+          <h4 class="h4-responsive text-success"><strong>Gratuito</strong></h4>
             @else
-            <h4 class="h4-responsive text-success"><strong>Admisión:${{$evento->costo}}</strong></h4>
+            <h4 class="h4-responsive text-success"><strong>Admisión: ${{$evento->costo}}</strong></h4>
             @endif
           
         </div>

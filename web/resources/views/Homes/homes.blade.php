@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold">{{$evento->titulo}}</h5>
                             <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$evento->lugar}}</p>
-                            <p class="card-text"><i class="fas fa-calendar-alt"></i> {{strftime("%d-%m-%Y",strtotime($evento->fecha))}}</p>
+                            <p class="card-text"><i class="fas fa-calendar-alt"></i> {{strftime("%d-%m-%Y",strtotime($evento->fecha))}} a las {{date("g:ia", strtotime($evento->hora))}} </p>
                             <p class="card-text"><i class="fas fa-hourglass"></i> {{\Carbon\Carbon::parse($evento->fecha)->diffForHumans()}}</p>
                             <!-- Si el costo del evento es de 0$, mostramos el mensaje 'Gratuito' -->
                             @if ($evento->costo == '0' )

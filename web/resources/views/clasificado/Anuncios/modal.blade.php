@@ -1,7 +1,7 @@
 <!--Boton modal -->
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">        
+<button type="button" class="btn {{isset($btn_type)?$btn_type:'btn-primary'}}" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">        
       @isset($btn_nombre)
           {{$btn_nombre}}
       @endisset     

@@ -11,11 +11,19 @@
           </div>
         </div>
 
-        <!-- Input de Fecha y Hora -->
+        <!-- Input de Fecha -->
               <div class="form-group row">
-                <label for="fecha" class="col-form-label col-sm-3">Fecha y Hora:</label>
+                <label for="fecha" class="col-form-label col-sm-3">Fecha:</label>
                 <div class="col-sm-8">
                   <input type="date" name="fecha" id="fecha" class="form-control" placeholder="00/00/0000" required >
+                </div>
+              </div>
+
+        <!-- Input de Hora -->
+        <div class="form-group row">
+                <label for="fecha" class="col-form-label col-sm-3">Hora:</label>
+                <div class="col-sm-8">
+                  <input type="time" name="hora" id="hora" class="form-control" placeholder="00:00" required >
                 </div>
               </div>
 
@@ -30,7 +38,7 @@
             <!-- Input de Costo-->
             
                 <div class="form-group row">
-                  <label for="costo" class="col-form-label col-sm-3">Costo:</label>
+                  <label for="costo" class="col-form-label col-sm-3">Costo de Admisión:</label>
                   <div class="col-sm-8">
                     <input type="number" name="costo"  min="0" max="9999" step="0.01" name="costo" id="costo" class="form-control" placeholder="B/." required>
                   </div>
@@ -40,13 +48,12 @@
                      <label for="facultad_nomb" class="col-form-label col-sm-3">Facultades:</label>
                          <div class="col-sm-8">
                           <select id="facultad_nomb" class="form-control" name="facultad_nomb" required>
-                            <option disabled selected>--Selecciona una Facultad--</option>
-                             <option value="Ciencias Y Tecnología">Ciencias Y Tecnología</option>
-                             <option value="Ingeniería Civil" >Ingeniería Civil</option>
-                             <option value="Ingeniería de Sistemas computacionales">Ingeniería de Sistemas computacionales</option>
-                             <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
-                             <option value="Ingeniería Industrial">Ingeniería Industrial</option>
-                             <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+                            <option value="Facultad de Ciencias y Tecnología">Facultad de Ciencias y Tecnología</option>
+                            <option value="Facultad de Ingeniería Civil" >Facultad de Ingeniería Civil</option>
+                            <option value="Facultad de Ingeniería Eléctrica">Facultad de Ingeniería Eléctrica</option>
+                            <option value="Facultad de Ingeniería Industrial">Facultad de Ingeniería Industrial</option>
+                            <option value="Facultad de Ingeniería Mecánica">Facultad de Ingeniería Mecánica</option>
+                            <option value="Facultad de Ingeniería de Sistemas Computacionales">Facultad de Ingeniería de Sistemas Computacionales</option>
                          </select>
                          </div>
                  </div>

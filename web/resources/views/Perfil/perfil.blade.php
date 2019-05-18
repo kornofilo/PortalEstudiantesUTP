@@ -1,6 +1,5 @@
   </div></div>
   <div class="col-md-9">
-  <form class="form-inline">
 
   <div class="col-xl">
     <i class="fas fa-search" aria-hidden="true"></i>
@@ -182,14 +181,14 @@
                   <th width = "600px">Fecha de Evento</th>
                   <th width = "600px">Acción</th>
                 </tr>
-                @foreach ($datosE as $data)
+                @foreach ($datosE as $evento)
                             <tr>
-                              <td>{{$data->titulo}}</td>
-                              <td>{{$data->fecha}}</td>
+                              <td>{{$evento->titulo}}</td>
+                              <td>{{strftime("%d-%m-%Y",strtotime($evento->fecha))}} a las {{date("g:ia", strtotime($evento->hora))}} </td>
                               <td>
-                                <a class="btn btn-outline-info" href="{{route('Perfil.showE',$data->id)}}">Ver</a>
-                                <a class="btn btn-outline-warning" href="{{route('Perfil.detallesE',$data->id)}}">Editar</a>
-                                <a class="btn btn-outline-danger" href="{{route('dtE',$data->id)}}">Borrar</a>
+                                @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info', 'id_modal'=>'evento'.$evento->id,'title'=>'Detalles del Evento','vista'=>'Eventos.detalle']) 
+                                @include('clasificado.Anuncios.modal', $dataU=[$evento,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'eventoU'.$evento->id,'title'=>'Editar Evento','vista'=>'Eventos.formularioUpdate']) 
+                                <a class="btn btn-outline-danger" href="{{route('dtE',$evento->id)}}">Borrar</a>
                             </td>
                           </tr>
                           </thead>
