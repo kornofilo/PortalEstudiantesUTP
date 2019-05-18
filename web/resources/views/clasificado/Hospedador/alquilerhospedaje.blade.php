@@ -18,7 +18,7 @@
                                 
                               </a>
                               <br>  
-                                <h5 class="card-center text-success font-weight-bold">${{$alquilerhosp->precio}}</h5>
+                                <h5 class="card-center text-success font-weight-bold">${{$alquilerhosp->precio}}/Mes</h5>
                                 
     
                         </div>

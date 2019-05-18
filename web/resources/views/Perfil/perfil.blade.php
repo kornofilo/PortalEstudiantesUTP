@@ -112,7 +112,7 @@
                                       <table class="table card-img-top shadow">
                                       <thead class="thead-light">
                       <!-- Tabla de Tutorías -->
-                                      <h5 class="text-center rounded-pill bg-dark text-white" align="center">Alquiler / Hospedaje</h5>
+                                      <h5 class="text-center rounded-pill bg-dark text-white">Alquiler / Hospedaje</h5>
                                       <tr>
                                         <th width = "500px">Nombre del anuncio</th>
                                         <th width = "600px">Estado de la publicación</th>
@@ -132,7 +132,7 @@
                                               @endif
                                             <td>
                                              @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle']) 
-                                             <a class="btn btn-outline-warning" href="{{route('Perfil.detallesH',$alquilerhosp->id)}}">Editar</a>
+                                             @include('clasificado.Anuncios.modal', $dataU=[$alquilerhosp,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'alquilerU'.$alquilerhosp->id,'title'=>'Editar Anuncio de Alquiler/Hospedaje','vista'=>'clasificado.Hospedador.formularioUpdate']) 
                                              <a class="btn btn-outline-danger" href="{{route('dtH',$alquilerhosp->id)}}">Borrar</a>
                                              <div class="text-right">
                                              <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$alquilerhosp->created_at->diffForHumans()}}</p>
@@ -140,12 +140,13 @@
                                                 </tr>
                                               </thead>
                                               @endforeach
+                                              </table>
                                               <div class="pagination justify-content-center">
                                                 {{ $datosH->links() }}
                                               </div>
                                               @endif
                                             </div>
-                                              </table>
+                                             
 <!-- Condición para solo mostrar estas tablas al Administrador y Moderador -->
               @if((Auth::user()->roles()->value('name') == "Administrador") || (Auth::user()->roles()->value('name') == "Moderador"))
 <!--Condición por si no hay Bolsas de trabajo  -->

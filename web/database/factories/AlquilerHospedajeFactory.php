@@ -8,7 +8,7 @@ use App\User;
 $factory->define(Hospedaje::class, function (Faker $faker) {
     $categoria = ['Apartamento','Cuarto','Casa'];
     $ubicaciones = ['David', 'Puerto Armuelles', 'Bugaba', 'Chorrera', 'Tocumen', 'Boquete', 'Paso Canoas'];
-    $siNo = ['Si','No'];
+    $siNo = ['Sí','No'];
     $estadoPost = ['Aprobada', 'En Moderación'];
 
 

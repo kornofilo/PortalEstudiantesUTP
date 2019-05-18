@@ -54,7 +54,7 @@
                 <div class="col-sm-8">
                 <select id="estacionamiento" class="form-control" name="estacionamiento" required>
                     <option value="No">No</option>
-                    <option value="Si">Si</option>
+                    <option value="Sí">Sí</option>
                </select>
                 </div>
               </div>
@@ -81,7 +81,7 @@
                 <div class="col-sm-8">
                 <select id="amueblado" class="form-control" name="amueblado" required>
                     <option value="No">No</option>
-                    <option value="Si">Si</option>
+                    <option value="Sí">Sí</option>
                 </select>
                 </div>
               </div>

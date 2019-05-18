@@ -3,7 +3,7 @@
         <div class="text-center">
           <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}">
           <br><br>
-          <h4 class="h4-responsive text-success"><strong>${{$alquilerhosp->precio}}</h5></strong></h4>
+          <h4 class="h4-responsive text-success"><strong>${{$alquilerhosp->precio}}/Mes</h5></strong></h4>
         
         </div>
     
