@@ -11,7 +11,7 @@
             <div class="col-md-12 text-center">
            <!-- Si el usuario tiene la imagen de perfil por defecto, la mostramos. -->
            @if($userData->imagen === "default_avatar.png")
-            <img class="img-responsive img-portfolio img-hover" src="{{$userData->imagen}}" width="100" height="100">
+            <img class="img-responsive img-portfolio img-hover" src="{{url(auth()->user()->imagen)}}" width="100" height="100">
           <!-- Si el usuario ha cambiado su imagen de perfil, la mostramos. -->
           @else
             <img class="img-responsive img-portfolio img-hover" src="/imagenes/profileImages/{{$userData->email}}/{{$userData->imagen}}" width="100" height="100">
@@ -28,7 +28,7 @@
                 <button type="button" class="btn btn-primary btn-lg btn-block">
                   <a class="text-white" href="{{ url('miPerfil') }}"><i class="fas fa-user-cog"></i> Administrar mi Perfil</a>
                 </button>
-              @endif
+              @endif  <br>
               @include('perfil.usuarioPublicaciones')
 
             </div>

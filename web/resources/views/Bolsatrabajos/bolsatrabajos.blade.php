@@ -31,10 +31,12 @@
             </div> 
         </div>                      
     </form>  
-
+    
+    @if(auth()->check() && ( auth()->user()->hasAnyRole('Administrador') || auth()->user()->hasAnyRole('Moderador') ) )
     <div class="text-center"> 
         @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Empleo','id_modal'=>'mod1','title'=>'AGREGA EMPLEOS AQUI','vista'=>'Bolsatrabajos.formulario'])
     </div> 
+    @endif
   <br>
         <div id="tutorias" class="row justify-content-center">
             <div class="col-md-8"> 

@@ -70,11 +70,11 @@ class PerfilController extends Controller
       
       $userRole = User::where('email', $email)->first()->roles()->value('name');
 
-      $eventos = Evento::where('email', $email)->latest()->paginate(3);
-      $datosB = Bolsatrabajo::where('email', $email)->latest()->get();
-      $datosH = Hospedaje::where('email', $email)->where('estadoPost','Aprobada')->latest()->get();
-      $datosT = Tutorias::where('email', $email)->where('estadoPost','Aprobada')->latest()->get();
-      $datos = Compraventa::where('email', $email)->where('estadoPost','Aprobada')->latest()->get();
-      return view('Perfil.OtroPerfil',compact('userData','userRole','eventos','datosT','datosB','datos','datosH'));
+      $eventos = Evento::where('email', $email)->latest()->paginate(5, ['*'], 'eventos');
+      $vacantes = Bolsatrabajo::where('email', $email)->latest()->paginate(5, ['*'], 'bolsaTrabajo');
+      $anuncios = Compraventa::where('email', $email)->where('estadoPost','Aprobada')->paginate(5, ['*'], 'compraVenta');
+      $hospedajes = Hospedaje::where('email', $email)->where('estadoPost','Aprobada')->latest()->paginate(5, ['*'], 'alquilerHospedaje');
+      $tutorias = Tutorias::where('email', $email)->where('estadoPost','Aprobada')->paginate(5, ['*'], 'tutorias');
+      return view('Perfil.OtroPerfil',compact('userData','userRole','eventos','tutorias','vacantes','anuncios','hospedajes'));
    }
 }

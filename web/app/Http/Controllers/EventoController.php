@@ -81,8 +81,7 @@ class EventoController extends Controller
 
      //salvar en la base de datos
       $eventos->save();
-        return back()->with('success','Evento: '.$evento->titulo.' Creado exitosamente');
-
+        return back()->with('success','Evento: '.$eventos->titulo.' Creado exitosamente');
     }
 
     /**

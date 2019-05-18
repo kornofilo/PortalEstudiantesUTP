@@ -1,18 +1,10 @@
 <!--Boton modal -->
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">
-      @isset($btn_icon)
-        <i class="{{$btn_icon}}"></i>
-      @endisset
-      
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{isset($id_modal)?$id_modal:modal1}}">        
       @isset($btn_nombre)
           {{$btn_nombre}}
-      @endisset
-
-      @isset($btn_icon)
-          {{$btn_icon}}
-      @endisset
+      @endisset     
 </button>
 
 
