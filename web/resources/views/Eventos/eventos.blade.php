@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+ <!-- Back to top -->        
+ @include('Homes.BacktoTop')
 
 <!--Jumbotron -->
 <div class="jumbotron jumbotron-fluid">

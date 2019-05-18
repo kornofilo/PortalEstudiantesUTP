@@ -1,46 +1,30 @@
-<!-- datalle de Evento -->
-<div class="form-group row">
-<div class="col-sm-8">
-
-  <h4>{{$evento->titulo}}</h4>
-  <div class="container">
-    <div class="row ">
-        
-    <div class="text-left">
-    <br>
-
-  <br>
-  <label>Lugar:{{$evento->lugar}}</label>
-  <br>
-  <label>Fecha: {{  date("d M Y", strtotime($evento->fecha)) }}</label>
-  <br>
-             @if ($evento->costo == "Gratuito" )
-             <p class="card-text">{{$evento->costo = "Gratuito"}}
-               @else
-               <p class="card-text">Costo: {{$evento->costo}}
-               @endif
-                  
-  <br>
-  <label>Facultad:{{$evento->facultad_nomb}}</label>
-  <br>
-  <label>Descripción: {{$evento->descripcion}}</label>
-
-  </div>
-  <hr>
-  <div >
-      <img style=" width: 300px; " src="/imagenes/eventos/{{$evento->imagen}}" 
-       class=" rounded float-right img-responsive thumb margin10 img-thumbnail" >
-      </div>
-  </div>
-  </div>
+<div class="card-body" >
+    <h2 class="h2-responsive text-center"><strong>{{$evento->titulo}}</strong></h2> <br>
+        <div class="text-center">
+          <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/eventos/{{$evento->imagen}}">
+          <br><br>
+          @if ($evento->costo == "0" )
+          <h4 class="h4-responsive text-success"><strong>Admisión: {{$evento->costo = "Gratuito"}}</strong></h4>
+            @else
+            <h4 class="h4-responsive text-success"><strong>Admisión:${{$evento->costo}}</strong></h4>
+            @endif
+          
+        </div>
+    
+    
+        <h6 class="h6-responsive"><i class="fas fa-calendar-alt" style="font-size:20px;"></i>  Fecha: {{$evento->fecha}}</h6>
+        <h6 class="h6-responsive"><i class="fas fa-map-marker-alt" style="font-size:20px;"></i>  Ubicación: {{$evento->lugar}}</h6>
+        <h6 class="h6-responsive"><i class="fab fa-product-hunt" style="font-size:20px;"></i>  Facultad:  {{$evento->facultad_nomb}}</h6>
+        <h6 class="h6-responsive"><i class="fas fa-info" style="font-size:20px;"></i>  Descripcion: {{$evento->descripcion}}</h6>
+    
       <hr>
-  <div class="col-sm-8">
-      <label>Código de Publicación: {{$evento->codigoPost}}</label>    
-  </div>
-
-</div>
-</div>
-
-<div class="modal-footer">
-  <button type="submit" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-</div>
+    
+          <p class="h5 bold-text">Información del contacto</p>
+          <p><i class="fas fa-ticket-alt" style="font-size:20px;"></i> Código de Publicación: {{$evento->codigoPost}}</p> 
+          <p><i class="fas fa-clock" style="font-size:20px;"></i> Publicado {{$evento->created_at->diffForHumans()}}</p> 
+        
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+    </div>
+    </div>
+    

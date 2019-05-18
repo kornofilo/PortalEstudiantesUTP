@@ -28,6 +28,7 @@
             </div>
 
             <!-- Input de Costo-->
+            
                 <div class="form-group row">
                   <label for="costo" class="col-form-label col-sm-3">Costo:</label>
                   <div class="col-sm-8">

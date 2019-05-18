@@ -9,16 +9,16 @@
 
 
     
-    <h6 class="h6-responsive"><i class="fas fa-exchange-alt" style="font-size:20px;"></i> {{$tutoria->nombreTutor}}</h6>
-    <h6 class="h6-responsive"><i class="fas fa-heart" style="font-size:20px;"></i> Estado: {{$tutoria->materia}}</h6>
-    <h6 class="h6-responsive heading"><i class="fas fa-map-marker-alt" style="font-size:20px;"></i> {{$tutoria->ubicacion}}</h6>
-    <h6 class="h6-responsive"><i class="fas fa-info" style="font-size:20px;"></i> {{$tutoria->descripcion}}</h6>
+    <h6 class="h6-responsive"><i class="fas fa-exchange-alt" style="font-size:20px;"></i> Tutor: {{$tutoria->nombreTutor}}</h6>
+    <h6 class="h6-responsive"><i class="fas fa-heart" style="font-size:20px;"></i> Materia: {{$tutoria->materia}}</h6>
+    <h6 class="h6-responsive heading"><i class="fas fa-map-marker-alt" style="font-size:20px;"></i> Ubicación: {{$tutoria->ubicacion}}</h6>
+    <h6 class="h6-responsive"><i class="fas fa-info" style="font-size:20px;"></i> Descripción: {{$tutoria->descripcion}}</h6>
     <hr>
 
 <!--Accordion wrapper-->
 <div class="accordion md-accordion shadow" id="accordionEx" role="tablist" >
   <!-- Accordion card -->
-  <div class="card ">
+
     <!-- Card header -->
     <div class="card-header bg-info " role="tab" id="headingOne1">
       <a data-toggle="collapse" data-parent="#accordionEx" href="#collapscard" aria-expanded="true"
@@ -34,11 +34,11 @@
       data-parent="#accordionEx">
       <div class="col-xs-12 col-lg-12 text-justify">
           <div class="card-body" >
-        <label><i class="far fa-id-badge"></i>  Nombre del Contacto: {{$tutoria->nombre}}</label>
+        <label><i class="far fa-id-badge" style="font-size:20px;"></i>  Nombre del Contacto: {{$tutoria->nombre}}</label>
         <br>
-        <label><i class="far fa-id-card"></i>  Celular: {{$tutoria->celular}}</label>
+        <label><i class="far fa-id-card" style="font-size:20px;"></i>  Celular: {{$tutoria->celular}}</label>
         <br>
-        <label><i class="fas fa-at"></i>  Email: {{$tutoria->email}}</label>
+        <label><i class="fas fa-at" style="font-size:20px;"></i>  Email: {{$tutoria->email}}</label>
         
         <form action="{{route('perfil.verPerfil', $tutoria->email)}}" method="get">
           <button type="submit" class="btn btn-info">
@@ -46,7 +46,7 @@
           </button>       
         </form>
 
-      </div>
+  
       </div>
       </div>
     </div>
@@ -55,9 +55,9 @@
 
   <hr>
 
-      <p class="h5 bold-text">Información de la Publicación</p>
-      <p><i class="fas fa-ticket-alt"></i> Código de Publicación: {{$tutoria->codigoPost}}</p> 
-      <p><i class="fas fa-clock"></i> Publicado {{$tutoria->created_at->diffForHumans()}}</p> 
+      <p class="h5 bold-text">Información del contacto</p>
+      <p><i class="fas fa-ticket-alt" style="font-size:20px;"></i> Código de Publicación: {{$tutoria->codigoPost}}</p> 
+      <p><i class="fas fa-clock" style="font-size:20px;"></i> Publicado {{$tutoria->created_at->diffForHumans()}}</p> 
     
 <div class="modal-footer">
     <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
