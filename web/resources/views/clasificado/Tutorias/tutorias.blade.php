@@ -47,11 +47,16 @@
                   <div class="pagination justify-content-center">
                       {{ $datos->links() }}
                   </div>
-
-                  @foreach ($datos as $tutoria)
-                     @include('clasificado.Tutorias.tutoria', $tutoria)
-                  @endforeach
-
+                  @if($datos->count() > 0)
+                    @foreach ($datos as $tutoria)
+                      @include('clasificado.Tutorias.tutoria', $tutoria)                 
+                    @endforeach
+                  @else
+                    <div class="alert alert-info text-center" role="alert">
+                      No existen anuncios de tutorías publicados en estos momentos.
+                    </div>
+                  @endif
+                  
                   <!-- Paginación de publicaciones -->
                   <div class="pagination justify-content-center">
                       {{ $datos->links() }}

@@ -7,6 +7,14 @@
                             <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{$alquilerhosp->ubicacion}}</p>
                             <p class="card-text"><i class="fas fa-info"></i> {{$alquilerhosp->descripcion}}</p>
                             <p class="card-text"><i class="fas fa-clock"></i> {{$alquilerhosp->created_at->diffForHumans()}}</p>
+                            <p class="card-text">
+                                @if($alquilerhosp->estacionamiento === "Sí")
+                                    <i class="fas fa-parking"></i>
+                                @endif
+                                @if($alquilerhosp->amueblado === "Sí")
+                                    <i class="fas fa-couch"></i>
+                                @endif
+                            </p>
                             @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Ver más Detalles','id_modal'=>'anun'.$id,'title'=>'ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle'])
                        
                         </div>

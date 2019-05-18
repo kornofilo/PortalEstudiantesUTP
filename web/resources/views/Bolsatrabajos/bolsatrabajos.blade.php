@@ -49,10 +49,15 @@
                 </div>
 
                  @isset($datos)
-                    @foreach ($datos as $bolsatrabajo)                    
-                        @include('Bolsatrabajos.bolsatrabajo', $bolsatrabajo)                    
-                    @endforeach
-
+                    @if($datos->count() > 0)
+                        @foreach ($datos as $bolsatrabajo)                    
+                            @include('Bolsatrabajos.bolsatrabajo', $bolsatrabajo)                    
+                        @endforeach
+                    @else
+                        <div class="alert alert-info text-center" role="alert">
+                            No existen anuncios de vacantes publicados en estos momentos.
+                        </div>
+                    @endif
                      <!-- Paginación de publicaciones -->
                     <div class="pagination justify-content-center">
                         {{ $datos->links() }}       

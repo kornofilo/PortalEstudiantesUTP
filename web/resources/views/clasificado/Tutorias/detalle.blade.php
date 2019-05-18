@@ -9,7 +9,7 @@
 
 
 
-    <h6 class="h6-responsive"><i class="fas fa-exchange-alt" style="font-size:20px;"></i> Tutor: {{$tutoria->nombreTutor}}</h6>
+    <h6 class="h6-responsive"><i class="fas fa-chalkboard-teacher" style="font-size:20px;"></i> Tutor: {{$tutoria->nombreTutor}}</h6>
     <h6 class="h6-responsive"><i class="fas fa-heart" style="font-size:20px;"></i> Materia: {{$tutoria->materia}}</h6>
     <h6 class="h6-responsive heading"><i class="fas fa-map-marker-alt" style="font-size:20px;"></i> Ubicación: {{$tutoria->ubicacion}}</h6>
     <h6 class="h6-responsive"><i class="fas fa-info" style="font-size:20px;"></i> Descripción: {{$tutoria->descripcion}}</h6>

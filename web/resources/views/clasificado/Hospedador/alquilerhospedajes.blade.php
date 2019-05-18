@@ -47,11 +47,16 @@
                   <div class="pagination justify-content-center">
                       {{ $datos->links() }}
                   </div>
-
-                  @foreach ($datos as $alquilerhosp)
-                    @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)
-                  @endforeach
-
+                  @if($datos->count() > 0)
+                    @foreach ($datos as $alquilerhosp)
+                      @include('clasificado.Hospedador.alquilerhospedaje', $alquilerhosp)              
+                    @endforeach
+                  @else
+                    <div class="alert alert-info text-center" role="alert">
+                      No existen anuncios de alquileres publicados en estos momentos.
+                    </div>
+                  @endif
+                  
                   <!-- Paginación de publicaciones -->
                   <div class="pagination justify-content-center">
                       {{ $datos->links() }}
