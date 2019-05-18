@@ -15,7 +15,7 @@ class BolsatrabajoController extends Controller
     public function index()
     {
       # llama la vista y trae todos datos de la tabla
-      $datos = Bolsatrabajo::orderBy('id','desc')->paginate(10);
+      $datos = Bolsatrabajo::orderBy('created_at','desc')->paginate(10);
       return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
     }
 
@@ -23,6 +23,7 @@ class BolsatrabajoController extends Controller
      {
          $search = $request->get('search');
         $datos = Bolsatrabajo::whereRaw('concat(codigoPost,titulo,ubicacion,empresa,salario,beneficio) like \'%' .$search .'%\' ')
+                                ->orderBy('created_at','desc')
                                 ->paginate(10);
         return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
      }
@@ -95,7 +96,7 @@ class BolsatrabajoController extends Controller
 
        #salvar en la base de datos
         $bolsatrabajo->save();
-          return back()->with('success',' Data Saved');
+          return back()->with('success','Anuncio de Empleo creado exitosamente.');
       }
 
 
@@ -164,7 +165,7 @@ class BolsatrabajoController extends Controller
           }
 
           $bolsatrabajo->save();
-          return redirect('/miPerfil')->with('success','Datos Actualizados.');
+          return redirect('/miPerfil')->with('success','Anuncio de Empleo Actualizado Exitosamente.');
       }
     /**
      * Remove the specified resource from storage.

@@ -171,16 +171,16 @@
                 <th width = "600px">Es de urgencia</th>
                 <th width = "600px">Acción</th>
               </tr>
-              @foreach ($datosB as $data)
+              @foreach ($datosB as $bolsatrabajo)
                             <tr>
-                            <td>{{$data->titulo}}</td>
-                            <td>{{$data->urgente}}</td>
+                            <td>{{$bolsatrabajo->titulo}}</td>
+                            <td>{{$bolsatrabajo->urgente}}</td>
                             <td>
-                              <a class="btn btn-outline-info" href="{{route('Perfil.showB',$data->id)}}">Ver</a>
-                              <a class="btn btn-outline-warning" href="{{route('Perfil.detallesB',$data->id)}}">Editar</a>
-                              <a class="btn btn-outline-danger" href="{{route('dtB',$data->id)}}">Borrar</a>
+                              @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'btn_type'=>'btn-outline-info','title'=>'Detalles de Anuncio de Trabajo','vista'=>'Bolsatrabajos.detalle']) 
+                              @include('clasificado.Anuncios.modal', $dataU=[$bolsatrabajo,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'bolsaTrabajoU'.$bolsatrabajo->id,'title'=>'Editar Anuncio de Trabajo','vista'=>'Bolsatrabajos.formularioUpdate']) 
+                              <a class="btn btn-outline-danger" href="{{route('dtB',$bolsatrabajo->id)}}">Borrar</a>
                               <div class="text-right">
-                              <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                              <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>
                               </div>                          </td>
                         </tr>
                         </thead>

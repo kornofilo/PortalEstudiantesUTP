@@ -1,6 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <h2 class="h2-responsive text-center"><strong>{{$evento->titulo}} ({{$evento->codigoPost}})</strong></h2>
-<form action="{{route('eventos.update', $evento->id)}}" id="formtest" method="POST" enctype="multipart/form-data">
+<form action="{{route('eventos.update', $evento->id)}}" method="POST" enctype="multipart/form-data">
      @csrf
         <!-- Imagen actual del evento -->
         <div class="text-center">
@@ -73,6 +73,5 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#facultad_nomb').val('{{$evento->facultad_nomb}}').change();
-        $('#facultad').val('{{auth()->user()->facultad}}').trigger('change');
     })
 </script>

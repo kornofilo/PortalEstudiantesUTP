@@ -47,7 +47,7 @@
           @if($datosB->urgente == "No")
               checked
           @endif
-            ><label class="form-check-label" for="No">No</label>
+            <label class="form-check-label" for="No">No</label>
             </div>
         </div>
         </div>

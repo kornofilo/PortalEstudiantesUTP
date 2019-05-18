@@ -1,12 +1,10 @@
 <div class="card-body" >
-  <h2 class="h2-responsive text-center"><strong>{{$bolsatrabajo->empresa}}</strong></h2> <br>
+  <h2 class="h2-responsive text-center"><strong>{{$bolsatrabajo->titulo}}</strong></h2> <br>
       <div class="text-center">
         <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/bolsatrabajo/{{$bolsatrabajo->imagen}}">
         <br><br>
       </div>
-  
-  
-      
+      <h6 class="h6-responsive"><i class="fas fa-building" style="font-size:20px;"></i>  Empresa: {{$bolsatrabajo->empresa}}</h6>
       <h6 class="h6-responsive"><i class="fas fa-map-marker-alt" style="font-size:20px;"></i>  Ubicación: {{$bolsatrabajo->ubicacion}}</h6>
       <h6 class="h6-responsive"><i class="fab fa-product-hunt" style="font-size:20px;"></i>  Dirección:  {{$bolsatrabajo->direccion}}</h6>
       <h6 class="h6-responsive"><i class="fas fa-file-contract" style="font-size:20px;"></i>  Tipo de Puesto: {{$bolsatrabajo->tipoPuesto}}</h6>

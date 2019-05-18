@@ -11,7 +11,7 @@ $factory->define(Bolsatrabajo::class, function (Faker $faker) {
     $posiciones = ['Desarrollador Web', 'Lavaplatos', 'Ingeniero Civil',
                     'Profesor', 'Mercaderista', 'Gerente de TI', 'Arquitecto', 'Desarrollador Móvil', 'Cajero'];
     $siNo = ['Si','No'];
-    $tipoPuesto = ['Tiempo Completo', 'Tiempo Parcial', 'Contrato/Temporario'];
+    $tipoPuesto = ['Tiempo Completo','Tiempo Parcial','Contrato/Temporario'];
 
     return [
         'codigoPost' => 'BDT-'. $faker->unique->numberBetween($min = 100, $max = 999),

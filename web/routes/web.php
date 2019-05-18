@@ -30,9 +30,6 @@ Route::get('Perfil/detalles2/{id}', 'TutoriasController@edit')->name('Perfil.det
 Route::put ('Perfil/update2/{id}', 'TutoriasController@update')->name('Perfil.update2')->middleware(['auth']);
 Route::get('dt/{id}', 'TutoriasController@destroy')->name('dt');
 //Rutas para el crud de Bolsa de trabajo
-Route::get('Perfil/showB/{id}', 'BolsatrabajoController@show')->name('Perfil.showB');
-Route::get('Perfil/detallesB/{id}', 'BolsatrabajoController@edit')->name('Perfil.detallesB')->middleware(['auth']);
-Route::put ('Perfil/updateB/{id}', 'BolsatrabajoController@update')->name('Perfil.updateB')->middleware(['auth']);
 Route::get('dB/{id}', 'BolsatrabajoController@destroy')->name('dtB');
 //Rutas para el crud de Eventos
 Route::get('Perfil/showE/{id}', 'EventoController@show')->name('Perfil.showE');
@@ -72,6 +69,8 @@ Route::get('/alquilerhospedajes','HospedajeController@search')->name('alquilerho
 //Ruta de bolsatrabajo
 Route::resource('bolsatrabajos', 'BolsatrabajoController');
 Route::get('bolsatrabajos','BolsatrabajoController@search')->name('bolsaDeTrabajo.search');
+Route::post('bolsatrabajos/update/{id}', 'BolsatrabajoController@update')->name('bolsaDetrabajo.update')->middleware(['auth']);
+
 //Ruta de Eventos
 Route::resource('eventos','EventoController');
 Route::get('/eventos','EventoController@searchE');
