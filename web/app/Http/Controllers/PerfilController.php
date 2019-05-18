@@ -8,6 +8,7 @@ use App\Bolsatrabajo;
 use App\Hospedaje;
 use App\User;
 use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Request as Rquest;
 use Illuminate\Pagination\Paginator;
@@ -58,7 +59,7 @@ class PerfilController extends Controller
     $miPerfil->save();
     return back()->with('success','Perfil Actualizado.');
    }
-   
+
    //Función que obtiene los datos de un determinado un usuario para mostrarlo en su perfil.
    public function verPerfil($email)
    {
@@ -67,7 +68,7 @@ class PerfilController extends Controller
                      ->join('facultades', 'users.facultad', '=', 'facultades.id')
                      ->where('users.email', $email)
                      ->first();
-      
+
       $userRole = User::where('email', $email)->first()->roles()->value('name');
 
       $eventos = Evento::where('email', $email)->latest()->paginate(5, ['*'], 'eventos');

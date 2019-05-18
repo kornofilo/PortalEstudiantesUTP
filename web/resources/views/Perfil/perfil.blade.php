@@ -3,8 +3,8 @@
   <form class="form-inline">
 
   <div class="col-xl">
-    <i class="fas fa-search" aria-hidden="true"></i>
-    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar" aria-label="Search">
+    <!-- <i class="fas fa-search" aria-hidden="true"></i> -->
+    <!-- <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar" aria-label="Search"> -->
       <br><br>
         @if(count($errors) > 0)
             <div class="alert alert-danger">
@@ -16,8 +16,8 @@
             </div>
         @endif
         <div class="container">
-            <table class="table ">
-              <h3>Mis Publicaciones</h3>
+
+              <h3 class="table card-img-top shadow">Mis Publicaciones</h3>
 
             <div class="card" >
 <!--Condición por si no hay anuncios  -->
@@ -27,12 +27,12 @@
               </div>
                     @else
 
-                    <thead class="thead-light">
-
 <!--  Tabla de anuncios-->
                   @if($datos->count() === 0)
                   @else
-                    <h5 class="text-center rounded-pill bg-dark text-white" align="center">Clasificados</h5class="text-center rounded-pill bg-dark text-white">
+                  <table class="table card-img-top shadow">
+                    <h5 class="text-center rounded-pill bg-dark text-white card-img-top shadow" align="center">Clasificados</h5class="text-center rounded-pill bg-dark text-white">
+                      <thead class="thead-light">
                     <tr>
                       <th width = "500px">Nombre del anuncio</th>
                       <th width = "600px">Estado de la publicación</th>
@@ -57,6 +57,9 @@
                         <a class="btn btn-outline-warning" href="{{route('Perfil.detalles',$data->id)}}">Editar</a>
                         <a class="btn btn-outline-danger" href="{{route('dts',$data->id)}}">Borrar</a>
                       </div>
+                      <div class="text-right">
+                      <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                      </div>
                     </td>
                   </tr>
                   </thead>
@@ -69,9 +72,9 @@
 <!--Condición por si no hay anuncios  -->
                 @if($datosT->count() === 0)
                 @else
-                <table class="table ">
+                <table class="table card-img-top shadow">
                 <thead class="thead-light">
-<!-- Tabla de Tutorías -->                
+<!-- Tabla de Tutorías -->
                 <h5 class="text-center rounded-pill bg-dark text-white" align="center">Tutorías</h5>
                 <tr>
                   <th width = "500px">Nombre de la tutoría</th>
@@ -95,8 +98,9 @@
                        <a class="btn btn-outline-info" href="{{route('Perfil.show2',$data->id)}}">Ver</a>
                        <a class="btn btn-outline-warning" href="{{route('Perfil.detalles2',$data->id)}}">Editar</a>
                        <a class="btn btn-outline-danger" href="{{route('dt',$data->id)}}">Borrar</a>
-
-                            </td>
+                       <div class="text-right">
+                       <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                       </div>                            </td>
                           </tr>
                         </thead>
                         @endforeach
@@ -107,7 +111,7 @@
                       <!--Condición por si no hay Hospedaje  -->
                                       @if($datosH->count() === 0)
                                       @else
-                                      <table class="table ">
+                                      <table class="table card-img-top shadow">
                                       <thead class="thead-light">
                       <!-- Tabla de Tutorías -->
                                       <h5 class="text-center rounded-pill bg-dark text-white" align="center">Alquiler / Hospedaje</h5>
@@ -132,8 +136,9 @@
                                              <a class="btn btn-outline-info" href="{{route('Perfil.showH',$data->id)}}">Ver</a>
                                              <a class="btn btn-outline-warning" href="{{route('Perfil.detallesH',$data->id)}}">Editar</a>
                                              <a class="btn btn-outline-danger" href="{{route('dtH',$data->id)}}">Borrar</a>
-
-                                                  </td>
+                                             <div class="text-right">
+                                             <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                                             </div>                                                  </td>
                                                 </tr>
                                               </thead>
                                               @endforeach
@@ -145,7 +150,7 @@
 <!--Condición por si no hay Bolsas de trabajo  -->
               @if($datosB->count() === 0)
               @else
-              <table class="table ">
+              <table class="table card-img-top shadow">
               <thead class="thead-light">
 <!-- Tabla de Bolsa de trabajos -->
 
@@ -163,7 +168,9 @@
                               <a class="btn btn-outline-info" href="{{route('Perfil.showB',$data->id)}}">Ver</a>
                               <a class="btn btn-outline-warning" href="{{route('Perfil.detallesB',$data->id)}}">Editar</a>
                               <a class="btn btn-outline-danger" href="{{route('dtB',$data->id)}}">Borrar</a>
-                          </td>
+                              <div class="text-right">
+                              <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                              </div>                          </td>
                         </tr>
                         </thead>
 
@@ -173,7 +180,7 @@
 <!--Condición por si no hay Eventos  -->
                 @if($datosE->count() === 0)
                 @else
-                <table class="table ">
+                <table class="table card-img-top shadow">
                 <thead class="thead-light">
 <!-- Tabla de Eventos -->
                 <h5 class="text-center rounded-pill bg-dark text-white" align="center">Eventos</h5>
@@ -190,7 +197,9 @@
                                 <a class="btn btn-outline-info" href="{{route('Perfil.showE',$data->id)}}">Ver</a>
                                 <a class="btn btn-outline-warning" href="{{route('Perfil.detallesE',$data->id)}}">Editar</a>
                                 <a class="btn btn-outline-danger" href="{{route('dtE',$data->id)}}">Borrar</a>
-                            </td>
+                                <div class="text-right">
+                                <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$data->created_at->diffForHumans()}}</p>
+                                </div>                            </td>
                           </tr>
                           </thead>
                         @endforeach
@@ -198,6 +207,9 @@
                   @endif
              @endif
             <br>
+          </div>
+          </div>
+          </div>
           </div>
         </form>
      </body>
