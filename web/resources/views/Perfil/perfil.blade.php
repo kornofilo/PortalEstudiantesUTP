@@ -17,13 +17,13 @@
 
               <h3 class="table card-img-top shadow">Mis Publicaciones</h3>
 
-            <div class="card" >
+
               <!--Condición por si no hay anuncios  -->
                 @if(($datos->count() === 0) && ($datosT->count() === 0) && ($datosE->count() === 0) && ($datosT->count() === 0) && ($datosH->count() === 0) && ($datosB->count() === 0) && ($datosE->count() === 0))
                   <div class="alert alert-success" role="alert">
                     <h6 class="text-center font-weight"> No tiene Anuncios</h6>
                   </div>
-                @else            
+                @else
                   <!--  Tabla de compra/venta -->
                   @if($datos->count() > 0)
                     <h5 class="text-center rounded-pill bg-dark text-white card-img-top shadow">Clasificados</h5>
@@ -45,8 +45,8 @@
                           @endif
                           <td>
                             <div class="p-2 bd-highlight">
-                              @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'anuncio'.$anuncio->id,'title'=>'Detalles del Anuncio','vista'=>'clasificado.Anuncios.detalle']) 
-                              @include('clasificado.Anuncios.modal', $dataU=[$anuncio,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'anuncioU'.$anuncio->id,'title'=>'Editar Anuncio de Compra/Venta','vista'=>'clasificado.Anuncios.formularioUpdate']) 
+                              @include('clasificado.Anuncios.modal', $data=[$anuncio,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'anuncio'.$anuncio->id,'title'=>'Detalles del Anuncio','vista'=>'clasificado.Anuncios.detalle'])
+                              @include('clasificado.Anuncios.modal', $dataU=[$anuncio,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'anuncioU'.$anuncio->id,'title'=>'Editar Anuncio de Compra/Venta','vista'=>'clasificado.Anuncios.formularioUpdate'])
 
                               <a class="btn btn-outline-danger" href="{{route('dts',$anuncio->id)}}">Borrar</a>
                             </div>
@@ -55,7 +55,7 @@
                             </div>
                           </td>
                         </tr>
-                        @endforeach                        
+                        @endforeach
                       </table>
                       <div class="pagination justify-content-center">
                           {{ $datos->links() }}
@@ -64,8 +64,7 @@
                 @endif
 
 <!--Condición por si no hay anuncios  -->
-                @if($datosT->count() === 0)
-                @else
+                @if($datosT->count() > 0)
                 <table class="table card-img-top shadow">
                 <thead class="thead-light">
 <!-- Tabla de Tutorías -->
@@ -89,8 +88,8 @@
                       <td class="text-danger font-weight-bold">{{$tutoria->estadoPost}}</td>
                         @endif
                       <td>
-                        @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle']) 
-                        @include('clasificado.Anuncios.modal', $dataU=[$tutoria,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'tutoriaU'.$tutoria->id,'title'=>'Editar Anuncio de Tutoría','vista'=>'clasificado.Tutorias.formularioUpdate']) 
+                        @include('clasificado.Anuncios.modal', $data=[$tutoria,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'tutoria'.$tutoria->id,'title'=>'DETALLES DE LA TUTORÍA','vista'=>'clasificado.Tutorias.detalle'])
+                        @include('clasificado.Anuncios.modal', $dataU=[$tutoria,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'tutoriaU'.$tutoria->id,'title'=>'Editar Anuncio de Tutoría','vista'=>'clasificado.Tutorias.formularioUpdate'])
                        <a class="btn btn-outline-danger" href="{{route('dt',$tutoria->id)}}">Borrar</a>
                        <div class="text-right">
                        <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$tutoria->created_at->diffForHumans()}}</p>
@@ -105,10 +104,10 @@
                         </div>
                         @endif
 
-                      </div>
+
 
                       <!--Condición por si no hay Hospedaje  -->
-                                      @if($datosH->count() > 0)                                      
+                                      @if($datosH->count() > 0)
                                       <table class="table card-img-top shadow">
                                       <thead class="thead-light">
                       <!-- Tabla de Tutorías -->
@@ -131,8 +130,8 @@
                                             <td class="text-danger font-weight-bold">{{$alquilerhosp->estadoPost}}</td>
                                               @endif
                                             <td>
-                                             @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle']) 
-                                             @include('clasificado.Anuncios.modal', $dataU=[$alquilerhosp,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'alquilerU'.$alquilerhosp->id,'title'=>'Editar Anuncio de Alquiler/Hospedaje','vista'=>'clasificado.Hospedador.formularioUpdate']) 
+                                             @include('clasificado.Anuncios.modal', $data=[$alquilerhosp,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info','id_modal'=>'alquiler'.$alquilerhosp->id,'title'=>'DETALLE ALQUILER/HOSPEDAJE ','vista'=>'clasificado.Hospedador.detalle'])
+                                             @include('clasificado.Anuncios.modal', $dataU=[$alquilerhosp,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'alquilerU'.$alquilerhosp->id,'title'=>'Editar Anuncio de Alquiler/Hospedaje','vista'=>'clasificado.Hospedador.formularioUpdate'])
                                              <a class="btn btn-outline-danger" href="{{route('dtH',$alquilerhosp->id)}}">Borrar</a>
                                              <div class="text-right">
                                              <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$alquilerhosp->created_at->diffForHumans()}}</p>
@@ -145,8 +144,8 @@
                                                 {{ $datosH->links() }}
                                               </div>
                                               @endif
-                                            </div>
-                                             
+
+
 <!-- Condición para solo mostrar estas tablas al Administrador y Moderador -->
               @if((Auth::user()->roles()->value('name') == "Administrador") || (Auth::user()->roles()->value('name') == "Moderador"))
 <!--Condición por si no hay Bolsas de trabajo  -->
@@ -167,8 +166,8 @@
                             <td>{{$bolsatrabajo->titulo}}</td>
                             <td>{{$bolsatrabajo->urgente}}</td>
                             <td>
-                              @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'btn_type'=>'btn-outline-info','title'=>'Detalles de Anuncio de Trabajo','vista'=>'Bolsatrabajos.detalle']) 
-                              @include('clasificado.Anuncios.modal', $dataU=[$bolsatrabajo,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'bolsaTrabajoU'.$bolsatrabajo->id,'title'=>'Editar Anuncio de Trabajo','vista'=>'Bolsatrabajos.formularioUpdate']) 
+                              @include('clasificado.Anuncios.modal', $data=[$bolsatrabajo,'btn_nombre'=>'Ver','id_modal'=>'bolsatrabajo'.$bolsatrabajo->id,'btn_type'=>'btn-outline-info','title'=>'Detalles de Anuncio de Trabajo','vista'=>'Bolsatrabajos.detalle'])
+                              @include('clasificado.Anuncios.modal', $dataU=[$bolsatrabajo,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'bolsaTrabajoU'.$bolsatrabajo->id,'title'=>'Editar Anuncio de Trabajo','vista'=>'Bolsatrabajos.formularioUpdate'])
                               <a class="btn btn-outline-danger" href="{{route('dtB',$bolsatrabajo->id)}}">Borrar</a>
                               <div class="text-right">
                               <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>
@@ -185,7 +184,7 @@
                 @else
                 <!-- Tabla de Eventos -->
                 <h5 class="text-center rounded-pill bg-dark text-white">Eventos</h5>
-                <table class="table card-img-top shadow">                  
+                <table class="table card-img-top shadow">
                   <tr>
                     <th width = "500px">Nombre del Evento</th>
                     <th width = "600px">Fecha de Evento</th>
@@ -196,13 +195,13 @@
                         <td>{{$evento->titulo}}</td>
                         <td>{{strftime("%d-%m-%Y",strtotime($evento->fecha))}} a las {{date("g:ia", strtotime($evento->hora))}} </td>
                         <td>
-                          @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info', 'id_modal'=>'evento'.$evento->id,'title'=>'Detalles del Evento','vista'=>'Eventos.detalle']) 
-                          @include('clasificado.Anuncios.modal', $dataU=[$evento,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'eventoU'.$evento->id,'title'=>'Editar Evento','vista'=>'Eventos.formularioUpdate']) 
+                          @include('clasificado.Anuncios.modal', $data=[$evento,'btn_nombre'=>'Ver','btn_type'=>'btn-outline-info', 'id_modal'=>'evento'.$evento->id,'title'=>'Detalles del Evento','vista'=>'Eventos.detalle'])
+                          @include('clasificado.Anuncios.modal', $dataU=[$evento,'btn_nombre'=>'Editar','btn_type'=>'btn-outline-warning','id_modal'=>'eventoU'.$evento->id,'title'=>'Editar Evento','vista'=>'Eventos.formularioUpdate'])
                           <a class="btn btn-outline-danger" href="{{route('dtE',$evento->id)}}">Borrar</a>
                           <div class="text-right">
                             <p class="card-text" style="font-size: 9px;"><i class="fas fa-clock"></i > Publicado {{$evento->created_at->diffForHumans()}}</p>
-                          </div>   
-                        </td>  
+                          </div>
+                        </td>
                       </tr>
                       @endforeach
                   </table>
@@ -216,3 +215,4 @@
           </div>
           </div>
           </div>
+          </div></div>

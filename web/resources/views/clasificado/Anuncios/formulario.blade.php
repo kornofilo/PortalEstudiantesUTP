@@ -13,7 +13,7 @@
         </div>
 
         <div class="form-group row">
-            <label for="nombreArticulo" class="col-form-label col-sm-3">Nombre del Articulo:</label>
+            <label for="nombreArticulo" class="col-form-label col-sm-3">Nombre del Artículo:</label>
             <div class="col-sm-8">
             <input type="text" name="nombreArt" id="nombreArt" class="form-control" placeholder="Nombre del Articulo" tabindex="1">
             </div>

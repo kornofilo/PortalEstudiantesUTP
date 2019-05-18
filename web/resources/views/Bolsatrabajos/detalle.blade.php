@@ -12,7 +12,7 @@
    <!--Accordion wrapper-->
    <div class="accordion md-accordion shadow" id="accordionEx1" role="tablist" >
     <!-- Accordion card -->
-  
+
       <!-- Card header -->
       <div class="card-header bg-info " role="tab" id="headingOne1">
         <a data-toggle="collapse" data-parent="#accordionEx1" href="#collapscard1" aria-expanded="true"
@@ -22,7 +22,7 @@
           </h6>
         </a>
       </div>
-   
+
       <!-- Card body -->
       <div id="collapscard1" class="collapse show thumb-shadow" role="tabpanel" aria-labelledby="headingOne1"
         data-parent="#accordionEx">
@@ -43,22 +43,22 @@
       </div>
     </div>
     <!-- Accordion card -->
-  
+
     <hr>
   <!--Accordion wrapper-->
   <div class="accordion md-accordion shadow" id="accordionEx2" role="tablist" >
     <!-- Accordion card -->
-  
+
       <!-- Card header -->
       <div class="card-header bg-info " role="tab" id="headingOne2">
         <a data-toggle="collapse" data-parent="#accordionEx2" href="#collapscard2" aria-expanded="true"
           aria-controls="collapsecard">
           <h6 class="mb-0 text-white ">
-            <i class=" fas fa-angle-down rotate-icon"></i> Información de Contacto 
+            <i class=" fas fa-angle-down rotate-icon"></i> Información de Contacto
           </h6>
         </a>
       </div>
-   
+
       <!-- Card body -->
       <div id="collapscard2" class="collapse show thumb-shadow" role="tabpanel" aria-labelledby="headingOne1"
         data-parent="#accordionEx">
@@ -68,22 +68,21 @@
           <br>
           <label><i class="fas fa-mobile" style="font-size:20px;"></i>  Celular: {{$bolsatrabajo->celular}}</label>
           <br>
-          <label><i class="fas fa-at" style="font-size:20px;"></i>  Email: {{$bolsatrabajo->emailContacto}}</label>                      
+          <label><i class="fas fa-at" style="font-size:20px;"></i>  Email: {{$bolsatrabajo->emailContacto}}</label>
         </div>
         </div>
       </div>
     </div>
     <!-- Accordion card -->
-  
+
     <hr>
-  
+
         <p class="h5 bold-text">Información del contacto</p>
-        <p><i class="fas fa-user" style="font-size:20px;"></i>Publicado por: <a href="{{route('perfil.verPerfil', $bolsatrabajo->email)}}"> {{$bolsatrabajo->email}}</a> </p>
-        <p><i class="fas fa-ticket-alt" style="font-size:20px;"></i> Código de Publicación: {{$bolsatrabajo->codigoPost}}</p> 
-        <p><i class="fas fa-clock" style="font-size:20px;"></i> Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p> 
-      
+        <p><i class="fas fa-user" style="font-size:20px;"></i> Publicado por: <a href="{{route('perfil.verPerfil', $bolsatrabajo->email)}}"> {{$bolsatrabajo->email}}</a> </p>
+        <p><i class="fas fa-ticket-alt" style="font-size:20px;"></i> Código de Publicación: {{$bolsatrabajo->codigoPost}}</p>
+        <p><i class="fas fa-clock" style="font-size:20px;"></i> Publicado {{$bolsatrabajo->created_at->diffForHumans()}}</p>
+
   <div class="modal-footer">
       <button type="submit" class="btn btn-success" data-dismiss="modal">Cerrar</button>
   </div>
   </div>
-  

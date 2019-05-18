@@ -1,11 +1,11 @@
 <h2 class="h2-responsive text-center"><strong>{{$alquilerhosp->titulo}} ({{$alquilerhosp->codigoPost}})</strong></h2>
 <form action="{{route('alquilerhospedajes.update', $alquilerhosp->id)}}" method="POST" enctype="multipart/form-data">
      @csrf
-     
+
      <!-- Imagen actual del tutorias -->
      <div class="text-center">
             <img style="max-height: 400px; max-width: 400px;" class="img-thumbnail shadow" src="/imagenes/clasificados/hospedador/{{$alquilerhosp->imagen}}">
-        </div> <br>   
+        </div> <br>
 
         <!-- Nueva Imagen -->
         <div class="form-group row p-2">
@@ -116,8 +116,8 @@
 
         <!-- Modal Footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-success">Publicar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Actualizar</button>
         </div>
 
     <script type="text/javascript">

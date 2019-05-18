@@ -5,7 +5,7 @@
     <!-- Imagen actual del anuncio -->
     <div class="text-center">
             <img style="max-height: 400px; max-width: 400px;" class="img-thumbnail shadow" src="/imagenes/clasificados/anuncios/{{$anuncio->imagen}}">
-    </div> <br>   
+    </div> <br>
 
     <!-- Nueva Imagen -->
     <div class="form-group row p-2">
@@ -26,7 +26,7 @@
 
     <!-- Nombre del Artículo -->
     <div class="form-group row">
-        <label for="nombreArticulo" class="col-form-label col-sm-3">Nombre del Articulo:</label>
+        <label for="nombreArticulo" class="col-form-label col-sm-3">Nombre del Artículo:</label>
         <div class="col-sm-8">
             <input type="text" name="nombreArt" id="nombreArt" class="form-control" value="{{$anuncio->nombreArt}}" tabindex="1">
         </div>
@@ -75,7 +75,7 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-success">Actualizar</button>
-    </div>   
+    </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
