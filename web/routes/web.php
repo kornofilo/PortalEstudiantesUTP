@@ -30,14 +30,10 @@ Route::get('Perfil/detalles2/{id}', 'TutoriasController@edit')->name('Perfil.det
 Route::put ('Perfil/update2/{id}', 'TutoriasController@update')->name('Perfil.update2')->middleware(['auth']);
 Route::get('dt/{id}', 'TutoriasController@destroy')->name('dt');
 //Rutas para el crud de Bolsa de trabajo
-Route::get('Perfil/showB/{id}', 'BolsatrabajoController@show')->name('Perfil.showB');
-Route::get('Perfil/detallesB/{id}', 'BolsatrabajoController@edit')->name('Perfil.detallesB')->middleware(['auth']);
-Route::put ('Perfil/updateB/{id}', 'BolsatrabajoController@update')->name('Perfil.updateB')->middleware(['auth']);
 Route::get('dB/{id}', 'BolsatrabajoController@destroy')->name('dtB');
 //Rutas para el crud de Eventos
 Route::get('Perfil/showE/{id}', 'EventoController@show')->name('Perfil.showE');
 Route::get('Perfil/detallesE/{id}', 'EventoController@edit')->name('Perfil.detallesE')->middleware(['auth']);
-Route::put ('Perfil/updateE/{id}', 'EventoController@update')->name('Perfil.updateE')->middleware(['auth']);
 Route::get('dE/{id}', 'EventoController@destroy')->name('dtE');
 //Rutas para el crud de Alquiler y Hospedaje
 Route::get('Perfil/showH/{id}', 'HospedajeController@show')->name('Perfil.showH');
@@ -63,19 +59,29 @@ Route::group(['prefix' => 'clasificado'], function () {
 //Rutas de Compras/Ventas
 Route::resource('anuncios','AnunciosController');
 Route::get('/anuncios','AnunciosController@search')->name('anuncios.search');
+Route::post('anuncios/update/{id}', 'AnunciosController@update')->name('anuncios.update')->middleware(['auth']);
+
 //Ruta de tutorias
 Route::resource('tutorias', 'TutoriasController');
 Route::get('/tutorias','TutoriasController@search')->name('tutorias.search');
+Route::post('tutorias/update/{id}', 'TutoriasController@update')->name('tutorias.update')->middleware(['auth']);
+
 //Ruta de alquilerhospedaje
 Route::resource('alquilerhospedajes', 'HospedajeController');
 Route::get('/alquilerhospedajes','HospedajeController@search')->name('alquilerhospedajes.search');
+Route::post('alquilerhospedajes/update/{id}', 'HospedajeController@update')->name('alquilerhospedajes.update')->middleware(['auth']);
+
 });
 //Ruta de bolsatrabajo
 Route::resource('bolsatrabajos', 'BolsatrabajoController');
 Route::get('bolsatrabajos','BolsatrabajoController@search')->name('bolsaDeTrabajo.search');
+Route::post('bolsatrabajos/update/{id}', 'BolsatrabajoController@update')->name('bolsaDetrabajo.update')->middleware(['auth']);
+
 //Ruta de Eventos
 Route::resource('eventos','EventoController');
 Route::get('/eventos','EventoController@searchE');
+Route::post('eventos/update/{id}', 'EventoController@update')->name('eventos.update')->middleware(['auth']);
+
 //Route::resource('eventos','EventoController@carga')->name('eventos');
 
 

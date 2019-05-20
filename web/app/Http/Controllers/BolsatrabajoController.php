@@ -15,7 +15,7 @@ class BolsatrabajoController extends Controller
     public function index()
     {
       # llama la vista y trae todos datos de la tabla
-      $datos = Bolsatrabajo::orderBy('id','desc')->paginate(10);
+      $datos = Bolsatrabajo::orderBy('created_at','desc')->paginate(10);
       return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
     }
 
@@ -23,6 +23,7 @@ class BolsatrabajoController extends Controller
      {
          $search = $request->get('search');
         $datos = Bolsatrabajo::whereRaw('concat(codigoPost,titulo,ubicacion,empresa,salario,beneficio) like \'%' .$search .'%\' ')
+                                ->orderBy('created_at','desc')
                                 ->paginate(10);
         return view('Bolsatrabajos.bolsatrabajos',compact('datos'));
      }
@@ -62,15 +63,11 @@ class BolsatrabajoController extends Controller
         'nombreContacto' => 'required',
         'celular' => 'required',
         'emailContacto' => 'required',
-        'imagen' => 'required',
+        // 'imagen' => 'required',
     ]);
 
 
-    if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $name_image = time().$file->getClientOriginalName();
-        $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
-    }
+
 
 
         $bolsatrabajo = new Bolsatrabajo();
@@ -91,13 +88,20 @@ class BolsatrabajoController extends Controller
         $bolsatrabajo->nombreContacto= $request->input('nombreContacto');
         $bolsatrabajo->celular= $request->input('celular');
         $bolsatrabajo->emailContacto= $request->input('emailContacto');
-        $bolsatrabajo->imagen =$name_image;
 
-       #salvar en la base de datos
-        $bolsatrabajo->save();
-          return back()->with('success',' Data Saved');
+
+        #salvar en la base de datos
+
+
+      if ($request->hasFile('imagen')) {
+          $file = $request->file('imagen');
+          $name_image = time().$file->getClientOriginalName();
+          $file->move(public_path().'/imagenes/bolsatrabajo',$name_image);
+          $bolsatrabajo->imagen =$name_image;
       }
-
+      $bolsatrabajo->save();
+      return back()->with('success','Anuncio de Empleo creado exitosamente.');
+    }
 
     /**
      * Display the specified resource.
@@ -151,6 +155,11 @@ class BolsatrabajoController extends Controller
           $bolsatrabajo->emailContacto= $request->input('emailContacto');
 
           if($request->hasFile('imagen')){
+            if ($bolsatrabajo->imagen === 'post-placeholder.jpg')
+            {
+            }else {
+            unlink(public_path().'/imagenes/bolsatrabajo/'.$bolsatrabajo->imagen);
+            }
             $file = $request->file('imagen');
             $name_image = time().$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/bolsatrabajo/',$name_image);
@@ -159,7 +168,7 @@ class BolsatrabajoController extends Controller
           }
 
           $bolsatrabajo->save();
-          return redirect('/miPerfil')->with('success','Datos Actualizados.');
+          return redirect('/miPerfil')->with('success','Anuncio de Empleo Actualizado Exitosamente.');
       }
     /**
      * Remove the specified resource from storage.
@@ -168,18 +177,24 @@ class BolsatrabajoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { $file = Bolsatrabajo::where('id', $id)->find($id);
       $usr = (auth()->user()->email);
-      $file = Bolsatrabajo::where('id', $id)->find($id);
-      // dd($usr);
-      if ($usr ===$file->email) {
-      if (unlink(public_path().'/imagenes/bolsatrabajo/'.$file->imagen)) {
-        $file->delete();
-        return back()->with('success','Bolsa de Trabajo eliminada exitosamente.');
-      }
-      else {
-        return back()->with('success','?.');
+
+      if ($usr ===$file->email)
+      {
+        if ($file->imagen === 'post-placeholder.jpg')
+        {
+        Bolsatrabajo::where('id', $id)->delete();
+        return back()->with('success','Anuncio de trabajo eliminado exitosamente.');
+        }
+       else {
+         $file = Bolsatrabajo::where('id', $id)->find($id);
+         if(unlink(public_path().'/imagenes/bolsatrabajo/'.$file->imagen)){
+          $file->delete();
+          return back()->with('success','Anuncio de trabajo eliminado exitosamente.');
+             }
+       }
       }
      }
-    }
+
 }

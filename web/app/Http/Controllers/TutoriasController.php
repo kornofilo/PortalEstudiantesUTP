@@ -19,7 +19,7 @@ class TutoriasController extends Controller
     {
 
       # llama la vista y trae todos datos de la tabla
-      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('id','desc')->paginate(10);
+      $datos = Tutorias::where('estadoPost','Aprobada')->orderBy('created_at','desc')->paginate(10);
       return view('clasificado.Tutorias.tutorias',compact('datos'));
     }
 
@@ -34,6 +34,7 @@ class TutoriasController extends Controller
         $search = $request->get('search');
         $datos = Tutorias::where('estadoPost','Aprobada')
           ->whereRaw('concat(titulo,materia,costo,ubicacion,codigoPost) like \'%' .$search .'%\' ')
+          ->orderBy('created_at','desc')
           ->paginate(10);
         return view('clasificado.Tutorias.tutorias',compact('datos'));
      }
@@ -78,7 +79,7 @@ class TutoriasController extends Controller
       //
       if ($request->hasFile('imagen')) {
           $file = $request->file('imagen');
-          $name_image = 'tutoria.'.$request->imagen->extension();
+          $name_image = time().$file->getClientOriginalName();
           $file->move(public_path().'/imagenes/clasificados/tutorias',$name_image);
           $tutorias->imagen =$name_image;
       }
@@ -134,16 +135,21 @@ class TutoriasController extends Controller
            $datosT->estadoPost = ('En Moderación');
 
            if($request->hasFile('imagen')){
-             $TImage = $request->file('imagen');
+             if ($datosT->imagen === 'post-placeholder.jpg')
+             {
+             }else {
+             unlink(public_path().'/imagenes/clasificados/tutorias/'.$datosT->imagen);
+             }
+             $file = $request->file('imagen');
              // ejemplo para guardar fotos encima de otra foto.
-             $name_image = 'tutoria.'.$request->imagen->extension();
-             $TImage->move(public_path().'/imagenes/clasificados/tutorias/',$name_image);
+             $name_image = time().$file->getClientOriginalName();
+             $file->move(public_path().'/imagenes/clasificados/tutorias/',$name_image);
              $datosT->imagen = $name_image;
 
            }
            $datosT->save();
 
-         return redirect('/miPerfil')->with('success','Datos Actualizados.');
+         return redirect('/miPerfil')->with('success','Datos de la Tutoría Actualizados Exitosamente.');
        }
 
     /**
@@ -153,19 +159,23 @@ class TutoriasController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function destroy($id)
-     {
-
+     { $file = Tutorias::where('id', $id)->find($id);
        $usr = (auth()->user()->email);
-       $file = Tutorias::where('id', $id)->find($id);
-       if ($usr ===$file->email) {
-       if (unlink(public_path().'/imagenes/clasificados/tutorias/'.$file->imagen)) {
-         $file->delete();
+
+       if ($usr ===$file->email)
+       {
+         if ($file->imagen === 'post-placeholder.jpg')
+         {
+         Tutorias::where('id', $id)->delete();
          return back()->with('success','Tutoría eliminada exitosamente.');
-       }
-       else {
-         return back()->with('error','?');
+         }
+        else {
+          $file = Tutorias::where('id', $id)->find($id);
+          if(unlink(public_path().'/imagenes/clasificados/tutorias/'.$file->imagen)){
+           $file->delete();
+           return back()->with('success','Tutoría eliminada exitosamente.');
+              }
+        }
        }
       }
-
-     }
 }

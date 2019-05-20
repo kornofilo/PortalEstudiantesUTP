@@ -3,16 +3,16 @@
  @csrf
 
  <!-- Input de  Urgente -->
- <label>Urgente: </label> <br>
-
- <div class="form-check form-check-inline">
-<label class="form-check-label" for="Si">Si</label>
-     <input class="form-check-input" type="radio" name="urgente" id="Si" value="Sí" required>
+<div class="col-form-label col-sm-3 ">
+<label class="badge badge-primary">Urgente ? </label><br>
+<label class="form-check-label" for="urgente"> Si </label>
+<div class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="urgente" id="Si" value="Sí" required>
  </div>
+ <label class="form-check-label" for="urgente"> No </label>
  <div class="form-check form-check-inline">
-    <label class="form-check-label" for="No">No</label>
      <input class="form-check-input" type="radio" name="urgente" id="No" value="No" required>
-
+</div>
  </div>
  <!-- Input de Titulo -->
         <div class="form-group row">
@@ -80,14 +80,14 @@
                      </div>
                      <!-- Input de Habilidades -->
                       <div class="form-group row">
-                          <label for="habilidades" class="col-form-label col-sm-3">Habilidades :</label>
+                          <label for="habilidades" class="col-form-label col-sm-3">Habilidades:</label>
                           <div class="col-sm-8">
                           <textarea class="form-control" id="message-text" name="habilidades" placeholder="Habilidades"></textarea>
                             </div>
                       </div>
                       <!-- Input de Fecha y Hora -->
                             <div class="form-group row">
-                              <label for="fecha" class="col-form-label col-sm-3">Fecha</label>
+                              <label for="fecha" class="col-form-label col-sm-3">Fecha:</label>
                               <div class="col-sm-8">
                                 <input type="date" name="fecha" id="fecha" class="form-control" placeholder="00/00/0000" required >
                               </div>

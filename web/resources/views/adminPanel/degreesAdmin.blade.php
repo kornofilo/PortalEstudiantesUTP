@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="col-3">
-                            <button type="submit" class="btn btn-success" type="button">
+                            <button type="submit" class="btn btn-success">
                                 <i class="far fa-save"></i>
                             </button>
                             <button type="reset" class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseNewCarreraF-{{$facultad->id}}" aria-expanded="false" aria-controls="collapseNewCarreraF-{{$facultad->id}}">

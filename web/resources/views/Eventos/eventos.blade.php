@@ -48,12 +48,17 @@
                 <div class="pagination justify-content-center">
                       {{ $datos->links() }}       
                 </div>
-
-                 @isset($datos)
-                     @foreach ($datos as $evento)
+                <!-- Verificamos si la variable existe -->
+                @isset($datos)
+                  @if($datos->count() > 0)
+                    @foreach ($datos as $evento)
                             @include('Eventos.evento', $evento)
-                     @endforeach
-
+                    @endforeach
+                  @else
+                    <div class="alert alert-info text-center" role="alert">
+                      No existen anuncios de eventos publicados en estos momentos.
+                    </div>
+                  @endif                     
                     <!-- Paginación de publicaciones -->
                     <div class="pagination justify-content-center">
                       {{ $datos->links() }}       

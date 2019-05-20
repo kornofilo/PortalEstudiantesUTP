@@ -44,13 +44,19 @@
     <div id="anuncios" class="row justify-content-center">      
         <div class="col-md-8"> 
               @isset($datos)
-                  <!-- Paginación de publicaciones -->
-                  <div class="pagination justify-content-center">
-                      {{ $datos->links() }}       
-                  </div>
+                <!-- Paginación de publicaciones -->
+                <div class="pagination justify-content-center">
+                    {{ $datos->links() }}  
+                </div>
+                @if($datos->count() > 0)
                   @foreach ($datos as $anuncio)                                     
                         @include('clasificado.Anuncios.anuncio', $anuncio)                 
                   @endforeach
+                @else
+                    <div class="alert alert-info text-center" role="alert">
+                      No existen anuncios de compra/venta publicados en estos momentos.
+                    </div>
+                @endif
 
                   <!-- Paginación de publicaciones -->
                   <div class="pagination justify-content-center">

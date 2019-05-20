@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
- <!-- Back to top -->        
+ <!-- Back to top -->
  @include('Homes.BacktoTop')
- 
+
 <!--Jumbotron -->
+<<<<<<< HEAD
 <div class="jumbotron jumbotron-fluid ">  
   <div class="container">
     <div class=" card-title  font-weight-bold rgba-black-strong ">
@@ -11,9 +12,15 @@
         <p class="lead">Aquí tendras acceso a tutorias de diversas materias.</p>
     </div>
     
+=======
+<div class="jumbotron jumbotron-fluid  ">
+  <div class="container">
+    <h1 class="display-4">Sección de Tutorías</h1>
+    <p class="lead">Aquí tendrás acceso a tutorías, de diversas materias.</p>
+>>>>>>> development
   </div>
 </div>
-<div class="container">    
+<div class="container">
     @if(count($errors) > 0)
       <div class="alert alert-danger">
         <ul>
@@ -24,48 +31,50 @@
       </div>
     @endif
     <!-- Formulario de Búsqueda -->
-    
+
     <form action="{{route('tutorias.search')}}" method="get">
-      <div class="form-group row justify-content-center">         
+      <div class="form-group row justify-content-center">
         <div class="col-auto">
           <input class="form-control form-control" type="search" placeholder="Buscar Tutoría" aria-label="Search" name="search" >
-        </div>    
+        </div>
 
         <div class="col-auto">
-            <button class="btn btn-success col" type="submit"> <i class="fas fa-search"></i> </button> 
-        </div> 
-      </div>                      
-    </form>  
+            <button class="btn btn-success col" type="submit"> <i class="fas fa-search"></i> </button>
+        </div>
+      </div>
+    </form>
 
-    <div class="text-center"> 
+    <div class="text-center">
         @include('clasificado.Anuncios.modal', $data=['btn_nombre'=>'Agregar Tutoría','id_modal'=>'mod1','title'=>'AGREGA TUTORIAS AQUI','vista'=>'clasificado.Tutorias.formulario'])
-    </div> 
-    
+    </div>
+
      <br>
 
-    <div id="anuncios" class="row justify-content-center">      
-        <div class="col-md-8"> 
+    <div id="anuncios" class="row justify-content-center">
+        <div class="col-md-8">
               @isset($datos)
                   <!-- Paginación de publicaciones -->
                   <div class="pagination justify-content-center">
-                      {{ $datos->links() }}       
+                      {{ $datos->links() }}
                   </div>
-
-                  @foreach ($datos as $tutoria)                                     
-                     @include('clasificado.Tutorias.tutoria', $tutoria)                 
-                  @endforeach
-
+                  @if($datos->count() > 0)
+                    @foreach ($datos as $tutoria)
+                      @include('clasificado.Tutorias.tutoria', $tutoria)                 
+                    @endforeach
+                  @else
+                    <div class="alert alert-info text-center" role="alert">
+                      No existen anuncios de tutorías publicados en estos momentos.
+                    </div>
+                  @endif
+                  
                   <!-- Paginación de publicaciones -->
                   <div class="pagination justify-content-center">
-                      {{ $datos->links() }}       
+                      {{ $datos->links() }}
                   </div>
-              @endisset              
-        </div>        
+              @endisset
+        </div>
     </div> <br>
-       
+
 </div>
 
 @endsection
-
-
-

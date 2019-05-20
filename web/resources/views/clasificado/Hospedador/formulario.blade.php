@@ -40,7 +40,11 @@
         <div class="form-group row">
             <label for="precio" class="col-form-label col-sm-3">Precio por Mes:</label>
             <div class="col-sm-8">
+<<<<<<< HEAD
             <input id="precio"  type="number" name="precio"  min="0" max="9999" step="0.01"  placeholder="B/" oninput="validity.valid||(value='');" required>
+=======
+            <input class="form-control" id="precio" type="number" name="precio"  min="0" max="9999" step="0.01"  placeholder="B/." oninput="validity.valid||(value='');" required>
+>>>>>>> development
             </div>
         </div>
 
@@ -54,7 +58,7 @@
                 <div class="col-sm-8">
                 <select id="estacionamiento" class="form-control " name="estacionamiento" required>
                     <option value="No">No</option>
-                    <option value="Si">Si</option>
+                    <option value="Sí">Sí</option>
                </select>
                 </div>
               </div>
@@ -63,7 +67,11 @@
               <div class="form-group row">
                 <label for="habitaciones" class="col-form-label col-sm-3">Habitaciones:</label>
                 <div class="col-sm-8">
+<<<<<<< HEAD
                 <input id="habitaciones"  name="habitaciones" type="number" min="1" max="99" step="1" oninput="validity.valid||(value='');" required>
+=======
+                <input class="form-control" id="habitaciones" name="habitaciones" type="number" min="1" max="99" step="1" oninput="validity.valid||(value='');" required>
+>>>>>>> development
                 </div>
               </div>
 
@@ -71,7 +79,11 @@
                <div class="form-group row">
                 <label for="habitaciones" class="col-form-label col-sm-3">Baños:</label>
                 <div class="col-sm-8">
+<<<<<<< HEAD
                 <input id="baños" name="baños"  type="number" min="1" max="99" step="1" oninput="validity.valid||(value='');" required>
+=======
+                <input class="form-control" id="baños" name="baños" type="number" min="1" max="99" step="1" oninput="validity.valid||(value='');" required>
+>>>>>>> development
                 </div>
               </div>
 
@@ -81,7 +93,7 @@
                 <div class="col-sm-8">
                 <select id="amueblado" class="form-control " name="amueblado" required>
                     <option value="No">No</option>
-                    <option value="Si">Si</option>
+                    <option value="Sí">Sí</option>
                 </select>
                 </div>
               </div>

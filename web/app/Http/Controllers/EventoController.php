@@ -21,8 +21,7 @@ class EventoController extends Controller
     public function index()
     {
       //muestra los datos
-
-      $datos = Evento::orderBy('id','desc')->paginate(10);
+      $datos = Evento::orderBy('created_at','desc')->paginate(10);
 
       return view('Eventos.eventos')->with(compact('datos'));
     }
@@ -30,6 +29,7 @@ class EventoController extends Controller
     {
        $search = $request->get('search');
        $datos = Evento::whereRaw('concat(codigoPost,titulo,lugar,costo,descripcion,facultad_nomb) like \'%' .$search .'%\' ')
+                        ->orderBy('created_at','desc')
                         ->paginate(10);
        return view('Eventos.eventos',compact('datos'));
     }
@@ -66,6 +66,7 @@ class EventoController extends Controller
       $eventos->codigoPost = 'EV-' . (Evento::all()->max('id') + 1);
       $eventos->titulo= $request->input('titulo');
       $eventos->fecha= $request->input('fecha');
+      $eventos->hora= $request->input('hora');
       $eventos->lugar= $request->input('lugar');
       $eventos->costo= $request->input('costo');
       $eventos->facultad_nomb= $request->input('facultad_nomb');
@@ -104,8 +105,7 @@ class EventoController extends Controller
      */
     public function edit($id)
     {
-      $datosE = Evento::find($id);
-      return view('Perfil.Eventos.detalles', compact('datosE'));
+                   
     }
 
     /**
@@ -117,25 +117,40 @@ class EventoController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $eventos = Evento::find($id);
+          echo $request;
+          $this->validate($request,[
+            'titulo' => 'required',
+            'fecha' => 'required',
+            'lugar' => 'required',
+            'costo' => 'required',
+            'facultad_nomb' => 'required',
+            'descripcion' => 'required',
+            ]);
+
+         $eventos = Evento::find($id);
           $eventos->titulo= $request->input('titulo');
           $eventos->fecha= $request->input('fecha');
+          $eventos->hora= $request->input('hora');
           $eventos->lugar= $request->input('lugar');
           $eventos->costo= $request->input('costo');
           $eventos->facultad_nomb= $request->input('facultad_nomb');
           $eventos->descripcion= $request->input('descripcion');
 
           if($request->hasFile('imagen')){
+            if ($eventos->imagen === 'post-placeholder.jpg')
+            {
+            }else {
+            unlink(public_path().'/imagenes/eventos/'.$eventos->imagen);
+            }
             $file = $request->file('imagen');
             $name_image = time().$file->getClientOriginalName();
-            $file->move(public_path().'/imagenes/evento/',$name_image);
+            $file->move(public_path().'/imagenes/eventos/',$name_image);
             $eventos->imagen = $name_image;
 
           }
 
           $eventos->save();
-          return redirect('/miPerfil')->with('success','Datos Actualizados.');
-
+          return back()->with('success','Los datos del evento ' . $eventos->titulo . ' se han actualizado exitosamente.');        
     }
 
     /**
@@ -145,18 +160,23 @@ class EventoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { $file = Evento::where('id', $id)->find($id);
       $usr = (auth()->user()->email);
-      $file = Evento::where('id', $id)->find($id);
-      // dd($usr);
-      if ($usr ===$file->email) {
-      if (unlink(public_path().'/imagenes/eventos/'.$file->imagen)) {
-        $file->delete();
+
+      if ($usr ===$file->email)
+      {
+        if ($file->imagen === 'post-placeholder.jpg')
+        {
+        Evento::where('id', $id)->delete();
         return back()->with('success','Evento eliminado exitosamente.');
-      }
-      else {
-        return back()->with('success','?.');
+        }
+       else {
+         $file = Evento::where('id', $id)->find($id);
+         if(unlink(public_path().'/imagenes/eventos/'.$file->imagen)){
+          $file->delete();
+          return back()->with('success','Evento eliminado exitosamente.');
+             }
+       }
       }
      }
-    }
 }

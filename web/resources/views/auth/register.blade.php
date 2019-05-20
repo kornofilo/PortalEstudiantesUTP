@@ -124,7 +124,7 @@
                 <!-- Link de Formulario de Inicio de Sesión -->
                 <div class="form-group text-center">
                     @if (Route::has('login'))
-                        ¿Ya tienes cuenta? <a href="{{ route('login') }}"> {{ __('Inicia Sesión') }}</a>
+                        ¿Ya tienes cuenta? <a href="{{ route('login') }}"> {{ __('Iniciar Sesión') }}</a>
                     @endif
                 </div>
 

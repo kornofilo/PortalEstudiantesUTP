@@ -8,6 +8,7 @@ use App\Bolsatrabajo;
 use App\Hospedaje;
 use App\User;
 use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Request as Rquest;
 use Illuminate\Pagination\Paginator;
@@ -16,11 +17,11 @@ class PerfilController extends Controller
   public function index()
   {
     //muestra los datos en el perfil
-    $datosE = Evento::where('email', auth()->user()->email)->latest()->get();
-    $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->get();
-    $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->get();
-    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->get();
-    $datos = Compraventa::where('email', auth()->user()->email)->latest()->get();
+    $datosE = Evento::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'Evento');
+    $datosB = Bolsatrabajo::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'bolsaTrabajo');
+    $datosH = Hospedaje::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'Hospedaje');
+    $datosT = Tutorias::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'Tutorias');
+    $datos = Compraventa::where('email', auth()->user()->email)->latest()->paginate(3, ['*'], 'compraVenta');
     $facultades = DB::table('facultades')->pluck("nombre","id");
     return view('Perfil.miPerfil', compact('datos','facultades','datosT','datosB','datosE','datosH'));
   }
@@ -58,7 +59,7 @@ class PerfilController extends Controller
     $miPerfil->save();
     return back()->with('success','Perfil Actualizado.');
    }
-   
+
    //Función que obtiene los datos de un determinado un usuario para mostrarlo en su perfil.
    public function verPerfil($email)
    {
@@ -67,7 +68,7 @@ class PerfilController extends Controller
                      ->join('facultades', 'users.facultad', '=', 'facultades.id')
                      ->where('users.email', $email)
                      ->first();
-      
+
       $userRole = User::where('email', $email)->first()->roles()->value('name');
 
       $eventos = Evento::where('email', $email)->latest()->paginate(5, ['*'], 'eventos');

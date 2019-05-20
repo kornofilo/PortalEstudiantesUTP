@@ -13,7 +13,7 @@ $factory->define(Hospedaje::class, function (Faker $faker) {
 
 
     return [
-        'codigoPost' => 'AH-'. $faker->unique->numberBetween($min = 100, $max = 999), 
+        'codigoPost' => 'AH-'. $faker->unique->numberBetween($min = 100, $max = 999),
         'categoria' => Arr::random($categoria),
         'titulo' => 'Alquilo ' . Arr::random($categoria),
         'ubicacion' => Arr::random($ubicaciones),

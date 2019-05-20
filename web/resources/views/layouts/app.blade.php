@@ -187,7 +187,7 @@
     <!-- Footer del Portal Estudiantil -->
     <footer>
         <div class="fixed-bottom bg-dark text-white">
-            <h6>&copy Portal Estudiantil - 2019</h6>
+            <h6>&copy; Portal Estudiantil - 2019</h6>
         </div>
     </footer>
 </body>
