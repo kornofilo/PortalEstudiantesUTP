@@ -14,5 +14,5 @@ script:
 # Personalizar cuando se envían los correos electrónicos de notificación.
 notifications:
   email:
-  
+ 
     - kevinaparicio71@gmail.com
