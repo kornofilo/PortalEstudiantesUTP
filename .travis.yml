@@ -16,14 +16,6 @@ before_script:
 #  comandos que desea ejecutar que verifiquen su compilación.
 script: phpunit
 
-# allow_failures: Permitir que esta compilación falle en los entornos especificados.
-# fast_finish: si su compilación falla, no continúe intentando construir, simplemente deténgase.
-matrix:
-  allow_failures:
-    - php: 5.3.2
-    - php: hhvm
-  fast_finish: true
-
 # Personalizar cuando se envían los correos electrónicos de notificación.
 notifications:
     on_success: never
