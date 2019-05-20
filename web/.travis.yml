@@ -3,7 +3,6 @@ language: php
 
 # Versiones de PHP con las que quiere que se ejecute su proyecto.
 php:
-  
   - 7.1
   - hhvm
 
