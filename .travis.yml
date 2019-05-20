@@ -3,23 +3,15 @@ language: php
 
 # Versiones de PHP con las que quiere que se ejecute su proyecto.
 php:
+  -7.1
   - 7.0
   - hhvm
 
-#  comandos que desea ejecutar que verifiquen su compilación.
-install:
-  - travis_retry composer install --no-interaction --no-suggest
-  - composer show --installed
-
-branches:
-  only: master
-
 before_script:
-  - travis_retry composer self-update
-
-after_script:
-  - cd vendor/myvendor/app
-  - phpunit Tests/ --coverage-clover=coverage.xml
+  - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+#  comandos que desea ejecutar que verifiquen su compilación.
+before_script: composer require atoum/atoum
+script: vendor/bin/atoum
 
 # Personalizar cuando se envían los correos electrónicos de notificación.
 notifications:
