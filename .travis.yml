@@ -1,11 +1,9 @@
 # Requerido para ejecutar su proyecto en el entorno correcto.
 language: php
-
 # Versiones de PHP con las que quiere que se ejecute su proyecto.
 php:
   - 7.1
   - hhvm
-
 before_script:
   - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
   before_script:
