@@ -9,7 +9,7 @@ before_script:
   before_script:
   - composer install --no-interaction
 script:
-  - vendor/bin/phpunit
+  - phpunit
   
 # Personalizar cuando se envían los correos electrónicos de notificación.
 notifications:
