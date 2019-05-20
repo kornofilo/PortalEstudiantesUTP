@@ -9,8 +9,7 @@ php:
 # Comandos a ejecutar antes de que se ejecute su entorno.
 
 before_script:
-  - composer self-update
-  - composer install --prefer-source --no-interaction --dev
+  - composer install 
 #  comandos que desea ejecutar que verifiquen su compilación.
 script: phpunit
 
