@@ -3,17 +3,14 @@ language: php
 
 # Versiones de PHP con las que quiere que se ejecute su proyecto.
 php:
-  - 5.6
-  - 5.5
-  - 5.4
-  - 5.3
+  - 7.0
   - hhvm
 
 # Comandos a ejecutar antes de que se ejecute su entorno.
 
 before_script:
-  - composer install 
-
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
 #  comandos que desea ejecutar que verifiquen su compilación.
 script: phpunit
 
