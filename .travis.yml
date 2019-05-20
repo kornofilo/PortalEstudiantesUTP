@@ -7,9 +7,21 @@ php:
   - hhvm
 
 #  comandos que desea ejecutar que verifiquen su compilación.
-script: phpunit
+install:
+  - travis_retry composer install --no-interaction --no-suggest
+  - composer show --installed
+
+branches:
+  only: master
+
+before_script:
+  - travis_retry composer self-update
+
+after_script:
+  - cd vendor/myvendor/app
+  - phpunit Tests/ --coverage-clover=coverage.xml
 
 # Personalizar cuando se envían los correos electrónicos de notificación.
 notifications:
-    on_success: never
-    on_failure: always
+  email:
+    - kevinaparicio71@gmail.com
