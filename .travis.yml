@@ -9,10 +9,6 @@ php:
 
 before_script:
   - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
-#  comandos que desea ejecutar que verifiquen su compilación.
-before_script: composer require atoum/atoum
-script: vendor/bin/atoum
-
 # Personalizar cuando se envían los correos electrónicos de notificación.
 notifications:
   email:
