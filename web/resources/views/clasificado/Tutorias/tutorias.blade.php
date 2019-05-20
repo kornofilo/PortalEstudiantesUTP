@@ -4,10 +4,13 @@
  @include('Homes.BacktoTop')
  
 <!--Jumbotron -->
-<div class="jumbotron jumbotron-fluid  ">  
+<div class="jumbotron jumbotron-fluid ">  
   <div class="container">
-    <h1 class="display-4">Sección de Tutoriales</h1>
-    <p class="lead">Aquí tendras acceso a tutorias de diversas materias.</p>
+    <div class=" card-title  font-weight-bold rgba-black-strong ">
+        <h1 class="display-4">Sección de Tutoriales</h1>
+        <p class="lead">Aquí tendras acceso a tutorias de diversas materias.</p>
+    </div>
+    
   </div>
 </div>
 <div class="container">    

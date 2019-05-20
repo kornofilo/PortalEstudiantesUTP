@@ -1,7 +1,9 @@
 <div class="card-body" >
 <h2 class="h2-responsive text-center"><strong>{{$tutoria->titulo}}</strong></h2> <br>
-    <div class="text-center">
-      <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow" src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}">
+    <div class="text-center ">
+      <img style="max-height: 500px; max-width: 500px;" class="img-thumbnail shadow " 
+      src="/imagenes/clasificados/tutorias/{{$tutoria->imagen}}" alt="zoom">
+      
       <br><br>
       <h4 class="h4-responsive text-success"><strong>${{$tutoria->costo}}/Hora</h5></strong></h4>
     

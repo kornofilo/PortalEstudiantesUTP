@@ -1,10 +1,10 @@
 <form action="{{ route('tutorias.store')}}" method="POST" enctype="multipart/form-data">
  @csrf
  <!-- Input de Titulo -->
-        <div class="form-group row">
+        <div class="form-group row ">
           <label for="titulo" class="col-form-label col-sm-3">Titulo:</label>
           <div class="col-sm-8">
-            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo">
+            <input type="text" name="titulo" id="titulo" class="form-control " placeholder="Titulo">
           </div>
         </div>
 
@@ -12,7 +12,7 @@
             <div class="form-group row">
               <label for="nombreTutor" class="col-form-label col-sm-3">Nombre del Tutor:</label>
               <div class="col-sm-8">
-                <input type="text" name="nombreTutor" id="nombreTutor" class="form-control" placeholder="Nombre del Tutor">
+                <input type="text" name="nombreTutor" id="nombreTutor" class="form-control " placeholder="Nombre del Tutor">
               </div>
             </div>
 
@@ -20,7 +20,7 @@
                  <div class="form-group row">
                    <label for="materia" class="col-form-label  col-sm-3 ">Materia:</label>
                    <div class="col-sm-8">
-                   <select id="materia" class="form-control" name="materia" required>
+                   <select id="materia" class="form-control " name="materia" required>
                      <option disabled selected>---Escoja una materia---</option>
                        <option>Programación</option>
                        <option>Cálculo</option>
@@ -38,7 +38,7 @@
                    <div class="form-group row">
                      <label for="costo" class="col-form-label col-sm-3">Costo:</label>
                      <div class="col-sm-8">
-                       <input type="number" name="costo" id="costo" class="form-control" min="0" max="9999" step="0.01" oninput="validity.valid||(value=)" placeholder="Costo">
+                       <input type="number" name="costo" id="costo" class="form-control " min="0" max="9999" step="0.01" oninput="validity.valid||(value=)" placeholder="Costo">
 
 
 
@@ -49,7 +49,7 @@
                          <div class="form-group row">
                            <label for="ubicacion" class="col-form-label col-sm-3">Ubicación:</label>
                            <div class="col-sm-8">
-                             <input type="text" name="ubicacion" id="ubicación" class="form-control" placeholder="Ubicación" >
+                             <input type="text" name="ubicacion" id="ubicación" class="form-control " placeholder="Ubicación" >
                            </div>
                          </div>
 
@@ -57,7 +57,7 @@
                             <div class="form-group row">
                               <label for="descripcion" class="col-form-label col-sm-3">Descripción:</label>
                               <div class="col-sm-8">
-                                <textarea class="form-control" id="message-text" name="descripcion" placeholder="Descripción"></textarea>
+                                <textarea class="form-control " id="message-text" name="descripcion" placeholder="Descripción"></textarea>
                               </div>
                             </div>
 
@@ -65,7 +65,7 @@
                             <div class="form-group row">
                                <label for="addfoto" class="col-form-label col-sm-3">Agregar Fotos:</label>
                                <div class="col-sm-8">
-                               <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Add Foto" >
+                               <input type="file" name="imagen" id="imagen" class="form-control " placeholder="Add Foto" >
                                </div>
                            </div>
 
@@ -76,9 +76,9 @@
 
   <!-- Input de Celular -->
   <div class="form-group row">
-    <label for="Celular" class="col-form-label col-sm-3">Celular:</label>
+    <label for="Celular" class="col-form-label col-sm-3 ">Celular:</label>
     <div class="col-sm-8">
-      <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular" tabindex="1">
+      <input type="text" name="celular" id="celular" class="form-control " placeholder="Celular" tabindex="1">
     </div>
   </div>
 
@@ -86,8 +86,8 @@
 
   <!-- Modal Footer -->
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-    <button type="submit" class="btn btn-success">Publicar</button>
+    <button type="button" class="btn btn-secondary shadow" data-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-success shadow">Publicar</button>
   </div>
 
 </form>
