@@ -6,11 +6,7 @@ php:
   - 7.0
   - hhvm
 
-# Comandos a ejecutar antes de que se ejecute su entorno.
 
-before_script:
- 
-  - composer install 
 #  comandos que desea ejecutar que verifiquen su compilación.
 script: phpunit
 
