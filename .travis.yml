@@ -1,0 +1,20 @@
+# Requerido para ejecutar su proyecto en el entorno correcto.
+language: php
+
+# Versiones de PHP con las que quiere que se ejecute su proyecto.
+php:
+  - 7.0
+  - hhvm
+
+# Comandos a ejecutar antes de que se ejecute su entorno.
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+#  comandos que desea ejecutar que verifiquen su compilación.
+script: phpunit
+
+# Personalizar cuando se envían los correos electrónicos de notificación.
+notifications:
+    on_success: never
+    on_failure: always
