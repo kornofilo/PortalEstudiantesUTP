@@ -4,7 +4,7 @@ language: php
 # Versiones de PHP con las que quiere que se ejecute su proyecto.
 php:
   
-  - 7.0
+  - 7.1
   - hhvm
 
 before_script:
