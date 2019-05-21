@@ -1,5 +1,5 @@
-# PortalEstudiantesGIISA
-Proyecto colaborativo de ingenería de software 6 creditos.
+# Portal Estudiantil UTP
+Proyecto final del curso de Ingenería de Software.
 
 ## Documentos importantes y Notas
 * Requerimientos https://docs.google.com/document/d/1T1UPW0F9RuZAqdPiDxv6mafi3EcUbuY6QPke8ZQKAWw/edit
