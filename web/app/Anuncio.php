@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Anuncio extends Model
 {
    #referncia a la tabla que se va a utilizar
-  protected $table = "compraVenta"; 
+  protected $table = "compraventa"; 
 
    public function anunciante(){
         return $this->hasOne('App\User','email','email');

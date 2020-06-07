@@ -13,7 +13,7 @@ class CrearTablaCompraventa extends Migration
   */
   public function up()
   {
-    Schema::create('compraVenta', function (Blueprint $table) {
+    Schema::create('compraventa', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->string('codigoPost',20)->unique();
       $table->string('categoria');

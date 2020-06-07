@@ -13,7 +13,7 @@ class CrearTablaBolsatrabajo extends Migration
      */
     public function up()
     {
-        Schema::create('bolsaTrabajo', function (Blueprint $table) {
+        Schema::create('bolsatrabajo', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigoPost',20)->unique();
             $table->string('urgente',2);
@@ -46,6 +46,6 @@ class CrearTablaBolsatrabajo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bolsaTrabajo');
+        Schema::dropIfExists('bolsatrabajo');
     }
 }
